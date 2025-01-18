@@ -88,28 +88,39 @@
         .active-content {
             display: block;
         }
+
+        /* Style for the images inside each tab */
+        .tab-content img {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
     </style>
 </head>
 
 <body>
     <h1>中年男人俱乐部v2.0</h1>
     <div class="tabs-container">
-        <div class="tab" onclick="openTab(event, 'tab1')">Tab 1</div>
-        <div class="tab" onclick="openTab(event, 'tab2')">Tab 2</div>
-        <div class="tab" onclick="openTab(event, 'tab3')">Tab 3</div>
+        <div class="tab" onclick="openTab(event, 'tab1')">坦克-Tank</div>
+        <div class="tab" onclick="openTab(event, 'tab2')">高达-Gundam</div>
+        <div class="tab" onclick="openTab(event, 'tab3')">手办-Figure</div>
     </div>
 
     <div id="tab1" class="tab-content">
-        <h2>Content for Tab 1</h2>
+        <h2>坦克列表-Tank List</h2>
         <p>This is the first tab content. You can include anything here, such as text, images, etc.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Tiger_I_-_PzKpfw_VI_%28Sd.Kfz._181%29_-_001.jpg" alt="Tiger Tank">
     </div>
     <div id="tab2" class="tab-content">
-        <h2>Content for Tab 2</h2>
+        <h2>高达列表-Gundam List</h2>
         <p>This is the second tab content. Here you can place different content for the second tab.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Char_Amuro_Gundam.jpg" alt="Gundam">
     </div>
     <div id="tab3" class="tab-content">
-        <h2>Content for Tab 3</h2>
+        <h2>手办列表-Figure List</h2>
         <p>This is the third tab content. You can place anything you like here too.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Figure_action.jpg" alt="Figure">
     </div>
 
     <script>
