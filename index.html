@@ -5,7 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tab Navigation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <style>
+        body {
+            font-family: 'Arial', sans-serif; /* Default font */
+            text-align: center; /* Centers the entire body content */
+        }
+
+        h1 {
+            font-family: 'Bangers', cursive; /* Military-style font */
+            text-align: center;
+            font-size: 2.5em;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        /* Your existing styles... */
         .video-container {
             position: relative;
             width: 100%;
@@ -13,7 +28,6 @@
             margin: 20px auto;
             height: 0;
             padding-bottom: 56.25%;
-            /* 16:9 Aspect Ratio */
             border: 1px solid #ccc;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -58,7 +72,7 @@
         }
 
         .active-tab {
-            background-color: #426bff;
+            background-color: #4CAF50;
             color: white;
             font-weight: bold;
         }
@@ -79,11 +93,10 @@
 
 <body>
     <h1>中年男人俱乐部v2.0</h1>
-
     <div class="tabs-container">
-        <div class="tab" onclick="openTab(event, 'tab1')" role="tab" aria-selected="true">Tab 1</div>
-        <div class="tab" onclick="openTab(event, 'tab2')" role="tab">Tab 2</div>
-        <div class="tab" onclick="openTab(event, 'tab3')" role="tab">Tab 3</div>
+        <div class="tab" onclick="openTab(event, 'tab1')">Tab 1</div>
+        <div class="tab" onclick="openTab(event, 'tab2')">Tab 2</div>
+        <div class="tab" onclick="openTab(event, 'tab3')">Tab 3</div>
     </div>
 
     <div id="tab1" class="tab-content">
@@ -117,7 +130,6 @@
             // Show the clicked tab's content and add the active class to the tab button
             document.getElementById(tabId).classList.add('active-content');
             event.currentTarget.classList.add('active-tab');
-            event.currentTarget.setAttribute('aria-selected', 'true');
         }
 
         // Set the first tab as active by default
