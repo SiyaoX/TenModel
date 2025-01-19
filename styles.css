@@ -99,11 +99,11 @@ h1 {
     align-items: center; /* Center image */
 }
 
-.image-container img {
-    width: 100%; /* Fit container width */
-    height: 100%; /* Fit container height */
-    object-fit: scale-down; /* Ensure the entire image is visible */
-    max-width: 100%; /* Prevent overflow */
+.item img {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 500px; /* Optional: Set a maximum width for larger screens */
+    object-fit: contain; /* Ensure the image does not get cropped */
 }
 
 .name {
