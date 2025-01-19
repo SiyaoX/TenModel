@@ -94,11 +94,15 @@ h1 {
     position: relative;
     max-height: 300px;
     overflow: hidden;
+    display: flex;
+    justify-content: center; /* Center image */
+    align-items: center; /* Center image */
 }
 
 .image-container img {
     width: 100%; /* Fit container width */
-    height: auto; /* Maintain aspect ratio */
+    height: 100%; /* Fit container height */
+    object-fit: contain; /* Ensure the entire image is visible */
     max-width: 100%; /* Prevent overflow */
 }
 
