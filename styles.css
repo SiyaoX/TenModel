@@ -109,18 +109,17 @@ h1 {
     font-weight: bold;
 }
 
-
 .tab-content {
-    display: none;
+    display: none; /* Hide all tab content by default */
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #444c54;
-    /* Match tab container color */
+    margin-top: 20px;
 }
 
-.active-content {
-    display: block;
+.tab-content.active {
+    display: block; /* Show the active tab content */
 }
 
 .item-list {
