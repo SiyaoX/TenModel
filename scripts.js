@@ -21,7 +21,7 @@ async function loadProducts() {
         const response = await fetch('products.json');
         if (!response.ok) throw new Error('Failed to load products JSON');
         
-        const products = await response.json();
+        window.products = await response.json();
         console.log('Products loaded:', products); // Debugging
 
         products.forEach(product => {
