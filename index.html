@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tab Navigation with Banner</title>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -21,57 +21,21 @@
         </div>
     </div>
 
-    <h1>中年男人俱乐部v1.0.1</h1>
+    <h1>中年男人俱乐部v2.0</h1>
 
     <div id="tab1" class="tab-content">
         <h2>坦克列表-Tank List</h2>
-        <ul class="item-list">
-            <li class="item">
-                <div class="image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Tiger_I_-_PzKpfw_VI_%28Sd.Kfz._181%29_-_001.jpg" alt="Tiger Tank">
-                    <span class="name">Tiger Tank</span>
-                </div>
-                <div class="attributes">
-                    <p><strong>Price:</strong> $1,200,000</p>
-                    <p><strong>Model:</strong> Tiger I</p>
-                    <p><strong>Brand:</strong> German WWII Tank</p>
-                </div>
-            </li>
-        </ul>
+        <ul class="item-list"></ul>
     </div>
 
     <div id="tab2" class="tab-content">
         <h2>高达列表-Gundam List</h2>
-        <ul class="item-list">
-            <li class="item">
-                <div class="image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Char_Amuro_Gundam.jpg" alt="Gundam">
-                    <span class="name">RX-78-2 Gundam</span>
-                </div>
-                <div class="attributes">
-                    <p><strong>Price:</strong> $500</p>
-                    <p><strong>Model:</strong> RX-78-2</p>
-                    <p><strong>Brand:</strong> Bandai</p>
-                </div>
-            </li>
-        </ul>
+        <ul class="item-list"></ul>
     </div>
 
     <div id="tab3" class="tab-content">
         <h2>手办列表-Figure List</h2>
-        <ul class="item-list">
-            <li class="item">
-                <div class="image-container">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Figure_action.jpg" alt="Figure">
-                    <span class="name">Action Figure</span>
-                </div>
-                <div class="attributes">
-                    <p><strong>Price:</strong> $30</p>
-                    <p><strong>Model:</strong> Hero X</p>
-                    <p><strong>Brand:</strong> Hasbro</p>
-                </div>
-            </li>
-        </ul>
+        <ul class="item-list"></ul>
     </div>
 
     <div class="video-container">
@@ -82,6 +46,7 @@
     </div>
 
     <script>
+        // Function to switch tabs
         function openTab(event, tabId) {
             const allTabs = document.querySelectorAll('.tab-content');
             for (let tab of allTabs) {
@@ -98,6 +63,49 @@
         }
 
         document.querySelector('.tab').click();
+
+        // Function to dynamically load product data
+        async function loadProducts() {
+            try {
+                const response = await fetch('products.json'); // Fetch JSON file
+                const products = await response.json();
+
+                // Populate tabs with data
+                products.forEach(product => {
+                    const category = product.Category.toLowerCase();
+                    let tabContent;
+
+                    if (category === 'tank') {
+                        tabContent = document.querySelector('#tab1 .item-list');
+                    } else if (category === 'gundam') {
+                        tabContent = document.querySelector('#tab2 .item-list');
+                    } else if (category === 'figure') {
+                        tabContent = document.querySelector('#tab3 .item-list');
+                    }
+
+                    if (tabContent) {
+                        const listItem = document.createElement('li');
+                        listItem.className = 'item';
+                        listItem.innerHTML = `
+                            <div class="attributes">
+                                <h3>${product.Name}</h3>
+                                <p><strong>Price:</strong> ${product.Price}</p>
+                                <p><strong>Product ID:</strong> ${product.ProductID}</p>
+                                <p><strong>Release Date:</strong> ${product.ReleaseDate}</p>
+                                <p><strong>Model:</strong> ${product.Model}</p>
+                                <p><strong>Status:</strong> ${product.Status}</p>
+                            </div>
+                        `;
+                        tabContent.appendChild(listItem);
+                    }
+                });
+            } catch (error) {
+                console.error('Failed to load products:', error);
+            }
+        }
+
+        // Call the function to load products on page load
+        loadProducts();
     </script>
 </body>
 
