@@ -39,12 +39,107 @@
 
     <div class="video-container">
         <iframe loading="lazy" src="https://www.youtube.com/embed/oYSlWsCoEmE" title="YouTube video player"
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
     </div>
 
-    <script src="functions.js"></script>
+    <script>
+        // Declare a global variable to hold the products data
+        let products = [];
+
+        // Function to handle tab switching
+        function openTab(event, tabId) {
+            const allTabs = document.querySelectorAll('.tab-content');
+            for (let tab of allTabs) {
+                tab.classList.remove('active-content');
+            }
+
+            const allTabButtons = document.querySelectorAll('.tab');
+            for (let button of allTabButtons) {
+                button.classList.remove('active-tab');
+            }
+
+            document.getElementById(tabId).classList.add('active-content');
+            event.currentTarget.classList.add('active-tab');
+        }
+
+        // Default to first tab
+        document.querySelector('.tab').click();
+
+        // Function to load products from a JSON file
+        async function loadProducts() {
+            try {
+                const response = await fetch('products.json');
+                products = await response.json(); // Store the products globally
+
+                // Populate the product list based on categories
+                products.forEach(product => {
+                    const category = product.Category.toLowerCase();
+                    let tabContent;
+
+                    if (category === 'tank') {
+                        tabContent = document.querySelector('#tab1 .item-list');
+                    } else if (category === 'gundam') {
+                        tabContent = document.querySelector('#tab2 .item-list');
+                    } else if (category === 'figure') {
+                        tabContent = document.querySelector('#tab3 .item-list');
+                    }
+
+                    if (tabContent) {
+                        const listItem = document.createElement('li');
+                        listItem.className = 'item';
+                        listItem.innerHTML = `
+                    <img src="${product.ImageUrl}" alt="${product.Name}"  onclick="openProductDetail(${product.id})">
+                    <div class="attributes">
+                        <h3>${product.Name}</h3>
+                        <p><strong>Price:</strong> ${product.Price}</p>
+                        <p><strong>Product ID:</strong> ${product.ProductID}</p>
+                        <p><strong>Release Date:</strong> ${product.ReleaseDate}</p>
+                        <p><strong>Model:</strong> ${product.Model}</p>
+                        <p><strong>Status:</strong> ${product.Status}</p>
+                    </div>
+                `;
+                        tabContent.appendChild(listItem);
+                    }
+                });
+            } catch (error) {
+                console.error('Failed to load products:', error);
+            }
+        }
+
+        // Function to open the product detail page
+        function openProductDetail(productId) {
+            const product = products.find(p => p.id === productId); // Use the global products array
+            if (product) {
+                localStorage.setItem('selectedProduct', JSON.stringify(product));
+                window.location.href = "product-detail.html"; // Navigate to the product detail page
+            }
+        }
+
+        // Function to handle image resizing on window resize
+        function handleImageResize() {
+            const images = document.querySelectorAll('.item img');
+            images.forEach(img => {
+                if (window.innerWidth < 768) {
+                    img.style.maxWidth = '100%'; // On mobile screens, make the image fully responsive
+                } else {
+                    img.style.maxWidth = '500px'; // Set max-width on larger screens
+                }
+            });
+        }
+
+        // Add event listener for window resize to trigger image resizing
+        window.addEventListener('resize', handleImageResize);
+
+        // Call the function immediately to set initial image size when the page loads
+        document.addEventListener('DOMContentLoaded', handleImageResize);
+
+        // Load the products when the page loads
+        loadProducts();
+
+    </script>
 </body>
 
 </html>

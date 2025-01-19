@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="product-gallery-container">
+        <h1>Product Gallery</h1>
+        <div class="product-gallery">
+            <!-- Image display area -->
+            <div class="image-container">
+                <img id="productImage" src="" alt="Product Image" />
+            </div>
+            <!-- Navigation buttons -->
+            <div class="gallery-controls">
+                <button id="prevBtn">Previous</button>
+                <button id="nextBtn">Next</button>
+            </div>
+            <!-- Product information -->
+            <div class="product-info">
+                <h2 id="productName"></h2>
+                <p id="productDescription"></p>
+                <p><strong>Price:</strong> <span id="productPrice"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve product data from localStorage
+        const product = JSON.parse(localStorage.getItem('selectedProduct'));
+
+        // Check if product exists and set up the gallery
+        if (product) {
+            const images = product.imageUrls; // Assumes `imageUrls` is an array of image URLs
+            let currentImageIndex = 0;
+
+            // Set initial image and details
+            document.getElementById("productImage").src = images[currentImageIndex];
+            document.getElementById("productName").textContent = product.name;
+            document.getElementById("productDescription").textContent = product.description;
+            document.getElementById("productPrice").textContent = product.price;
+
+            // Function to update the image based on the current index
+            function updateImage() {
+                document.getElementById("productImage").src = images[currentImageIndex];
+            }
+
+            // Handle Previous button click
+            document.getElementById("prevBtn").addEventListener('click', function () {
+                if (currentImageIndex > 0) {
+                    currentImageIndex--;
+                    updateImage();
+                }
+            });
+
+            // Handle Next button click
+            document.getElementById("nextBtn").addEventListener('click', function () {
+                if (currentImageIndex < images.length - 1) {
+                    currentImageIndex++;
+                    updateImage();
+                }
+            });
+
+        } else {
+            document.body.innerHTML = "<p>Product not found!</p>";
+        }
+    </script>
+
+</body>
+
+</html>
