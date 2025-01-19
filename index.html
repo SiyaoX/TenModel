@@ -13,7 +13,7 @@
     <div class="banner">
         <div class="logo">
             <img src="resources/logo.png" alt="Company Logo">
-            <h1>天匠模型v1.0.6</h1>
+            <h1>天匠模型v1.0.5</h1>
         </div>
         <div class="tabs-container">
             <div class="tab" onclick="openTab(event, 'tab1')">坦克-Tank</div>
@@ -91,7 +91,7 @@
                         const listItem = document.createElement('li');
                         listItem.className = 'item';
                         listItem.innerHTML = `
-                    <img src="${product.ImageUrl}" alt="${product.Name}"  onclick="openProductDetail(${product.id})">
+                    <img src="${product.CoverImg}" alt="${product.Name}"  onclick="openProductDetail(${product.id})">
                     <div class="attributes">
                         <h3>${product.Name}</h3>
                         <p><strong>Price:</strong> ${product.Price}</p>
