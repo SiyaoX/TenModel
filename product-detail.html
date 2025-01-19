@@ -36,14 +36,14 @@
 
         // Check if product exists and set up the gallery
         if (product) {
-            const images = product.DetailImgs; // Assumes `imageUrls` is an array of image URLs
+            const images = product.DetailImgs; // Assumes `DetailImgs` is an array of image URLs
             let currentImageIndex = 0;
 
             // Set initial image and details
             document.getElementById("productImage").src = images[currentImageIndex];
-            document.getElementById("productName").textContent = product.name;
-            document.getElementById("productDescription").textContent = product.description;
-            document.getElementById("productPrice").textContent = product.price;
+            document.getElementById("productName").textContent = product.Name;  // Corrected to use 'Name'
+            document.getElementById("productDescription").textContent = product.Model;  // Corrected to use 'Model'
+            document.getElementById("productPrice").textContent = product.Price;  // Corrected to use 'Price'
 
             // Function to update the image based on the current index
             function updateImage() {
