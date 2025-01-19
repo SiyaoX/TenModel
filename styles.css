@@ -105,8 +105,9 @@ h1 {
 
 .image-container {
     position: relative;
-    max-height: 300px;
-    overflow: hidden;
+    width: 500px; /* Fixed width */
+    height: auto; /* Height will be adaptive */
+    overflow: hidden; /* Hide any overflow */
     display: flex;
     justify-content: center;
     /* Center image */
@@ -119,6 +120,12 @@ h1 {
     height: auto;
     max-width: 100%;
     object-fit: contain;
+}
+
+.image-container img {
+    width: 100%; /* Image takes full width of the container */
+    height: auto; /* Height is adaptive to maintain aspect ratio */
+    object-fit: contain; /* Ensure the image fits within the container */
 }
 
 @media (min-width: 768px) {

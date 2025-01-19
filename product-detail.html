@@ -51,7 +51,7 @@
             }
 
             // Handle Previous button click
-            document.getElementById("prevBtn").addEventListener('click', function () {
+            document.getElementById("prevBtn").addEventListener("click", () => {
                 if (currentImageIndex > 0) {
                     currentImageIndex--;
                     updateImage();
@@ -59,18 +59,14 @@
             });
 
             // Handle Next button click
-            document.getElementById("nextBtn").addEventListener('click', function () {
+            document.getElementById("nextBtn").addEventListener("click", () => {
                 if (currentImageIndex < images.length - 1) {
                     currentImageIndex++;
                     updateImage();
                 }
             });
-
-        } else {
-            document.body.innerHTML = "<p>Product not found!</p>";
         }
     </script>
-
 </body>
 
 </html>
