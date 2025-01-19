@@ -7,6 +7,7 @@ body {
     /* White text for better contrast */
     margin: 0;
     padding: 0;
+    padding-top: 60px; /* Adjust this value to match the height of your banner */
 }
 
 .banner {
@@ -26,6 +27,28 @@ body {
     color: white; /* Adjust text color as needed */
     text-decoration: none;
     font-size: 1.5em; /* Adjust font size as needed */
+}
+
+.banner .logo {
+    display: flex;
+    align-items: center;
+}
+
+.banner .logo img {
+    height: 40px; /* Adjust as needed */
+    margin-right: 10px; /* Adjust as needed */
+}
+
+.banner .tabs-container {
+    display: flex;
+}
+
+.banner .tab {
+    margin-left: 20px; /* Adjust as needed */
+    cursor: pointer;
+    color: white; /* Adjust text color as needed */
+    text-decoration: none;
+    font-size: 1.2em; /* Adjust font size as needed */
 }
 
 .content {
