@@ -10,12 +10,26 @@ body {
 }
 
 .banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px; /* Adjust height as needed */
+    background-color: #444c54; /* Adjust background color as needed */
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #343a40;
-    border-bottom: 1px solid #ddd;
+    justify-content: space-between;
+    padding: 0 20px; /* Adjust padding as needed */
+    z-index: 1000; /* Ensure the banner is above other elements */
+}
+
+.banner a {
+    color: white; /* Adjust text color as needed */
+    text-decoration: none;
+    font-size: 1.5em; /* Adjust font size as needed */
+}
+
+.content {
+    padding-top: 60px; /* Add padding to avoid content being hidden behind the banner */
 }
 
 .logo {
