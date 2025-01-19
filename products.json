@@ -1,0 +1,29 @@
+[
+    {
+        "Name": "Tiger Tank",
+        "Price": "$1,200,000",
+        "ProductID": "TANK001",
+        "ReleaseDate": "1942-05-01",
+        "Model": "Tiger I",
+        "Category": "Tank",
+        "Status": "Retired"
+    },
+    {
+        "Name": "RX-78-2 Gundam",
+        "Price": "$500",
+        "ProductID": "GUNDAM001",
+        "ReleaseDate": "1979-04-07",
+        "Model": "RX-78-2",
+        "Category": "Gundam",
+        "Status": "Available"
+    },
+    {
+        "Name": "Action Figure",
+        "Price": "$30",
+        "ProductID": "FIGURE001",
+        "ReleaseDate": "2022-03-15",
+        "Model": "Hero X",
+        "Category": "Figure",
+        "Status": "Available"
+    }
+]
