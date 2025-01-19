@@ -116,13 +116,21 @@ h1 {
 
 .item img {
     width: 100%;
-    /* Make the image responsive */
     height: auto;
-    /* Maintain aspect ratio */
-    max-width: 1000px;
-    /* Optional: Set a maximum width for larger screens */
+    max-width: 100%;
     object-fit: contain;
-    /* Ensure the image does not get cropped */
+}
+
+@media (min-width: 768px) {
+    .item img {
+        max-width: 500px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .item img {
+        max-width: 800px;
+    }
 }
 
 .name {
