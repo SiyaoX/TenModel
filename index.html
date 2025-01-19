@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <h1>中年男人俱乐部v2.0</h1>
+    <h1>天匠模型v1.0.3</h1>
 
     <div id="tab1" class="tab-content">
         <h2>坦克列表-Tank List</h2>
@@ -46,7 +46,6 @@
     </div>
 
     <script>
-        // Function to switch tabs
         function openTab(event, tabId) {
             const allTabs = document.querySelectorAll('.tab-content');
             for (let tab of allTabs) {
@@ -64,13 +63,11 @@
 
         document.querySelector('.tab').click();
 
-        // Function to dynamically load product data
         async function loadProducts() {
             try {
-                const response = await fetch('products.json'); // Fetch JSON file
+                const response = await fetch('products.json');
                 const products = await response.json();
 
-                // Populate tabs with data
                 products.forEach(product => {
                     const category = product.Category.toLowerCase();
                     let tabContent;
@@ -87,6 +84,7 @@
                         const listItem = document.createElement('li');
                         listItem.className = 'item';
                         listItem.innerHTML = `
+                            <img src="${product.ImageUrl}" alt="${product.Name}">
                             <div class="attributes">
                                 <h3>${product.Name}</h3>
                                 <p><strong>Price:</strong> ${product.Price}</p>
@@ -104,7 +102,6 @@
             }
         }
 
-        // Call the function to load products on page load
         loadProducts();
     </script>
 </body>
