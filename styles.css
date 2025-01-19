@@ -1,0 +1,151 @@
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #2a3439; /* Gunmetal color */
+    color: #ffffff; /* White text for better contrast */
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #444c54; /* Slightly lighter gunmetal for banner */
+    border-bottom: 2px solid #555e65;
+}
+
+.logo {
+    flex: 1;
+    max-width: 150px;
+    text-align: left;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+}
+
+.tabs-container {
+    flex: 3;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #555e65; /* Gunmetal shade */
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.tab:hover {
+    background-color: #666f78;
+}
+
+.active-tab {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+h1 {
+    font-family: 'Bangers', cursive;
+    font-size: 2.5em;
+    margin: 20px 0;
+    color: #ffcc00; /* Contrast color for header */
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #444c54; /* Match tab container color */
+}
+
+.active-content {
+    display: block;
+}
+
+.item-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.item {
+    margin: 20px auto;
+    width: 80%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #444c54;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.image-container {
+    position: relative;
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%; /* Fit container width */
+    height: auto; /* Maintain aspect ratio */
+    max-width: 100%; /* Prevent overflow */
+}
+
+.name {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.attributes {
+    padding: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: left;
+}
+
+.attributes p {
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    .image-container {
+        max-height: 200px; /* Adjust for smaller devices */
+    }
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    height: 0;
+    padding-bottom: 56.25%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

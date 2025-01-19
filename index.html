@@ -4,81 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tab Navigation with Logo</title>
+    <title>Tab Navigation with Banner</title>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            background-color: #2a3439;
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-        }
-
-        h1 {
-            font-family: 'Bangers', cursive;
-            font-size: 2.5em;
-            margin-top: 20px;
-            color: #ffcc00;
-        }
-
-        .banner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #444c54;
-            padding: 10px 20px;
-            border-radius: 8px;
-        }
-
-        .logo {
-            width: 150px;
-            height: auto;
-        }
-
-        .tabs-container {
-            display: flex;
-            gap: 10px;
-        }
-
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 4px;
-            background-color: #555e65;
-            color: #fff;
-            transition: background-color 0.3s;
-        }
-
-        .tab:hover {
-            background-color: #666f78;
-        }
-
-        .active-tab {
-            background-color: #4CAF50;
-            color: white;
-            font-weight: bold;
-        }
-
-        .tab-content {
-            display: none;
-            padding: 20px;
-            background-color: #444c54;
-            border-radius: 8px;
-        }
-
-        .active-content {
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
 </head>
 
 <body>
-    <h1>中年男人俱乐部v2.0</h1>
     <div class="banner">
-        <img src="https://via.placeholder.com/150" alt="Company Logo" class="logo">
+        <div class="logo">
+            <img src="https://via.placeholder.com/150" alt="Company Logo">
+        </div>
         <div class="tabs-container">
             <div class="tab" onclick="openTab(event, 'tab1')">坦克-Tank</div>
             <div class="tab" onclick="openTab(event, 'tab2')">高达-Gundam</div>
@@ -86,12 +21,14 @@
         </div>
     </div>
 
+    <h1>中年男人俱乐部v2.0</h1>
+
     <div id="tab1" class="tab-content">
         <h2>坦克列表-Tank List</h2>
         <ul class="item-list">
             <li class="item">
                 <div class="image-container">
-                    <img src="https://www.hlj.com/productimages/dra/dra6600sp_5.jpg" alt="Tiger Tank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/68/Tiger_I_-_PzKpfw_VI_%28Sd.Kfz._181%29_-_001.jpg" alt="Tiger Tank">
                     <span class="name">Tiger Tank</span>
                 </div>
                 <div class="attributes">
@@ -108,7 +45,7 @@
         <ul class="item-list">
             <li class="item">
                 <div class="image-container">
-                    <img src="https://www.usagundamstore.com/cdn/shop/files/153_6211_o_1ia501lejtmfop171l1kap1q5723_4e4fd0e8-1565-487a-b401-256d05a90544.jpg?v=1728917822" alt="Gundam">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/27/Char_Amuro_Gundam.jpg" alt="Gundam">
                     <span class="name">RX-78-2 Gundam</span>
                 </div>
                 <div class="attributes">
@@ -125,7 +62,7 @@
         <ul class="item-list">
             <li class="item">
                 <div class="image-container">
-                    <img src="https://www.specfictionshop.com/cdn/shop/files/20241029171720-scaled_2000x.jpg?v=1730324938" alt="Figure">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Figure_action.jpg" alt="Figure">
                     <span class="name">Action Figure</span>
                 </div>
                 <div class="attributes">
@@ -137,15 +74,25 @@
         </ul>
     </div>
 
-  <div class="video-container">
+    <div class="video-container">
         <iframe loading="lazy" src="https://www.youtube.com/embed/oYSlWsCoEmE" title="YouTube video player"
-            frameborder="0" allowfullscreen></iframe>
+            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
     </div>
-  
-   <script>
+
+    <script>
         function openTab(event, tabId) {
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active-content'));
-            document.querySelectorAll('.tab').forEach(button => button.classList.remove('active-tab'));
+            const allTabs = document.querySelectorAll('.tab-content');
+            for (let tab of allTabs) {
+                tab.classList.remove('active-content');
+            }
+
+            const allTabButtons = document.querySelectorAll('.tab');
+            for (let button of allTabButtons) {
+                button.classList.remove('active-tab');
+            }
+
             document.getElementById(tabId).classList.add('active-content');
             event.currentTarget.classList.add('active-tab');
         }
