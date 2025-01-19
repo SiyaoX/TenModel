@@ -105,7 +105,8 @@ h1 {
 
 .image-container {
     position: relative;
-    width: 500px; /* Fixed width */
+    width: 100%; /* Use relative width */
+    max-width: 500px; /* Maximum width */
     height: auto; /* Height will be adaptive */
     overflow: hidden; /* Hide any overflow */
     display: flex;
@@ -132,11 +133,17 @@ h1 {
     .item img {
         max-width: 500px;
     }
+    .image-container {
+        max-width: 700px; /* Adjust max-width for larger screens */
+    }
 }
 
 @media (min-width: 1024px) {
     .item img {
         max-width: 800px;
+    }
+    .image-container {
+        max-width: 1000px; /* Adjust max-width for larger screens */
     }
 }
 
