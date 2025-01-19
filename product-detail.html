@@ -9,23 +9,31 @@
 </head>
 
 <body>
-    <div class="product-gallery-container">
-        <h1>Product Gallery</h1>
-        <div class="product-gallery">
-            <!-- Image display area -->
-            <div class="image-container">
-                <img id="productImage" src="" alt="Product Image" />
-            </div>
-            <!-- Navigation buttons -->
-            <div class="gallery-controls">
-                <button id="prevBtn">Previous</button>
-                <button id="nextBtn">Next</button>
-            </div>
-            <!-- Product information -->
-            <div class="product-info">
-                <h2 id="productName"></h2>
-                <p id="productDescription"></p>
-                <p><strong>Price:</strong> <span id="productPrice"></span></p>
+    <div class="banner">
+        <a href="index.html">
+            <img src="logo.png" alt="Company Logo" style="height: 40px; vertical-align: middle;">
+            <span>Company Name</span>
+        </a>
+    </div>
+    <div class="content">
+        <div class="product-gallery-container">
+            <h1>Product Gallery</h1>
+            <div class="product-gallery">
+                <!-- Product information -->
+                <div class="product-info">
+                    <h2 id="productName"></h2>
+                    <p id="productDescription"></p>
+                    <p><strong>Price:</strong> <span id="productPrice"></span></p>
+                </div>
+                <!-- Navigation buttons -->
+                <div class="gallery-controls">
+                    <button id="prevBtn">Previous</button>
+                    <button id="nextBtn">Next</button>
+                </div>
+                <!-- Image display area -->
+                <div class="image-container">
+                    <img id="productImage" src="" alt="Product Image" />
+                </div>
             </div>
         </div>
     </div>
