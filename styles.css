@@ -113,8 +113,8 @@ h1 {
     display: none;
     padding-left: 10px;
     padding-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    padding-bottom: 20px;
+    border: 1px solid #444c54;
     background-color: #444c54;
     margin-top: 20px;
 }
@@ -139,7 +139,7 @@ h1 {
     margin: 0 auto; /* Center horizontally */
     width: max-content; /* Ensure the item's width adapts to its content */
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 3px;
     overflow: hidden;
     background-color: #444c54;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
