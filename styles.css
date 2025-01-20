@@ -7,7 +7,8 @@ body {
     /* White text for better contrast */
     margin: 0;
     padding: 0;
-    padding-top: 64px; /* Adjust this value to match the height of your banner */
+    padding-top: 64px;
+    /* Adjust this value to match the height of your banner */
 }
 
 .a {
@@ -19,26 +20,32 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    height:auto;
+    height: auto;
     min-height: 60px;
-    background-color: #0f7deb; /* Adjust background color as needed */
+    background-color: #0f7deb;
+    /* Adjust background color as needed */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index: 1000; /* Ensure the banner is above other elements */
+    z-index: 1000;
+    /* Ensure the banner is above other elements */
 }
 
 
 .banner .tab {
-    margin-left: 20px; /* Adjust as needed */
+    margin-left: 20px;
+    /* Adjust as needed */
     cursor: pointer;
-    color: white; /* Adjust text color as needed */
+    color: white;
+    /* Adjust text color as needed */
     text-decoration: none;
-    font-size: 1.2em; /* Adjust font size as needed */
+    font-size: 1.2em;
+    /* Adjust font size as needed */
 }
 
 .content {
-    padding-top: 60px; /* Add padding to avoid content being hidden behind the banner */
+    padding-top: 60px;
+    /* Add padding to avoid content being hidden behind the banner */
 }
 
 .logo {
@@ -74,14 +81,13 @@ h1 {
     justify-content: start;
     /* Align tabs to the right */
     gap: 15px;
-    /* Space between the tabs */
     margin-right: 20px;
 }
 
 .tab {
     padding: 10px 15px;
     background-color: #333;
-    color: #fff;
+    color: #ffcc00;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s;
@@ -93,15 +99,15 @@ h1 {
 
 .active-tab {
     background-color: #4CAF50;
-    color: white;
+    color: #ffcc00;
     font-weight: bold;
 }
 
 .tab-content {
-    margin-left: 20px;
-    margin-right: 20px;
-    display: none; /* Hide all tab content by default */
-    padding: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: none;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #444c54;
@@ -109,16 +115,18 @@ h1 {
 }
 
 .tab-content.active {
-    display: block; /* Show the active tab content */
+    display: block;
 }
 
 .item-list {
+    align-items: center;
     list-style-type: none;
     /* padding-left: 20%;
     margin-left: 20%; */
 }
 
 .item {
+    align-self: center;
     margin: 20px auto;
     width: max-content;
     border: 1px solid #ccc;
@@ -131,10 +139,14 @@ h1 {
 
 .image-container {
     position: relative;
-    width: 100%; /* Use relative width */
-    max-width: 500px; /* Maximum width */
-    height: auto; /* Height will be adaptive */
-    overflow: hidden; /* Hide any overflow */
+    width: 100%;
+    /* Use relative width */
+    max-width: 500px;
+    /* Maximum width */
+    height: auto;
+    /* Height will be adaptive */
+    overflow: hidden;
+    /* Hide any overflow */
     display: flex;
     justify-content: center;
     /* Center image */
@@ -151,17 +163,21 @@ h1 {
 }
 
 .image-container img {
-    width: 100%; /* Image takes full width of the container */
-    height: auto; /* Height is adaptive to maintain aspect ratio */
-    object-fit: contain; /* Ensure the image fits within the container */
+    width: 100%;
+    /* Image takes full width of the container */
+    height: auto;
+    /* Height is adaptive to maintain aspect ratio */
+    object-fit: contain;
+    /* Ensure the image fits within the container */
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1px) {
     .item img {
         max-width: 500px;
     }
+
     .image-container {
-        max-width: 700px; /* Adjust max-width for larger screens */
+        max-width: 700px;
     }
 }
 
@@ -169,8 +185,9 @@ h1 {
     .item img {
         max-width: 800px;
     }
+
     .image-container {
-        max-width: 1000px; /* Adjust max-width for larger screens */
+        max-width: 1000px;
     }
 }
 
@@ -196,12 +213,6 @@ h1 {
     margin: 5px 0;
 }
 
-@media (max-width: 768px) {
-    .image-container {
-        max-height: 200px;
-        /* Adjust for smaller devices */
-    }
-}
 
 .video-container {
     position: relative;
@@ -226,5 +237,6 @@ h1 {
 .product-gallery {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the image container horizontally */
+    align-items: center;
+    /* Center the image container horizontally */
 }
