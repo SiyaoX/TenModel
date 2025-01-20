@@ -7,41 +7,27 @@ body {
     /* White text for better contrast */
     margin: 0;
     padding: 0;
-    padding-top: 60px; /* Adjust this value to match the height of your banner */
+    padding-top: 64px; /* Adjust this value to match the height of your banner */
+}
+
+.a {
+    text-decoration: none;
+    color: #ffcc00;
 }
 
 .banner {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 60px; /* Adjust height as needed */
-    background-color: #444c54; /* Adjust background color as needed */
+    height:auto;
+    min-height: 60px;
+    background-color: #0f7deb; /* Adjust background color as needed */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px; /* Adjust padding as needed */
     z-index: 1000; /* Ensure the banner is above other elements */
 }
 
-.banner a {
-    color: white; /* Adjust text color as needed */
-    text-decoration: none;
-    font-size: 1.5em; /* Adjust font size as needed */
-}
-
-.banner .logo {
-    display: flex;
-    align-items: center;
-}
-
-.banner .logo img {
-    height: 40px; /* Adjust as needed */
-    margin-right: 10px; /* Adjust as needed */
-}
-
-.banner .tabs-container {
-    display: flex;
-}
 
 .banner .tab {
     margin-left: 20px; /* Adjust as needed */
@@ -58,18 +44,19 @@ body {
 .logo {
     display: flex;
     align-items: center;
+    margin-left: 20px;
 }
 
 .logo img {
-    width: 40px;
+    width: 48px;
     /* Consistent size for the icon */
-    height: 40px;
+    height: 48px;
     margin-right: 10px;
     /* Space between the logo and text */
 }
 
 .logo h1 {
-    font-size: 20px;
+    font-size: 30px;
     margin: 0;
     /* Remove margin to keep the layout tight */
 }
@@ -83,11 +70,12 @@ h1 {
 }
 
 .tabs-container {
-    display: flex;
-    justify-content: flex-end;
+    display: block;
+    justify-content: start;
     /* Align tabs to the right */
     gap: 15px;
     /* Space between the tabs */
+    margin-right: 20px;
 }
 
 .tab {
@@ -110,6 +98,8 @@ h1 {
 }
 
 .tab-content {
+    margin-left: 20px;
+    margin-right: 20px;
     display: none; /* Hide all tab content by default */
     padding: 20px;
     border: 1px solid #ccc;
@@ -124,13 +114,13 @@ h1 {
 
 .item-list {
     list-style-type: none;
-    padding: 0;
-    margin: 0;
+    /* padding-left: 20%;
+    margin-left: 20%; */
 }
 
 .item {
     margin: 20px auto;
-    width: 90%;
+    width: max-content;
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
@@ -153,6 +143,7 @@ h1 {
 }
 
 .item img {
+    cursor: pointer;
     width: 100%;
     height: auto;
     max-width: 100%;

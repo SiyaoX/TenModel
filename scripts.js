@@ -5,15 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Function to handle tab switching
-function openTab(event, tabId) {
-    // Hide all tab content and remove 'active' classes
-    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active-content'));
-    document.querySelectorAll('.tab').forEach(button => button.classList.remove('active-tab'));
-
-    // Show the selected tab content and highlight the selected tab
-    document.getElementById(tabId).classList.add('active-content');
-    event.currentTarget.classList.add('active-tab');
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tab");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
+
+// Set the default active tab
+document.getElementById("tab1").style.display = "block";
 
 // Function to load products from JSON
 async function loadProducts() {

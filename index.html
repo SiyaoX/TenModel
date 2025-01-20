@@ -11,16 +11,21 @@
 
 <body>
     <header class="banner">
-        <div class="logo">
-            <img src="resources/logo.png" alt="Company Logo">
-            <h1>天匠模型v1.0.12</h1>
+        <div class="banner">
+            <a href="index.html" class="a">
+                <div class="logo">
+                    <img src="resources/logo.png" alt="Company Logo">
+                    <h1>天匠模型v1.0.6</h1>
+                </div>
+            </a>
+            <nav class="tabs-container">
+                <button class="tab" onclick="openTab(event, 'tab1')" aria-controls="tab1">坦克-Tank</button>
+                <button class="tab" onclick="openTab(event, 'tab2')" aria-controls="tab2">高达-Gundam</button>
+                <button class="tab" onclick="openTab(event, 'tab3')" aria-controls="tab3">手办-Figure</button>
+            </nav>
         </div>
-        <nav class="tabs-container">
-            <button class="tab" onclick="openTab(event, 'tab1')" aria-controls="tab1">坦克-Tank</button>
-            <button class="tab" onclick="openTab(event, 'tab2')" aria-controls="tab2">高达-Gundam</button>
-            <button class="tab" onclick="openTab(event, 'tab3')" aria-controls="tab3">手办-Figure</button>
-        </nav>
     </header>
+
 
     <main>
         <div id="tab1" class="tab-content active">
@@ -41,7 +46,8 @@
 
     <div class="video-container">
         <iframe loading="lazy" src="https://www.youtube.com/embed/oYSlWsCoEmE" title="YouTube video player"
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
     </div>
 

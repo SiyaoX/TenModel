@@ -14,6 +14,20 @@
     ]
   },
   {
+    "Name": "Panzer IV",
+    "Price": "$100",
+    "ProductID": "T001",
+    "ReleaseDate": "2023-01-15",
+    "Model": "WWII German Medium Tank",
+    "Category": "Tank",
+    "Status": "Available",
+    "CoverImg":"https://i.etsystatic.com/24248884/r/il/8890a8/2807974818/il_1080xN.2807974818_i8s2.jpg",
+    "DetailImgs": [
+      "https://i.ebayimg.com/images/g/ajwAAOSwEDlfE6ln/s-l1200.jpg",
+      "https://i.etsystatic.com/24248884/r/il/8890a8/2807974818/il_1080xN.2807974818_i8s2.jpg"
+    ]
+  },
+  {
     "Name": "RX-78-2 Gundam",
     "Price": "$200",
     "ProductID": "G001",
