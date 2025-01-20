@@ -1,6 +1,7 @@
 [
   {
     "Name": "Panzer IV",
+    "Description": "The Panzerkampfwagen IV (PzKpfw IV), commonly known as the Panzer IV, was a German medium tank developed in the late 1930s and used extensively during the Second World War. Its ordnance inventory designation was Sd.Kfz. 161.",
     "Price": "$100",
     "ProductID": "T001",
     "ReleaseDate": "2023-01-15",
@@ -15,6 +16,7 @@
   },
   {
     "Name": "Panzer IV",
+    "Description": "The Panzerkampfwagen IV (PzKpfw IV), commonly known as the Panzer IV, was a German medium tank developed in the late 1930s and used extensively during the Second World War. Its ordnance inventory designation was Sd.Kfz. 161.",
     "Price": "$100",
     "ProductID": "T001",
     "ReleaseDate": "2023-01-15",
@@ -29,6 +31,7 @@
   },
   {
     "Name": "RX-78-2 Gundam",
+    "Description": "The RX-78-2 Gundam is a fictional manned robot, introduced in 1979 in Yoshiyuki Tomino's and Sunrise's anime series Mobile Suit Gundam. In the series, it is a testbed weapon for the Earth Federation when it falls into the hands of Amuro Ray, the son of its designer in the series, and is forced to pilot it to save himself and his friends.",
     "Price": "$200",
     "ProductID": "G001",
     "ReleaseDate": "2024-05-12",
@@ -42,7 +45,8 @@
     ]
   },
   {
-    "Name": "Naruto Figure",
+    "Name": "Chun-Li Figure",
+    "Description": "Chun-Li is a character in Capcom's Street Fighter video game series.",
     "Price": "$50",
     "ProductID": "F001",
     "ReleaseDate": "2022-11-25",

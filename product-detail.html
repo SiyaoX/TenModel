@@ -22,17 +22,14 @@
     </header>
     <div class="content">
         <div class="product-gallery-container">
-            <h1>Product Gallery</h1>
+            <!-- <h1>Product Gallery</h1> -->
             <div class="product-gallery">
                 <!-- Product information -->
                 <div class="product-info">
-                    <h2 id="productName"></h2>
-                    <p id="productDescription"></p>
-                    <p><strong>Price:</strong> <span id="productPrice"></span></p>
-                </div>
-                <!-- Navigation buttons -->
-                <div class="gallery-controls">
                     <button id="prevBtn">Previous</button>
+                    <div style="text-align: center;">
+                        <h2 id="productName"></h2>
+                    </div>
                     <button id="nextBtn">Next</button>
                 </div>
                 <!-- Image display area -->
@@ -40,6 +37,12 @@
                     <img id="productImage" src="" alt="Product Image" />
                 </div>
             </div>
+        </div>
+        <div class="video-container">
+            <iframe loading="lazy" src="https://www.youtube.com/embed/oYSlWsCoEmE" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
     </div>
 
