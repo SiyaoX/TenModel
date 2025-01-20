@@ -15,18 +15,25 @@
             <a href="index.html" class="a">
                 <div class="logo">
                     <img src="resources/logo.png" alt="Company Logo">
-                    <h1>天匠模型v1.0.6</h1>
+                    <h1>天匠模型</h1>
                 </div>
             </a>
         </div>
+        <div class="social-media-buttons">
+            <a href="https://www.facebook.com" target="_blank"><img src="resources/facebook-icon.png" alt="Facebook" style="width: 30px; height: 30px;"></a>
+            <a href="https://www.x.com" target="_blank"><img src="resources/x-icon.png" alt="X" style="width: 30px; height: 30px;"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="resources/instagram-icon.png" alt="Instagram" style="width: 30px; height: 30px;"></a>
+            <a href="https://www.github.com" target="_blank"><img src="resources/github-icon.png" alt="GitHub" style="width: 30px; height: 30px;"></a>
+            <a href="https://www.youtube.com" target="_blank"><img src="resources/youtube-icon.png" alt="YouTube" style="width: 30px; height: 30px;"></a>
+        </div>
+    </header>
+
+    <main>
         <nav class="tabs-container">
             <button class="tab active-tab" onclick="openTab(event, 'tab1')" aria-controls="tab1">Tanks</button>
             <button class="tab" onclick="openTab(event, 'tab2')" aria-controls="tab2">Gundam</button>
             <button class="tab" onclick="openTab(event, 'tab3')" aria-controls="tab3">Figures</button>
         </nav>
-    </header>
-
-    <main>
         <div id="tab1" class="tab-content active">
             <h2>Tank List</h2>
             <ul class="item-list"></ul>
@@ -41,11 +48,16 @@
             <h2>Figure List</h2>
             <ul class="item-list"></ul>
         </div>
+
+        <div id="contact" class="tab-content">
+            <h2>Contact</h2>
+        </div>
     </main>
 
     <div class="video-container">
         <iframe loading="lazy" src="https://www.youtube.com/embed/oYSlWsCoEmE" title="YouTube video player"
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen></iframe>
     </div>
 

@@ -22,7 +22,7 @@ body {
     width: 100%;
     height: auto;
     min-height: 60px;
-    background-color: #0f7deb;
+    background-color: #484d52;
     /* Adjust background color as needed */
     display: flex;
     align-items: center;
@@ -31,22 +31,17 @@ body {
     /* Ensure the banner is above other elements */
 }
 
-
 .banner .tab {
-    margin-left: 20px;
+    margin-left: 5px;
     /* Adjust as needed */
     cursor: pointer;
-    color: white;
+    color: rgb(255, 255, 255);
     /* Adjust text color as needed */
     text-decoration: none;
     font-size: 1.2em;
     /* Adjust font size as needed */
 }
 
-.content {
-    padding-top: 60px;
-    /* Add padding to avoid content being hidden behind the banner */
-}
 
 .logo {
     display: flex;
@@ -68,6 +63,12 @@ body {
     /* Remove margin to keep the layout tight */
 }
 
+.social-media-buttons {
+    display: flex;
+    gap: 10px;
+    margin-right: 20px;
+}
+
 h1 {
     font-family: 'Bangers', cursive;
     font-size: 2.5em;
@@ -77,15 +78,15 @@ h1 {
 }
 
 .tabs-container {
-    display: block;
-    justify-content: start;
-    /* Align tabs to the right */
-    gap: 15px;
-    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
 }
 
 .tab {
-    padding: 10px 15px;
+    padding: 10px;
+    width: 100px;
     background-color: #333;
     color: #ffcc00;
     cursor: pointer;
@@ -96,12 +97,12 @@ h1 {
 .tab:hover {
     background-color: #555;
 }
-
+/* 
 .active-tab {
-    background-color: #4CAF50;
+    background-color: #00ff08;
     color: #ffcc00;
     font-weight: bold;
-}
+} */
 
 .tab-content {
     display: none;
@@ -138,7 +139,6 @@ h1 {
     max-width: 100%; /* Ensure responsiveness */
     display: flex;
     flex-direction: column; /* Stack content vertically */
-    align-items: center; /* Center content horizontally */
 }
 
 .image-container {
