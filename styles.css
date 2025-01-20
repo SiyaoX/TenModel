@@ -55,15 +55,15 @@ body {
 }
 
 .logo img {
-    width: 48px;
+    width: 30px;
     /* Consistent size for the icon */
-    height: 48px;
+    height: 30px;
     margin-right: 10px;
     /* Space between the logo and text */
 }
 
 .logo h1 {
-    font-size: 30px;
+    font-size: 25px;
     margin: 0;
     /* Remove margin to keep the layout tight */
 }
@@ -104,8 +104,6 @@ h1 {
 }
 
 .tab-content {
-    margin-left: 10px;
-    margin-right: 10px;
     display: none;
     padding: 10px;
     border: 1px solid #ccc;
@@ -121,8 +119,6 @@ h1 {
 .item-list {
     align-items: center;
     list-style-type: none;
-    /* padding-left: 20%;
-    margin-left: 20%; */
 }
 
 .item {
@@ -173,7 +169,7 @@ h1 {
 
 @media (min-width: 1px) {
     .item img {
-        max-width: 500px;
+        max-width: 350px;
     }
 
     .image-container {
