@@ -22,7 +22,8 @@ body {
     width: 100%;
     height: auto;
     min-height: 60px;
-    background-color: #484d52;
+    background-color: #616e75;
+    
     /* Adjust background color as needed */
     display: flex;
     align-items: center;
@@ -102,6 +103,7 @@ h1 {
 .tab:hover {
     background-color: #555;
 }
+
 /* 
 .active-tab {
     background-color: #00ff08;
@@ -129,31 +131,38 @@ h1 {
     align-items: center;
     justify-content: center;
     list-style-type: none;
-    margin: 0 auto; /* Center the list */
+    margin: 0 auto;
+    /* Center the list */
     padding: 0;
-    gap: 20px; /* Add spacing between items */
-    max-width: 1000px; /* Set maximum width */
+    gap: 20px;
+    /* Add spacing between items */
+    max-width: 1000px;
+    /* Set maximum width */
 }
 
 .item {
-    margin: 0 auto; /* Center horizontally */
-    width: max-content; /* Ensure the item's width adapts to its content */
+    margin: 0 auto;
+    /* Center horizontally */
+    width: max-content;
+    /* Ensure the item's width adapts to its content */
     border: 1px solid #ccc;
     border-radius: 3px;
     overflow: hidden;
-    background-color: #444c54;
+
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    max-width: 100%; /* Ensure responsiveness */
+    max-width: 100%;
+    /* Ensure responsiveness */
     display: flex;
-    flex-direction: column; /* Stack content vertically */
+    flex-direction: column;
+    /* Stack content vertically */
 }
 
 .image-container {
     position: relative;
     width: 100%;
     /* Use relative width */
-    max-width: 
-    00px;
+    max-width:
+        00px;
     /* Maximum width */
     height: auto;
     /* Height will be adaptive */
