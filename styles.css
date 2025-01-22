@@ -1,5 +1,10 @@
+@font-face {
+    font-family: 'OrbitronRegular';
+    src: url('./resources/fonts/Orbitron/static/Orbitron-Regular.ttf') format('truetype');
+}
+
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'OrbitronRegular', sans-serif;
     text-align: center;
     background-color: #2a3439;
     /* Gunmetal color */
@@ -9,6 +14,7 @@ body {
     padding: 0;
     padding-top: 64px;
     /* Adjust this value to match the height of your banner */
+
 }
 
 .a {
@@ -23,7 +29,7 @@ body {
     height: auto;
     min-height: 60px;
     background-color: #616e75;
-    
+
     /* Adjust background color as needed */
     display: flex;
     align-items: center;
@@ -71,7 +77,6 @@ body {
 }
 
 h1 {
-    font-family: 'Bangers', cursive;
     font-size: 2.5em;
     margin: 20px 0;
     color: #ffcc00;
