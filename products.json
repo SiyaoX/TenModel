@@ -1,62 +1,70 @@
 [
   {
-    "Name": "Panzer IV",
-    "Description": "The Panzerkampfwagen IV (PzKpfw IV), commonly known as the Panzer IV, was a German medium tank developed in the late 1930s and used extensively during the Second World War. Its ordnance inventory designation was Sd.Kfz. 161.",
-    "Price": "$100",
-    "ProductID": "T001",
-    "ReleaseDate": "2023-01-15",
-    "Model": "WWII German Medium Tank",
-    "Category": "Tank",
-    "Status": "Available",
-    "CoverImg":"https://i.ebayimg.com/images/g/ajwAAOSwEDlfE6ln/s-l1200.jpg",
+    "Name": "Utopia FA-010S Full Armor ZZ Gundam",
+    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
+    "Price": "Not Available",
+    "ProductID": "sm001",
+    "ReleaseDate": "2014-04-02",
+    "Model": "FA-010S",
+    "Category": "sm",
+    "Status": "Not Available",
+    "CoverImg":"gundam001.jpg",
     "DetailImgs": [
-      "https://i.ebayimg.com/images/g/ajwAAOSwEDlfE6ln/s-l1200.jpg",
-      "https://i.etsystatic.com/24248884/r/il/8890a8/2807974818/il_1080xN.2807974818_i8s2.jpg"
+      "gundam001.jpg",
+      "gundam002.jpg",
+      "gundam003.jpg",
+      "gundam004.jpg"
     ]
   },
   {
-    "Name": "Panzer IV",
-    "Description": "The Panzerkampfwagen IV (PzKpfw IV), commonly known as the Panzer IV, was a German medium tank developed in the late 1930s and used extensively during the Second World War. Its ordnance inventory designation was Sd.Kfz. 161.",
-    "Price": "$100",
-    "ProductID": "T001",
-    "ReleaseDate": "2023-01-15",
-    "Model": "WWII German Medium Tank",
-    "Category": "Tank",
-    "Status": "Available",
-    "CoverImg":"https://i.etsystatic.com/24248884/r/il/8890a8/2807974818/il_1080xN.2807974818_i8s2.jpg",
+    "Name": "Utopia FA-010S Full Armor ZZ Gundam",
+    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
+    "Price": "Not Available",
+    "ProductID": "sm001",
+    "ReleaseDate": "2014-04-02",
+    "Model": "FA-010S",
+    "Category": "sm",
+    "Status": "Not Available",
+    "CoverImg":"gundam002.jpg",
     "DetailImgs": [
-      "https://i.ebayimg.com/images/g/ajwAAOSwEDlfE6ln/s-l1200.jpg",
-      "https://i.etsystatic.com/24248884/r/il/8890a8/2807974818/il_1080xN.2807974818_i8s2.jpg"
+      "gundam001.jpg",
+      "gundam002.jpg",
+      "gundam003.jpg",
+      "gundam004.jpg"
     ]
   },
   {
-    "Name": "RX-78-2 Gundam",
-    "Description": "The RX-78-2 Gundam is a fictional manned robot, introduced in 1979 in Yoshiyuki Tomino's and Sunrise's anime series Mobile Suit Gundam. In the series, it is a testbed weapon for the Earth Federation when it falls into the hands of Amuro Ray, the son of its designer in the series, and is forced to pilot it to save himself and his friends.",
-    "Price": "$200",
-    "ProductID": "G001",
-    "ReleaseDate": "2024-05-12",
-    "Model": "Mobile Suit Gundam",
-    "Category": "Gundam",
-    "Status": "Pre-Order",
-    "CoverImg":"https://i.etsystatic.com/24248884/r/il/8890a8/2807974818/il_1080xN.2807974818_i8s2.jpg",
+    "Name": "Utopia FA-010S Full Armor ZZ Gundam",
+    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
+    "Price": "Not Available",
+    "ProductID": "sm001",
+    "ReleaseDate": "2014-04-02",
+    "Model": "FA-010S",
+    "Category": "sm",
+    "Status": "Not Available",
+    "CoverImg":"gundam003.jpg",
     "DetailImgs": [
-      "https://handsomecake.com/cdn/shop/files/A2FE9D9C-2353-4B48-8E9D-59F402094BD2.png?v=1731979197",
-      "https://i.etsystatic.com/24248884/r/il/8890a8/2807974818/il_1080xN.2807974818_i8s2.jpg"
+      "gundam001.jpg",
+      "gundam002.jpg",
+      "gundam003.jpg",
+      "gundam004.jpg"
     ]
   },
   {
-    "Name": "Chun-Li Figure",
-    "Description": "Chun-Li is a character in Capcom's Street Fighter video game series.",
-    "Price": "$50",
-    "ProductID": "F001",
-    "ReleaseDate": "2022-11-25",
-    "Model": "Shinobi Collection",
-    "Category": "Figure",
-    "Status": "Sold Out",
-    "CoverImg":"https://handsomecake.com/cdn/shop/files/A2FE9D9C-2353-4B48-8E9D-59F402094BD2.png?v=1731979197",
+    "Name": "Utopia FA-010S Full Armor ZZ Gundam",
+    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
+    "Price": "Not Available",
+    "ProductID": "sm001",
+    "ReleaseDate": "2014-04-02",
+    "Model": "FA-010S",
+    "Category": "sm",
+    "Status": "Not Available",
+    "CoverImg":"gundam004.jpg",
     "DetailImgs": [
-      "https://handsomecake.com/cdn/shop/files/A2FE9D9C-2353-4B48-8E9D-59F402094BD2.png?v=1731979197",
-      "https://i.etsystatic.com/24248884/r/il/8890a8/2807974818/il_1080xN.2807974818_i8s2.jpg"
+      "gundam001.jpg",
+      "gundam002.jpg",
+      "gundam003.jpg",
+      "gundam004.jpg"
     ]
   }
 ]

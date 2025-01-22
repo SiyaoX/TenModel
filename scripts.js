@@ -49,7 +49,7 @@ async function loadProducts() {
 // Get tab ID based on product category
 function getTabIdForCategory(category) {
     switch (category) {
-        case 'tank': return 1;
+        case 'sm': return 1;
         case 'gundam': return 2;
         case 'figure': return 3;
         default: return null;
