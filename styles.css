@@ -12,7 +12,7 @@ body {
     /* White text for better contrast */
     margin: 0;
     padding: 0;
-    padding-top: 64px;
+    padding-top: 60px;
     /* Adjust this value to match the height of your banner */
 
 }
@@ -26,8 +26,7 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    height: auto;
-    min-height: 120px;
+    height: 80px;
     background-color: #616e75;
 
     /* Adjust background color as needed */
@@ -51,18 +50,24 @@ body {
 
 .contact-container {
     margin-right: 10px;
-
+    margin-bottom: 10px;
 }
 
 .contact-info a {
-    margin-right: 10px;
+    color: #ffcc00;
     text-decoration: none;
-    color: inherit;
+}
+
+.contact-info p {
+    color: #ffcc00;
 }
 
 .logo {
     display: flex;
     align-items: center;
+}
+
+.logo-container {
     margin-left: 10px;
 }
 
@@ -70,23 +75,21 @@ body {
     width: 30px;
     /* Consistent size for the icon */
     height: 30px;
-    margin-right: 10px;
+    margin-right: 5px;
     /* Space between the logo and text */
 }
 
 .logo h1 {
-    font-size: 25px;
+    font-size: 20px;
     margin: 0;
-    /* Remove margin to keep the layout tight */
+    text-align: left;
 }
 
-.social-media-buttons {
-    display: flex;
+
+.social-media-buttons img {
     width: 30px;
     height: 30px;
-    margin-left: auto;
-    margin-right: 0px;
-    flex-direction: row-reverse;
+    margin: 0 5px;
 }
 
 h1 {
@@ -99,12 +102,12 @@ h1 {
 .tabs-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin: 20px 0;
+    /* margin: 20px 0; */
     width: 100%;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding-top: 60px; /* Adjust this value to match the height of your header */
 }
 
 .tab {
@@ -124,8 +127,7 @@ h1 {
     background-color: #555;
 }
 
-/* 
-.active-tab {
+/* .active-tab {
     background-color: #00ff08;
     color: #ffcc00;
     font-weight: bold;
@@ -136,8 +138,6 @@ h1 {
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 20px;
-    border: 1px solid #444c54;
-    background-color: #444c54;
     margin-top: 20px;
 }
 
