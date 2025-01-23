@@ -27,7 +27,7 @@ body {
     top: 0;
     width: 100%;
     height: auto;
-    min-height: 60px;
+    min-height: 120px;
     background-color: #616e75;
 
     /* Adjust background color as needed */
@@ -39,7 +39,7 @@ body {
 }
 
 .banner .tab {
-    margin-left: 5px;
+    margin-left: 10px;
     /* Adjust as needed */
     cursor: pointer;
     color: rgb(255, 255, 255);
@@ -49,6 +49,16 @@ body {
     /* Adjust font size as needed */
 }
 
+.contact-container {
+    margin-right: 10px;
+
+}
+
+.contact-info a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: inherit;
+}
 
 .logo {
     display: flex;
@@ -72,10 +82,10 @@ body {
 
 .social-media-buttons {
     display: flex;
-    /* gap: 5px; */
     width: 30px;
     height: 30px;
-    margin-right: 10px;
+    margin-left: auto;
+    margin-right: 0px;
     flex-direction: row-reverse;
 }
 
