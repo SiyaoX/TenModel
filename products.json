@@ -1,11 +1,15 @@
 [
   {
-    "Name": "Utopia FA-010S Full Armor ZZ Gundam 1/100",
+    "Name": "Full Armor ZZ Gundam 1/100",
     "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
-    "Price": "2,499.99",
+    "Price": "2,500.00",
     "SKU": "sm001",
-    "Color": "Matte Purple",
-    "Size": "100",
+    "Brand": "Custom-Made",
+    "Material": "Resin",
+    "Color": "Purple / Grey",
+    "Finish": "Matte",
+    "Size": "1/100",
+    "Weight": "1500g",
     "Category": "sm",
     "Status": "SOLD OUT",
     "CoverImg":"gundam001.jpg",
@@ -17,7 +21,7 @@
     ]
   },
   {
-    "Name": "Utopia FA-010S Full Armor ZZ Gundam",
+    "Name": "FA-010S Full Armor ZZ Gundam",
     "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
     "Price": "Not Available",
     "SKU": "sm002",
@@ -32,7 +36,7 @@
     ]
   },
   {
-    "Name": "Utopia FA-010S Full Armor ZZ Gundam",
+    "Name": "FA-010S Full Armor ZZ Gundam",
     "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
     "Price": "Not Available",
     "SKU": "sm003",
@@ -47,7 +51,7 @@
     ]
   },
   {
-    "Name": "Utopia FA-010S Full Armor ZZ Gundam",
+    "Name": "FA-010S Full Armor ZZ Gundam",
     "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
     "Price": "Not Available",
     "SKU": "sm004",

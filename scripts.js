@@ -70,11 +70,16 @@ function appendProductToTab(tabId, product) {
         <img src="${product.CoverImg}" alt="${product.Name}" onclick="openProductDetail('${product.SKU}')">
         <div class="attributes">
             <h3>${product.Name}</h3>
-            <p style="color: grey;">SKU ${product.SKU}</p>
-            <p style="margin-top: 15px; font-family: 'Blinker-Thin', sans-serif;"><strong>$${product.Price}</p>
-            <p style="font-size: 20px;  color: #FD7474;">${product.Status}</p>
-            <p style="margin-top: 15px; font-size: 20px; font-family: 'Blinker-Thin', sans-serif;"><strong>Color:</strong> ${product.Color}</p>
-            <p style="font-size: 20px; font-family: 'Blinker-Thin', sans-serif;"><strong>Size:</strong> 1/${product.Size}</p>
+            <p style="color: #555555;">SKU ${product.SKU}</p>
+            <p style="margin-top: 10px; font-family: 'Blinker-Regular', sans-serif;">US$ ${product.Price}</p>
+            <p style="font-size: 20px; font-family: 'Blinker-Regular', sans-serif; color: #F84242;">${product.Status}</p>
+            <p style="margin-top: 15px; font-size: 20px; font-family: 'Blinker-Regular', sans-serif;">Product Details</p>
+            <p style="margin-top: -5px; font-size: 20px; font-family: 'Blinker-Light', sans-serif;">Brand: ${product.Brand}</p>
+            <p style="margin-top: -5px; font-size: 20px; font-family: 'Blinker-Light', sans-serif;">Material: ${product.Material}</p>
+            <p style="margin-top: -5px; font-size: 20px; font-family: 'Blinker-Light', sans-serif;">Color: ${product.Color}</p>
+            <p style="margin-top: -5px; font-size: 20px; font-family: 'Blinker-Light', sans-serif;">Finish: ${product.Finish}</p>
+            <p style="margin-top: -5px; font-size: 20px; font-family: 'Blinker-Light', sans-serif;">Size: ${product.Weight}</p>
+            <p style="margin-top: -5px; font-size: 20px; font-family: 'Blinker-Light', sans-serif;">Size: ${product.Size}</p>
         </div>
     `;
     container.appendChild(listItem);
