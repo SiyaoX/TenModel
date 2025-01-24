@@ -67,32 +67,32 @@ function appendProductToTab(tabId, product) {
     const listItem = document.createElement('li');
     listItem.classList.add('item');
     listItem.innerHTML = `
-        <img src="${product.CoverImg}" alt="${product.Name}" onclick="openProductDetail('${product.ProductID}')">
+        <img src="${product.CoverImg}" alt="${product.Name}" onclick="openProductDetail('${product.SKU}')">
         <div class="attributes">
             <h3>${product.Name}</h3>
-            <p><strong>Price:</strong> ${product.Price}</p>
-            <p><strong>Product ID:</strong> ${product.ProductID}</p>
-            <p><strong>Release Date:</strong> ${product.ReleaseDate}</p>
-            <p><strong>Model:</strong> ${product.Model}</p>
-            <p><strong>Status:</strong> ${product.Status}</p>
+            <p style="color: grey;">SKU ${product.SKU}</p>
+            <p style="margin-top: 15px; font-family: 'Blinker-Thin', sans-serif;"><strong>$${product.Price}</p>
+            <p style="font-size: 20px;  color: #FD7474;">${product.Status}</p>
+            <p style="margin-top: 15px; font-size: 20px; font-family: 'Blinker-Thin', sans-serif;"><strong>Color:</strong> ${product.Color}</p>
+            <p style="font-size: 20px; font-family: 'Blinker-Thin', sans-serif;"><strong>Size:</strong> 1/${product.Size}</p>
         </div>
     `;
     container.appendChild(listItem);
 }
 
 // Function to open product detail page
-function openProductDetail(productId) {
-    const product = findProductById(productId);
+function openProductDetail(SKU) {
+    const product = findProductById(SKU);
     if (product) {
         localStorage.setItem('selectedProduct', JSON.stringify(product));
         window.location.href = 'product-detail.html';
     } else {
-        console.error('Product not found:', productId);
+        console.error('Product not found:', SKU);
     }
 }
 
 // Helper function to find a product by ID
-function findProductById(productId) {
+function findProductById(SKU) {
     // Assuming the products array is available globally or passed to this function
-    return products.find(p => p.ProductID === productId);
+    return products.find(p => p.SKU === SKU);
 }

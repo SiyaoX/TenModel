@@ -1,10 +1,22 @@
 @font-face {
-    font-family: 'OrbitronRegular';
-    src: url('./resources/fonts/Orbitron/static/Orbitron-Regular.ttf') format('truetype');
+    font-family: 'Blinker-Regular';
+    src: url('./resources/fonts/Blinker/Blinker-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Blinker-Thin';
+    src: url('./resources/fonts/Blinker/Blinker-Thin.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'Blinker-Light';
+    src: url('./resources/fonts/Blinker/Blinker-Light.ttf') format('truetype');
+}
+
+
 body {
-    font-family: 'OrbitronRegular', sans-serif;
+    font-family: 'Blinker-Light', sans-serif;
     text-align: center;
     background-color: #2a3439;
     /* Gunmetal color */
@@ -12,7 +24,7 @@ body {
     /* White text for better contrast */
     margin: 0;
     padding: 0;
-    padding-top: 60px;
+    padding-top: 100px;
     /* Adjust this value to match the height of your banner */
 
 }
@@ -107,7 +119,6 @@ h1 {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding-top: 60px; /* Adjust this value to match the height of your header */
 }
 
 .tab {
@@ -250,10 +261,15 @@ h1 {
 }
 
 .attributes {
+    background-color: #dddddd;
     padding: 10px;
-    color: #ffffff;
-    font-size: 14px;
+    color: #222222;
+    font-size: 22px;
     text-align: left;
+}
+.attributes h3 {
+   margin-top: 5px;
+   margin-bottom: 0px;
 }
 
 .attributes p {
