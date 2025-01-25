@@ -14,8 +14,7 @@
     src: url('./resources/fonts/Blinker/Blinker-Light.ttf') format('truetype');
 }
 
-
-body {
+html, body {
     font-family: 'Blinker-Light', sans-serif;
     text-align: center;
     background-color: #141414;
@@ -24,9 +23,14 @@ body {
     /* White text for better contrast */
     margin: 0;
     padding: 0;
-    padding-top: 100px;
+    padding-top: 44px;
     /* Adjust this value to match the height of your banner */
+    height: 100%;  /* Make the body and html take full height */
+}
 
+.content {
+    min-height: 100%; /* Ensures the content area takes full height */
+    padding-bottom: 50px; /* Add space for the footer */
 }
 
 .a {
@@ -162,7 +166,8 @@ h1 {
 .item-list {
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;  /* Stretch items to the same height */
+    align-items: stretch;
+    /* Stretch items to the same height */
     justify-content: center;
     list-style-type: none;
     margin: 0 auto;
@@ -175,7 +180,8 @@ h1 {
     background-color: #1E1E1E;
     margin: 0 auto;
     /* Center horizontally */
-    width: calc(25% - 20px); /* 100% / 4 = 25% */
+    width: calc(25% - 20px);
+    /* 100% / 4 = 25% */
     /* Ensure the item's width adapts to its content and accounts for gap */
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -315,7 +321,17 @@ h1 {
     align-items: center;
 }
 
-.footer {
+
+footer {
     font-size: 20px;
+    padding: 5px 0;
     color: #FFD100;
+    background-color: #2D2926;
+    text-align: center;
+    width: 100%;  /* Full width of the page */
+    position: relative;
+    bottom: 0;
+}
+.footer p {
+    margin: 0;
 }

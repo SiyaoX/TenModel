@@ -7,74 +7,72 @@
     <title>TenModel</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<script src="scripts.js"></script>
 
 <body>
-    <header class="banner">
-        <div class="logo-container">
-            <a href="index.html" class="a">
-                <div class="logo">
-                    <img src="resources/logo.png" alt="Company Logo">
-                    <h1>TenModel</h1>
+    <div class="content">
+        <header class="banner">
+            <div class="logo-container">
+                <a href="index.html" class="a">
+                    <div class="logo">
+                        <img src="resources/logo.png" alt="Company Logo">
+                        <h1>TenModel</h1>
+                    </div>
+                </a>
+            </div>
+            <div class="contact-container" style="text-align: center;">
+                <div class="contact-info">
+                    <p><a href="mailto:contact@tenmodel.design">contact@tenmodel.design</a></p>
                 </div>
-            </a>
-        </div>
-        <div class="contact-container" style="text-align: center;">
-            <div class="contact-info">
-                <p><a href="mailto:contact@tenmodel.design">contact@tenmodel.design</a></p>
+                <div class="social-media-buttons">
+                    <a href="https://www.youtube.com" target="_blank"><img src="resources/youtube-icon.png"
+                            alt="YouTube"></a>
+                    <a href="https://www.facebook.com" target="_blank"><img src="resources/facebook-icon.png"
+                            alt="Facebook"></a>
+                    <a href="https://www.twitter.com" target="_blank"><img src="resources/x-icon.png" alt="Twitter"></a>
+                    <a href="https://www.instagram.com" target="_blank"><img src="resources/instagram-icon.png"
+                            alt="Instagram"></a>
+                </div>
             </div>
-            <div class="social-media-buttons">
-                <a href="https://www.youtube.com" target="_blank"><img src="resources/youtube-icon.png"
-                        alt="YouTube"></a>
-                <a href="https://www.facebook.com" target="_blank"><img src="resources/facebook-icon.png"
-                        alt="Facebook"></a>
-                <a href="https://www.twitter.com" target="_blank"><img src="resources/x-icon.png" alt="Twitter"></a>
-                <a href="https://www.instagram.com" target="_blank"><img src="resources/instagram-icon.png"
-                        alt="Instagram"></a>
+        </header>
+    
+        <main>
+            <nav class="tabs-container">
+                <button class="tab active-tab" onclick="openTab(event, 'tab1')" aria-controls="tab1">Static Models</button>
+                <button class="tab" onclick="openTab(event, 'tab2')" aria-controls="tab2">RC Models</button>
+                <button class="tab" onclick="openTab(event, 'tab3')" aria-controls="tab3">Tool & Parts</button>
+                <button class="tab" onclick="openTab(event, 'tab4')" aria-controls="tab4">Contact Us</button>
+            </nav>
+            <div id="tab1" class="tab-content active">
+                <h2>Static Models</h2>
+                <ul class="item-list"></ul>
             </div>
-        </div>
-    </header>
-
-    <main>
-        <nav class="tabs-container">
-            <button class="tab active-tab" onclick="openTab(event, 'tab1')" aria-controls="tab1">Static Models</button>
-            <button class="tab" onclick="openTab(event, 'tab2')" aria-controls="tab2">RC Models</button>
-            <button class="tab" onclick="openTab(event, 'tab3')" aria-controls="tab3">Tool & Parts</button>
-            <button class="tab" onclick="openTab(event, 'tab4')" aria-controls="tab4">Contact Us</button>
-        </nav>
-        <div id="tab1" class="tab-content active">
-            <h2>Static Models</h2>
-            <ul class="item-list"></ul>
-        </div>
-
-        <div id="tab2" class="tab-content">
-            <h2>RC Models</h2>
-            <ul class="item-list"></ul>
-        </div>
-
-        <div id="tab3" class="tab-content">
-            <h2>Tool & Parts</h2>
-            <ul class="item-list"></ul>
-        </div>
-
-        <div id="tab4" class="tab-content">
-            <h2>Contact Us</h2>
-            <ul class="item-list"></ul>
-        </div>
-    </main>
-
-    <!-- <div class="video-container">
-        <iframe loading="lazy" src="https://www.youtube.com/embed/oYSlWsCoEmE" title="YouTube video player"
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen></iframe>
-    </div> -->
-    <script src="scripts.js"></script>
-
+    
+            <div id="tab2" class="tab-content">
+                <h2>RC Models</h2>
+                <ul class="item-list"></ul>
+            </div>
+    
+            <div id="tab3" class="tab-content">
+                <h2>Tool & Parts</h2>
+                <ul class="item-list"></ul>
+            </div>
+    
+            <div id="tab4" class="tab-content">
+                <h2>Contact Us</h2>
+                <ul class="item-list"></ul>
+            </div>
+        </main>
+    </div>
     <footer class="footer">
-        <p>&copy; 2023 TenModel. All rights reserved.</p>
+        <p>&copy; 2025 TenModel. All rights reserved.</p>
         <nav>
-            <ul style="display: flex; justify-content: center; gap: 20px; list-style-type: none; padding: 0; margin: 0;">
-                <li><a href="terms.html" style="text-decoration: none;">Terms & Conditions</a></li>
-                <li><a href="privacy.html" style="text-decoration: none;">Privacy Policy</a></li>
+            <ul
+                style="display: flex; justify-content: center; gap: 20px; list-style-type: none; padding: 0; margin: 0;">
+                <li><a href="terms.html" style="text-decoration: none; color: rgb(65, 65, 65);">Terms & Conditions</a>
+                </li>
+                <li><a href="privacy.html" style="text-decoration: none; color: rgb(65, 65, 65);">Privacy Policy</a>
+                </li>
             </ul>
         </nav>
     </footer>
