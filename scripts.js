@@ -67,13 +67,12 @@ function appendProductToTab(tabId, product) {
     const listItem = document.createElement('li');
     listItem.classList.add('item');
 
-    const gradientColor = product.GradientColor || 'linear-gradient(90deg, #5141B0, #FFE500, #FF0031)';
     listItem.innerHTML = `
         <div style="width: 100%; position: relative; padding-top: 100%; max-width: 500px;">    
             <img src="${product.CoverImg}" alt="${product.Name}" onclick="openProductDetail('${product.SKU}')" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="attributes">
-            <h3 style="background: ${gradientColor};background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;">${product.Name}</h3>
+            <h3>${product.Name}</h3>
             <p style="margin-top: 10px; font-family: 'Blinker-Regular', sans-serif;">US$ ${product.Price}</p>
             <p style="font-size: 20px; font-family: 'Blinker-Regular', sans-serif; color: #F84242;">${product.Status}</p>
         </div>
