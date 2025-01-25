@@ -344,3 +344,10 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 480px) {
+    .footer-content {
+        gap: 0px;
+        flex-direction: column;
+    }
+}
