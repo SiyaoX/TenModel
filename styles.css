@@ -159,24 +159,22 @@ h1 {
 
 .item-list {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: stretch;  /* Stretch items to the same height */
     justify-content: center;
     list-style-type: none;
     margin: 0 auto;
-    /* Center the list */
     padding: 0;
     gap: 20px;
-    /* Add spacing between items */
     max-width: 1000px;
-    /* Set maximum width */
 }
 
 .item {
+    background-color: #FFFAFA;
     margin: 0 auto;
     /* Center horizontally */
-    width: max-content;
-    /* Ensure the item's width adapts to its content */
+    width: calc(25% - 20px); /* 100% / 4 = 25% */
+    /* Ensure the item's width adapts to its content and accounts for gap */
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     max-width: 100%;
@@ -184,6 +182,18 @@ h1 {
     display: flex;
     flex-direction: column;
     /* Stack content vertically */
+}
+
+@media (max-width: 768px) {
+    .item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        width: calc(100% - 20px);
+    }
 }
 
 .image-container {
@@ -259,7 +269,6 @@ h1 {
 }
 
 .attributes {
-    background-color: #FFFAFA;
     padding: 10px;
     color: #222222;
     font-size: 22px;
@@ -276,27 +285,6 @@ h1 {
 .attributes p {
     margin: 5px 0;
 }
-
-@keyframes gradientAnimation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-  
-  .text-gradient {
-    background: ${gradientColor};
-    background-size: 300% 300%; /* Expands the gradient to give it room to move */
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: gradientAnimation 10s ease infinite; /* 10s for slow animation, infinite loop */
-  }
 
 .video-container {
     position: relative;

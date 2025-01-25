@@ -66,26 +66,20 @@ function appendProductToTab(tabId, product) {
 
     const listItem = document.createElement('li');
     listItem.classList.add('item');
+
     const gradientColor = product.GradientColor || 'linear-gradient(90deg, #5141B0, #FFE500, #FF0031)';
     listItem.innerHTML = `
-        <img src="${product.CoverImg}" alt="${product.Name}" onclick="openProductDetail('${product.SKU}')">
+        <div style="width: 100%; position: relative; padding-top: 100%; max-width: 500px;">    
+            <img src="${product.CoverImg}" alt="${product.Name}" onclick="openProductDetail('${product.SKU}')" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+        </div>
         <div class="attributes">
             <h3 style="background: ${gradientColor};background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;">${product.Name}</h3>
-            <p style="color: #555555;">SKU ${product.SKU}</p>
             <p style="margin-top: 10px; font-family: 'Blinker-Regular', sans-serif;">US$ ${product.Price}</p>
             <p style="font-size: 20px; font-family: 'Blinker-Regular', sans-serif; color: #F84242;">${product.Status}</p>
-            <p style="margin-top: 15px; font-size: 20px; font-family: 'Blinker-Regular', sans-serif;">Product Details</p>
-            <p style="margin-top: -5px; font-size: 20px; font-family: 'Blinker-Light', sans-serif;">Brand: ${product.Brand}</p>
-            <p style="margin-top: -5px; font-size: 20px; font-family: 'Blinker-Light', sans-serif;">Material: ${product.Material}</p>
-            <p style="margin-top: -5px; font-size: 20px; font-family: 'Blinker-Light', sans-serif;">Color: ${product.Color}</p>
-            <p style="margin-top: -5px; font-size: 20px; font-family: 'Blinker-Light', sans-serif;">Finish: ${product.Finish}</p>
-            <p style="margin-top: -5px; font-size: 20px; font-family: 'Blinker-Light', sans-serif;">Size: ${product.Weight}</p>
-            <p style="margin-top: -5px; font-size: 20px; font-family: 'Blinker-Light', sans-serif;">Size: ${product.Size}</p>
         </div>
     `;
     container.appendChild(listItem);
 }
-
 // Function to open product detail page
 function openProductDetail(SKU) {
     const product = findProductById(SKU);

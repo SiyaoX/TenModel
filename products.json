@@ -1,7 +1,7 @@
 [
   {
     "Name": "Full Armor ZZ Gundam 1/100",
-    "GradientColor": "linear-gradient(90deg, #FFE500, #FF0031, #5141B0)",
+    "GradientColor": "linear-gradient(90deg, #5141B0 37%, #FF0031 37%, #FF0031 48%, grey 48%)",
     "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
     "Price": "2,500.00",
     "SKU": "sm001",
@@ -12,7 +12,7 @@
     "Size": "1/100",
     "Weight": "1500g",
     "Category": "sm",
-    "Status": "SOLD OUT",
+    "Status": "PRE-ORDER",
     "CoverImg":"gundam001.jpg",
     "DetailImgs": [
       "gundam001.jpg",
@@ -28,7 +28,7 @@
     "Price": "Not Available",
     "SKU": "sm002",
     "Category": "sm",
-    "Status": "Not Available",
+    "Status": "PRE-ORDER",
     "CoverImg":"gundam002.jpg",
     "DetailImgs": [
       "gundam001.jpg",
