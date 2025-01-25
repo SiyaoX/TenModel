@@ -323,8 +323,9 @@ h1 {
 
 
 footer {
-    font-size: 20px;
+    font-size: 1.1rem;
     padding: 5px 0;
+
     color: #FFD100;
     background-color: #2D2926;
     text-align: center;
@@ -332,6 +333,14 @@ footer {
     position: relative;
     bottom: 0;
 }
+
 .footer p {
     margin: 0;
+}
+
+.footer-content {
+    gap: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
