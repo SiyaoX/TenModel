@@ -27,7 +27,7 @@ async function loadProducts() {
     try {
         const response = await fetch('products.json');
         if (!response.ok) throw new Error('Failed to load products JSON');
-        
+
         window.products = await response.json();
         console.log('Products loaded:', products); // Debugging
 
@@ -66,10 +66,11 @@ function appendProductToTab(tabId, product) {
 
     const listItem = document.createElement('li');
     listItem.classList.add('item');
+    const gradientColor = product.GradientColor || 'linear-gradient(90deg, #5141B0, #FFE500, #FF0031)';
     listItem.innerHTML = `
         <img src="${product.CoverImg}" alt="${product.Name}" onclick="openProductDetail('${product.SKU}')">
         <div class="attributes">
-            <h3>${product.Name}</h3>
+            <h3 style="background: ${gradientColor};background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;">${product.Name}</h3>
             <p style="color: #555555;">SKU ${product.SKU}</p>
             <p style="margin-top: 10px; font-family: 'Blinker-Regular', sans-serif;">US$ ${product.Price}</p>
             <p style="font-size: 20px; font-family: 'Blinker-Regular', sans-serif; color: #F84242;">${product.Status}</p>

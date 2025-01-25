@@ -177,8 +177,6 @@ h1 {
     /* Center horizontally */
     width: max-content;
     /* Ensure the item's width adapts to its content */
-    border: 1px solid #000000;
-    border-radius: 3px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     max-width: 100%;
@@ -267,15 +265,38 @@ h1 {
     font-size: 22px;
     text-align: left;
 }
+
 .attributes h3 {
-   margin-top: 0px;
-   margin-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    width: fit-content;
+    white-space: normal;
 }
 
 .attributes p {
     margin: 5px 0;
 }
 
+@keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .text-gradient {
+    background: ${gradientColor};
+    background-size: 300% 300%; /* Expands the gradient to give it room to move */
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 10s ease infinite; /* 10s for slow animation, infinite loop */
+  }
 
 .video-container {
     position: relative;
