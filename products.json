@@ -13,7 +13,7 @@
     "Weight": "1500g",
     "Category": "sm",
     "Status": "PRE-ORDER",
-    "CoverImg":"gundam001.jpg",
+    "CoverImg":"resources/img/static/gundam001.jpg",
     "DetailImgs": [
       "gundam001.jpg",
       "gundam002.jpg",
@@ -29,7 +29,7 @@
     "SKU": "sm002",
     "Category": "sm",
     "Status": "PRE-ORDER",
-    "CoverImg":"gundam002.jpg",
+    "CoverImg":"resources/img/static/gundam002.jpg",
     "DetailImgs": [
       "gundam001.jpg",
       "gundam002.jpg",
@@ -44,7 +44,7 @@
     "SKU": "sm003",
     "Category": "sm",
     "Status": "Not Available",
-    "CoverImg":"gundam003.jpg",
+    "CoverImg":"resources/img/static/gundam003.jpg",
     "DetailImgs": [
       "gundam001.jpg",
       "gundam002.jpg",
@@ -59,7 +59,7 @@
     "SKU": "sm004",
     "Category": "sm",
     "Status": "Not Available",
-    "CoverImg":"gundam004.jpg",
+    "CoverImg":"resources/img/static/gundam004.jpg",
     "DetailImgs": [
       "gundam001.jpg",
       "gundam002.jpg",
