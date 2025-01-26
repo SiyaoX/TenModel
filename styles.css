@@ -14,7 +14,7 @@
     src: url('./resources/fonts/Blinker/Blinker-Light.ttf') format('truetype');
 }
 
-html, body {
+html {
     font-family: 'Blinker-Light', sans-serif;
     text-align: center;
     background-color: #141414;
@@ -23,31 +23,48 @@ html, body {
     /* White text for better contrast */
     margin: 0;
     padding: 0;
-    padding-top: 44px;
-    /* Adjust this value to match the height of your banner */
-    height: 100%;  /* Make the body and html take full height */
+    padding-top: 0px;
+    height: 100%;
+    /* Make the body and html take full height */
+}
+
+body {
+    font-family: 'Blinker-Light', sans-serif;
+    text-align: center;
+    background-color: #141414;
+    /* Gunmetal color */
+    color: #ffffff;
+    /* White text for better contrast */
+    margin: 0;
+    padding: 0;
+    padding-top: 650px;
+    height: 100%;
+    /* Make the body and html take full height */
 }
 
 .content {
-    min-height: 100%; /* Ensures the content area takes full height */
-    padding-bottom: 50px; /* Add space for the footer */
+    min-height: 100%;
+    /* Ensures the content area takes full height */
+    /* padding-bottom: 50px; */
+    /* Add space for the footer */
 }
 
 .a {
     text-decoration: none;
-    color: #FFD100;
+    color: #c8c8c8;
 }
 
 .banner {
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
-    height: 65px;
-    background-color: #2D2926;
-
-    /* Adjust background color as needed */
+    height: 650px;
+    background: linear-gradient(to top, rgba(45, 41, 38, 1), rgba(45, 41, 38, 0)), url('gundam002.jpg');
+    background-size: cover;
+    background-position: center;
+    /* Adjust background gradient and image as needed */
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
     z-index: 1000;
     /* Ensure the banner is above other elements */
@@ -70,25 +87,27 @@ html, body {
 }
 
 .contact-info a {
-    color: #FFD100;
+    color: #c8c8c8;
     text-decoration: none;
 }
 
 .contact-info p {
     margin-bottom: 5px;
-    color: #FFD100;
+    color: #c8c8c8;
 }
 
 .logo {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .logo-container {
     margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .logo img {
+    vertical-align: middle;
     width: 30px;
     /* Consistent size for the icon */
     height: 30px;
@@ -106,13 +125,22 @@ html, body {
 .social-media-buttons img {
     width: 30px;
     height: 30px;
-    margin: 0 5px;
+    vertical-align: middle; /* 避免默认的基线对齐 */
 }
+
+.social-media-buttons a {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    
+}
+
 
 h1 {
     font-size: 2.5em;
     margin: 20px 0;
-    color: #FFD100;
+    color: #c8c8c8;
     /* Contrast color for header */
 }
 
@@ -132,7 +160,7 @@ h1 {
     padding: 10px;
     width: 180px;
     background-color: #333;
-    color: #FFD100;
+    color: #c8c8c8;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s;
@@ -147,7 +175,7 @@ h1 {
 
 /* .active-tab {
     background-color: #00ff08;
-    color: #FFD100;
+    color: #c8c8c8;
     font-weight: bold;
 } */
 
@@ -323,13 +351,13 @@ h1 {
 
 
 footer {
-    font-size: 1.1rem;
+    font-size: 14px;
     padding: 5px 0;
-
-    color: #FFD100;
+    color: #c8c8c8;
     background-color: #2D2926;
     text-align: center;
-    width: 100%;  /* Full width of the page */
+    width: 100%;
+    /* Full width of the page */
     position: relative;
     bottom: 0;
 }
