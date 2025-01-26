@@ -58,10 +58,11 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 650px;
-    background: linear-gradient(to top, rgba(45, 41, 38, 1), rgba(45, 41, 38, 0)), url('gundam002.jpg');
+    height: 350px;
+    background-image: url('banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 0.80) 05%, rgba(45, 41, 38, 0));
     background-size: cover;
     background-position: center;
+    background-blend-mode: overlay;
     /* Adjust background gradient and image as needed */
     display: flex;
     align-items: flex-end;
