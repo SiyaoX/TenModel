@@ -37,7 +37,7 @@ body {
     /* White text for better contrast */
     margin: 0;
     padding: 0;
-    padding-top: 350px;
+    padding-top: 700px;
     height: 100%;
     /* Make the body and html take full height */
 }
@@ -58,7 +58,7 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    height: calc(350px + 1px);
+    height: calc(700px + 1px);
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -78,7 +78,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-blend-mode: overlay;
-    animation: slideshow 10s infinite, zoom 15s infinite;
+    animation: slideshow 40s infinite, zoom 10s infinite;
     z-index: -1;
 }
 
@@ -92,30 +92,28 @@ body {
 
     25.01%,
     50% {
-        background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
+        background-image: url('resources/img/static/gundam001.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
     }
 
     50.01%,
     75% {
-        background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
+        background-image: url('resources/img/static/gundam002.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
     }
 
     75.01%,
     100% {
-        background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
+        background-image: url('resources/img/static/gundam003.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
     }
 }
-
-/* Keyframes for zoom effect */
 @keyframes zoom {
-
-    0%,
-    100% {
-        background-size: 110%;
+    0%, 100% {
+        opacity: 0; /* Fully invisible at the start and end */
     }
-
+    10%, 90% {
+        opacity: 1; /* Fast fade-in at 10% and fast fade-out at 90% */
+    }
     50% {
-        background-size: 120%;
+        opacity: 1; /* Fully visible at the midpoint */
     }
 }
 
