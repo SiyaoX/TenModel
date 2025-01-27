@@ -367,6 +367,16 @@ footer {
     margin: 0;
 }
 
+.footer-policy{
+    color: rgb(65, 65, 65);
+    text-decoration: none;
+}
+
+.footer-policy:hover{
+    color: rgb(119, 119, 119);
+    text-decoration: underline;
+}
+
 .footer-content {
     gap: 20px;
     display: flex;
