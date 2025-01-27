@@ -58,8 +58,8 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    height: 350px;
-    background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 0.50), rgba(45, 41, 38, 0));
+    height: calc(350px + 1px);
+    background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
     background-size: cover;
     background-position: center;
     background-blend-mode: overlay;
@@ -69,6 +69,7 @@ body {
     justify-content: space-between;
     z-index: 1000;
     /* Ensure the banner is above other elements */
+    margin: 0;
 }
 
 .banner .tab {
@@ -124,8 +125,8 @@ body {
 
 
 .social-media-buttons img {
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     vertical-align: middle; /* 避免默认的基线对齐 */
 }
 
@@ -156,9 +157,9 @@ h1 {
 }
 
 .tab {
-    margin-top: 5px;
-    margin-left: 5px;
-    margin-right: 5px;
+    /* margin-top: 5px; */
+    /* margin-left: 5px;
+    margin-right: 5px; */
     padding: 10px;
     width: 180px;
     background-color: #1e1e1e00;
