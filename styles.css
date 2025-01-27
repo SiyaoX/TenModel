@@ -59,17 +59,64 @@ body {
     top: 0;
     width: 100%;
     height: calc(350px + 1px);
-    background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
-    background-size: cover;
-    background-position: center;
-    background-blend-mode: overlay;
-    /* Adjust background gradient and image as needed */
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     z-index: 1000;
-    /* Ensure the banner is above other elements */
+    overflow: hidden;
     margin: 0;
+}
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    animation: slideshow 10s infinite, zoom 15s infinite;
+    z-index: -1;
+}
+
+/* Keyframes for background image slideshow */
+@keyframes slideshow {
+
+    0%,
+    25% {
+        background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
+    }
+
+    25.01%,
+    50% {
+        background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
+    }
+
+    50.01%,
+    75% {
+        background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
+    }
+
+    75.01%,
+    100% {
+        background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
+    }
+}
+
+/* Keyframes for zoom effect */
+@keyframes zoom {
+
+    0%,
+    100% {
+        background-size: 110%;
+    }
+
+    50% {
+        background-size: 120%;
+    }
 }
 
 .banner .tab {
@@ -127,7 +174,8 @@ body {
 .social-media-buttons img {
     width: 25px;
     height: 25px;
-    vertical-align: middle; /* 避免默认的基线对齐 */
+    vertical-align: middle;
+    /* 避免默认的基线对齐 */
 }
 
 .social-media-buttons a {
@@ -135,7 +183,7 @@ body {
     height: 30px;
     margin: 0;
     padding: 0;
-    
+
 }
 
 
@@ -368,12 +416,12 @@ footer {
     margin: 0;
 }
 
-.footer-policy{
+.footer-policy {
     color: rgb(65, 65, 65);
     text-decoration: none;
 }
 
-.footer-policy:hover{
+.footer-policy:hover {
     color: rgb(119, 119, 119);
     text-decoration: underline;
 }
