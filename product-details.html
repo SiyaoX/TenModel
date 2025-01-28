@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <header class="banner">
-        <div class="logo-container">
+    <header class="short-banner">
+        <div class="logo-container" style="margin-bottom: 0px;">
             <a href="index.html" class="a">
                 <div class="logo">
                     <img src="resources/img/icon/tian.png" alt="Company Logo">
@@ -19,19 +19,20 @@
                 </div>
             </a>
         </div>
-        <div class="contact-container" style="text-align: center;">
-            <div class="contact-info">
-                <p><a href="mailto:contact@tenmodel.design">contact@tenmodel.design</a></p>
-            </div>
+        <div class="contact-container" style="text-align: center; margin-bottom: 0px;">
             <div class="social-media-buttons">
-                <a href="https://www.youtube.com" target="_blank"><img src="resources/img/icon/youtube-icon-white.png"
-                        alt="YouTube"></a>
-                <a href="https://www.facebook.com" target="_blank"><img src="resources/img/icon/facebook-icon-white.png"
-                        alt="Facebook"></a>
-                <a href="https://www.twitter.com" target="_blank"><img src="resources/img/icon/x-icon-white.png"
-                        alt="Twitter"></a>
-                <a href="https://www.instagram.com" target="_blank"><img
-                        src="resources/img/icon/instagram-icon-white.png" alt="Instagram"></a>
+                <div class="social-media-buttons">
+                    <a href="mailto:contact@tenmodel.design" target="_blank"><img src="resources/img/icon/email.png"
+                            alt="Contact"></a>
+                    <a href="https://www.youtube.com" target="_blank"><img
+                            src="resources/img/icon/youtube-icon-white.png" alt="YouTube"></a>
+                    <a href="https://www.instagram.com" target="_blank"><img
+                            src="resources/img/icon/instagram-icon-white.png" alt="Instagram"></a>
+                    <a href="https://www.facebook.com" target="_blank"><img
+                            src="resources/img/icon/facebook-icon-white.png" alt="Facebook"></a>
+                    <a href="https://www.twitter.com" target="_blank"><img src="resources/img/icon/x-icon-white.png"
+                            alt="Twitter"></a>
+                </div>
             </div>
         </div>
     </header>
@@ -64,10 +65,10 @@
     <script>
         window.onload = function () {
             // 滚动到 500px 的高度
-            window.scrollTo({
-                top: 650,
-                behavior: 'smooth'
-            });
+            // window.scrollTo({
+            //     top: 650,
+            //     behavior: 'smooth'
+            // });
         };
         // Retrieve product data from localStorage
         const product = JSON.parse(localStorage.getItem('selectedProduct'));

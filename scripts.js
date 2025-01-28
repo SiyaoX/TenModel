@@ -4,6 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
 });
 
+document.querySelector('.navigation-container a').addEventListener('click', function() {
+    if (window.scrollY < 300) {
+        window.scrollTo({ top: 655, behavior: 'smooth' });
+    } else {
+        window.scrollTo({ top: 700, behavior: 'smooth' });
+    }
+});
+
 // Function to handle tab switching
 function openTab(evt, tabName) {
     var i, tabcontent, tablinks;
@@ -84,7 +92,7 @@ function openProductDetail(SKU) {
     const product = findProductById(SKU);
     if (product) {
         localStorage.setItem('selectedProduct', JSON.stringify(product));
-        window.location.href = 'product-detail.html';
+        window.location.href = 'product-details.html';
     } else {
         console.error('Product not found:', SKU);
     }
