@@ -60,13 +60,35 @@ body {
     width: 100%;
     height: calc(700px + 1px);
     display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
+    align-items: center;
     z-index: 1000;
     overflow: hidden;
     margin: 0;
-    will-change: background-image; /* hint to browser about upcoming background changes */
+    will-change: background-image;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    /* hint to browser about upcoming background changes */
 }
+
+.banner-slogan {
+    position: absolute; /* Keep it positioned within the banner */
+    top: 65%; /* Move it higher by adjusting the top percentage */
+    left: 50%; /* Center it horizontally */
+    transform: translate(-50%, -50%); /* Perfectly center the element */
+    color: rgb(255, 255, 255); /* Ensure the text is visible */
+    text-align: center; /* Center the text */
+}
+
+.banner-extras {
+    display: flex; /* Enables flexbox */
+    flex-direction: row; /* Arranges children horizontally */
+    align-items: center; /* Aligns items vertically */
+    justify-content: space-between; /* Adds space between items */
+    width: 100%; /* Make it span the entire banner width */
+    z-index: 1001; /* Ensures it is above the banner background */
+}
+
 
 .short-banner {
     background-color: #000000;
@@ -120,18 +142,30 @@ body {
         background-image: url('resources/img/static/gundam003.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
     }
 }
+
 /* Keyframes for fade-in and fade-out with extended invisible period */
 @keyframes zoom {
-    0%, 10% { /* Stay invisible for the first second */
+
+    0%,
+    10% {
+        /* Stay invisible for the first second */
         opacity: 0;
     }
-    20%, 50% { /* Fade-in quickly at 20% and stay fully visible */
+
+    20%,
+    50% {
+        /* Fade-in quickly at 20% and stay fully visible */
         opacity: 1;
     }
-    80%, 90% { /* Stay visible till 90% */
+
+    80%,
+    90% {
+        /* Stay visible till 90% */
         opacity: 1;
     }
-    100% { /* Fade out quickly at the end */
+
+    100% {
+        /* Fade out quickly at the end */
         opacity: 0;
     }
 }
@@ -162,7 +196,7 @@ body {
     color: #c8c8c8;
 }
 
-.navigation-container{
+.navigation-container {
     margin-bottom: 10px;
 }
 
@@ -220,6 +254,7 @@ h1 {
     color: #c8c8c8;
     /* Contrast color for header */
 }
+
 .tabs-container {
     display: flex;
     justify-content: center;
@@ -237,8 +272,11 @@ h1 {
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    white-space: nowrap; /* Prevent text wrapping */
-    font-size: 12px; /* Add font size */
+    white-space: nowrap;
+    /* Prevent text wrapping */
+    font-size: 12px;
+    /* Add font size */
+    font-weight: bold;
 }
 
 .tab::before {
@@ -273,10 +311,10 @@ h1 {
 
 .tab-content {
     display: none;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 20px;
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .tab-content.active {
@@ -480,4 +518,26 @@ footer {
         gap: 0px;
         flex-direction: column;
     }
+}
+
+.tab-content-header img {
+    /* width: 100%;
+    height: auto;
+    max-width: 100%; */
+    /* object-fit: contain; */
+    height: 25px;
+    width: 25px;
+}
+
+.tab-content-header h2 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.tab-content-header p {
+    font-size: 1rem;
+    line-height: 1.8;
+    font-weight: lighter;
+    margin-top: 0px;
+    margin-bottom: 35px;
 }

@@ -12,19 +12,42 @@
 <body>
     <div class="content">
         <header class="banner">
-            <div class="logo-container" style="width: 136.44px;">
-                <a href="index.html" class="a">
-                    <div class="logo">
-                        <img src="resources/img/icon/tian.png" alt="Company Logo">
-                        <h1>TenModel</h1>
-                    </div>
-                </a>
+            <div class="banner-content"
+                style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%;">
             </div>
-            <div class="navigation-container">
-                <a><img src="resources/img/icon/down.png" alt="Scroll Down"></a>
+            <div class="banner-slogan">
+                <h1>TenModel ONLINE SHOP</h1>
+                <p>High-quality handcrafted, limit one per person, pre-orders now open!</p>
+            </div>
+            <div class="banner-extras">
+                <div class="logo-container" style="width: 136.44px;">
+                    <a href="index.html" class="a">
+                        <div class="logo">
+                            <img src="resources/img/icon/tian.png" alt="Company Logo">
+                            <h1>TenModel</h1>
+                        </div>
+                    </a>
+                </div>
+                <div class="navigation-container">
+                    <a><img src="resources/img/icon/down.png" alt="Scroll Down"></a>
+                </div>
+                <div class="contact-container" style="text-align: center;">
+                    <div class="social-media-buttons">
+                        <a href="mailto:contact@tenmodel.design" target="_blank"><img src="resources/img/icon/email.png"
+                                alt="Contact"></a>
+                        <a href="https://www.youtube.com" target="_blank"><img
+                                src="resources/img/icon/youtube-icon-white.png" alt="YouTube"></a>
+                        <a href="https://www.instagram.com" target="_blank"><img
+                                src="resources/img/icon/instagram-icon-white.png" alt="Instagram"></a>
+                        <a href="https://www.facebook.com" target="_blank"><img
+                                src="resources/img/icon/facebook-icon-white.png" alt="Facebook"></a>
+                        <a href="https://www.twitter.com" target="_blank"><img src="resources/img/icon/x-icon-white.png"
+                                alt="Twitter"></a>
+                    </div>
+                </div>
             </div>
             <script>
-                document.querySelector('.navigation-container a').addEventListener('click', function() {
+                document.querySelector('.navigation-container a').addEventListener('click', function () {
                     if (window.scrollY < 300) {
                         window.scrollTo({ top: 655, behavior: 'smooth' });
                     } else {
@@ -32,22 +55,7 @@
                     }
                 });
             </script>
-            <div class="contact-container" style="text-align: center;">
-                <div class="social-media-buttons">
-                    <a href="mailto:contact@tenmodel.design" target="_blank"><img src="resources/img/icon/email.png"
-                            alt="Contact"></a>
-                    <a href="https://www.youtube.com" target="_blank"><img
-                            src="resources/img/icon/youtube-icon-white.png" alt="YouTube"></a>
-                    <a href="https://www.instagram.com" target="_blank"><img
-                            src="resources/img/icon/instagram-icon-white.png" alt="Instagram"></a>
-                    <a href="https://www.facebook.com" target="_blank"><img
-                            src="resources/img/icon/facebook-icon-white.png" alt="Facebook"></a>
-                    <a href="https://www.twitter.com" target="_blank"><img src="resources/img/icon/x-icon-white.png"
-                            alt="Twitter"></a>
-                </div>
-            </div>
         </header>
-
         <main>
             <nav class="tabs-container">
                 <span class="tab active-tab" onclick="openTab(event, 'tab1')" aria-controls="tab1">Static Models</span>
@@ -56,22 +64,38 @@
                 <span class="tab" onclick="openTab(event, 'tab4')" aria-controls="tab4">Contact Us</span>
             </nav>
             <div id="tab1" class="tab-content active">
-                <h2>Static Models</h2>
+                <div class="tab-content-header">
+                    <img src="resources/img/icon/tian.png" alt="Static Models Image">
+                    <h2>STATIC MODELS</h2>
+                    <p>The latest pre-order items from TenModel</p>
+                </div>
                 <ul class="item-list"></ul>
             </div>
 
             <div id="tab2" class="tab-content">
-                <h2>RC Models</h2>
+                <div class="tab-content-header">
+                    <img src="resources/img/icon/tian.png" alt="RC Models Image">
+                    <h2>RC MODELS</h2>
+                    <p>The latest pre-order items from TenModel</p>
+                </div>
                 <ul class="item-list"></ul>
             </div>
 
             <div id="tab3" class="tab-content">
-                <h2>Tool & Parts</h2>
+                <div class="tab-content-header">
+                    <img src="resources/img/icon/tian.png" alt="Tool & Parts Image">
+                    <h2>TOOL & PARTS</h2>
+                    <p>The latest pre-order items from TenModel</p>
+                </div>
                 <ul class="item-list"></ul>
             </div>
 
             <div id="tab4" class="tab-content">
-                <h2>Contact Us</h2>
+                <div class="tab-content-header">
+                    <img src="resources/img/icon/tian.png" alt="Contact Us Image">
+                    <h2>CONTACT US</h2>
+                    <p>The latest pre-order items from TenModel</p>
+                </div>
                 <ul class="item-list"></ul>
             </div>
         </main>
