@@ -71,6 +71,10 @@ body {
     /* hint to browser about upcoming background changes */
 }
 
+.banner-content{
+    display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%;
+}
+
 .banner-slogan {
     position: absolute; /* Keep it positioned within the banner */
     top: 65%; /* Move it higher by adjusting the top percentage */
@@ -78,12 +82,20 @@ body {
     transform: translate(-50%, -50%); /* Perfectly center the element */
     color: rgb(255, 255, 255); /* Ensure the text is visible */
     text-align: center; /* Center the text */
+    width: 330px;
+}
+
+.banner-slogan p {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
 }
 
 .banner-extras {
     display: flex; /* Enables flexbox */
     flex-direction: row; /* Arranges children horizontally */
-    align-items: center; /* Aligns items vertically */
+    align-items: end; /* Aligns items vertically */
     justify-content: space-between; /* Adds space between items */
     width: 100%; /* Make it span the entire banner width */
     z-index: 1001; /* Ensures it is above the banner background */
