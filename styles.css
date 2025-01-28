@@ -220,7 +220,6 @@ h1 {
     color: #c8c8c8;
     /* Contrast color for header */
 }
-
 .tabs-container {
     display: flex;
     justify-content: center;
@@ -238,6 +237,8 @@ h1 {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    white-space: nowrap; /* Prevent text wrapping */
+    font-size: 12px; /* Add font size */
 }
 
 .tab::before {
@@ -255,7 +256,7 @@ h1 {
 
 .tab:active::before,
 .active-tab::before {
-    transform: translate(0px, -20px) rotate(45deg);
+    transform: translate(0px, -10px) rotate(45deg);
 }
 
 .tab:active {
@@ -266,7 +267,7 @@ h1 {
     color: #ffd700;
 }
 
-.tab:hover{
+.tab:hover {
     color: #ffd700;
 }
 
