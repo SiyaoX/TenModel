@@ -232,17 +232,30 @@ h1 {
 }
 
 .tab {
-    /* margin-top: 5px; */
-    /* margin-left: 5px;
-    margin-right: 5px; */
+    width: 100px;
     padding: 10px;
-    width: 180px;
     background-color: #1e1e1e00;
     color: #c8c8c8;
     cursor: pointer;
-    /* border-radius: 5px; */
-    /* transition: background-color 0.3s; */
-    font-weight: bolder;
+    position: relative;
+    overflow: hidden;
+}
+
+.tab::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    transform: translate(-100%, -100%) rotate(45deg);
+    transition: transform 0.5s;
+    pointer-events: none;
+}
+
+.tab:hover::before {
+    transform: translate(0, 0) rotate(45deg);
 }
 
 .tab:hover {
@@ -253,7 +266,7 @@ h1 {
 .active-tab {
     /* background-color: #00ff08; */
     color: #ffd700;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
 
 .tab-content {
