@@ -8,7 +8,7 @@ document.querySelector('.navigation-container a').addEventListener('click', func
     if (window.scrollY < 300) {
         window.scrollTo({ top: 655, behavior: 'smooth' });
     } else {
-        window.scrollTo({ top: 700, behavior: 'smooth' });
+        window.scrollTo({ top: 701, behavior: 'smooth' });
     }
 });
 
