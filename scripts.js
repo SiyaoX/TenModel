@@ -1,3 +1,10 @@
+window.onload = function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+window.addEventListener('load', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     // Default to the first tab
     document.querySelector('.tab').click();
