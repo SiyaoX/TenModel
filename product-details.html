@@ -6,11 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Gallery</title>
     <style>
-        /* Consolidated and improved CSS */
+        /* Updated CSS */
         .product-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .image-section {
+            position: relative;
+            flex: 1;
         }
 
         #mainImageContainer {
@@ -18,7 +29,6 @@
             height: 600px;
             overflow: hidden;
             position: relative;
-            margin-bottom: 20px;
             border: 1px solid #ddd;
         }
 
@@ -26,9 +36,38 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: opacity 0.3s ease;
         }
 
+        /* Navigation buttons */
+        .image-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 2;
+            transition: background 0.3s ease;
+        }
+
+        .image-nav:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        #prevBtn {
+            left: 0;
+            border-radius: 0 5px 5px 0;
+        }
+
+        #nextBtn {
+            right: 0;
+            border-radius: 5px 0 0 5px;
+        }
+
+        /* Thumbnails */
         .thumbnail-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -39,10 +78,10 @@
         .thumbnail-item {
             cursor: pointer;
             border: 2px solid transparent;
-            transition: border-color 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .thumbnail-item.active {
+        .thumbnail-item.active, .thumbnail-item:hover {
             border-color: #ff4444;
         }
 
@@ -52,19 +91,21 @@
             object-fit: cover;
         }
 
-        .product-info {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
+        /* Product Details */
+        .product-details {
+            flex: 1;
+            padding: 20px;
         }
 
-        .nav-button {
-            padding: 10px 20px;
-            background: #333;
-            color: white;
-            border: none;
-            cursor: pointer;
+        /* Responsive Layout */
+        @media (min-width: 768px) {
+            .main-content {
+                flex-direction: row;
+            }
+            
+            .product-details {
+                max-width: 400px;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
@@ -96,100 +137,95 @@
             </div>
         </div>
     </header>
-
     <div class="product-container">
-        <!-- Main product section -->
-        <div class="product-info">
-            <button class="nav-button" id="prevBtn">Previous</button>
-            <div style="text-align: center;">
+        <div class="main-content">
+            <!-- Image Section -->
+            <div class="image-section">
+                <div id="mainImageContainer">
+                    <button class="image-nav" id="prevBtn" aria-label="Previous image">&lt;</button>
+                    <img class="main-image" src="" alt="Product Image" />
+                    <button class="image-nav" id="nextBtn" aria-label="Next image">&gt;</button>
+                </div>
+                <div class="thumbnail-grid" id="thumbnailGrid"></div>
+
+            </div>
+
+            <!-- Product Details -->
+            <div class="product-details">
                 <h2 id="productName"></h2>
                 <p id="productDescription"></p>
                 <p id="productPrice"></p>
+                <!-- Add more product details here -->
             </div>
-            <button class="nav-button" id="nextBtn">Next</button>
         </div>
-
-        <!-- Main image container -->
-        <div id="mainImageContainer">
-            <img class="main-image" src="" alt="Product Image" />
-        </div>
-
-        <!-- Dynamic thumbnail grid -->
-        <div class="thumbnail-grid" id="thumbnailGrid"></div>
     </div>
 
     <script>
-        // Improved JavaScript with better error handling and dynamic thumbnail generation
         document.addEventListener('DOMContentLoaded', () => {
             const product = JSON.parse(localStorage.getItem('selectedProduct'));
-            
-            if (!product) {
-                console.error('Product data not found');
-                return;
-            }
+            if (!product) return console.error('Product not found');
 
             const images = product.DetailImgs || [];
             let currentImageIndex = 0;
-
-            // DOM elements
-            const mainImage = document.querySelector('.main-image');
-            const thumbnailGrid = document.getElementById('thumbnailGrid');
-            const productName = document.getElementById('productName');
-            const productDescription = document.getElementById('productDescription');
-            const productPrice = document.getElementById('productPrice');
+            const elements = {
+                mainImage: document.querySelector('.main-image'),
+                thumbnailGrid: document.getElementById('thumbnailGrid'),
+                productName: document.getElementById('productName'),
+                productDescription: document.getElementById('productDescription'),
+                productPrice: document.getElementById('productPrice')
+            };
 
             // Initialize product info
-            productName.textContent = product.Name;
-            productDescription.textContent = product.Model || 'No description available';
-            productPrice.textContent = `US$ ${product.Price || 'N/A'}`;
+            elements.productName.textContent = product.Name;
+            elements.productDescription.textContent = product.Model || 'No description available';
+            elements.productPrice.textContent = `US$ ${product.Price || 'N/A'}`;
 
             // Thumbnail generation
             function generateThumbnails() {
-                thumbnailGrid.innerHTML = images.map((img, index) => `
+                elements.thumbnailGrid.innerHTML = images.map((img, index) => `
                     <div class="thumbnail-item ${index === 0 ? 'active' : ''}" 
-                         data-index="${index}"
-                         onclick="changeImage(${index})">
+                         data-index="${index}">
                         <img src="${img}" alt="Thumbnail ${index + 1}">
                     </div>
                 `).join('');
+
+                // Add click listeners to thumbnails
+                document.querySelectorAll('.thumbnail-item').forEach((item, index) => {
+                    item.addEventListener('click', () => changeImage(index));
+                });
             }
 
             // Image change handler
             function changeImage(index) {
                 if (index < 0 || index >= images.length) return;
+                currentImageIndex = index;
 
                 // Update active thumbnail
                 document.querySelectorAll('.thumbnail-item').forEach(item => {
                     item.classList.remove('active');
                 });
-                document.querySelector(`[data-index="${index}"]`).classList.add('active');
+                elements.thumbnailGrid.children[index].classList.add('active');
 
-                // Update main image with transition
-                mainImage.style.opacity = 0;
+                // Update main image with fade transition
+                elements.mainImage.style.opacity = 0;
                 setTimeout(() => {
-                    mainImage.src = images[index];
-                    mainImage.style.opacity = 1;
+                    elements.mainImage.src = images[index];
+                    elements.mainImage.style.opacity = 1;
                 }, 300);
-
-                currentImageIndex = index;
             }
 
             // Navigation controls
             document.getElementById('prevBtn').addEventListener('click', () => {
-                if (currentImageIndex > 0) {
-                    changeImage(currentImageIndex - 1);
-                }
+                if (currentImageIndex > 0) changeImage(currentImageIndex - 1);
             });
 
             document.getElementById('nextBtn').addEventListener('click', () => {
-                if (currentImageIndex < images.length - 1) {
-                    changeImage(currentImageIndex + 1);
-                }
+                if (currentImageIndex < images.length - 1) changeImage(currentImageIndex + 1);
             });
 
             // Initial setup
             if (images.length > 0) {
-                mainImage.src = images[0];
+                elements.mainImage.src = images[0];
                 generateThumbnails();
             }
         });
