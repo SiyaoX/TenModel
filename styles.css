@@ -8,48 +8,30 @@
     src: url('./resources/fonts/Blinker/Blinker-Thin.ttf') format('truetype');
 }
 
-
 @font-face {
     font-family: 'Blinker-Light';
     src: url('./resources/fonts/Blinker/Blinker-Light.ttf') format('truetype');
 }
 
-html {
+html, body {
     font-family: 'Blinker-Light', sans-serif;
     text-align: center;
     background-color: #141414;
-    /* Gunmetal color */
     color: #ffffff;
-    /* White text for better contrast */
     margin: 0;
     padding: 0;
-    padding-top: 0px;
     height: 100%;
-    /* Make the body and html take full height */
 }
 
 body {
-    font-family: 'Blinker-Light', sans-serif;
-    text-align: center;
-    background-color: #141414;
-    /* Gunmetal color */
-    color: #ffffff;
-    /* White text for better contrast */
-    margin: 0;
-    padding: 0;
     padding-top: 700px;
-    height: 100%;
-    /* Make the body and html take full height */
 }
 
 .content {
     min-height: 100%;
-    /* Ensures the content area takes full height */
-    /* padding-bottom: 50px; */
-    /* Add space for the footer */
 }
 
-.a {
+a {
     text-decoration: none;
     color: #c8c8c8;
 }
@@ -65,23 +47,26 @@ body {
     overflow: hidden;
     margin: 0;
     will-change: background-image;
-    flex-wrap: nowrap;
     flex-direction: column;
     justify-content: center;
-    /* hint to browser about upcoming background changes */
 }
 
-.banner-content{
-    display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; width: 100%;
+.banner-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 
 .banner-slogan {
-    position: absolute; /* Keep it positioned within the banner */
-    top: 65%; /* Move it higher by adjusting the top percentage */
-    left: 50%; /* Center it horizontally */
-    transform: translate(-50%, -50%); /* Perfectly center the element */
-    color: rgb(255, 255, 255); /* Ensure the text is visible */
-    text-align: center; /* Center the text */
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    text-align: center;
     width: 330px;
 }
 
@@ -93,14 +78,13 @@ body {
 }
 
 .banner-extras {
-    display: flex; /* Enables flexbox */
-    flex-direction: row; /* Arranges children horizontally */
-    align-items: end; /* Aligns items vertically */
-    justify-content: space-between; /* Adds space between items */
-    width: 100%; /* Make it span the entire banner width */
-    z-index: 1001; /* Ensures it is above the banner background */
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 1001;
 }
-
 
 .short-banner {
     background-color: #000000;
@@ -113,7 +97,6 @@ body {
     justify-content: space-between;
     z-index: 1000;
     overflow: hidden;
-    margin: 0;
 }
 
 .banner::before {
@@ -131,66 +114,26 @@ body {
     z-index: -1;
 }
 
-/* Keyframes for background image slideshow */
 @keyframes slideshow {
-
-    0%,
-    25% {
-        background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
-    }
-
-    25.01%,
-    50% {
-        background-image: url('resources/img/static/gundam001.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
-    }
-
-    50.01%,
-    75% {
-        background-image: url('resources/img/static/gundam002.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
-    }
-
-    75.01%,
-    100% {
-        background-image: url('resources/img/static/gundam003.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
-    }
+    0%, 25% { background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%); }
+    25.01%, 50% { background-image: url('resources/img/static/gundam001.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%); }
+    50.01%, 75% { background-image: url('resources/img/static/gundam002.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%); }
+    75.01%, 100% { background-image: url('resources/img/static/gundam003.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%); }
 }
 
-/* Keyframes for fade-in and fade-out with extended invisible period */
 @keyframes zoom {
-
-    0%,
-    10% {
-        /* Stay invisible for the first second */
-        opacity: 0;
-    }
-
-    20%,
-    50% {
-        /* Fade-in quickly at 20% and stay fully visible */
-        opacity: 1;
-    }
-
-    80%,
-    90% {
-        /* Stay visible till 90% */
-        opacity: 1;
-    }
-
-    100% {
-        /* Fade out quickly at the end */
-        opacity: 0;
-    }
+    0%, 10% { opacity: 0; }
+    20%, 50% { opacity: 1; }
+    80%, 90% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 .banner .tab {
     margin-left: 10px;
-    /* Adjust as needed */
     cursor: pointer;
-    color: rgb(255, 255, 255);
-    /* Adjust text color as needed */
+    color: #ffffff;
     text-decoration: none;
     font-size: 1.2em;
-    /* Adjust font size as needed */
 }
 
 .contact-container {
@@ -198,14 +141,10 @@ body {
     margin-bottom: 10px;
 }
 
-.contact-info a {
+.contact-info a, .contact-info p {
     color: #c8c8c8;
     text-decoration: none;
-}
-
-.contact-info p {
     margin-bottom: 5px;
-    color: #c8c8c8;
 }
 
 .navigation-container {
@@ -229,12 +168,9 @@ body {
 }
 
 .logo img {
-    vertical-align: middle;
     width: 30px;
-    /* Consistent size for the icon */
     height: 30px;
     margin-right: 5px;
-    /* Space between the logo and text */
 }
 
 .logo h1 {
@@ -243,37 +179,22 @@ body {
     text-align: left;
 }
 
-
 .social-media-buttons img {
     width: 25px;
     height: 25px;
     vertical-align: middle;
-    /* 避免默认的基线对齐 */
 }
-
-.social-media-buttons a {
-    width: 30px;
-    height: 30px;
-    margin: 0;
-    padding: 0;
-
-}
-
 
 h1 {
     font-size: 2.5em;
     margin: 20px 0;
     color: #c8c8c8;
-    /* Contrast color for header */
 }
 
 .tabs-container {
     display: flex;
     justify-content: center;
     width: 100%;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
 }
 
 .tab {
@@ -285,9 +206,7 @@ h1 {
     position: relative;
     overflow: hidden;
     white-space: nowrap;
-    /* Prevent text wrapping */
     font-size: 12px;
-    /* Add font size */
     font-weight: bold;
 }
 
@@ -304,28 +223,17 @@ h1 {
     pointer-events: none;
 }
 
-.tab:active::before,
-.active-tab::before {
+.tab:active::before, .active-tab::before {
     transform: translate(0px, -10px) rotate(45deg);
 }
 
-.tab:active {
-    color: #ffd700;
-}
-
-.active-tab {
-    color: #ffd700;
-}
-
-.tab:hover {
+.tab:active, .active-tab, .tab:hover {
     color: #ffd700;
 }
 
 .tab-content {
     display: none;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-bottom: 20px;
+    padding: 0 20px 20px;
     margin-top: 25px;
 }
 
@@ -336,8 +244,6 @@ h1 {
 .item-list {
     display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
-    /* Stretch items to the same height */
     justify-content: center;
     list-style-type: none;
     margin: 0 auto;
@@ -348,92 +254,38 @@ h1 {
 
 .item {
     background-color: #1E1E1E;
-    margin: 0 auto;
-    /* Center horizontally */
     width: calc(25% - 20px);
-    /* 100% / 4 = 25% */
-    /* Ensure the item's width adapts to its content and accounts for gap */
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    max-width: 100%;
-    /* Ensure responsiveness */
     display: flex;
     flex-direction: column;
-    /* Stack content vertically */
 }
 
 @media (max-width: 768px) {
-    .item {
-        width: calc(50% - 20px);
-    }
+    .item { width: calc(50% - 20px); }
 }
 
 @media (max-width: 480px) {
-    .item {
-        width: calc(100% - 20px);
-    }
+    .item { width: calc(100% - 20px); }
 }
 
 .image-container {
     position: relative;
     width: 100%;
-    /* Use relative width */
-    max-width:
-        00px;
-    /* Maximum width */
     height: auto;
-    /* Height will be adaptive */
     overflow: hidden;
-    /* Hide any overflow */
     display: flex;
     justify-content: center;
-    /* Center image horizontally */
     align-items: center;
-    /* Center image vertically */
     margin: 0 auto;
-    /* Center the container itself */
 }
 
-.item img {
+.item img, .image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
     cursor: pointer;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    object-fit: contain;
 }
-
-.image-container img {
-    width: 100%;
-    /* Image takes full width of the container */
-    height: auto;
-    /* Height is adaptive to maintain aspect ratio */
-    object-fit: contain;
-    /* Ensure the image fits within the container */
-}
-
-/* @media (min-width: 1px) {
-    .item img {
-        max-width: 350px;
-    }
-
-    .image-container {
-        max-width: 700px;
-    }
-
-  
-}
-
-@media (min-width: 1024px) {
-    .item img {
-        max-width: 800px;
-    }
-
-    .image-container {
-        max-width: 1000px;
-    }
-
-
-} */
 
 .attributes {
     padding: 10px;
@@ -443,8 +295,7 @@ h1 {
 }
 
 .attributes h3 {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin: 0;
     width: fit-content;
     white-space: normal;
 }
@@ -458,7 +309,6 @@ h1 {
     width: 100%;
     max-width: 800px;
     margin: 20px auto;
-    height: 0;
     padding-bottom: 56.25%;
     border: 1px solid #000000;
     border-radius: 8px;
@@ -477,7 +327,6 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Center the image container horizontally */
 }
 
 .product-info {
@@ -486,11 +335,9 @@ h1 {
     max-width: 1000px;
     gap: 20px;
     margin: 20px 0;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-
 
 footer {
     font-size: 14px;
@@ -499,7 +346,6 @@ footer {
     background-color: #2D2926;
     text-align: center;
     width: 100%;
-    /* Full width of the page */
     position: relative;
     bottom: 0;
 }
@@ -527,29 +373,23 @@ footer {
 
 @media (max-width: 480px) {
     .footer-content {
-        gap: 0px;
+        gap: 0;
         flex-direction: column;
     }
 }
 
 .tab-content-header img {
-    /* width: 100%;
-    height: auto;
-    max-width: 100%; */
-    /* object-fit: contain; */
     height: 25px;
     width: 25px;
 }
 
 .tab-content-header h2 {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px 0;
 }
 
 .tab-content-header p {
     font-size: 1rem;
     line-height: 1.8;
     font-weight: lighter;
-    margin-top: 0px;
-    margin-bottom: 35px;
+    margin: 0 0 35px;
 }
