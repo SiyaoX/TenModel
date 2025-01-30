@@ -30,19 +30,14 @@
             overflow: hidden;
             position: relative;
             border: 1px solid #ddd;
-            cursor: zoom-in;
         }
 
         .main-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.25s ease;
-        }
-
-        .main-image.zoomed {
-            transform: scale(2);
-            cursor: grab;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
         }
 
         /* Navigation buttons */
@@ -50,7 +45,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
             color: white;
             border: none;
             padding: 15px;
@@ -60,7 +55,7 @@
         }
 
         .image-nav:hover {
-            background: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.8);
         }
 
         #prevBtn {
@@ -88,7 +83,8 @@
             overflow: hidden;
         }
 
-        .thumbnail-item.active, .thumbnail-item:hover {
+        .thumbnail-item.active,
+        .thumbnail-item:hover {
             border-color: #ffffff;
         }
 
@@ -115,10 +111,49 @@
             .main-content {
                 flex-direction: row;
             }
-            
+
             .product-details {
                 max-width: 400px;
             }
+        }
+
+        /* Full-screen viewer styles */
+        .fullscreen-viewer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .fullscreen-image {
+            max-width: 90%;
+            max-height: 90%;
+            cursor: pointer;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            color: black;
+            border: none;
+            padding: 10px 15px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .close-btn:hover {
+            background: red;
+            color: white;
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
@@ -139,12 +174,12 @@
             <div class="social-media-buttons">
                 <a href="mailto:contact@tenmodel.design" target="_blank"><img src="resources/img/icon/email.png"
                         alt="Contact"></a>
-                <a href="https://www.youtube.com" target="_blank"><img
-                        src="resources/img/icon/youtube-icon-white.png" alt="YouTube"></a>
+                <a href="https://www.youtube.com" target="_blank"><img src="resources/img/icon/youtube-icon-white.png"
+                        alt="YouTube"></a>
                 <a href="https://www.instagram.com" target="_blank"><img
                         src="resources/img/icon/instagram-icon-white.png" alt="Instagram"></a>
-                <a href="https://www.facebook.com" target="_blank"><img
-                        src="resources/img/icon/facebook-icon-white.png" alt="Facebook"></a>
+                <a href="https://www.facebook.com" target="_blank"><img src="resources/img/icon/facebook-icon-white.png"
+                        alt="Facebook"></a>
                 <a href="https://www.twitter.com" target="_blank"><img src="resources/img/icon/x-icon-white.png"
                         alt="Twitter"></a>
             </div>
@@ -172,6 +207,30 @@
         </div>
     </div>
 
+    <!-- Full-screen viewer container -->
+    <div id="fullscreenViewer" class="fullscreen-viewer">
+        <button id="closeFullscreen" class="close-btn">X</button>
+        <img id="fullscreenImage" class="fullscreen-image" src="" alt="Full-screen View">
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainImage = document.querySelector('.main-image');
+            const fullscreenViewer = document.getElementById('fullscreenViewer');
+            const fullscreenImage = document.getElementById('fullscreenImage');
+            const closeFullscreen = document.getElementById('closeFullscreen');
+
+            // Open full-screen mode
+            mainImage.addEventListener('click', function () {
+                fullscreenImage.src = this.src;
+                fullscreenViewer.style.display = 'flex';
+            });
+
+            // Close full-screen mode
+            closeFullscreen.addEventListener('click', function () {
+                fullscreenViewer.style.display = 'none';
+            });
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const product = JSON.parse(localStorage.getItem('selectedProduct'));
@@ -194,7 +253,7 @@
 
             // Thumbnail generation
             function generateThumbnails() {
-                elements.thumbnailGrid.innerHTML = images.map((img, index) => 
+                elements.thumbnailGrid.innerHTML = images.map((img, index) =>
                     `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" 
                          data-index="${index}">
                         <img src="${img}" alt="Thumbnail ${index + 1}">
@@ -235,11 +294,6 @@
                 if (currentImageIndex < images.length - 1) changeImage(currentImageIndex + 1);
             });
 
-            // Zoom functionality
-            elements.mainImage.addEventListener('click', function() {
-                this.classList.toggle('zoomed');
-            });
-
             // Initial setup
             if (images.length > 0) {
                 elements.mainImage.src = images[0];
@@ -248,4 +302,5 @@
         });
     </script>
 </body>
+
 </html>
