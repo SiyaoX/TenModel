@@ -132,10 +132,21 @@
             overflow: hidden;
         }
 
+        .fullscreen-image-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            /* height: 90%; */
+            /* max-width: 700px; */
+        }
+
         .fullscreen-image {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 100%;
+            max-height: 100%;
             cursor: pointer;
+            border: 2px solid white; /* Added border */
         }
 
         .close-btn {
@@ -155,6 +166,32 @@
         .close-btn:hover {
             background: rgba(255, 0, 0, 0);
             color: #c8c8c8;
+        }
+
+        /* Fullscreen navigation buttons */
+        .fullscreen-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.3);
+            color: #C8C8C8;
+            border: none;
+            padding: 20px;
+            cursor: pointer;
+            z-index: 2;
+            transition: background 0.3s ease;
+        }
+
+        .fullscreen-nav:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        #fullscreenPrevBtn {
+            left: -50px; /* Positioned to the left of the image */
+        }
+
+        #fullscreenNextBtn {
+            right: -50px; /* Positioned to the right of the image */
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
@@ -211,7 +248,11 @@
     <!-- Full-screen viewer container -->
     <div id="fullscreenViewer" class="fullscreen-viewer">
         <button id="closeFullscreen" class="close-btn">X</button>
-        <img id="fullscreenImage" class="fullscreen-image" src="" alt="Full-screen View">
+        <div class="fullscreen-image-container">
+            <button class="fullscreen-nav" id="fullscreenPrevBtn" aria-label="Previous image">&lt;</button>
+            <img id="fullscreenImage" class="fullscreen-image" src="" alt="Full-screen View">
+            <button class="fullscreen-nav" id="fullscreenNextBtn" aria-label="Next image">&gt;</button>
+        </div>
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -219,6 +260,11 @@
             const fullscreenViewer = document.getElementById('fullscreenViewer');
             const fullscreenImage = document.getElementById('fullscreenImage');
             const closeFullscreen = document.getElementById('closeFullscreen');
+            const fullscreenPrevBtn = document.getElementById('fullscreenPrevBtn');
+            const fullscreenNextBtn = document.getElementById('fullscreenNextBtn');
+
+            let currentImageIndex = 0;
+            let images = [];
 
             // Open full-screen mode
             mainImage.addEventListener('click', function () {
@@ -226,19 +272,37 @@
                 fullscreenViewer.style.display = 'flex';
             });
 
-            // Close full-screen mode
-            closeFullscreen.addEventListener('click', function () {
-                fullscreenViewer.style.display = 'none';
+            // Close full-screen mode when clicking outside the image
+            fullscreenViewer.addEventListener('click', (e) => {
+                if (e.target === fullscreenViewer || e.target === closeFullscreen) {
+                    fullscreenViewer.style.display = 'none';
+                }
             });
-        });
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
+
+            // Navigation in fullscreen mode
+            fullscreenPrevBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent closing fullscreen
+                changeFullscreenImage(currentImageIndex - 1);
+            });
+
+            fullscreenNextBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent closing fullscreen
+                changeFullscreenImage(currentImageIndex + 1);
+            });
+
+            // Change image in fullscreen mode
+            function changeFullscreenImage(index) {
+                if (index < 0) index = images.length - 1; // Loop to last image
+                if (index >= images.length) index = 0; // Loop to first image
+                currentImageIndex = index;
+                fullscreenImage.src = images[index];
+            }
+
+            // Initialize product info and images
             const product = JSON.parse(localStorage.getItem('selectedProduct'));
             if (!product) return console.error('Product not found');
 
-            const images = product.DetailImgs || [];
-            let currentImageIndex = 0;
+            images = product.DetailImgs || [];
             const elements = {
                 mainImage: document.querySelector('.main-image'),
                 thumbnailGrid: document.getElementById('thumbnailGrid'),
