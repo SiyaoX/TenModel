@@ -231,6 +231,8 @@
             const fullscreenViewer = document.getElementById('fullscreenViewer');
             const fullscreenImage = document.getElementById('fullscreenImage');
             const closeFullscreen = document.getElementById('closeFullscreen');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
 
             let currentImageIndex = 0;
             let images = [];
@@ -283,7 +285,8 @@
 
             // Image change handler
             function changeImage(index) {
-                if (index < 0 || index >= images.length) return;
+                if (index < 0) index = images.length - 1; // Loop to last image
+                if (index >= images.length) index = 0; // Loop to first image
                 currentImageIndex = index;
 
                 // Update active thumbnail
@@ -300,13 +303,13 @@
                 }, 300);
             }
 
-            // Navigation controls
-            document.getElementById('prevBtn').addEventListener('click', () => {
-                if (currentImageIndex > 0) changeImage(currentImageIndex - 1);
+            // Navigation controls with looping
+            prevBtn.addEventListener('click', () => {
+                changeImage(currentImageIndex - 1);
             });
 
-            document.getElementById('nextBtn').addEventListener('click', () => {
-                if (currentImageIndex < images.length - 1) changeImage(currentImageIndex + 1);
+            nextBtn.addEventListener('click', () => {
+                changeImage(currentImageIndex + 1);
             });
 
             // Initial setup
