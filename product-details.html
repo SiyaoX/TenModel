@@ -5,6 +5,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Gallery</title>
+    <style>
+        /* Consolidated and improved CSS */
+        .product-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        #mainImageContainer {
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+        }
+
+        .main-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            padding: 10px;
+        }
+
+        .thumbnail-item {
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .thumbnail-item.active {
+            border-color: #ff4444;
+        }
+
+        .thumbnail-item img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .nav-button {
+            padding: 10px 20px;
+            background: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -34,71 +96,103 @@
             </div>
         </div>
     </header>
-    <div class="content">
-        <div class="product-gallery-container">
-            <div class="product-gallery">
-                <!-- Product information -->
-                <div class="product-info">
-                    <button id="prevBtn">Previous</button>
-                    <div style="text-align: center;">
-                        <h2 id="productName"></h2>
-                        <p id="productDescription"></p>
-                        <p id="productPrice"></p>
-                    </div>
-                    <button id="nextBtn">Next</button>
-                </div>
-                <!-- Image display area -->
-                <div class="image-container">
-                    <img id="productImage" src="" alt="Product Image" />
-                </div>
+
+    <div class="product-container">
+        <!-- Main product section -->
+        <div class="product-info">
+            <button class="nav-button" id="prevBtn">Previous</button>
+            <div style="text-align: center;">
+                <h2 id="productName"></h2>
+                <p id="productDescription"></p>
+                <p id="productPrice"></p>
             </div>
+            <button class="nav-button" id="nextBtn">Next</button>
         </div>
+
+        <!-- Main image container -->
+        <div id="mainImageContainer">
+            <img class="main-image" src="" alt="Product Image" />
+        </div>
+
+        <!-- Dynamic thumbnail grid -->
+        <div class="thumbnail-grid" id="thumbnailGrid"></div>
     </div>
 
     <script>
-        window.onload = function () {
-            // Optional: You can scroll to a specific point if needed
-            // window.scrollTo({ top: 650, behavior: 'smooth' });
-        };
-
-        // Retrieve product data from localStorage
-        const product = JSON.parse(localStorage.getItem('selectedProduct'));
-
-        // Check if product exists and set up the gallery
-        if (product) {
-            const images = product.DetailImgs; // Assumes `DetailImgs` is an array of image URLs
-            let currentImageIndex = 0;
-
-            // Set initial image and details
-            document.getElementById("productImage").src = images[currentImageIndex];
-            document.getElementById("productName").textContent = product.Name; // Product Name
-            document.getElementById("productDescription").textContent = product.Model || 'No description available'; // Model or description
-            document.getElementById("productPrice").textContent = `US$ ${product.Price}`; // Price
-
-            // Function to update the image based on the current index
-            function updateImage() {
-                document.getElementById("productImage").src = images[currentImageIndex];
+        // Improved JavaScript with better error handling and dynamic thumbnail generation
+        document.addEventListener('DOMContentLoaded', () => {
+            const product = JSON.parse(localStorage.getItem('selectedProduct'));
+            
+            if (!product) {
+                console.error('Product data not found');
+                return;
             }
 
-            // Handle Previous button click
-            document.getElementById("prevBtn").addEventListener("click", () => {
+            const images = product.DetailImgs || [];
+            let currentImageIndex = 0;
+
+            // DOM elements
+            const mainImage = document.querySelector('.main-image');
+            const thumbnailGrid = document.getElementById('thumbnailGrid');
+            const productName = document.getElementById('productName');
+            const productDescription = document.getElementById('productDescription');
+            const productPrice = document.getElementById('productPrice');
+
+            // Initialize product info
+            productName.textContent = product.Name;
+            productDescription.textContent = product.Model || 'No description available';
+            productPrice.textContent = `US$ ${product.Price || 'N/A'}`;
+
+            // Thumbnail generation
+            function generateThumbnails() {
+                thumbnailGrid.innerHTML = images.map((img, index) => `
+                    <div class="thumbnail-item ${index === 0 ? 'active' : ''}" 
+                         data-index="${index}"
+                         onclick="changeImage(${index})">
+                        <img src="${img}" alt="Thumbnail ${index + 1}">
+                    </div>
+                `).join('');
+            }
+
+            // Image change handler
+            function changeImage(index) {
+                if (index < 0 || index >= images.length) return;
+
+                // Update active thumbnail
+                document.querySelectorAll('.thumbnail-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                document.querySelector(`[data-index="${index}"]`).classList.add('active');
+
+                // Update main image with transition
+                mainImage.style.opacity = 0;
+                setTimeout(() => {
+                    mainImage.src = images[index];
+                    mainImage.style.opacity = 1;
+                }, 300);
+
+                currentImageIndex = index;
+            }
+
+            // Navigation controls
+            document.getElementById('prevBtn').addEventListener('click', () => {
                 if (currentImageIndex > 0) {
-                    currentImageIndex--;
-                    updateImage();
+                    changeImage(currentImageIndex - 1);
                 }
             });
 
-            // Handle Next button click
-            document.getElementById("nextBtn").addEventListener("click", () => {
+            document.getElementById('nextBtn').addEventListener('click', () => {
                 if (currentImageIndex < images.length - 1) {
-                    currentImageIndex++;
-                    updateImage();
+                    changeImage(currentImageIndex + 1);
                 }
             });
-        } else {
-            console.error('Product data not found in localStorage');
-        }
+
+            // Initial setup
+            if (images.length > 0) {
+                mainImage.src = images[0];
+                generateThumbnails();
+            }
+        });
     </script>
 </body>
-
 </html>
