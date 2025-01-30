@@ -30,13 +30,19 @@
             overflow: hidden;
             position: relative;
             border: 1px solid #ddd;
+            cursor: zoom-in;
         }
 
         .main-image {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            transition: opacity 0.3s ease;
+            object-fit: cover;
+            transition: transform 0.25s ease;
+        }
+
+        .main-image.zoomed {
+            transform: scale(2);
+            cursor: grab;
         }
 
         /* Navigation buttons */
@@ -79,6 +85,7 @@
             cursor: pointer;
             border: 2px solid transparent;
             transition: all 0.3s ease;
+            overflow: hidden;
         }
 
         .thumbnail-item.active, .thumbnail-item:hover {
@@ -89,6 +96,11 @@
             width: 100%;
             height: 100px;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .thumbnail-item:hover img {
+            transform: scale(1.1);
         }
 
         /* Product Details */
@@ -147,7 +159,6 @@
                     <button class="image-nav" id="nextBtn" aria-label="Next image">&gt;</button>
                 </div>
                 <div class="thumbnail-grid" id="thumbnailGrid"></div>
-
             </div>
 
             <!-- Product Details -->
@@ -182,12 +193,12 @@
 
             // Thumbnail generation
             function generateThumbnails() {
-                elements.thumbnailGrid.innerHTML = images.map((img, index) => `
-                    <div class="thumbnail-item ${index === 0 ? 'active' : ''}" 
+                elements.thumbnailGrid.innerHTML = images.map((img, index) => 
+                    `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" 
                          data-index="${index}">
                         <img src="${img}" alt="Thumbnail ${index + 1}">
-                    </div>
-                `).join('');
+                    </div>`
+                ).join('');
 
                 // Add click listeners to thumbnails
                 document.querySelectorAll('.thumbnail-item').forEach((item, index) => {
@@ -221,6 +232,11 @@
 
             document.getElementById('nextBtn').addEventListener('click', () => {
                 if (currentImageIndex < images.length - 1) changeImage(currentImageIndex + 1);
+            });
+
+            // Zoom functionality
+            elements.mainImage.addEventListener('click', function() {
+                this.classList.toggle('zoomed');
             });
 
             // Initial setup
