@@ -1,52 +1,38 @@
-window.onload = function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-};
-window.addEventListener('load', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+// Smooth scroll to the top on page load
+window.onload = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
+// Default tab and load products when the document is ready
 document.addEventListener('DOMContentLoaded', () => {
-    // Default to the first tab
     document.querySelector('.tab').click();
     loadProducts();
 });
 
 // Function to handle tab switching
 function openTab(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tab-content");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tab");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active-tab", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active-tab";
-}
+    // Hide all tab content
+    document.querySelectorAll(".tab-content").forEach(content => content.style.display = "none");
 
-// Set the default active tab
-document.getElementById("tab1").style.display = "block";
+    // Remove active class from all tabs
+    document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active-tab"));
+
+    // Show the clicked tab content and add active class to the clicked tab
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.classList.add("active-tab");
+}
 
 // Function to load products from JSON
 async function loadProducts() {
     try {
         const response = await fetch('products.json');
         if (!response.ok) throw new Error('Failed to load products JSON');
+        
+        window.products = await response.json(); // Keeping this as is
+        console.log('Products loaded:', window.products);
 
-        window.products = await response.json();
-        console.log('Products loaded:', products); // Debugging
-
-        products.forEach(product => {
-            const category = product.Category.toLowerCase();
-            const tabId = getTabIdForCategory(category);
-
-            if (tabId) {
-                appendProductToTab(tabId, product);
-            } else {
-                console.error(`Invalid category "${category}" in product data.`);
-            }
+        window.products.forEach(product => {
+            const tabId = getTabIdForCategory(product.Category.toLowerCase());
+            if (tabId) appendProductToTab(tabId, product);
+            else console.error(`Invalid category "${product.Category}" in product data.`);
         });
     } catch (error) {
         console.error('Error loading products:', error);
@@ -55,37 +41,31 @@ async function loadProducts() {
 
 // Get tab ID based on product category
 function getTabIdForCategory(category) {
-    switch (category) {
-        case 'sm': return 1;
-        case 'gundam': return 2;
-        case 'figure': return 3;
-        default: return null;
-    }
+    const categoryMap = { 'sm': 1, 'gundam': 2, 'figure': 3 };
+    return categoryMap[category] || null;
 }
 
 // Append product to the appropriate tab content
 function appendProductToTab(tabId, product) {
     const container = document.querySelector(`#tab${tabId} .item-list`);
-    if (!container) {
-        console.error(`Container for tab ${tabId} not found.`);
-        return;
-    }
+    if (!container) return console.error(`Container for tab ${tabId} not found.`);
 
     const listItem = document.createElement('li');
     listItem.classList.add('item');
-
     listItem.innerHTML = `
-        <div style="width: 100%; position: relative; padding-top: 100%; max-width: 500px;">    
-            <img src="${product.CoverImg}" alt="${product.Name}" onclick="openProductDetail('${product.SKU}')" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="width: 100%; position: relative; padding-top: 100%; max-width: 500px;">
+            <img src="${product.CoverImg}" alt="${product.Name}" onclick="openProductDetail('${product.SKU}')"
+                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="attributes">
             <h3>${product.Name}</h3>
-            <p style="margin-top: 10px; font-family: 'Blinker-Regular', sans-serif;">US$ ${product.Price}</p>
-            <p style="font-size: 20px; font-family: 'Blinker-Regular', sans-serif; color: #F84242;">${product.Status}</p>
+            <p style="margin-top: 10px;">US$ ${product.Price}</p>
+            <p style="font-size: 20px; color: #F84242;">${product.Status}</p>
         </div>
     `;
     container.appendChild(listItem);
 }
+
 // Function to open product detail page
 function openProductDetail(SKU) {
     const product = findProductById(SKU);
@@ -97,8 +77,7 @@ function openProductDetail(SKU) {
     }
 }
 
-// Helper function to find a product by ID
+// Helper function to find a product by SKU
 function findProductById(SKU) {
-    // Assuming the products array is available globally or passed to this function
-    return products.find(p => p.SKU === SKU);
+    return window.products.find(product => product.SKU === SKU);
 }

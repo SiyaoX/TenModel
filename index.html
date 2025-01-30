@@ -6,18 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TenModel</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
-<script src="scripts.js"></script>
 
 <body>
     <div class="content">
         <header class="banner">
-            <div class="banner-content">
-            </div>
+            <div class="banner-content"></div>
             <div class="banner-slogan">
                 <h1>TenModel ONLINE SHOP</h1>
-                <p>high-quality handcrafted, limit one per person</p>
-                <p>pre-orders now open!</p>
+                <p>High-quality handcrafted, limit one per person</p>
+                <p>Pre-orders now open!</p>
             </div>
             <div class="banner-extras">
                 <div class="logo-container" style="width: 136.44px;">
@@ -33,29 +32,29 @@
                 </div>
                 <div class="contact-container" style="text-align: center;">
                     <div class="social-media-buttons">
-                        <a href="mailto:contact@tenmodel.design" target="_blank"><img src="resources/img/icon/email.png"
-                                alt="Contact"></a>
-                        <a href="https://www.youtube.com/@TenModelDesign" target="_blank"><img
-                                src="resources/img/icon/youtube-icon-white.png" alt="YouTube"></a>
-                        <a href="https://www.instagram.com/tenmodeldesign/" target="_blank"><img
-                                src="resources/img/icon/instagram-icon-white.png" alt="Instagram"></a>
-                        <!-- <a href="https://www.facebook.com" target="_blank"><img
-                                src="resources/img/icon/facebook-icon-white.png" alt="Facebook"></a> -->
-                        <a href="https://x.com/TenModelDesign" target="_blank"><img src="resources/img/icon/x-icon-white.png"
-                                alt="Twitter"></a>
+                        <a href="mailto:contact@tenmodel.design" target="_blank">
+                            <img src="resources/img/icon/email.png" alt="Contact">
+                        </a>
+                        <a href="https://www.youtube.com/@TenModelDesign" target="_blank">
+                            <img src="resources/img/icon/youtube-icon-white.png" alt="YouTube">
+                        </a>
+                        <a href="https://www.instagram.com/tenmodeldesign/" target="_blank">
+                            <img src="resources/img/icon/instagram-icon-white.png" alt="Instagram">
+                        </a>
+                        <a href="https://x.com/TenModelDesign" target="_blank">
+                            <img src="resources/img/icon/x-icon-white.png" alt="Twitter">
+                        </a>
                     </div>
                 </div>
             </div>
+
             <script>
                 document.querySelector('.navigation-container a').addEventListener('click', function () {
-                    if (window.scrollY < 300) {
-                        window.scrollTo({ top: 655, behavior: 'smooth' });
-                    } else {
-                        window.scrollTo({ top: 702, behavior: 'smooth' });
-                    }
+                    window.scrollTo({ top: window.scrollY < 300 ? 655 : 702, behavior: 'smooth' });
                 });
             </script>
         </header>
+
         <main>
             <nav class="tabs-container">
                 <span class="tab active-tab" onclick="openTab(event, 'tab1')" aria-controls="tab1">Static Models</span>
@@ -63,9 +62,10 @@
                 <span class="tab" onclick="openTab(event, 'tab3')" aria-controls="tab3">Tool & Parts</span>
                 <span class="tab" onclick="openTab(event, 'tab4')" aria-controls="tab4">Contact Us</span>
             </nav>
+
             <div id="tab1" class="tab-content active">
                 <div class="tab-content-header">
-                    <img src="resources/img/icon/tian.png" alt="Static Models Image">
+                    <img src="resources/img/icon/tian.png" alt="Static Models">
                     <h2>STATIC MODELS</h2>
                     <p>The latest pre-order items from TenModel</p>
                 </div>
@@ -74,7 +74,7 @@
 
             <div id="tab2" class="tab-content">
                 <div class="tab-content-header">
-                    <img src="resources/img/icon/tian.png" alt="RC Models Image">
+                    <img src="resources/img/icon/tian.png" alt="RC Models">
                     <h2>RC MODELS</h2>
                     <p>The latest pre-order items from TenModel</p>
                 </div>
@@ -83,7 +83,7 @@
 
             <div id="tab3" class="tab-content">
                 <div class="tab-content-header">
-                    <img src="resources/img/icon/tian.png" alt="Tool & Parts Image">
+                    <img src="resources/img/icon/tian.png" alt="Tool & Parts">
                     <h2>TOOL & PARTS</h2>
                     <p>The latest pre-order items from TenModel</p>
                 </div>
@@ -92,7 +92,7 @@
 
             <div id="tab4" class="tab-content">
                 <div class="tab-content-header">
-                    <img src="resources/img/icon/tian.png" alt="Contact Us Image">
+                    <img src="resources/img/icon/tian.png" alt="Contact Us">
                     <h2>CONTACT US</h2>
                     <p>The latest pre-order items from TenModel</p>
                 </div>
@@ -100,12 +100,12 @@
             </div>
         </main>
     </div>
+
     <footer class="footer">
         <div class="footer-content">
             <p>&copy; 2025 TenModel. All rights reserved.</p>
             <nav>
-                <ul
-                    style="display: flex; justify-content: center; gap: 20px; list-style-type: none; padding: 0; margin: 0;">
+                <ul style="display: flex; justify-content: center; gap: 20px; list-style: none; padding: 0; margin: 0;">
                     <li><a class="footer-policy" href="terms.html">Terms & Conditions</a></li>
                     <li><a class="footer-policy" href="privacy.html">Privacy Policy</a></li>
                 </ul>
