@@ -18,6 +18,8 @@ function openTab(evt, tabName) {
     // Show the clicked tab content and add active class to the clicked tab
     document.getElementById(tabName).style.display = "block";
     evt.currentTarget.classList.add("active-tab");
+
+    window.scrollTo({top:  655 , behavior: 'smooth' });
 }
 
 // Function to load products from JSON
