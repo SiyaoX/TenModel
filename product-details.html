@@ -241,6 +241,7 @@
             let endX = 0;
             let touchStartX = 0;
             let touchEndX = 0;
+            let isFullscreen = false; // Flag to prevent image change during fullscreen
 
             const product = JSON.parse(localStorage.getItem('selectedProduct'));
             if (!product) return console.error('Product not found');
@@ -249,6 +250,8 @@
 
             // Image change handler
             function changeImage(index) {
+                if (isFullscreen) return; // Prevent image change while fullscreen is active
+
                 if (index < 0) index = images.length - 1; // Loop to last image
                 if (index >= images.length) index = 0; // Loop to first image
                 currentImageIndex = index;
@@ -347,7 +350,9 @@
                 }
             });
 
+            // Open image in fullscreen viewer
             mainImage.addEventListener('click', () => {
+                isFullscreen = true; // Set fullscreen flag
                 fullscreenImage.src = mainImage.src;
                 fullscreenViewer.style.display = 'flex';
             });
@@ -355,6 +360,7 @@
             fullscreenViewer.addEventListener('click', e => {
                 if (e.target !== fullscreenImage || e.target === closeFullscreen) {
                     fullscreenViewer.style.display = 'none';
+                    isFullscreen = false; // Reset fullscreen flag
                 }
             });
 
