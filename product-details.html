@@ -241,21 +241,14 @@
             // Open full-screen mode
             mainImage.addEventListener('click', function () {
                 fullscreenImage.src = this.src;
-
                 fullscreenViewer.style.display = 'flex';
+            });
 
-                fullscreenImage.onload = function () {
-                    const imgWidth = fullscreenImage.naturalWidth;
-                    const imgHeight = fullscreenImage.naturalHeight;
-
-                    if (imgWidth > imgHeight) {
-                        fullscreenContainer.style.width = '100%';
-                        fullscreenContainer.style.height = 'auto';
-                    } else {
-                        fullscreenContainer.style.width = 'auto';
-                        fullscreenContainer.style.height = '100%';
-                    }
-                };
+            // Close full-screen mode when clicking outside the image or on the close button
+            fullscreenViewer.addEventListener('click', function (e) {
+                if (e.target !== fullscreenImage && e.target !== closeFullscreen) {
+                    fullscreenViewer.style.display = 'none';
+                }
             });
 
             // Prevent closing when clicking the image
