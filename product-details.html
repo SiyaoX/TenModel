@@ -75,14 +75,14 @@
         /* Thumbnails */
         .thumbnail-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
             gap: 10px;
             padding-top: 10px;
         }
 
         .thumbnail-item {
             cursor: pointer;
-            border: 2px solid transparent;
+            border: 1px solid transparent;
             transition: all 0.3s ease;
             overflow: hidden;
         }
@@ -93,14 +93,14 @@
 
         .thumbnail-item img {
             width: 100%;
-            height: 100px;
+            height: 60px;
             object-fit: cover;
             transition: transform 0.3s ease;
-            transform: scale(1.1);
+            transform: scale(1.2);
         }
 
         .thumbnail-item:hover img {
-            transform: scale(1.2);
+            transform: scale(1.3);
         }
 
         /* Product Details */
