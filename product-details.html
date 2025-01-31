@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Gallery</title>
     <style>
+        /* Updated CSS */
         .product-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -40,6 +41,7 @@
             cursor: pointer;
         }
 
+        /* Navigation buttons */
         .image-nav {
             position: absolute;
             top: 0;
@@ -50,9 +52,14 @@
             padding: 10px;
             cursor: pointer;
             z-index: 2;
+            transition: background 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .image-nav:hover {
+            background: rgba(0, 0, 0, 0);
         }
 
         #prevBtn {
@@ -65,16 +72,19 @@
             border-radius: 5px 0 0 5px;
         }
 
+        /* Thumbnails */
         .thumbnail-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             gap: 10px;
+            padding-top: 10px;
         }
 
         .thumbnail-item {
             cursor: pointer;
             border: 2px solid transparent;
             transition: all 0.3s ease;
+            overflow: hidden;
         }
 
         .thumbnail-item.active {
@@ -86,17 +96,20 @@
             height: 100px;
             object-fit: cover;
             transition: transform 0.3s ease;
+            transform: scale(1.1);
         }
 
         .thumbnail-item:hover img {
             transform: scale(1.2);
         }
 
+        /* Product Details */
         .product-details {
             flex: 1;
             padding: 20px;
         }
 
+        /* Responsive Layout */
         @media (min-width: 768px) {
             .main-content {
                 flex-direction: row;
@@ -107,6 +120,7 @@
             }
         }
 
+        /* Full-screen viewer styles */
         .fullscreen-viewer {
             display: none;
             position: fixed;
@@ -118,6 +132,7 @@
             z-index: 1000;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
 
         .fullscreen-image-container {
@@ -147,6 +162,7 @@
             font-size: 18px;
             font-weight: bolder;
             cursor: pointer;
+            z-index: 1009;
         }
 
         .close-btn:hover {
