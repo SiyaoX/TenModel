@@ -220,11 +220,24 @@
 
             let currentImageIndex = 0;
             let images = [];
+            let isDragging = false;
+            let startX = 0;
+            let endX = 0;
 
             const product = JSON.parse(localStorage.getItem('selectedProduct'));
             if (!product) return console.error('Product not found');
 
             images = product.DetailImgs || [];
+
+            // Image change handler
+            function changeImage(index) {
+                if (index < 0) index = images.length - 1; // Loop to last image
+                if (index >= images.length) index = 0; // Loop to first image
+                currentImageIndex = index;
+                mainImage.src = images[index];
+            }
+
+            // Thumbnail click handler
             const elements = {
                 mainImage: document.querySelector('.main-image'),
                 thumbnailGrid: document.getElementById('thumbnailGrid'),
@@ -270,6 +283,38 @@
 
             mainImage.addEventListener('touchstart', e => {
                 touchStartX = e.touches[0].clientX;
+            });
+
+            mainImage.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                startX = e.clientX;
+                mainImage.style.cursor = 'pointer'; // Change cursor to grabbing
+            });
+
+            mainImage.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                const diffX = e.clientX - startX;
+                if (diffX > 50) {
+                    // Dragged right, show next image
+                    changeImage(currentImageIndex + 1);
+                    isDragging = false;
+                } else if (diffX < -50) {
+                    // Dragged left, show previous image
+                    changeImage(currentImageIndex - 1);
+                    isDragging = false;
+                }
+            });
+
+            mainImage.addEventListener('mouseup', () => {
+                isDragging = false;
+                mainImage.style.cursor = 'pointer'; // Reset cursor
+            });
+
+            mainImage.addEventListener('mouseleave', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    mainImage.style.cursor = 'pointer'; // Reset cursor
+                }
             });
 
             mainImage.addEventListener('touchend', () => {
