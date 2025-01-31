@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Gallery</title>
     <style>
-        /* Updated CSS */
         .product-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -41,7 +40,6 @@
             cursor: pointer;
         }
 
-        /* Navigation buttons */
         .image-nav {
             position: absolute;
             top: 0;
@@ -52,14 +50,9 @@
             padding: 10px;
             cursor: pointer;
             z-index: 2;
-            transition: background 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        .image-nav:hover {
-            background: rgba(0, 0, 0, 0);
         }
 
         #prevBtn {
@@ -72,19 +65,16 @@
             border-radius: 5px 0 0 5px;
         }
 
-        /* Thumbnails */
         .thumbnail-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             gap: 10px;
-            padding-top: 10px;
         }
 
         .thumbnail-item {
             cursor: pointer;
             border: 2px solid transparent;
             transition: all 0.3s ease;
-            overflow: hidden;
         }
 
         .thumbnail-item.active {
@@ -96,20 +86,17 @@
             height: 100px;
             object-fit: cover;
             transition: transform 0.3s ease;
-            transform: scale(1.1);
         }
 
         .thumbnail-item:hover img {
             transform: scale(1.2);
         }
 
-        /* Product Details */
         .product-details {
             flex: 1;
             padding: 20px;
         }
 
-        /* Responsive Layout */
         @media (min-width: 768px) {
             .main-content {
                 flex-direction: row;
@@ -120,7 +107,6 @@
             }
         }
 
-        /* Full-screen viewer styles */
         .fullscreen-viewer {
             display: none;
             position: fixed;
@@ -132,7 +118,6 @@
             z-index: 1000;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
         }
 
         .fullscreen-image-container {
@@ -162,7 +147,6 @@
             font-size: 18px;
             font-weight: bolder;
             cursor: pointer;
-            z-index: 1009;
         }
 
         .close-btn:hover {
@@ -201,7 +185,6 @@
     </header>
     <div class="product-container">
         <div class="main-content">
-            <!-- Image Section -->
             <div class="image-section">
                 <div id="mainImageContainer">
                     <button class="image-nav" id="prevBtn" aria-label="Previous image">&lt;</button>
@@ -211,23 +194,21 @@
                 <div class="thumbnail-grid" id="thumbnailGrid"></div>
             </div>
 
-            <!-- Product Details -->
             <div class="product-details">
                 <h2 id="productName"></h2>
                 <p id="productDescription"></p>
                 <p id="productPrice"></p>
-                <!-- Add more product details here -->
             </div>
         </div>
     </div>
 
-    <!-- Full-screen viewer container -->
     <div id="fullscreenViewer" class="fullscreen-viewer">
         <button id="closeFullscreen" class="close-btn">X</button>
         <div class="fullscreen-image-container">
             <img id="fullscreenImage" class="fullscreen-image" src="" alt="Full-screen View">
         </div>
     </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mainImage = document.querySelector('.main-image');
@@ -239,10 +220,7 @@
 
             let currentImageIndex = 0;
             let images = [];
-            let touchStartX = 0;
-            let touchEndX = 0;
 
-            // Initialize product info and images
             const product = JSON.parse(localStorage.getItem('selectedProduct'));
             if (!product) return console.error('Product not found');
 
@@ -255,39 +233,31 @@
                 productPrice: document.getElementById('productPrice')
             };
 
-            // Initialize product info
             elements.productName.textContent = product.Name;
             elements.productDescription.textContent = product.Model || 'No description available';
             elements.productPrice.textContent = `US$ ${product.Price || 'N/A'}`;
 
-            // Thumbnail generation
             function generateThumbnails() {
                 elements.thumbnailGrid.innerHTML = images.map((img, index) =>
-                    `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" 
-                         data-index="${index}">
+                    `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" data-index="${index}">
                         <img src="${img}" alt="Thumbnail ${index + 1}">
-                    </div>`
-                ).join('');
+                    </div>`).join('');
 
-                // Add click listeners to thumbnails
                 document.querySelectorAll('.thumbnail-item').forEach((item, index) => {
                     item.addEventListener('click', () => changeImage(index));
                 });
             }
 
-            // Image change handler
             function changeImage(index) {
-                if (index < 0) index = images.length - 1; // Loop to last image
-                if (index >= images.length) index = 0; // Loop to first image
+                if (index < 0) index = images.length - 1;
+                if (index >= images.length) index = 0;
                 currentImageIndex = index;
 
-                // Update active thumbnail
                 document.querySelectorAll('.thumbnail-item').forEach(item => {
                     item.classList.remove('active');
                 });
                 elements.thumbnailGrid.children[index].classList.add('active');
 
-                // Update main image with fade transition
                 elements.mainImage.style.opacity = 0;
                 setTimeout(() => {
                     elements.mainImage.src = images[index];
@@ -295,56 +265,34 @@
                 }, 300);
             }
 
-            // Navigation controls with looping
-            prevBtn.addEventListener('click', () => {
-                changeImage(currentImageIndex - 1);
-            });
+            prevBtn.addEventListener('click', () => changeImage(currentImageIndex - 1));
+            nextBtn.addEventListener('click', () => changeImage(currentImageIndex + 1));
 
-            nextBtn.addEventListener('click', () => {
-                changeImage(currentImageIndex + 1);
-            });
-
-            // Swipe functionality for mobile
-            mainImage.addEventListener('touchstart', (e) => {
+            mainImage.addEventListener('touchstart', e => {
                 touchStartX = e.touches[0].clientX;
             });
 
-            mainImage.addEventListener('touchmove', (e) => {
-                touchEndX = e.touches[0].clientX;
-            });
-
             mainImage.addEventListener('touchend', () => {
-                const swipeThreshold = 50; // Minimum swipe distance to trigger a change
+                const swipeThreshold = 50;
                 const swipeDistance = touchEndX - touchStartX;
 
-                if (swipeDistance > swipeThreshold) {
-                    // Swipe right (next image)
-                    changeImage(currentImageIndex + 1);
-                } else if (swipeDistance < -swipeThreshold) {
-                    // Swipe left (previous image)
-                    changeImage(currentImageIndex - 1);
-                }
+                if (swipeDistance > swipeThreshold) changeImage(currentImageIndex + 1);
+                else if (swipeDistance < -swipeThreshold) changeImage(currentImageIndex - 1);
             });
 
-            // Open full-screen mode
-            mainImage.addEventListener('click', function () {
-                fullscreenImage.src = this.src;
+            mainImage.addEventListener('click', () => {
+                fullscreenImage.src = mainImage.src;
                 fullscreenViewer.style.display = 'flex';
             });
 
-            // Close full-screen mode when clicking outside the image or on the close button
-            fullscreenViewer.addEventListener('click', function (e) {
-                if (e.target !== fullscreenImage || e.target == closeFullscreen) {
+            fullscreenViewer.addEventListener('click', e => {
+                if (e.target !== fullscreenImage || e.target === closeFullscreen) {
                     fullscreenViewer.style.display = 'none';
                 }
             });
 
-            // Prevent closing when clicking the image
-            fullscreenImage.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
+            fullscreenImage.addEventListener('click', e => e.stopPropagation());
 
-            // Initial setup
             if (images.length > 0) {
                 elements.mainImage.src = images[0];
                 generateThumbnails();
