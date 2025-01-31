@@ -20,18 +20,20 @@
         }
 
         .image-section {
+            max-width: 600px;
             position: relative;
             flex: 1;
         }
 
         #mainImageContainer {
             width: 100%;
-            height: 600px;
+            height: 500px;
             overflow: hidden;
             position: relative;
         }
 
         .main-image {
+            background-color: #c8c8c810;
             width: 100%;
             height: 100%;
             object-fit: contain;
@@ -89,7 +91,7 @@
         .thumbnail-item img {
             width: 100%;
             height: 100px;
-            object-fit: contain;
+            object-fit: cover;
             transition: transform 0.3s ease;
             transform: scale(1.1);
         }
