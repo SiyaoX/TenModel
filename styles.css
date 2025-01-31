@@ -72,12 +72,12 @@ a {
 
 /* Ensure all text scales together */
 .banner-slogan h1 {
-    font-size: clamp(1.5rem, 4vw, 3rem); /* Min 1.5rem, flexible at 4vw, Max 3rem */
+    font-size: clamp(1.8rem, 4vw, 3rem); /* Min 1.5rem, flexible at 4vw, Max 3rem */
     line-height: 1.2;
 }
 
 .banner-slogan p {
-    font-size: clamp(0.9rem, 1.8vw, 1.3rem); /* Min 0.8rem, flexible at 1.5vw, Max 1.2rem */
+    font-size: clamp(0.9rem, 2vw, 1.5rem); /* Min 0.8rem, flexible at 1.5vw, Max 1.2rem */
     margin: 0;
     padding: 0;
 }
