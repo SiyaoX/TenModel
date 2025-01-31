@@ -137,15 +137,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            max-width: 90%; /* Limit container width */
-            max-height: 90%; /* Limit container height */
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
         }
 
         .fullscreen-image {
             max-width: 100%;
             max-height: 100%;
-            cursor: default; /* Remove cursor */
-            object-fit: contain; /* Display actual image size */
+            object-fit: contain;
         }
 
         .close-btn {
@@ -231,6 +231,7 @@
             const fullscreenViewer = document.getElementById('fullscreenViewer');
             const fullscreenImage = document.getElementById('fullscreenImage');
             const closeFullscreen = document.getElementById('closeFullscreen');
+            const fullscreenContainer = document.querySelector('.fullscreen-image-container');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
 
@@ -240,19 +241,33 @@
             // Open full-screen mode
             mainImage.addEventListener('click', function () {
                 fullscreenImage.src = this.src;
+
                 fullscreenViewer.style.display = 'flex';
+
+                fullscreenImage.onload = function () {
+                    const imgWidth = fullscreenImage.naturalWidth;
+                    const imgHeight = fullscreenImage.naturalHeight;
+
+                    if (imgWidth > imgHeight) {
+                        fullscreenContainer.style.width = '100%';
+                        fullscreenContainer.style.height = 'auto';
+                    } else {
+                        fullscreenContainer.style.width = 'auto';
+                        fullscreenContainer.style.height = '100%';
+                    }
+                };
+            });
+
+            // Prevent closing when clicking the image
+            fullscreenImage.addEventListener('click', (e) => {
+                e.stopPropagation();
             });
 
             // Close full-screen mode when clicking outside the image
             fullscreenViewer.addEventListener('click', (e) => {
-                if (e.target === fullscreenViewer) {
+                if (e.target === fullscreenViewer || e.target === closeFullscreen) {
                     fullscreenViewer.style.display = 'none';
                 }
-            });
-
-            // Close full-screen mode when clicking the close button
-            closeFullscreen.addEventListener('click', () => {
-                fullscreenViewer.style.display = 'none';
             });
 
             // Initialize product info and images
@@ -277,9 +292,9 @@
             function generateThumbnails() {
                 elements.thumbnailGrid.innerHTML = images.map((img, index) =>
                     `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" 
-                         data-index="${index}">
-                        <img src="${img}" alt="Thumbnail ${index + 1}">
-                    </div>`
+                 data-index="${index}">
+                <img src="${img}" alt="Thumbnail ${index + 1}">
+            </div>`
                 ).join('');
 
                 // Add click listeners to thumbnails
