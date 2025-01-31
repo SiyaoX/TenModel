@@ -162,7 +162,7 @@
             font-size: 18px;
             font-weight: bolder;
             cursor: pointer;
-            z-index: 1001;
+            z-index: 1009;
         }
 
         .close-btn:hover {
@@ -234,37 +234,13 @@
             const fullscreenViewer = document.getElementById('fullscreenViewer');
             const fullscreenImage = document.getElementById('fullscreenImage');
             const closeFullscreen = document.getElementById('closeFullscreen');
-            const fullscreenContainer = document.querySelector('.fullscreen-image-container');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
 
             let currentImageIndex = 0;
             let images = [];
-
-            // Open full-screen mode
-            mainImage.addEventListener('click', function () {
-                fullscreenImage.src = this.src;
-                fullscreenViewer.style.display = 'flex';
-            });
-
-            // Close full-screen mode when clicking outside the image or on the close button
-            fullscreenViewer.addEventListener('click', function (e) {
-                if (e.target !== fullscreenImage && e.target !== closeFullscreen) {
-                    fullscreenViewer.style.display = 'none';
-                }
-            });
-
-            // Prevent closing when clicking the image
-            fullscreenImage.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-
-            // Close full-screen mode when clicking outside the image
-            fullscreenViewer.addEventListener('click', (e) => {
-                if (e.target === fullscreenViewer || e.target === closeFullscreen) {
-                    fullscreenViewer.style.display = 'none';
-                }
-            });
+            let touchStartX = 0;
+            let touchEndX = 0;
 
             // Initialize product info and images
             const product = JSON.parse(localStorage.getItem('selectedProduct'));
@@ -288,9 +264,9 @@
             function generateThumbnails() {
                 elements.thumbnailGrid.innerHTML = images.map((img, index) =>
                     `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" 
-                 data-index="${index}">
-                <img src="${img}" alt="Thumbnail ${index + 1}">
-            </div>`
+                         data-index="${index}">
+                        <img src="${img}" alt="Thumbnail ${index + 1}">
+                    </div>`
                 ).join('');
 
                 // Add click listeners to thumbnails
@@ -326,6 +302,46 @@
 
             nextBtn.addEventListener('click', () => {
                 changeImage(currentImageIndex + 1);
+            });
+
+            // Swipe functionality for mobile
+            mainImage.addEventListener('touchstart', (e) => {
+                touchStartX = e.touches[0].clientX;
+            });
+
+            mainImage.addEventListener('touchmove', (e) => {
+                touchEndX = e.touches[0].clientX;
+            });
+
+            mainImage.addEventListener('touchend', () => {
+                const swipeThreshold = 50; // Minimum swipe distance to trigger a change
+                const swipeDistance = touchEndX - touchStartX;
+
+                if (swipeDistance > swipeThreshold) {
+                    // Swipe right (previous image)
+                    changeImage(currentImageIndex - 1);
+                } else if (swipeDistance < -swipeThreshold) {
+                    // Swipe left (next image)
+                    changeImage(currentImageIndex + 1);
+                }
+            });
+
+            // Open full-screen mode
+            mainImage.addEventListener('click', function () {
+                fullscreenImage.src = this.src;
+                fullscreenViewer.style.display = 'flex';
+            });
+
+            // Close full-screen mode when clicking outside the image or on the close button
+            fullscreenViewer.addEventListener('click', function (e) {
+                if (e.target !== fullscreenImage && e.target !== closeFullscreen) {
+                    fullscreenViewer.style.display = 'none';
+                }
+            });
+
+            // Prevent closing when clicking the image
+            fullscreenImage.addEventListener('click', (e) => {
+                e.stopPropagation();
             });
 
             // Initial setup
