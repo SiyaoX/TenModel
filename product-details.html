@@ -318,11 +318,11 @@
                 const swipeDistance = touchEndX - touchStartX;
 
                 if (swipeDistance > swipeThreshold) {
-                    // Swipe right (previous image)
-                    changeImage(currentImageIndex - 1);
-                } else if (swipeDistance < -swipeThreshold) {
-                    // Swipe left (next image)
+                    // Swipe right (next image)
                     changeImage(currentImageIndex + 1);
+                } else if (swipeDistance < -swipeThreshold) {
+                    // Swipe left (previous image)
+                    changeImage(currentImageIndex - 1);
                 }
             });
 
@@ -334,7 +334,7 @@
 
             // Close full-screen mode when clicking outside the image or on the close button
             fullscreenViewer.addEventListener('click', function (e) {
-                if (e.target !== fullscreenImage && e.target !== closeFullscreen) {
+                if (e.target !== fullscreenImage || e.target == closeFullscreen) {
                     fullscreenViewer.style.display = 'none';
                 }
             });
