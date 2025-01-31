@@ -29,13 +29,12 @@
             height: 600px;
             overflow: hidden;
             position: relative;
-            border: 1px solid #ddd;
         }
 
         .main-image {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
             transition: opacity 0.3s ease;
             cursor: pointer;
         }
@@ -73,7 +72,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             gap: 10px;
-            padding: 10px;
+            padding-top: 10px;
         }
 
         .thumbnail-item {
@@ -83,15 +82,14 @@
             overflow: hidden;
         }
 
-        .thumbnail-item.active,
-        .thumbnail-item:hover {
-            border-color: #ffffff;
+        .thumbnail-item.active {
+            border-color: #c8c8c8;
         }
 
         .thumbnail-item img {
             width: 100%;
             height: 100px;
-            object-fit: cover;
+            object-fit: contain;
             transition: transform 0.3s ease;
             transform: scale(1.1);
         }
