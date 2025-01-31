@@ -59,6 +59,7 @@ a {
     height: 100%;
     width: 100%;
 }
+
 .banner-slogan {
     position: absolute;
     top: 65%;
@@ -67,31 +68,39 @@ a {
     color: rgb(255, 255, 255);
     text-align: center;
     width: 40vw; 
-    /* padding: 10px; */
 }
 
-/* Make it even more adaptive on smaller screens */
+/* Ensure all text scales together */
+.banner-slogan h1 {
+    font-size: clamp(1.5rem, 4vw, 3rem); /* Min 1.5rem, flexible at 4vw, Max 3rem */
+    line-height: 1.2;
+}
+
+.banner-slogan p {
+    font-size: clamp(1rem, 2vw, 1.5rem); /* Min 1rem, flexible at 2vw, Max 1.5rem */
+    margin: 0;
+    padding: 0;
+}
+
+/* Make it more adaptive on smaller screens */
 @media (max-width: 768px) {
     .banner-slogan {
-        padding: 0;
-        width: 60vw; /* Increase width for smaller screens */
-        font-size: 4vw; /* Adjust font size */
+        width: 60vw;
     }
 }
 
 @media (max-width: 480px) {
     .banner-slogan {
-        width: 80vw; /* Expand width on very small screens */
-        font-size: 5vw;
-        padding: 0;
+        width: 80vw;
     }
 }
-.banner-slogan p {
+
+/* .banner-slogan p {
     font-size: 1em;
     margin: 0;
     padding: 0;
     line-height: 1.2;
-}
+} */
 
 .banner-extras {
     display: flex;
