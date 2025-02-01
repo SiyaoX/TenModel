@@ -32,7 +32,7 @@
 
         #mainImageContainer {
             width: 100%;
-            height: 500px;
+            height: auto;
             overflow: hidden;
             position: relative;
         }
@@ -111,16 +111,14 @@
         /* Product Details */
         .product-details {
             flex: 1;
-            padding: 20px;
-        }
-
-        .product-details__sidebar {
-            margin-top: 20px;
         }
 
         .product-details__product-title {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-weight: 400;
+            color: #ffffff;
+            font-size: 2rem;
+            padding: 0;
+            margin: -9px 0 23px 0;
         }
 
         .ec-breadcrumbs {
@@ -150,6 +148,14 @@
 
         .product-details__product-description {
             font-size: 16px;
+        }
+
+        .details-logo-container {
+            margin-left: 10px;
+        }
+
+        .details-contact-container {
+            margin-right: 10px;
         }
 
         /* Responsive Layout */
@@ -219,7 +225,7 @@
 
 <body class="details-body">
     <header class="short-banner">
-        <div class="logo-container">
+        <div class="details-logo-container">
             <a href="index.html" class="logo-link">
                 <div class="logo">
                     <img src="resources/img/icon/tian.png" alt="Company Logo">
@@ -227,7 +233,7 @@
                 </div>
             </a>
         </div>
-        <div class="contact-container">
+        <div class="details-contact-container">
             <div class="social-media-buttons">
                 <a href="mailto:contact@tenmodel.design" target="_blank"><img src="resources/img/icon/email.png"
                         alt="Contact"></a>
@@ -242,6 +248,11 @@
             </div>
         </div>
     </header>
+    <div class="ec-breadcrumbs" aria-label="Breadcrumbs">
+        <a href="https://tenmodel.design" class="breadcrumbs__link">Store</a>
+        <span class="breadcrumbs__delimiter">/</span>
+        <a href="https://tenmodel.design" class="breadcrumbs__link">New Item</a>
+    </div>
     <div class="product-container">
         <div class="main-content">
             <div class="image-section">
@@ -254,19 +265,9 @@
             </div>
 
             <div class="product-details">
-                <h2 id="productName"></h2>
-                <p id="productDescription"></p>
-                <p id="productPrice"></p>
+                    <h1 class="product-details__product-title" id="productName"></h1>
 
-                <div class="product-details__sidebar">
-                    <h1 class="product-details__product-title">MSN-04 Sazabi ver.Ka 2.0 (IM) 1/18</h1>
-
-                    <div class="ec-breadcrumbs" aria-label="Breadcrumbs">
-                        <a href="https://rwb-online-shop.ecwid.com/" class="breadcrumbs__link">Store</a>
-                        <span class="breadcrumbs__delimiter">/</span>
-                        <a href="https://rwb-online-shop.ecwid.com/New-Item-c34523227" class="breadcrumbs__link">New
-                            Item</a>
-                    </div>
+                    
 
                     <div class="product-details__product-sku">SKU 20100003</div>
 
@@ -294,7 +295,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+             
             </div>
         </div>
     </div>
@@ -350,8 +351,8 @@
             };
 
             elements.productName.textContent = product.Name;
-            elements.productDescription.textContent = product.Model || 'No description available';
-            elements.productPrice.textContent = `US$ ${product.Price || 'N/A'}`;
+            // elements.productDescription.textContent = product.Model || 'No description available';
+            // elements.productPrice.textContent = `US$ ${product.Price || 'N/A'}`;
 
             function generateThumbnails() {
                 elements.thumbnailGrid.innerHTML = images.map((img, index) =>
