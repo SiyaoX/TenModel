@@ -319,8 +319,11 @@
                 const swipeThreshold = 50;
                 const swipeDistance = touchEndX - touchStartX;
 
-                if (swipeDistance > swipeThreshold) changeImage(currentImageIndex + 1);
-                else if (swipeDistance < -swipeThreshold) changeImage(currentImageIndex - 1);
+                // Only change image if the swipe distance exceeds the threshold
+                if (Math.abs(swipeDistance) > swipeThreshold) {
+                    if (swipeDistance > 0) changeImage(currentImageIndex - 1); // Swipe right (previous image)
+                    else changeImage(currentImageIndex + 1); // Swipe left (next image)
+                }
             });
 
             // Mouse event handlers
@@ -359,7 +362,10 @@
             });
 
             // Open image in fullscreen viewer
-            mainImage.addEventListener('click', () => {
+            mainImage.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default behavior
+                e.stopPropagation(); // Stop event bubbling
+
                 isFullscreen = true; // Set fullscreen flag
                 fullscreenImage.src = mainImage.src;
                 fullscreenViewer.style.display = 'flex';
