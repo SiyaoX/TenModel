@@ -319,7 +319,7 @@
                 if (isFullscreen) return; // Ignore touch events in fullscreen mode
 
                 const swipeThreshold = 10; // Reduced from 50 to 30 for more sensitivity
-                const tapThreshold = 50; // Maximum time to consider it a tap (in milliseconds)
+                const tapThreshold = 100; // Maximum time to consider it a tap (in milliseconds)
                 const swipeDistance = touchEndX - touchStartX;
                 const touchDuration = Date.now() - touchStartTime; // Calculate touch duration
 
