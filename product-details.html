@@ -319,14 +319,14 @@
                 if (isFullscreen) return; // Ignore touch events in fullscreen mode
 
                 const swipeThreshold = 10; // Reduced from 50 to 30 for more sensitivity
-                const tapThreshold = 200; // Maximum time to consider it a tap (in milliseconds)
+                const tapThreshold = 50; // Maximum time to consider it a tap (in milliseconds)
                 const swipeDistance = touchEndX - touchStartX;
                 const touchDuration = Date.now() - touchStartTime; // Calculate touch duration
 
                 // Only change image if it's a swipe (not a tap)
                 if (Math.abs(swipeDistance) > swipeThreshold && touchDuration > tapThreshold) {
-                    if (swipeDistance > 0) changeImage(currentImageIndex - 1); // Swipe right (previous image)
-                    else changeImage(currentImageIndex + 1); // Swipe left (next image)
+                    if (swipeDistance > 0) changeImage(currentImageIndex + 1); // Swipe right (next image)
+                    else changeImage(currentImageIndex - 1); // Swipe left (previous image)
                 }
             });
 
