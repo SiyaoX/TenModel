@@ -318,7 +318,7 @@
             mainImage.addEventListener('touchend', () => {
                 if (isFullscreen) return; // Ignore touch events in fullscreen mode
 
-                const swipeThreshold = 50; // Minimum distance to consider it a swipe
+                const swipeThreshold = 30; // Reduced from 50 to 30 for more sensitivity
                 const tapThreshold = 200; // Maximum time to consider it a tap (in milliseconds)
                 const swipeDistance = touchEndX - touchStartX;
                 const touchDuration = Date.now() - touchStartTime; // Calculate touch duration
@@ -341,13 +341,13 @@
             mainImage.addEventListener('mousemove', (e) => {
                 if (!isDragging || isFullscreen) return; // Ignore mouse events in fullscreen mode
                 const diffX = e.clientX - startX;
-                if (diffX > 50) {
+                if (diffX > 30) { // Reduced from 50 to 30 for more sensitivity
                     // Dragged right, show next image
-                    changeImage(currentImageIndex + 1);
-                    isDragging = false;
-                } else if (diffX < -50) {
-                    // Dragged left, show previous image
                     changeImage(currentImageIndex - 1);
+                    isDragging = false;
+                } else if (diffX < -30) { // Reduced from 50 to 30 for more sensitivity
+                    // Dragged left, show previous image
+                    changeImage(currentImageIndex + 1);
                     isDragging = false;
                 }
             });
