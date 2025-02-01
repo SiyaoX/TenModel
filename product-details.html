@@ -241,6 +241,7 @@
             let endX = 0;
             let touchStartX = 0;
             let touchEndX = 0;
+            let touchStartTime = 0; // Track when the touch starts
             let isFullscreen = false; // Flag to prevent image change during fullscreen
 
             const product = JSON.parse(localStorage.getItem('selectedProduct'));
@@ -306,6 +307,7 @@
             mainImage.addEventListener('touchstart', e => {
                 if (isFullscreen) return; // Ignore touch events in fullscreen mode
                 touchStartX = e.touches[0].clientX;
+                touchStartTime = Date.now(); // Record the start time of the touch
             });
 
             mainImage.addEventListener('touchmove', e => {
@@ -316,11 +318,13 @@
             mainImage.addEventListener('touchend', () => {
                 if (isFullscreen) return; // Ignore touch events in fullscreen mode
 
-                const swipeThreshold = 50;
+                const swipeThreshold = 50; // Minimum distance to consider it a swipe
+                const tapThreshold = 200; // Maximum time to consider it a tap (in milliseconds)
                 const swipeDistance = touchEndX - touchStartX;
+                const touchDuration = Date.now() - touchStartTime; // Calculate touch duration
 
-                // Only change image if the swipe distance exceeds the threshold
-                if (Math.abs(swipeDistance) > swipeThreshold) {
+                // Only change image if it's a swipe (not a tap)
+                if (Math.abs(swipeDistance) > swipeThreshold && touchDuration > tapThreshold) {
                     if (swipeDistance > 0) changeImage(currentImageIndex - 1); // Swipe right (previous image)
                     else changeImage(currentImageIndex + 1); // Swipe left (next image)
                 }
