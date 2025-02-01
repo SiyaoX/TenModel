@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Gallery</title>
     <style>
-        /* Updated CSS */
+        /* Global Styles */
+        body.details-body {
+            text-align: left;
+            padding-top: 50px;
+        }
+
         .product-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -41,13 +46,13 @@
             cursor: pointer;
         }
 
-        /* Navigation buttons */
+        /* Navigation Buttons */
         .image-nav {
             position: absolute;
             top: 0;
             bottom: 0;
             background: rgba(0, 0, 0, 0);
-            color: #C8C8C8;
+            color: #c8c8c8;
             border: none;
             padding: 10px;
             cursor: pointer;
@@ -109,6 +114,44 @@
             padding: 20px;
         }
 
+        .product-details__sidebar {
+            margin-top: 20px;
+        }
+
+        .product-details__product-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .ec-breadcrumbs {
+            margin-bottom: 10px;
+        }
+
+        .product-details__product-sku {
+            margin-bottom: 10px;
+        }
+
+        .product-details__product-price {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-details__attraction-block {
+            margin-bottom: 10px;
+        }
+
+        .product-details__general-info {
+            margin-top: 20px;
+        }
+
+        .product-details__product-attributes {
+            margin-bottom: 10px;
+        }
+
+        .product-details__product-description {
+            font-size: 16px;
+        }
+
         /* Responsive Layout */
         @media (min-width: 768px) {
             .main-content {
@@ -120,7 +163,7 @@
             }
         }
 
-        /* Full-screen viewer styles */
+        /* Full-Screen Viewer */
         .fullscreen-viewer {
             display: none;
             position: fixed;
@@ -174,17 +217,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body style="padding-top: 50px;">
+<body class="details-body">
     <header class="short-banner">
-        <div class="logo-container" style="margin-bottom: 0px;">
-            <a href="index.html" class="a">
+        <div class="logo-container">
+            <a href="index.html" class="logo-link">
                 <div class="logo">
                     <img src="resources/img/icon/tian.png" alt="Company Logo">
                     <h1>TenModel</h1>
                 </div>
             </a>
         </div>
-        <div class="contact-container" style="text-align: center; margin-bottom: 0px;">
+        <div class="contact-container">
             <div class="social-media-buttons">
                 <a href="mailto:contact@tenmodel.design" target="_blank"><img src="resources/img/icon/email.png"
                         alt="Contact"></a>
@@ -214,6 +257,44 @@
                 <h2 id="productName"></h2>
                 <p id="productDescription"></p>
                 <p id="productPrice"></p>
+
+                <div class="product-details__sidebar">
+                    <h1 class="product-details__product-title">MSN-04 Sazabi ver.Ka 2.0 (IM) 1/18</h1>
+
+                    <div class="ec-breadcrumbs" aria-label="Breadcrumbs">
+                        <a href="https://rwb-online-shop.ecwid.com/" class="breadcrumbs__link">Store</a>
+                        <span class="breadcrumbs__delimiter">/</span>
+                        <a href="https://rwb-online-shop.ecwid.com/New-Item-c34523227" class="breadcrumbs__link">New
+                            Item</a>
+                    </div>
+
+                    <div class="product-details__product-sku">SKU 20100003</div>
+
+                    <div class="product-details__product-price">$275</div>
+
+                    <div class="product-details__attraction-block">
+                        <div class="product-details__label-container">
+                            <div class="ec-label label--flag label--attention">
+                                <div class="label__text">Sold out</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-details__general-info">
+                        <div class="product-details-module__title">Product Details</div>
+                        <div class="product-details-module__content">
+                            <div class="product-details__product-attributes">
+                                <div class="details-product-attribute">
+                                    <span class="details-product-attribute__title">製作: </span>
+                                    <span class="details-product-attribute__value">TEN-San</span>
+                                </div>
+                            </div>
+                            <div id="productDescription" class="product-details__product-description">
+                                <p><strong><span>MSN-04 Sazabi ver.Ka 2.0 (IM) 1/18</span></strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
