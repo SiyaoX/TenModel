@@ -274,8 +274,8 @@
             function generateThumbnails() {
                 elements.thumbnailGrid.innerHTML = images.map((img, index) =>
                     `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" data-index="${index}">
-                        <img src="${img}" alt="Thumbnail ${index + 1}">
-                    </div>`).join('');
+                <img src="${img}" alt="Thumbnail ${index + 1}">
+            </div>`).join('');
 
                 document.querySelectorAll('.thumbnail-item').forEach((item, index) => {
                     item.addEventListener('click', () => changeImage(index));
@@ -302,15 +302,20 @@
             prevBtn.addEventListener('click', () => changeImage(currentImageIndex - 1));
             nextBtn.addEventListener('click', () => changeImage(currentImageIndex + 1));
 
+            // Touch event handlers
             mainImage.addEventListener('touchstart', e => {
+                if (isFullscreen) return; // Ignore touch events in fullscreen mode
                 touchStartX = e.touches[0].clientX;
             });
 
             mainImage.addEventListener('touchmove', e => {
+                if (isFullscreen) return; // Ignore touch events in fullscreen mode
                 touchEndX = e.touches[0].clientX;
             });
 
             mainImage.addEventListener('touchend', () => {
+                if (isFullscreen) return; // Ignore touch events in fullscreen mode
+
                 const swipeThreshold = 50;
                 const swipeDistance = touchEndX - touchStartX;
 
@@ -318,14 +323,16 @@
                 else if (swipeDistance < -swipeThreshold) changeImage(currentImageIndex - 1);
             });
 
+            // Mouse event handlers
             mainImage.addEventListener('mousedown', (e) => {
+                if (isFullscreen) return; // Ignore mouse events in fullscreen mode
                 isDragging = true;
                 startX = e.clientX;
                 mainImage.style.cursor = 'pointer'; // Change cursor to grabbing
             });
 
             mainImage.addEventListener('mousemove', (e) => {
-                if (!isDragging) return;
+                if (!isDragging || isFullscreen) return; // Ignore mouse events in fullscreen mode
                 const diffX = e.clientX - startX;
                 if (diffX > 50) {
                     // Dragged right, show next image
@@ -339,12 +346,13 @@
             });
 
             mainImage.addEventListener('mouseup', () => {
+                if (isFullscreen) return; // Ignore mouse events in fullscreen mode
                 isDragging = false;
                 mainImage.style.cursor = 'pointer'; // Reset cursor
             });
 
             mainImage.addEventListener('mouseleave', () => {
-                if (isDragging) {
+                if (isDragging && !isFullscreen) {
                     isDragging = false;
                     mainImage.style.cursor = 'pointer'; // Reset cursor
                 }
