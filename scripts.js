@@ -6,36 +6,69 @@ window.onload = () => {
 // Default tab and load products after the page fully loads
 document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
-
-    // Activate the default tab after a slight delay
-    setTimeout(() => {
-        const defaultTab = document.querySelector('.tab.active-tab');
-        if (defaultTab) {
-            openTab({ currentTarget: defaultTab }, defaultTab.getAttribute('aria-controls'), false); // Simulate a click on the default tab without smooth scroll
-        }
-    }, 0); // Execute after onload completes
+    activateTabFromURL();
 });
 
-// Function to handle tab switching
+// Function to handle tab switching and update URL
 function openTab(evt, tabName, shouldScroll = true) {
-    // Hide all tab content
     document.querySelectorAll(".tab-content").forEach(content => content.classList.remove("active"));
-
-    // Remove active class from all tabs
     document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active-tab"));
 
-    // Show the clicked tab content and add active class to the clicked tab
     const tabContent = document.getElementById(tabName);
-    if (tabContent) {
-        tabContent.classList.add("active");
-    }
-    evt.currentTarget.classList.add("active-tab");
+    if (tabContent) tabContent.classList.add("active");
 
-    // Ensure smooth scroll only when clicking a tab manually
+    if (evt && evt.currentTarget) evt.currentTarget.classList.add("active-tab");
+
+    // Update the URL without reloading the page
+    const urlTab = Object.keys(tabMap).find(key => tabMap[key] === tabName);
+    if (urlTab) {
+        const newUrl = `${window.location.pathname}?tab=${urlTab}`;
+        history.pushState(null, "", newUrl);
+    }
+
     if (shouldScroll) {
-        window.scrollTo({ top: 655, behavior: 'smooth' }); // Smooth scroll on manual tab click
+        window.scrollTo({ top: 655, behavior: 'smooth' });
     }
 }
+
+// Function to extract tab parameter from URL
+function getTabFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("tab"); // Returns the value of "tab" parameter if present
+}
+
+// Map URL tab names to actual tab IDs used in the HTML
+const tabMap = {
+    'static-models': 'tab1',
+    'rc-models': 'tab2',
+    'tool-parts': 'tab3',
+    'contact-us': 'tab4'
+};
+
+// Function to activate the correct tab based on the URL parameter
+function activateTabFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    const tabParam = params.get("tab"); // Extract ?tab= value
+
+    if (tabParam && tabMap[tabParam]) {
+        const tabId = tabMap[tabParam]; // Get the actual tab ID
+        const tabToActivate = document.querySelector(`.tab[aria-controls="${tabId}"]`);
+        
+        if (tabToActivate) {
+            openTab({ currentTarget: tabToActivate }, tabId, false);
+        } else {
+            console.error(`Tab '${tabId}' not found in the DOM.`);
+        }
+    } else {
+        console.warn("No valid tab parameter found, using default tab.");
+        // Fallback to the default active tab
+        const defaultTab = document.querySelector('.tab.active-tab');
+        if (defaultTab) {
+            openTab({ currentTarget: defaultTab }, defaultTab.getAttribute('aria-controls'), false);
+        }
+    }
+}
+
 // Function to load products from JSON
 async function loadProducts() {
     try {
@@ -57,7 +90,7 @@ async function loadProducts() {
 
 // Get tab ID based on product category
 function getTabIdForCategory(category) {
-    const categoryMap = { 'sm': 1, 'gundam': 2, 'figure': 3 };
+    const categoryMap = { 'static-models': 1, 'rc-models': 2, 'tool-parts': 3, 'contact-us': 4 };
     return categoryMap[category] || null;
 }
 

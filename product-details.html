@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" />
     <title>Product Gallery</title>
     <style>
         /* Global Styles */
@@ -334,6 +335,18 @@
             if (!product) return console.error('Product not found');
 
             images = product.DetailImgs || [];
+            category = product.Category;
+            
+            const breadcrumbLinks = document.querySelectorAll('.ec-breadcrumbs .breadcrumbs__link');
+            const lastBreadcrumbLink = breadcrumbLinks[breadcrumbLinks.length - 1];
+
+            // Replace "New Item" with the category
+            if (lastBreadcrumbLink && category) {
+                lastBreadcrumbLink.textContent = category;
+                lastBreadcrumbLink.href = `http://localhost:8000/index.html?tab=${category.toLowerCase()}`;
+            } else {
+                console.error('Breadcrumb link or category not found');
+            }
 
             // Image change handler
             function changeImage(index) {
