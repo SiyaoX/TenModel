@@ -117,9 +117,16 @@
         .product-details__product-title {
             font-weight: 400;
             color: #ffffff;
-            font-size: 2rem;
+            font-size: 22px;
             padding: 0;
-            margin: -9px 0 23px 0;
+            margin-top: -5px;
+            margin-bottom: 0;
+        }
+
+        .product-details__subtitle {
+            font-size: 16px;
+            color: #ffffff;
+            /* margin-top: 5px; */
         }
 
         .ec-breadcrumbs {
@@ -127,12 +134,52 @@
         }
 
         .product-details__product-sku {
-            margin-bottom: 10px;
+            color: #808080;
+            margin-top: 5px;
         }
 
         .product-details__product-price {
-            font-size: 20px;
+            font-size: 22px;
+            margin-top: 10px;
             margin-bottom: 10px;
+        }
+
+        .label__text {
+            color: #ff6363;
+        }
+
+        .product-details__warning{
+            color: #ff6363;
+        }
+
+        .product-details-module__title {
+            font-size: 16px;
+            color: #ffffff;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .details-product-attribute {
+            font-size: 16px;
+
+            display: grid;
+            grid-template-columns: max-content 10px 1fr;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 0;
+        }
+
+        .details-product-attribute__title {
+            width: 120px;
+            text-align: left;
+        }
+
+        .details-product-attribute__value {
+            text-align: left;
+        }
+
+        .product-details-module__content{
+            color: #f5f5f5;
         }
 
         .product-details__attraction-block {
@@ -149,6 +196,7 @@
 
         .product-details__product-description {
             font-size: 16px;
+            margin-top: 20px;
         }
 
         .details-logo-container {
@@ -272,11 +320,11 @@
             <div class="product-details">
                 <h1 class="product-details__product-title" id="productName"></h1>
 
-
+                <div class="product-details__subtitle">Exquisitely Built & Painted</div>
 
                 <div class="product-details__product-sku">SKU 20100003</div>
 
-                <div class="product-details__product-price">$275</div>
+                <div class="product-details__product-price">US$ 2,750.00</div>
 
                 <div class="product-details__attraction-block">
                     <div class="product-details__label-container">
@@ -285,19 +333,72 @@
                         </div>
                     </div>
                 </div>
+                <div class="product-details__attraction-block">
+                    <div class="product-details__label-container">
+                        <div class="ec-label label--flag label--attention">
+                            <div class="label__text">Sold out</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-details__action">
+                    <button id="preorderButton" class="preorder-button" style="display: none;">Pre-order Now</button>
+                    <div id="soldOutLabel" class="sold-out-label" style="display: none;">Sold Out</div>
+                </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', () => {
+                        const preorderButton = document.getElementById('preorderButton');
+                        const soldOutLabel = document.getElementById('soldOutLabel');
+                        const product = JSON.parse(localStorage.getItem('selectedProduct'));
 
+                        if (product && product.isAvailableForPreorder) {
+                            preorderButton.style.display = 'block';
+                        } else {
+                            soldOutLabel.style.display = 'block';
+                        }
+                    });
+                </script>
+                
                 <div class="product-details__general-info">
-                    <div class="product-details-module__title">Product Details</div>
+                    <!-- <div class="product-details-module__title">Product Details</div> -->
                     <div class="product-details-module__content">
                         <div class="product-details__product-attributes">
                             <div class="details-product-attribute">
-                                <span class="details-product-attribute__title">製作: </span>
-                                <span class="details-product-attribute__value">TEN-San</span>
+                                <span class="details-product-attribute__title">Est. Delivery by</span>
+                                <span>:</span>
+                                <span class="details-product-attribute__value">Jul. 2025</span>
+                            </div>
+                            <div class="details-product-attribute">
+                                <span class="details-product-attribute__title">Pre-orders Open</span>
+                                <span>:</span>
+                                <span class="details-product-attribute__value">Jan. 29. 2025. 9:00 PM (EST)</span>
+                            </div>
+                            <div class="details-product-attribute">
+                                <span class="details-product-attribute__title">Pre-orders Close</span>
+                                <span>:</span>
+                                <span class="details-product-attribute__value">Jun. 15. 2025. 10:59 AM (EDT)</span>
+                            </div>
+                            <div class="details-product-attribute">
+                                <span class="details-product-attribute__title">Built & Painted by</span>
+                                <span>:</span>
+                                <span class="details-product-attribute__value">Ten San</span>
                             </div>
                         </div>
                         <div id="productDescription" class="product-details__product-description">
-                            <p><strong><span>MSN-04 Sazabi ver.Ka 2.0 (IM) 1/18</span></strong></p>
+                            <p><span>Product Descriptions</span></p>
                         </div>
+
+                        <div id="attention" class="product-details__attention">
+                            <p><span>! Attention</span></p>
+                        </div>
+
+                        <div id="what-is-preorder" class="product-details__what-is-preorder">
+                            <p><span>? What is pre-order?</span></p>
+                        </div>
+
+                        <div id="warning" class="product-details__warning">
+                            <p><span>*NO EXCHANGES OR RETURNS ARE ACCEPTED.</span></p>
+                        </div>
+
                     </div>
                 </div>
 
@@ -336,14 +437,14 @@
 
             images = product.DetailImgs || [];
             category = product.Category;
-            
+
             const breadcrumbLinks = document.querySelectorAll('.ec-breadcrumbs .breadcrumbs__link');
             const lastBreadcrumbLink = breadcrumbLinks[breadcrumbLinks.length - 1];
 
             // Replace "New Item" with the category
             if (lastBreadcrumbLink && category) {
                 lastBreadcrumbLink.textContent = category;
-                lastBreadcrumbLink.href = `http://localhost:8000/index.html?tab=${category.toLowerCase()}`;
+                lastBreadcrumbLink.href = `https://tenmodel.design?tab=${category.toLowerCase()}`;
             } else {
                 console.error('Breadcrumb link or category not found');
             }
