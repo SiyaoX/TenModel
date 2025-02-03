@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
     activateTabFromURL();
 });
-
 // Function to handle tab switching and update URL
 function openTab(evt, tabName, shouldScroll = true) {
     document.querySelectorAll(".tab-content").forEach(content => content.classList.remove("active"));
@@ -31,6 +30,11 @@ function openTab(evt, tabName, shouldScroll = true) {
     }
 }
 
+// Function to handle tab switching without scrolling
+function openTabWithoutScroll(evt, tabName) {
+    openTab(evt, tabName, false);
+}
+
 // Function to extract tab parameter from URL
 function getTabFromURL() {
     const params = new URLSearchParams(window.location.search);
@@ -39,23 +43,31 @@ function getTabFromURL() {
 
 // Map URL tab names to actual tab IDs used in the HTML
 const tabMap = {
-    'static-models': 'tab1',
-    'rc-models': 'tab2',
-    'tool-parts': 'tab3',
-    'contact-us': 'tab4'
+    'static models': 'tab1',
+    'rc models': 'tab2',
+    'tool parts': 'tab3',
+    'contact us': 'tab4'
 };
 
 // Function to activate the correct tab based on the URL parameter
 function activateTabFromURL() {
     const params = new URLSearchParams(window.location.search);
     const tabParam = params.get("tab"); // Extract ?tab= value
+    const shouldScroll = params.get("scroll") === "true"; // Check if we should scroll
 
     if (tabParam && tabMap[tabParam]) {
         const tabId = tabMap[tabParam]; // Get the actual tab ID
         const tabToActivate = document.querySelector(`.tab[aria-controls="${tabId}"]`);
         
         if (tabToActivate) {
-            openTab({ currentTarget: tabToActivate }, tabId, false);
+            openTab({ currentTarget: tabToActivate }, tabId, !shouldScroll); // Prevent smooth scroll if URL contains "scroll=true"
+            
+            // Scroll after activating the tab if coming from detail page
+            if (shouldScroll) {
+                setTimeout(() => {
+                    window.scrollTo({ top: 655, behavior: 'smooth' });
+                }, 100);
+            }
         } else {
             console.error(`Tab '${tabId}' not found in the DOM.`);
         }
@@ -90,7 +102,7 @@ async function loadProducts() {
 
 // Get tab ID based on product category
 function getTabIdForCategory(category) {
-    const categoryMap = { 'static-models': 1, 'rc-models': 2, 'tool-parts': 3, 'contact-us': 4 };
+    const categoryMap = { 'static models': 1, 'rc models': 2, 'tool parts': 3, 'contact us': 4 };
     return categoryMap[category] || null;
 }
 
@@ -120,7 +132,12 @@ function openProductDetail(SKU) {
     const product = findProductById(SKU);
     if (product) {
         localStorage.setItem('selectedProduct', JSON.stringify(product));
-        window.location.href = 'product-details.html';
+        
+        // Add the current tab as a parameter to return to the same section
+        const activeTab = document.querySelector('.tab.active-tab');
+        const tabParam = activeTab ? activeTab.getAttribute('aria-controls') : '';
+        
+        window.location.href = `product-details.html?returnTab=${tabParam}`;
     } else {
         console.error('Product not found:', SKU);
     }

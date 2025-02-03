@@ -302,7 +302,7 @@
         </div>
     </header>
     <div class="ec-breadcrumbs" aria-label="Breadcrumbs">
-        <a href="https://tenmodel.design" class="breadcrumbs__link">Store</a>
+        <a href="https://tenmodel.design" class="breadcrumbs__link">天</a>
         <span class="breadcrumbs__delimiter">/</span>
         <a href="https://tenmodel.design" class="breadcrumbs__link">New Item</a>
     </div>
@@ -357,7 +357,7 @@
                         }
                     });
                 </script>
-                
+
                 <div class="product-details__general-info">
                     <!-- <div class="product-details-module__title">Product Details</div> -->
                     <div class="product-details-module__content">
@@ -392,7 +392,7 @@
                         </div>
 
                         <div id="what-is-preorder" class="product-details__what-is-preorder">
-                            <p><span>? What is pre-order?</span></p>
+                            <p><span>? How pre-order works?</span></p>
                         </div>
 
                         <div id="warning" class="product-details__warning">
@@ -444,7 +444,7 @@
             // Replace "New Item" with the category
             if (lastBreadcrumbLink && category) {
                 lastBreadcrumbLink.textContent = category;
-                lastBreadcrumbLink.href = `https://tenmodel.design?tab=${category.toLowerCase()}`;
+                lastBreadcrumbLink.href = `index.html?tab=${category.toLowerCase()}&scroll=true`;
             } else {
                 console.error('Breadcrumb link or category not found');
             }
