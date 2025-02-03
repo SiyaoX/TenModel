@@ -206,6 +206,7 @@
 
         .details-contact-container {
             margin-right: 10px;
+            margin-bottom: 10px;
         }
 
         /* Responsive Layout */
@@ -295,17 +296,15 @@
                         alt="YouTube"></a>
                 <a href="https://www.instagram.com" target="_blank"><img
                         src="resources/img/icon/instagram-icon-white.png" alt="Instagram"></a>
-                <a href="https://www.facebook.com" target="_blank"><img src="resources/img/icon/facebook-icon-white.png"
-                        alt="Facebook"></a>
                 <a href="https://www.twitter.com" target="_blank"><img src="resources/img/icon/x-icon-white.png"
                         alt="Twitter"></a>
             </div>
         </div>
     </header>
     <div class="ec-breadcrumbs" aria-label="Breadcrumbs">
-        <a href="https://tenmodel.design" class="breadcrumbs__link">天</a>
+        <a href="https://tenmodel.design" class="breadcrumbs__link">Ten Model</a>
         <span class="breadcrumbs__delimiter">/</span>
-        <a href="https://tenmodel.design" class="breadcrumbs__link">New Item</a>
+        <a href="https://tenmodel.design" class="breadcrumbs__link"></a>
     </div>
     <div class="product-container">
         <div class="main-content">
@@ -445,7 +444,7 @@
             // Replace "New Item" with the category
             if (lastBreadcrumbLink && category) {
                 lastBreadcrumbLink.textContent = category;
-                lastBreadcrumbLink.href = `index.html?tab=${category.toLowerCase()}&scroll=true`;
+                lastBreadcrumbLink.href = `index.html?tab=${category.toUpperCase()}&scroll=true`;
             } else {
                 console.error('Breadcrumb link or category not found');
             }

@@ -50,10 +50,10 @@ function getTabFromURL() {
 
 // Map URL tab names to actual tab IDs used in the HTML
 const tabMap = {
-    'static models': 'tab1',
-    'rc models': 'tab2',
-    'tool parts': 'tab3',
-    'contact us': 'tab4'
+    'STATIC MODELS': 'tab1',
+    'RC MODELS': 'tab2',
+    'TOOL PARTS': 'tab3',
+    'CONTACT US': 'tab4'
 };
 
 // Function to activate the correct tab based on the URL parameter

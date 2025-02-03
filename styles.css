@@ -13,7 +13,8 @@
     src: url('./resources/fonts/Blinker/Blinker-Light.ttf') format('truetype');
 }
 
-html, body {
+html,
+body {
     font-family: 'Blinker-Light', sans-serif;
     text-align: center;
     background-color: #141414;
@@ -67,17 +68,19 @@ a {
     transform: translate(-50%, -50%);
     color: rgb(255, 255, 255);
     text-align: center;
-    width: 40vw; 
+    width: 40vw;
 }
 
 /* Ensure all text scales together */
 .banner-slogan h1 {
-    font-size: clamp(1.8rem, 4vw, 3rem); /* Min 1.5rem, flexible at 4vw, Max 3rem */
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    /* Min 1.5rem, flexible at 4vw, Max 3rem */
     line-height: 1.2;
 }
 
 .banner-slogan p {
-    font-size: clamp(0.9rem, 2vw, 1.5rem); /* Min 0.8rem, flexible at 1.5vw, Max 1.2rem */
+    font-size: clamp(0.9rem, 2vw, 1.5rem);
+    /* Min 0.8rem, flexible at 1.5vw, Max 1.2rem */
     margin: 0;
     padding: 0;
 }
@@ -142,17 +145,48 @@ a {
 }
 
 @keyframes slideshow {
-    0%, 25% { background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%); }
-    25.01%, 50% { background-image: url('resources/img/static/gundam001.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%); }
-    50.01%, 75% { background-image: url('resources/img/static/gundam002.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%); }
-    75.01%, 100% { background-image: url('resources/img/static/gundam003.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%); }
+
+    0%,
+    25% {
+        background-image: url('resources/img/banner.JPG'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
+    }
+
+    25.01%,
+    50% {
+        background-image: url('resources/img/static/gundam001.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
+    }
+
+    50.01%,
+    75% {
+        background-image: url('resources/img/static/gundam002.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
+    }
+
+    75.01%,
+    100% {
+        background-image: url('resources/img/static/gundam003.jpg'), linear-gradient(to top, rgba(0, 0, 0, 1), rgba(45, 41, 38, 0) 80%);
+    }
 }
 
 @keyframes zoom {
-    0%, 10% { opacity: 0; }
-    20%, 50% { opacity: 1; }
-    80%, 90% { opacity: 1; }
-    100% { opacity: 0; }
+
+    0%,
+    10% {
+        opacity: 0;
+    }
+
+    20%,
+    50% {
+        opacity: 1;
+    }
+
+    80%,
+    90% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
 .banner .tab {
@@ -168,7 +202,8 @@ a {
     margin-bottom: 10px;
 }
 
-.contact-info a, .contact-info p {
+.contact-info a,
+.contact-info p {
     color: #c8c8c8;
     text-decoration: none;
     margin-bottom: 5px;
@@ -250,18 +285,20 @@ h1 {
     pointer-events: none;
 }
 
-.tab:active::before, .active-tab::before {
+.tab:active::before,
+.active-tab::before {
     transform: translate(0px, -10px) rotate(45deg);
 }
 
-.tab:active, .active-tab, .tab:hover {
+.tab:active,
+.active-tab,
+.tab:hover {
     color: #ffd700;
 }
 
 .tab-content {
     display: none;
     padding: 0 20px 20px;
-    margin-top: 25px;
 }
 
 .tab-content.active {
@@ -289,11 +326,15 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    .item { width: calc(50% - 20px); }
+    .item {
+        width: calc(50% - 20px);
+    }
 }
 
 @media (max-width: 480px) {
-    .item { width: calc(100% - 20px); }
+    .item {
+        width: calc(100% - 20px);
+    }
 }
 
 .image-container {
@@ -307,7 +348,8 @@ h1 {
     margin: 0 auto;
 }
 
-.item img, .image-container img {
+.item img,
+.image-container img {
     width: 100%;
     height: auto;
     object-fit: contain;
@@ -405,13 +447,22 @@ footer {
     }
 }
 
-.tab-content-header img {
-    height: 25px;
-    width: 25px;
+.tab-content-header {
+    margin: 34px 0 27px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .tab-content-header h2 {
-    margin: 5px 0;
+    margin: 0;
+    padding: 0;
+}
+
+.tab-content-header img {
+    height: 25px;
+    width: 25px;
 }
 
 .tab-content-header p {
