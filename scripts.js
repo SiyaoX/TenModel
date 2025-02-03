@@ -1,6 +1,12 @@
-// Instantly scroll to the top on page load (no animation)
+// Conditionally scroll to the top on page load
 window.onload = () => {
-    window.scrollTo(0, 0); // Scroll to top instantly
+    const params = new URLSearchParams(window.location.search);
+    const shouldScroll = params.get("scroll") === "true";
+
+    // Only scroll to top if ?scroll=true is NOT present
+    if (!shouldScroll) {
+        window.scrollTo(0, 0); // Scroll to top instantly
+    }
 };
 
 // Default tab and load products after the page fully loads
@@ -8,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadProducts();
     activateTabFromURL();
 });
+
 // Function to handle tab switching and update URL
 function openTab(evt, tabName, shouldScroll = true) {
     document.querySelectorAll(".tab-content").forEach(content => content.classList.remove("active"));
@@ -55,18 +62,31 @@ function activateTabFromURL() {
     const tabParam = params.get("tab"); // Extract ?tab= value
     const shouldScroll = params.get("scroll") === "true"; // Check if we should scroll
 
+    console.log("activateTabFromURL called"); // Debugging
+    console.log(`shouldScroll: ${shouldScroll}`); // Debugging
+
     if (tabParam && tabMap[tabParam]) {
         const tabId = tabMap[tabParam]; // Get the actual tab ID
         const tabToActivate = document.querySelector(`.tab[aria-controls="${tabId}"]`);
         
         if (tabToActivate) {
-            openTab({ currentTarget: tabToActivate }, tabId, !shouldScroll); // Prevent smooth scroll if URL contains "scroll=true"
-            
-            // Scroll after activating the tab if coming from detail page
+            console.log(`Activating tab: ${tabId}`); // Debugging
+            openTab({ currentTarget: tabToActivate }, tabId, false);
+
+            // Scroll after activating the tab if ?scroll=true
             if (shouldScroll) {
+                console.log("Scrolling to 655"); // Debugging
                 setTimeout(() => {
                     window.scrollTo({ top: 655, behavior: 'smooth' });
-                }, 100);
+
+                    // Check if the scroll completed successfully
+                    setTimeout(() => {
+                        if (window.scrollY < 655) {
+                            console.warn("Scroll interrupted, retrying...");
+                            window.scrollTo({ top: 655, behavior: 'smooth' });
+                        }
+                    }, 1000); // Check after 1 second
+                }, 500); // Initial delay
             }
         } else {
             console.error(`Tab '${tabId}' not found in the DOM.`);
@@ -132,6 +152,7 @@ function openProductDetail(SKU) {
     const product = findProductById(SKU);
     if (product) {
         localStorage.setItem('selectedProduct', JSON.stringify(product));
+        window.location.href = 'product-details.html';
         
         // Add the current tab as a parameter to return to the same section
         const activeTab = document.querySelector('.tab.active-tab');
