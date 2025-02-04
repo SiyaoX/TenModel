@@ -1,5 +1,10 @@
 // Conditionally scroll to the top on page load
 window.onload = () => {
+    // let firstTab = document.querySelector('.tab');
+    // firstTab.classList.add('active-tab');
+    // let firstImg = firstTab.querySelector('.tab-icon');
+    // firstImg.src = "./resources/img/icon/" + firstTab.getAttribute('data-icon-active');
+
     const params = new URLSearchParams(window.location.search);
     const shouldScroll = params.get("scroll") === "true";
 
@@ -17,8 +22,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Function to handle tab switching and update URL
 function openTab(evt, tabName, shouldScroll = true) {
+    let tabs = document.querySelectorAll('.tab');
+
     document.querySelectorAll(".tab-content").forEach(content => content.classList.remove("active"));
-    document.querySelectorAll(".tab").forEach(tab => {
+    tabs.forEach(tab => {
         tab.classList.remove("active-tab");
         let img = tab.querySelector('.tab-icon');
         img.src = "resources/img/icon/" + tab.getAttribute('data-icon');
@@ -41,6 +48,18 @@ function openTab(evt, tabName, shouldScroll = true) {
     if (shouldScroll) {
         window.scrollTo({ top: 655, behavior: 'smooth' });
     }
+}
+
+// Function to Change Icon on Hover
+function hoverTab(tab, isHovering) {
+    let img = tab.querySelector('.tab-icon');
+    
+    // If it's active, do nothing (keep active icon)
+    if (tab.classList.contains('active-tab')) return;
+
+    // Change to hover color icon if hovering, otherwise revert
+    img.src = isHovering ? "resources/img/icon/" + tab.getAttribute('data-icon-hover') 
+                         : "resources/img/icon/" + tab.getAttribute('data-icon');
 }
 
 // Function to handle tab switching without scrolling
