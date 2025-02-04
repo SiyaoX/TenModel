@@ -52,28 +52,31 @@
 
         <main>
             <nav class="tabs-container">
-                <span class="tab active-tab" onclick="openTab(event, 'tab1')" aria-controls="tab1"
-                    data-icon="tab-gundam-bw.png" data-icon-active="tab-gundam-color.png">
-                    <img src="resources/img/icon/tab-gundam-color.png" alt="Static Models" class="tab-icon">
+                <span class="tab active-tab" onclick="openTab(event, 'tab1')" 
+                aria-controls="tab1"
+                onmouseover="hoverTab(this, true)"
+                onmouseout="hoverTab(this, false)" data-icon="icon-bw.png" data-icon-active="icon-color.png">
+                    <img src="./resources/img/icon/icon-color.png" alt="Static Models" class="tab-icon">
                     <br> STATIC MODELS
                 </span>
-                <span class="tab" onclick="openTab(event, 'tab2')" aria-controls="tab2" data-icon="tab-tank-bw.png"
-                    data-icon-active="tab-tank-color.png">
-                    <img src="resources/img/icon/tab-tank-bw.png" alt="RC Models" class="tab-icon">
+                <span class="tab" 
+                aria-controls="tab2"
+                onclick="openTab(event, 'tab2')" onmouseover="hoverTab(this, true)"
+                    onmouseout="hoverTab(this, false)" data-icon="icon-bw.png" data-icon-active="icon-color.png">
+                    <img src="./resources/img/icon/icon-bw.png" alt="RC Models" class="tab-icon">
                     <br> RC MODELS
                 </span>
-                <span class="tab" onclick="openTab(event, 'tab3')" aria-controls="tab3" data-icon="tab-tool-bw.png"
-                    data-icon-active="tab-tool-color.png">
-                    <img src="resources/img/icon/tab-tool-bw.png" alt="Tools & Parts" class="tab-icon">
+                <span class="tab" aria-controls="tab3" onclick="openTab(event, 'tab3')" onmouseover="hoverTab(this, true)"
+                    onmouseout="hoverTab(this, false)" data-icon="icon-bw.png" data-icon-active="icon-color.png">
+                    <img src="./resources/img/icon/icon-bw.png" alt="Tools & Parts" class="tab-icon">
                     <br> TOOL & PARTS
                 </span>
-                <span class="tab" onclick="openTab(event, 'tab4')" aria-controls="tab4" data-icon="tab-gundam-bw.png"
-                    data-icon-active="tab-tank-color.png">
-                    <img src="resources/img/icon/tab-gundam-bw.png" alt="Contact Us" class="tab-icon">
+                <span class="tab" aria-controls="tab4" onclick="openTab(event, 'tab4')" onmouseover="hoverTab(this, true)"
+                    onmouseout="hoverTab(this, false)" data-icon="icon-bw.png" data-icon-active="icon-color.png">
+                    <img src="./resources/img/icon/icon-bw.png" alt="Contact Us" class="tab-icon">
                     <br> CONTACT US
                 </span>
             </nav>
-
             <div id="tab1" class="tab-content active">
                 <div class="tab-content-header">
                     <h2>Static Models</h2>

@@ -29,7 +29,7 @@ function openTab(evt, tabName, shouldScroll = true) {
 
     if (evt && evt.currentTarget) evt.currentTarget.classList.add("active-tab");
     let activeImg = evt.currentTarget.querySelector('.tab-icon');
-    activeImg.src = "resources/img/icon/" + event.currentTarget.getAttribute('data-icon-active');
+    activeImg.src = "resources/img/icon/" + evt.currentTarget.getAttribute('data-icon-active');
 
     // Update the URL without reloading the page
     const urlTab = Object.keys(tabMap).find(key => tabMap[key] === tabName);
@@ -74,7 +74,7 @@ function activateTabFromURL() {
     if (tabParam && tabMap[tabParam]) {
         const tabId = tabMap[tabParam]; // Get the actual tab ID
         const tabToActivate = document.querySelector(`.tab[aria-controls="${tabId}"]`);
-
+        
         if (tabToActivate) {
             console.log(`Activating tab: ${tabId}`); // Debugging
             openTab({ currentTarget: tabToActivate }, tabId, false);
@@ -112,7 +112,7 @@ async function loadProducts() {
     try {
         const response = await fetch('products.json');
         if (!response.ok) throw new Error('Failed to load products JSON');
-
+        
         window.products = await response.json(); // Keeping this as is
         console.log('Products loaded:', window.products);
 
@@ -159,11 +159,11 @@ function openProductDetail(SKU) {
     if (product) {
         localStorage.setItem('selectedProduct', JSON.stringify(product));
         window.location.href = 'product-details.html';
-
+        
         // Add the current tab as a parameter to return to the same section
         const activeTab = document.querySelector('.tab.active-tab');
         const tabParam = activeTab ? activeTab.getAttribute('aria-controls') : '';
-
+        
         window.location.href = `product-details.html?returnTab=${tabParam}`;
     } else {
         console.error('Product not found:', SKU);
@@ -174,7 +174,3 @@ function openProductDetail(SKU) {
 function findProductById(SKU) {
     return window.products.find(product => product.SKU === SKU);
 }
-
-document.querySelector('.navigation-container a').addEventListener('click', function () {
-    window.scrollTo({ top: 655, behavior: 'smooth' });
-});
