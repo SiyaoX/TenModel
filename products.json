@@ -5,15 +5,9 @@
     "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
     "Price": "2,500.00",
     "SKU": "sm001",
-    "Brand": "Custom-Made",
-    "Material": "Resin",
-    "Color": "Purple / Grey",
-    "Finish": "Matte",
-    "Size": "1/100",
-    "Weight": "1500g",
     "Category": "STATIC MODELS",
     "Status": "PRE-ORDER OPEN",
-    "CoverImg":"resources/img/static/gundam001.jpg",
+    "CoverImg": "resources/img/static/gundam001.jpg",
     "DetailImgs": [
       "resources/img/static/gundam001.jpg",
       "resources/img/static/gundam002.jpg",
@@ -35,7 +29,7 @@
     "SKU": "sm002",
     "Category": "STATIC MODELS",
     "Status": "PRE-ORDER CLOSED",
-    "CoverImg":"resources/img/static/gundam002.jpg",
+    "CoverImg": "resources/img/static/gundam002.jpg",
     "DetailImgs": [
       "resources/img/static/gundam002.jpg",
       "resources/img/static/gundam002.jpg",
@@ -44,13 +38,45 @@
     ]
   },
   {
-    "Name": "FA-010S Full Armor ZZ Gundam",
+    "Name": "MSN-04 Sazabi ver.Ka 2.0",
+    "GradientColor": "linear-gradient(90deg, #FF1500 0%, #E0AF38 50%, #474047 100%)",
     "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
     "Price": "Not Available",
     "SKU": "sm003",
+    "Category": "STATIC MODELS",
+    "Status": "PRE-ORDER CLOSED",
+    "CoverImg": "resources/img/static/gundam003.jpg",
+    "DetailImgs": [
+      "resources/img/static/gundam002.jpg",
+      "resources/img/static/gundam002.jpg",
+      "resources/img/static/gundam003.jpg",
+      "resources/img/static/gundam004.jpg"
+    ]
+  },
+  {
+    "Name": "MSN-04 Sazabi ver.Ka 2.0",
+    "GradientColor": "linear-gradient(90deg, #FF1500 0%, #E0AF38 50%, #474047 100%)",
+    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
+    "Price": "Not Available",
+    "SKU": "sm004",
+    "Category": "STATIC MODELS",
+    "Status": "PRE-ORDER CLOSED",
+    "CoverImg": "resources/img/static/gundam004.jpg",
+    "DetailImgs": [
+      "resources/img/static/gundam002.jpg",
+      "resources/img/static/gundam002.jpg",
+      "resources/img/static/gundam003.jpg",
+      "resources/img/static/gundam004.jpg"
+    ]
+  },
+  {
+    "Name": "FA-010S Full Armor ZZ Gundam",
+    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
+    "Price": "Not Available",
+    "SKU": "sm005",
     "Category": "RC MODELS",
     "Status": "PRE-ORDER CLOSED",
-    "CoverImg":"resources/img/static/gundam003.jpg",
+    "CoverImg": "resources/img/static/gundam003.jpg",
     "DetailImgs": [
       "resources/img/static/gundam003.jpg",
       "resources/img/static/gundam002.jpg",
@@ -62,10 +88,10 @@
     "Name": "FA-010S Full Armor ZZ Gundam",
     "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
     "Price": "Not Available",
-    "SKU": "sm004",
+    "SKU": "sm006",
     "Category": "TOOL PARTS",
     "Status": "PRE-ORDER CLOSED",
-    "CoverImg":"resources/img/static/gundam004.jpg",
+    "CoverImg": "resources/img/static/gundam004.jpg",
     "DetailImgs": [
       "resources/img/static/gundam004.jpg",
       "resources/img/static/gundam002.jpg",
