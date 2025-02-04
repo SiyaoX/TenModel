@@ -48,20 +48,30 @@
                     </div>
                 </div>
             </div>
-
-            <script>
-                document.querySelector('.navigation-container a').addEventListener('click', function () {
-                    window.scrollTo({ top: 655, behavior: 'smooth' });
-                });
-            </script>
         </header>
 
         <main>
             <nav class="tabs-container">
-                <span class="tab active-tab" onclick="openTab(event, 'tab1')" aria-controls="tab1">STATIC MODELS</span>
-                <span class="tab" onclick="openTab(event, 'tab2')" aria-controls="tab2">RC MODELS</span>
-                <span class="tab" onclick="openTab(event, 'tab3')" aria-controls="tab3">TOOL & PARTS</span>
-                <span class="tab" onclick="openTab(event, 'tab4')" aria-controls="tab4">CONTACT US</span>
+                <span class="tab active-tab" onclick="openTab(event, 'tab1')" aria-controls="tab1"
+                    data-icon="tab-gundam-bw.png" data-icon-active="tab-gundam-color.png">
+                    <img src="resources/img/icon/tab-gundam-color.png" alt="Static Models" class="tab-icon">
+                    <br> STATIC MODELS
+                </span>
+                <span class="tab" onclick="openTab(event, 'tab2')" aria-controls="tab2" data-icon="tab-tank-bw.png"
+                    data-icon-active="tab-tank-color.png">
+                    <img src="resources/img/icon/tab-tank-bw.png" alt="RC Models" class="tab-icon">
+                    <br> RC MODELS
+                </span>
+                <span class="tab" onclick="openTab(event, 'tab3')" aria-controls="tab3" data-icon="tab-tool-bw.png"
+                    data-icon-active="tab-tool-color.png">
+                    <img src="resources/img/icon/tab-tool-bw.png" alt="Tools & Parts" class="tab-icon">
+                    <br> TOOL & PARTS
+                </span>
+                <span class="tab" onclick="openTab(event, 'tab4')" aria-controls="tab4" data-icon="tab-gundam-bw.png"
+                    data-icon-active="tab-tank-color.png">
+                    <img src="resources/img/icon/tab-gundam-bw.png" alt="Contact Us" class="tab-icon">
+                    <br> CONTACT US
+                </span>
             </nav>
 
             <div id="tab1" class="tab-content active">
@@ -90,6 +100,27 @@
                     <h2>CONTACT US</h2>
                 </div>
                 <ul class="item-list"></ul>
+            </div>
+
+            <div class="tab-content-header">
+                <h2>CONTACT US</h2>
+            </div>
+
+
+            <div class="form-container">
+                <form>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your name..">
+
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" placeholder="Your email..">
+
+                    <label for="subject">Subject:</label>
+                    <textarea id="subject" name="subject" placeholder="Write something.."
+                        style="height:200px"></textarea>
+
+                    <input type="submit" value="Submit">
+                </form>
             </div>
         </main>
     </div>
