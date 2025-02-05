@@ -165,11 +165,35 @@ function appendProductToTab(tabId, product) {
         </div>
         <div class="attributes">
             <h3>${product.Name}</h3>
-            <p style="margin-top: 10px;">US$ ${product.Price}</p>
-            <p style="font-size: 20px; color: #F84242;">${product.Status}</p>
+            
+            <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                <p>${product.SubCategory}</p>
+                <p>${product.Ratio}</p>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+                <p>US$ ${product.Price}</p>
+                <p class="status-link" style="font-size: 20px; color: #F84242; cursor: pointer;">
+                    ${product.Status}
+                </p>
+            </div>
+
+            <p style="margin-top: 10px;">${product.Date}</p>
         </div>
     `;
     container.appendChild(listItem);
+
+    // Add event listener to status element to open the "Contact Us" tab
+    listItem.querySelector('.status-link').addEventListener('click', function () {
+        // Update the URL to reflect the new active tab
+        history.pushState(null, "", `${window.location.pathname}?tab=contact&scroll=true`);
+
+        // Find the correct tab button and activate it
+        const tabToActivate = document.querySelector(`.tab[aria-controls="tab4"]`);
+        if (tabToActivate) {
+            openTab({ currentTarget: tabToActivate }, "tab4", true);
+        }
+    });
 }
 
 // Function to open product detail page
@@ -196,4 +220,10 @@ function findProductById(SKU) {
 
 document.querySelector('.navigation-container a').addEventListener('click', function () {
     window.scrollTo({ top: 655, behavior: 'smooth' });
+});
+
+document.querySelector('.contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Handle form submission, e.g., send data to a server
+    alert('Thank you for contacting us! We will get back to you soon.');
 });

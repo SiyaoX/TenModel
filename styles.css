@@ -525,7 +525,11 @@ input[type=submit]:hover {
     background-color: #1e1e1e;
     padding: 20px;
     margin: 50px auto;
-    /* Auto centers horizontally */
+}
+
+.form-container h2{
+    color: #c8c8c8;
+    text-align: left;
 }
 
 /* Style the labels */
@@ -535,4 +539,50 @@ label {
     display: block;
     margin-bottom: 8px;
     text-align: left;
+}
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.contact-info li {
+    margin: 10px 0;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact-form label {
+    font-weight: bold;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
 }
