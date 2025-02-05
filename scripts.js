@@ -193,3 +193,7 @@ function openProductDetail(SKU) {
 function findProductById(SKU) {
     return window.products.find(product => product.SKU === SKU);
 }
+
+document.querySelector('.navigation-container a').addEventListener('click', function () {
+    window.scrollTo({ top: 655, behavior: 'smooth' });
+});
