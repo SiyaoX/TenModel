@@ -293,11 +293,11 @@ h1 {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 50%;  /* Center horizontally */
+    left: 50%;
     width: 200%;
     height: 200%;
     background: radial-gradient(circle, rgba(253, 251, 211, 0.1), rgba(253, 251, 211, 0));
-    transform: translate(-50%, 100%) rotate(0deg); /* Move glow fully out of view */
+    transform: translate(-50%, 100%) rotate(0deg);
     transition: transform 0.2s ease-out;
     pointer-events: none;
     border-radius: 8px;
@@ -305,7 +305,7 @@ h1 {
 
 .tab:active::before,
 .active-tab::before {
-    transform: translate(-50%, 50%) rotate(0deg); /* Bring glow into view */
+    transform: translate(-50%, 50%) rotate(0deg);
 }
 
 .tab:active,
@@ -527,7 +527,7 @@ input[type=submit]:hover {
     margin: 50px auto;
 }
 
-.form-container h2{
+.form-container h2 {
     color: #c8c8c8;
     text-align: left;
 }
@@ -568,7 +568,8 @@ label {
     font-weight: bold;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -585,4 +586,44 @@ label {
 
 .contact-form button:hover {
     background-color: #0056b3;
+}
+
+.story {
+    max-width: 800px;
+    word-wrap: break-word;
+    text-align: start;
+}
+
+.story-header {
+    background-color: #919191;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.section {
+    line-height: 1.6;
+    max-width: 800px;
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #8b2727;
+}
+
+h2 {
+    color: #333;
+}
+
+.about-us-content {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-us-content img {
+    max-width: 100%;
+    height: auto;
 }
