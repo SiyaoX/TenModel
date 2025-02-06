@@ -595,10 +595,16 @@ label {
 }
 
 .story-header {
-    background-color: #919191;
+    background-color: #c8c8c8;
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.story-header h2 {
+    margin: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .section {
@@ -626,4 +632,29 @@ h2 {
 .about-us-content img {
     max-width: 100%;
     height: auto;
+}
+
+.about-us-content ul {
+    margin-inline-start: 0;
+}
+
+.about-us-header {
+    margin: 20px;
+}
+
+.quote {
+    margin: auto;
+    font-size: 20px;
+    font-style: italic;
+    color: #c8c8c8;
+    line-height: 1.5;
+    position: relative;
+}
+
+
+.quote-source {
+    font-size: 16px;
+    font-weight: bold;
+    color: #c8c8c8;
+    display: block;
 }
