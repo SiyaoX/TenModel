@@ -623,7 +623,7 @@ h2 {
 }
 
 .about-us-content {
-    width: 90%;
+    width: 99%;
     max-width: 800px;
     margin: 0 auto;
     text-align: start;
@@ -639,7 +639,8 @@ h2 {
 }
 
 .about-us-header {
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .quote {
