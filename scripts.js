@@ -167,7 +167,7 @@ function appendProductToTab(tabId, product) {
             <h3>${product.Name}</h3>
             
             <div style="display: flex; justify-content: space-between; margin-top: 10px;">
-                <p>${product.SubCategory}</p>
+                <p>${product.ModType}</p>
                 <p>${product.Ratio}</p>
             </div>
 

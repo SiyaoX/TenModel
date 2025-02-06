@@ -53,6 +53,15 @@
 
         <main>
             <nav class="tabs-container">
+                <span class="tab active-tab" onclick="openTab(event, 'tab0')" aria-controls="tab0"
+                    onmouseover="hoverTab(this, true)"
+                    onmouseout="hoverTab(this, false)" 
+                    data-icon="tab-gundam-bw.png" 
+                    data-icon-active="tab-gundam-color.png"
+                    data-icon-hover="tab-gundam-hover.png">
+                    <img src="./resources/img/icon/tab-gundam-color.png" alt="Static Models" class="tab-icon">
+                    About Us
+                </span>
                 <span class="tab active-tab" onclick="openTab(event, 'tab1')" aria-controls="tab1"
                     onmouseover="hoverTab(this, true)"
                     onmouseout="hoverTab(this, false)" 
@@ -60,7 +69,7 @@
                     data-icon-active="tab-gundam-color.png"
                     data-icon-hover="tab-gundam-hover.png">
                     <img src="./resources/img/icon/tab-gundam-color.png" alt="Static Models" class="tab-icon">
-                    STATIC MODELS
+                    Gunpla
                 </span>
                 <span class="tab"  onclick="openTab(event, 'tab2')" aria-controls="tab2"
                     onmouseover="hoverTab(this, true)"
@@ -69,7 +78,7 @@
                     data-icon-active="tab-tank-color.png"
                     data-icon-hover="tab-tank-hover.png">
                     <img src="./resources/img/icon/tab-tank-bw.png" alt="RC Models" class="tab-icon">
-                    RC MODELS
+                    R/C
                 </span>
                 <span class="tab" onclick="openTab(event, 'tab3')" aria-controls="tab3"
                     onmouseover="hoverTab(this, true)"
@@ -78,7 +87,7 @@
                     data-icon-active="tab-tool-color.png"
                     data-icon-hover="tab-tool-hover.png">
                     <img src="./resources/img/icon/tab-tool-bw.png" alt="Tools & Parts" class="tab-icon">
-                    TOOL & PARTS
+                    PARTS
                 </span>
                 <span class="tab" onclick="openTab(event, 'tab4')" aria-controls="tab4"
                     onmouseover="hoverTab(this, true)"
@@ -87,7 +96,16 @@
                     data-icon-active="icon-color.png"
                     data-icon-hover="tab-gundam-hover.png">
                     <img src="./resources/img/icon/tab-gundam-bw.png" alt="Contact Us" class="tab-icon">
-                    CONTACT US
+                    ORDER
+                </span>
+                <span class="tab" onclick="openTab(event, 'tab5')" aria-controls="tab5"
+                    onmouseover="hoverTab(this, true)"
+                    onmouseout="hoverTab(this, false)" 
+                    data-icon="tab-gundam-bw.png" 
+                    data-icon-active="icon-color.png"
+                    data-icon-hover="tab-gundam-hover.png">
+                    <img src="./resources/img/icon/tab-gundam-bw.png" alt="Contact Us" class="tab-icon">
+                    CONTACT
                 </span>
             </nav>
             <div id="tab1" class="tab-content active">
@@ -111,6 +129,74 @@
                 <ul class="item-list"></ul>
             </div>
 
+            <div id="tab0" class="tab-content">
+                <div class="about-us-header">
+                    <h2 style="text-align: left;">Premium Gumpla, Radio Control Tanks, 3D Printing, Custom Solutions, and More...</h2>
+                </div>
+                <div class="about-us-content" style="text-align: left;">
+                    <div class="story-header">
+                        <div style="background-color: #919191; display:flex; justify-content: space-between; width: 100%;">
+                            <h2 style="text-align: left;">Exquisite Craftsmanship</h2>
+                            <h2 style="text-align: left;">Ten Model Co., Ltd.</h2>
+                        </div>
+                        <p>Ten Model specializes in Gunpla, Radio Control Models, 3D Printing, and Custom Solutions in Shanghai, China. We have been in business since 2014, bringing over 20 years of experience to the field of model-making.</p>
+                        <img src="resources/img/static/gundam001.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam002.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam003.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam004.jpg" alt="Placeholder image"  style="max-height: 250px;">
+            
+                        <ul>
+                            <li>Our Approach to Craftsmanship</li>
+                        </ul>
+                        <p>We pride ourselves on crafting one model at a time, focusing on quality and precision. We paint, assemble, and adjust each model to perfection using top-quality tools and paints. We also research and develop custom 3D-printed parts to create the most realistic visual effects possible.</p>
+                        <img src="resources/img/static/gundam001.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam002.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam003.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam004.jpg" alt="Placeholder image"  style="max-height: 250px;">
+            
+                        <ul>
+                            <li>Our Paint Process</li>
+                        </ul>
+                        <p>Our exclusive baking paint, developed specifically for Gunpla, ensures durability and a flawless finish. After painting each part, we bake it in a special oven to guarantee long-lasting results. The key to achieving such an exceptional finish lies in our thorough pretreatment process, which ensures that every part is properly protected.</p>
+                        <img src="resources/img/static/gundam001.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam002.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam003.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam004.jpg" alt="Placeholder image"  style="max-height: 250px;">
+            
+                        <ul>
+                            <li>Custom Modifications</li>
+                        </ul>
+                        <p>We offer custom modifications, including 3D-printed parts, which are researched and developed using advanced technology such as AutoCAD. This allows us to offer innovative, highly detailed models that stand out from the rest.</p>
+                        <img src="resources/img/static/gundam001.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam002.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam003.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam004.jpg" alt="Placeholder image"  style="max-height: 250px;">
+            
+                        <ul>
+                            <li>Our Sales</li>
+                        </ul>
+                        <p>We sell Gunpla, Radio Control Tanks, and 3D-printed parts that reflect our unique craftsmanship. Rare kits, as well as custom kits that have been checked, repaired, or overhauled by us, are available for sale. Additionally, we offer modification parts that we have designed and developed in-house.</p>
+                        <img src="resources/img/static/gundam001.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam002.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam003.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam004.jpg" alt="Placeholder image"  style="max-height: 250px;">
+            
+                        <ul>
+                            <li>Meet Tian-chan</li>
+                        </ul>
+                        <p>Our founder, Zhang Tian, also known as Tian-chan, has over 20 years of experience in modeling. With a humble approach to craftsmanship, Tian-chan is dedicated to continuously improving his skills. Outside of modeling, he enjoys photography and traveling, which inspire his attention to detail and unique perspective in the world of model-making.</p>
+                        <img src="resources/img/static/gundam001.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam002.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam003.jpg" alt="Placeholder image"  style="max-height: 250px;">
+                        <img src="resources/img/static/gundam004.jpg" alt="Placeholder image"  style="max-height: 250px;">
+            
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+
             <div id="tab4" class="tab-content">
                 <div class="tab-content-header">
                     <h2>CONTACT US</h2>
@@ -120,7 +206,7 @@
                         <h2>How to Order</h2>
                         <p><strong>Payment and delivery methods vary depending on the product.</strong> Please check before ordering.</p>
                         <ul>
-                            <li>For products sold by our company (cameras, lenses, accessories, etc.), <a href="#">click here</a>.</li>
+                            <li>For products sold by our company (Gunpla, R/C Models, Tools, Goods, etc.), <a href="#">click here</a>.</li>
                             <li>For consignment items (cameras, lenses, accessories, etc.), <a href="#">click here</a>.</li>
                         </ul>
                         <p>For ordering methods, payment methods, and delivery methods for other products, please check the individual product pages.</p>
