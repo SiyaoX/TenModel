@@ -620,7 +620,7 @@ h2 {
     width: 90%;
     max-width: 800px;
     margin: 0 auto;
-    text-align: center;
+    text-align: start;
 }
 
 .about-us-content img {
