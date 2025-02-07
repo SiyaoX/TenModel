@@ -594,6 +594,10 @@ label {
     text-align: start;
 }
 
+.story ul{
+    padding-left: 20px;
+}
+
 .story-header {
     background-color: #c8c8c8;
     display: flex;
@@ -603,8 +607,7 @@ label {
 
 .story-header h2 {
     margin: 0px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px;
 }
 
 .section {
