@@ -148,7 +148,7 @@
             color: #ff6363;
         }
 
-        .product-details__warning{
+        .product-details__warning {
             color: #ff6363;
         }
 
@@ -178,7 +178,7 @@
             text-align: left;
         }
 
-        .product-details-module__content{
+        .product-details-module__content {
             color: #f5f5f5;
         }
 
@@ -399,6 +399,9 @@
                             <p><span>*NO EXCHANGES OR RETURNS ARE ACCEPTED.</span></p>
                         </div>
 
+                        <p class="status-link" style="font-size: 20px; color: #F84242; cursor: pointer;">
+                            How to Order
+                        </p>
                     </div>
                 </div>
 
@@ -414,6 +417,12 @@
     </div>
 
     <script>
+        // Add event listener to status element to redirect to index.html with tab=tab4
+        document.querySelector('.status-link').addEventListener('click', function () {
+            // Redirect to index.html with the tab parameter
+            window.location.href = "index.html?tab=how_to_order&scroll=true";
+        });
+
         document.addEventListener('DOMContentLoaded', () => {
             const mainImage = document.querySelector('.main-image');
             const fullscreenViewer = document.getElementById('fullscreenViewer');

@@ -375,20 +375,36 @@ h1 {
 }
 
 .attributes {
+    cursor: default;
     padding: 10px;
+    padding-bottom: 5px;
     color: #c8c8c8;
-    font-size: 22px;
+    font-size: 20px;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.bottom-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    white-space: nowrap;
+    flex-shrink: 0;
+    gap: 10px;
 }
 
 .attributes h3 {
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 20px;
     width: fit-content;
     white-space: normal;
 }
 
 .attributes p {
-    margin: 5px 0;
+    margin: 0;
 }
 
 .video-container {
@@ -594,7 +610,7 @@ label {
     text-align: start;
 }
 
-.story ul{
+.story ul {
     padding-left: 20px;
 }
 

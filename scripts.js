@@ -53,13 +53,13 @@ function openTab(evt, tabName, shouldScroll = true) {
 // Function to Change Icon on Hover
 function hoverTab(tab, isHovering) {
     let img = tab.querySelector('.tab-icon');
-    
+
     // If it's active, do nothing (keep active icon)
     if (tab.classList.contains('active-tab')) return;
 
     // Change to hover color icon if hovering, otherwise revert
-    img.src = isHovering ? "resources/img/icon/" + tab.getAttribute('data-icon-hover') 
-                         : "resources/img/icon/" + tab.getAttribute('data-icon');
+    img.src = isHovering ? "resources/img/icon/" + tab.getAttribute('data-icon-hover')
+        : "resources/img/icon/" + tab.getAttribute('data-icon');
 }
 
 // Function to handle tab switching without scrolling
@@ -95,7 +95,7 @@ function activateTabFromURL() {
     if (tabParam && tabMap[tabParam]) {
         const tabId = tabMap[tabParam]; // Get the actual tab ID
         const tabToActivate = document.querySelector(`.tab[aria-controls="${tabId}"]`);
-        
+
         if (tabToActivate) {
             console.log(`Activating tab: ${tabId}`); // Debugging
             openTab({ currentTarget: tabToActivate }, tabId, false);
@@ -133,7 +133,7 @@ async function loadProducts() {
     try {
         const response = await fetch('products.json');
         if (!response.ok) throw new Error('Failed to load products JSON');
-        
+
         window.products = await response.json(); // Keeping this as is
         console.log('Products loaded:', window.products);
 
@@ -163,39 +163,20 @@ function appendProductToTab(tabId, product) {
     listItem.innerHTML = `
         <div style="width: 100%; position: relative; padding-top: 100%; max-width: 500px;">
             <img src="${product.CoverImg}" alt="${product.Name}" onclick="openProductDetail('${product.SKU}')"
-                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
         </div>
+
         <div class="attributes">
             <h3>${product.Name}</h3>
-            
-            <div style="display: flex; justify-content: space-between; margin-top: 10px;">
-                <p>${product.ModType}</p>
-                <p>${product.Ratio}</p>
-            </div>
 
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
-                <p>US$ ${product.Price}</p>
-                <p class="status-link" style="font-size: 20px; color: #F84242; cursor: pointer;">
-                    ${product.Status}
-                </p>
+            <!-- Wrapper to push date and status to bottom -->
+            <div class="bottom-info">
+                <p>${product.Date}</p>
+                <p style="color: #F84242;">${product.Status}</p>
             </div>
-
-            <p style="margin-top: 10px;">${product.Date}</p>
         </div>
     `;
     container.appendChild(listItem);
-
-    // Add event listener to status element to open the "Contact Us" tab
-    listItem.querySelector('.status-link').addEventListener('click', function () {
-        // Update the URL to reflect the new active tab
-        history.pushState(null, "", `${window.location.pathname}?tab=contact&scroll=true`);
-
-        // Find the correct tab button and activate it
-        const tabToActivate = document.querySelector(`.tab[aria-controls="tab4"]`);
-        if (tabToActivate) {
-            openTab({ currentTarget: tabToActivate }, "tab4", true);
-        }
-    });
 }
 
 // Function to open product detail page
@@ -204,11 +185,11 @@ function openProductDetail(SKU) {
     if (product) {
         localStorage.setItem('selectedProduct', JSON.stringify(product));
         window.location.href = 'product-details.html';
-        
+
         // Add the current tab as a parameter to return to the same section
         const activeTab = document.querySelector('.tab.active-tab');
         const tabParam = activeTab ? activeTab.getAttribute('aria-controls') : '';
-        
+
         window.location.href = `product-details.html?returnTab=${tabParam}`;
     } else {
         console.error('Product not found:', SKU);
@@ -224,7 +205,7 @@ document.querySelector('.navigation-container a').addEventListener('click', func
     window.scrollTo({ top: 655, behavior: 'smooth' });
 });
 
-document.querySelector('.contact-form').addEventListener('submit', function(event) {
+document.querySelector('.contact-form').addEventListener('submit', function (event) {
     event.preventDefault();
     // Handle form submission, e.g., send data to a server
     alert('Thank you for contacting us! We will get back to you soon.');
