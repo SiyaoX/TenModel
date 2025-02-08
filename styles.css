@@ -324,35 +324,24 @@ h1 {
 }
 
 .item-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Auto-scaling columns */
+    gap: 30px; /* Space between items */
     list-style-type: none;
-    margin: 0 auto;
+    margin: 0 auto; /* Center the entire list */
     padding: 0;
-    gap: 30px;
+    max-width: 95%; /* Optional: Prevents items from stretching too wide */
 }
 
 .item {
     background-color: #1E1E1E;
-    width: calc(25% - 20px);
+    /* width: calc(25% - 20px); */
     max-width: 500px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-}
-
-@media (max-width: 768px) {
-    .item {
-        width: calc(50% - 20px);
-    }
-}
-
-@media (max-width: 480px) {
-    .item {
-        width: calc(100% - 20px);
-    }
+    min-width: 190px;
 }
 
 .image-container {
@@ -377,7 +366,6 @@ h1 {
 .attributes {
     cursor: default;
     padding: 10px;
-    padding-bottom: 5px;
     color: #c8c8c8;
     font-size: 20px;
     text-align: left;
@@ -396,9 +384,15 @@ h1 {
     gap: 10px;
 }
 
+@media (max-width: 1250px) { /* Adjust breakpoint as needed */
+    .bottom-info {
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the start when in column layout */
+    }
+}
 .attributes h3 {
-    margin-top: 0;
-    margin-bottom: 20px;
+    margin-top: 0px;
+    margin-bottom: 10px;
     width: fit-content;
     white-space: normal;
 }
