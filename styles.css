@@ -315,63 +315,66 @@ h1 {
 }
 
 .tab-content {
+    max-width: 1400px;
     display: none;
     padding: 0 20px 20px;
+    margin: 0 auto;
 }
 
 .tab-content.active {
     display: block;
 }
 
-.item-list {
+.container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Auto-scaling columns */
-    gap: 30px; /* Space between items */
-    list-style-type: none;
-    margin: 0 auto; /* Center the entire list */
-    padding: 0;
-    max-width: 95%; /* Optional: Prevents items from stretching too wide */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0; /* Ensure items are flush with the edges */
 }
 
 .item {
+    max-width: 200px;
     background-color: #1E1E1E;
-    /* width: calc(25% - 20px); */
-    max-width: 500px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
-    min-width: 190px;
+    width: 100%;
+    border: 1px solid #333;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; /* Adds spacing around and centers item */
 }
 
 .image-container {
+    max-width: 200px;
     position: relative;
     width: 100%;
-    height: auto;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
 }
 
 .item img,
 .image-container img {
+    max-width: 200px;
     width: 100%;
     height: auto;
-    object-fit: contain;
+    object-fit: cover; /* Adjusted to ensure images cover the container */
     cursor: pointer;
 }
 
 .attributes {
-    cursor: default;
-    padding: 10px;
+    /* wid
+    padding: 10px; */
     color: #c8c8c8;
-    font-size: 20px;
     text-align: left;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    flex-grow: 1;
 }
 
 .bottom-info {
@@ -380,16 +383,28 @@ h1 {
     align-items: center;
     margin-top: auto;
     white-space: nowrap;
+    flex-direction: row;
     flex-shrink: 0;
-    gap: 10px;
+    gap: 5px;
+    width: 100%;
 }
 
-@media (max-width: 1250px) { /* Adjust breakpoint as needed */
-    .bottom-info {
-        flex-direction: column;
-        align-items: flex-start; /* Align items to the start when in column layout */
+/* Responsive adjustments */
+@media (max-width: 768px) { 
+    .container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .item {
+        max-width: 200px;
     }
 }
+
+@media (max-width: 480px) { 
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
 .attributes h3 {
     margin-top: 0px;
     margin-bottom: 10px;

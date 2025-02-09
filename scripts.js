@@ -155,7 +155,7 @@ function getTabIdForCategory(category) {
 
 // Append product to the appropriate tab content
 function appendProductToTab(tabId, product) {
-    const container = document.querySelector(`#tab${tabId} .item-list`);
+    const container = document.querySelector(`#tab${tabId} .container`);
     if (!container) return console.error(`Container for tab ${tabId} not found.`);
 
     const listItem = document.createElement('li');
