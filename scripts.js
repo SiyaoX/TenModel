@@ -131,10 +131,11 @@ function activateTabFromURL() {
 // Function to load products from JSON
 async function loadProducts() {
     try {
-        const response = await fetch('products.json');
-        if (!response.ok) throw new Error('Failed to load products JSON');
+        const products = await fetch('products.json');
 
-        window.products = await response.json(); // Keeping this as is
+        if (!products.ok) throw new Error('Failed to load products JSON');
+
+        window.products = await products.json();
         console.log('Products loaded:', window.products);
 
         window.products.forEach(product => {
@@ -161,9 +162,9 @@ function appendProductToTab(tabId, product) {
     const listItem = document.createElement('li');
     listItem.classList.add('item');
     listItem.innerHTML = `
-        <div style="width: 100%; position: relative; padding-top: 100%; max-width: 500px;">
-            <img src="${product.CoverImg}" alt="${product.Name}" onclick="openProductDetail('${product.SKU}')"
-                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div class="image-container">
+            <img src="${product.CoverImg}" alt="${product.Name}">
+            <div class="overlay" onclick="openProductDetail('${product.SKU}')"></div> <!-- Transparent overlay -->
         </div>
 
         <div class="attributes">
