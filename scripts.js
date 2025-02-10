@@ -162,9 +162,9 @@ function appendProductToTab(tabId, product) {
     const listItem = document.createElement('li');
     listItem.classList.add('item');
     listItem.innerHTML = `
-        <div class="image-container">
-            <img src="${product.CoverImg}" alt="${product.Name}">
-            <div class="overlay" onclick="openProductDetail('${product.SKU}')"></div>
+        <div class="image-container" onclick="openProductDetail('${product.SKU}')">
+            <img src="${product.CoverImg}"  alt="${product.Name}">
+            <div class="overlay"></div>
         </div>
 
         <div class="attributes">
