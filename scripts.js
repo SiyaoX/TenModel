@@ -164,7 +164,7 @@ function appendProductToTab(tabId, product) {
     listItem.innerHTML = `
         <div class="image-container">
             <img src="${product.CoverImg}" alt="${product.Name}">
-            <div class="overlay" onclick="openProductDetail('${product.SKU}')"></div> <!-- Transparent overlay -->
+            <div class="overlay" onclick="openProductDetail('${product.SKU}')"></div>
         </div>
 
         <div class="attributes">

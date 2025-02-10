@@ -325,6 +325,12 @@ h1 {
     display: block;
 }
 
+.center-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
@@ -642,6 +648,7 @@ label {
     max-width: 800px;
     word-wrap: break-word;
     text-align: start;
+    background-color: #242424;
 }
 
 .story ul {
@@ -661,14 +668,19 @@ label {
 }
 
 .section {
+    width: 100%;
     line-height: 1.6;
     max-width: 800px;
-    text-align: center;
+    text-align: left;
     margin-bottom: 20px;
     padding: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #8b2727;
+    background-color: #414141;
+}
+
+.section h2{
+    color: #ffffff;
 }
 
 h2 {

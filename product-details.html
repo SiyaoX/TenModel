@@ -14,6 +14,8 @@
         }
 
         .product-container {
+            display: flex;
+            justify-content: center;
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
@@ -26,56 +28,56 @@
         }
 
         .image-section {
-            max-width: 600px;
+            max-width: 500px;
             position: relative;
             flex: 1;
         }
 
         #mainImageContainer {
             width: 100%;
-            height: 600px;
             overflow: hidden;
             position: relative;
         }
 
         .main-image {
             background-color: #0a0a0a;
-            width: 100%;
-            height: 100%;
+            /* width: 500px; */
+            max-height: 500px;
             object-fit: contain;
             transition: opacity 0.3s ease;
             cursor: pointer;
         }
 
-        /* Navigation Buttons */
         .image-nav {
             position: absolute;
             top: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0);
-            color: #c8c8c8;
+            background: rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            font-size: large;
             border: none;
             padding: 10px;
             cursor: pointer;
             z-index: 2;
-            transition: background 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, background 0.2s ease-in-out;
         }
 
+        /* Highlight when mouse is inside */
         .image-nav:hover {
-            background: rgba(0, 0, 0, 0);
+            background: rgba(0, 0, 0, 0.6);
         }
 
         #prevBtn {
             left: 0;
-            border-radius: 0 5px 5px 0;
         }
 
         #nextBtn {
             right: 0;
-            border-radius: 5px 0 0 5px;
         }
 
         /* Thumbnails */
@@ -125,8 +127,8 @@
 
         .product-details__subtitle {
             font-size: 16px;
-            color: #ffffff;
-            /* margin-top: 5px; */
+            color: #c8c8c8;
+            margin-top: 10px;
         }
 
         .ec-breadcrumbs {
@@ -135,13 +137,12 @@
 
         .product-details__product-sku {
             color: #808080;
-            margin-top: 5px;
+            margin-top: 10px;
         }
 
         .product-details__product-price {
             font-size: 22px;
             margin-top: 10px;
-            margin-bottom: 10px;
         }
 
         .label__text {
@@ -320,13 +321,17 @@
             <div class="product-details">
                 <h1 class="product-details__product-title" id="productName"></h1>
 
-                <div class="product-details__subtitle">Exquisitely Built & Painted</div>
+                <div class="product-details__subtitle" id="productDescription"></div>
 
-                <div class="product-details__product-sku">SKU 20100003</div>
+                <div class="product-details__product-sku" id="productSKU"></div>
 
-                <div class="product-details__product-price">US$ 2,750.00</div>
+                <div class="product-details__product-price" id="productPrice"></div>
 
-                <div class="product-details__attraction-block">
+                <p class="status-link" id="productBuyLink" style="font-size: 20px; color: #ff3535; cursor: pointer;">
+                    => How to Order
+                </p>
+
+                <!-- <div class="product-details__attraction-block">
                     <div class="product-details__label-container">
                         <div class="ec-label label--flag label--attention">
                             <div class="label__text">Sold out</div>
@@ -343,7 +348,7 @@
                 <div class="product-details__action">
                     <button id="preorderButton" class="preorder-button" style="display: none;">Pre-order Now</button>
                     <div id="soldOutLabel" class="sold-out-label" style="display: none;">Sold Out</div>
-                </div>
+                </div> -->
                 <script>
                     document.addEventListener('DOMContentLoaded', () => {
                         const preorderButton = document.getElementById('preorderButton');
@@ -356,10 +361,37 @@
                             soldOutLabel.style.display = 'block';
                         }
                     });
+
+                    const mainImage = document.querySelector(".main-image");
+                    const imageNavs = document.querySelectorAll(".image-nav");
+
+                    function showNav() {
+                        imageNavs.forEach(nav => {
+                            nav.style.opacity = "1";
+                            nav.style.visibility = "visible";
+                        });
+                    }
+
+                    function hideNav(event) {
+                        if (!mainImage.contains(event.relatedTarget) && !event.relatedTarget?.classList.contains("image-nav")) {
+                            imageNavs.forEach(nav => {
+                                nav.style.opacity = "0";
+                                nav.style.visibility = "hidden";
+                            });
+                        }
+                    }
+
+                    mainImage.addEventListener("mouseenter", showNav);
+                    mainImage.addEventListener("mouseleave", hideNav);
+                    imageNavs.forEach(nav => {
+                        nav.addEventListener("mouseenter", showNav);
+                        nav.addEventListener("mouseleave", hideNav);
+                    });
+
                 </script>
 
-                <div class="product-details__general-info">
-                    <!-- <div class="product-details-module__title">Product Details</div> -->
+                <!-- <div class="product-details__general-info">
+                    <div class="product-details-module__title">Product Details</div>
                     <div class="product-details-module__content">
                         <div class="product-details__product-attributes">
                             <div class="details-product-attribute">
@@ -403,7 +435,7 @@
                             How to Order
                         </p>
                     </div>
-                </div>
+                </div> -->
 
             </div>
         </div>
@@ -417,40 +449,44 @@
     </div>
 
     <script>
-        // Add event listener to status element to redirect to index.html with tab=tab4
-        document.querySelector('.status-link').addEventListener('click', function () {
-            // Redirect to index.html with the tab parameter
-            window.location.href = "index.html?tab=how_to_order&scroll=true";
-        });
-
         document.addEventListener('DOMContentLoaded', () => {
+            // DOM elements
             const mainImage = document.querySelector('.main-image');
             const fullscreenViewer = document.getElementById('fullscreenViewer');
             const fullscreenImage = document.getElementById('fullscreenImage');
             const closeFullscreen = document.getElementById('closeFullscreen');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
+            const thumbnailGrid = document.getElementById('thumbnailGrid');
+            const productName = document.getElementById('productName');
+            const productDescription = document.getElementById('productDescription');
+            const productPrice = document.getElementById('productPrice');
+            const productSKU = document.getElementById('productSKU');
+            const breadcrumbLinks = document.querySelectorAll('.ec-breadcrumbs .breadcrumbs__link');
+            const lastBreadcrumbLink = breadcrumbLinks[breadcrumbLinks.length - 1];
 
+            // State variables
             let currentImageIndex = 0;
             let images = [];
             let isDragging = false;
             let startX = 0;
-            let endX = 0;
             let touchStartX = 0;
             let touchEndX = 0;
-            let touchStartTime = 0; // Track when the touch starts
-            let isFullscreen = false; // Flag to prevent image change during fullscreen
+            let touchStartTime = 0;
+            let isFullscreen = false;
 
+            // Load product data from localStorage
             const product = JSON.parse(localStorage.getItem('selectedProduct'));
             if (!product) return console.error('Product not found');
 
+            // Initialize product details
             images = product.DetailImgs || [];
-            category = product.Category;
+            const category = product.Category;
+            const sku = product.SKU || 'SKU not available';
+            const description = product.Description || 'Description not available';
+            const price = parseFloat(product.Price);
 
-            const breadcrumbLinks = document.querySelectorAll('.ec-breadcrumbs .breadcrumbs__link');
-            const lastBreadcrumbLink = breadcrumbLinks[breadcrumbLinks.length - 1];
-
-            // Replace "New Item" with the category
+            // Update breadcrumb
             if (lastBreadcrumbLink && category) {
                 lastBreadcrumbLink.textContent = category;
                 lastBreadcrumbLink.href = `index.html?tab=${category.toUpperCase()}&scroll=true`;
@@ -458,128 +494,118 @@
                 console.error('Breadcrumb link or category not found');
             }
 
-            // Image change handler
-            function changeImage(index) {
-                if (isFullscreen) return; // Prevent image change while fullscreen is active
-
-                if (index < 0) index = images.length - 1; // Loop to last image
-                if (index >= images.length) index = 0; // Loop to first image
-                currentImageIndex = index;
-                mainImage.src = images[index];
+            // Update product details
+            productName.textContent = product.Name;
+            productSKU.textContent = `SKU: ${sku}`;
+            productDescription.textContent = description;
+            if (!isNaN(price)) {
+                if (price > 0) {
+                    productPrice.textContent = `US$ ${price.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`;
+                } else if (price == -1){
+                    productPrice.textContent = 'Price on Original Website';
+                }
+            } else {
+                productPrice.textContent = 'Price not available';
+            }
+            if (!isNaN(price) && price >= 0) {
             }
 
-            // Thumbnail click handler
-            const elements = {
-                mainImage: document.querySelector('.main-image'),
-                thumbnailGrid: document.getElementById('thumbnailGrid'),
-                productName: document.getElementById('productName'),
-                productDescription: document.getElementById('productDescription'),
-                productPrice: document.getElementById('productPrice')
-            };
-
-            elements.productName.textContent = product.Name;
-            // elements.productDescription.textContent = product.Model || 'No description available';
-            // elements.productPrice.textContent = `US$ ${product.Price || 'N/A'}`;
-
+            // Generate thumbnails
             function generateThumbnails() {
-                elements.thumbnailGrid.innerHTML = images.map((img, index) =>
+                thumbnailGrid.innerHTML = images.map((img, index) =>
                     `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" data-index="${index}">
-                <img src="${img}" alt="Thumbnail ${index + 1}">
-            </div>`).join('');
+                        <img src="${img}" alt="Thumbnail ${index + 1}">
+                    </div>`).join('');
 
                 document.querySelectorAll('.thumbnail-item').forEach((item, index) => {
                     item.addEventListener('click', () => changeImage(index));
                 });
             }
 
+            // Change image handler
             function changeImage(index) {
-                if (index < 0) index = images.length - 1;
-                if (index >= images.length) index = 0;
+                if (isFullscreen) return; // Prevent image change during fullscreen
+
+                if (index < 0) index = images.length - 1; // Loop to last image
+                if (index >= images.length) index = 0; // Loop to first image
                 currentImageIndex = index;
 
-                document.querySelectorAll('.thumbnail-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                elements.thumbnailGrid.children[index].classList.add('active');
+                // Update active thumbnail
+                document.querySelectorAll('.thumbnail-item').forEach(item => item.classList.remove('active'));
+                thumbnailGrid.children[index].classList.add('active');
 
-                elements.mainImage.style.opacity = 0;
+                // Update main image with fade effect
+                mainImage.style.opacity = 0;
                 setTimeout(() => {
-                    elements.mainImage.src = images[index];
-                    elements.mainImage.style.opacity = 1;
+                    mainImage.src = images[index];
+                    mainImage.style.opacity = 1;
                 }, 300);
             }
 
+            // Event listeners for navigation buttons
             prevBtn.addEventListener('click', () => changeImage(currentImageIndex - 1));
             nextBtn.addEventListener('click', () => changeImage(currentImageIndex + 1));
 
             // Touch event handlers
             mainImage.addEventListener('touchstart', e => {
-                if (isFullscreen) return; // Ignore touch events in fullscreen mode
+                if (isFullscreen) return;
                 touchStartX = e.touches[0].clientX;
-                touchStartTime = Date.now(); // Record the start time of the touch
+                touchStartTime = Date.now();
             });
 
             mainImage.addEventListener('touchmove', e => {
-                if (isFullscreen) return; // Ignore touch events in fullscreen mode
+                if (isFullscreen) return;
                 touchEndX = e.touches[0].clientX;
             });
 
             mainImage.addEventListener('touchend', () => {
-                if (isFullscreen) return; // Ignore touch events in fullscreen mode
+                if (isFullscreen) return;
 
-                const swipeThreshold = 10; // Reduced from 50 to 30 for more sensitivity
-                const tapThreshold = 100; // Maximum time to consider it a tap (in milliseconds)
+                const swipeThreshold = 10;
+                const tapThreshold = 100;
                 const swipeDistance = touchEndX - touchStartX;
-                const touchDuration = Date.now() - touchStartTime; // Calculate touch duration
+                const touchDuration = Date.now() - touchStartTime;
 
-                // Only change image if it's a swipe (not a tap)
                 if (Math.abs(swipeDistance) > swipeThreshold && touchDuration > tapThreshold) {
-                    if (swipeDistance > 0) changeImage(currentImageIndex + 1); // Swipe right (next image)
-                    else changeImage(currentImageIndex - 1); // Swipe left (previous image)
+                    if (swipeDistance > 0) changeImage(currentImageIndex + 1); // Swipe right
+                    else changeImage(currentImageIndex - 1); // Swipe left
                 }
             });
 
             // Mouse event handlers
-            mainImage.addEventListener('mousedown', (e) => {
-                if (isFullscreen) return; // Ignore mouse events in fullscreen mode
+            mainImage.addEventListener('mousedown', e => {
+                if (isFullscreen) return;
                 isDragging = true;
                 startX = e.clientX;
-                mainImage.style.cursor = 'pointer'; // Change cursor to grabbing
+                mainImage.style.cursor = 'pointer';
             });
 
-            mainImage.addEventListener('mousemove', (e) => {
-                if (!isDragging || isFullscreen) return; // Ignore mouse events in fullscreen mode
+            mainImage.addEventListener('mousemove', e => {
+                if (!isDragging || isFullscreen) return;
                 const diffX = e.clientX - startX;
-                if (diffX > 10) { // Reduced from 50 to 30 for more sensitivity
-                    // Dragged right, show next image
-                    changeImage(currentImageIndex + 1);
-                    isDragging = false;
-                } else if (diffX < -10) { // Reduced from 50 to 30 for more sensitivity
-                    // Dragged left, show previous image
-                    changeImage(currentImageIndex - 1);
-                    isDragging = false;
-                }
+                if (diffX > 10) changeImage(currentImageIndex + 1); // Drag right
+                else if (diffX < -10) changeImage(currentImageIndex - 1); // Drag left
+                isDragging = false;
             });
 
             mainImage.addEventListener('mouseup', () => {
-                if (isFullscreen) return; // Ignore mouse events in fullscreen mode
+                if (isFullscreen) return;
                 isDragging = false;
-                mainImage.style.cursor = 'pointer'; // Reset cursor
+                mainImage.style.cursor = 'pointer';
             });
 
             mainImage.addEventListener('mouseleave', () => {
                 if (isDragging && !isFullscreen) {
                     isDragging = false;
-                    mainImage.style.cursor = 'pointer'; // Reset cursor
+                    mainImage.style.cursor = 'pointer';
                 }
             });
 
-            // Open image in fullscreen viewer
-            mainImage.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default behavior
-                e.stopPropagation(); // Stop event bubbling
-
-                isFullscreen = true; // Set fullscreen flag
+            // Fullscreen image viewer
+            mainImage.addEventListener('click', e => {
+                e.preventDefault();
+                e.stopPropagation();
+                isFullscreen = true;
                 fullscreenImage.src = mainImage.src;
                 fullscreenViewer.style.display = 'flex';
             });
@@ -587,16 +613,22 @@
             fullscreenViewer.addEventListener('click', e => {
                 if (e.target !== fullscreenImage || e.target === closeFullscreen) {
                     fullscreenViewer.style.display = 'none';
-                    isFullscreen = false; // Reset fullscreen flag
+                    isFullscreen = false;
                 }
             });
 
             fullscreenImage.addEventListener('click', e => e.stopPropagation());
 
+            // Initialize thumbnails and main image
             if (images.length > 0) {
-                elements.mainImage.src = images[0];
+                mainImage.src = images[0];
                 generateThumbnails();
             }
+        });
+
+        // Redirect to index.html with tab parameter
+        document.querySelector('.status-link').addEventListener('click', () => {
+            window.location.href = "index.html?tab=how_to_order&scroll=true";
         });
     </script>
 </body>
