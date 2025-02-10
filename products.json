@@ -1,11 +1,10 @@
 [
   {
     "Name": "FA-010S Full Armor ZZ Gundam",
-    "GradientColor": "linear-gradient(90deg, #5141B0 37%, #FF0031 37%, #FF0031 48%, grey 48%)",
     "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
     "Price": "2,500.00",
     "SKU": "sm001",
-    "Category": "STATIC MODELS",
+    "Category": "GUNPLA",
     "ModType": "Custom paint job, custom details, custom base",
     "Modeler": "Ten san",
     "Kit": "Utopia Cast 1/72 FA-010S Full Armor ZZ Gundam",
@@ -32,7 +31,6 @@
   },
   {
     "Name": "MSN-04 Sazabi ver.Ka 2.0",
-    "GradientColor": "linear-gradient(90deg, #FF1500 0%, #E0AF38 50%, #474047 100%)",
     "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
     "Price": "Not Available",
     "SKU": "sm002",

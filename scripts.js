@@ -76,7 +76,7 @@ function getTabFromURL() {
 // Map URL tab names to actual tab IDs used in the HTML
 const tabMap = {
     'about_us': 'tab0',
-    'static_models': 'tab1',
+    'gunpla': 'tab1',
     'rc_models': 'tab2',
     'tool_parts': 'tab3',
     'how_to_order': 'tab4',
@@ -150,7 +150,7 @@ async function loadProducts() {
 
 // Get tab ID based on product category
 function getTabIdForCategory(category) {
-    const categoryMap = { 'static models': 1, 'rc models': 2, 'tool parts': 3, 'contact us': 4 };
+    const categoryMap = { 'gunpla': 1, 'rc models': 2, 'tool parts': 3, 'contact us': 4 };
     return categoryMap[category] || null;
 }
 

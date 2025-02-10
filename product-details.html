@@ -499,7 +499,7 @@
             // Update breadcrumb
             if (lastBreadcrumbLink && category) {
                 lastBreadcrumbLink.textContent = category;
-                lastBreadcrumbLink.href = `index.html?tab=${category.toUpperCase()}&scroll=true`;
+                lastBreadcrumbLink.href = `index.html?tab=${category.toLowerCase()}&scroll=true`;
             } else {
                 console.error('Breadcrumb link or category not found');
             }
