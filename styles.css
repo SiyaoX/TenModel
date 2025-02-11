@@ -207,7 +207,9 @@ a {
 }
 
 .contact-container {
-    margin-right: 10px;
+    width: 140px;
+    text-align: center;
+    /* margin-right: 10px; */
     margin-bottom: 10px;
 }
 
@@ -234,7 +236,8 @@ a {
 }
 
 .logo-container {
-    margin-left: 10px;
+    width: 140px;
+    margin-left: 15px;
     margin-bottom: 10px;
 }
 
@@ -333,7 +336,10 @@ h1 {
 }
 
 .tab-content.active {
-    display: block;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .center-div {
@@ -351,6 +357,7 @@ h1 {
     gap: 20px;
     justify-content: center;
     align-items: stretch;
+    max-width: 1260px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -390,8 +397,22 @@ h1 {
     transition: transform 0.3s ease-in-out;
 }
 
-@media (max-width: 670px) {
+@media (max-width: 1320px) {
+    .container{
+        max-width: 960px;
+    }
+}
 
+@media (max-width: 1000px) {
+    .container{
+        max-width: 640px;
+    }
+}
+
+@media (max-width: 680px) {
+    .container{
+        max-width: 300px;
+    }
     .item img,
     .image-container img {
         width: 100%;
@@ -798,6 +819,7 @@ label {
     margin-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
+    max-width: 800px;
 }
 
 .quote {
