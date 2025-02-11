@@ -161,22 +161,41 @@ function appendProductToTab(tabId, product) {
 
     const listItem = document.createElement('li');
     listItem.classList.add('item');
+
+    // Create the base structure
     listItem.innerHTML = `
         <div class="image-container" onclick="openProductDetail('${product.SKU}')">
-            <img src="${product.CoverImg}"  alt="${product.Name}">
+            <img src="${product.CoverImg}" alt="${product.Name}">
             <div class="overlay"></div>
         </div>
 
         <div class="attributes">
             <h3>${product.Name}</h3>
 
+            <ul class="feature-list"></ul> <!-- Empty list for features -->
             <!-- Wrapper to push date and status to bottom -->
             <div class="bottom-info">
-                <p>${product.Date}</p>
+                
                 <p style="color: #F84242;">${product.Status}</p>
             </div>
         </div>
     `;
+
+    const featureList = listItem.querySelector('.feature-list');
+
+    // Append each feature as a separate <li> tag with a dot
+    if (product.Features && product.Features.length) {
+        product.Features.forEach(feature => {
+            const featureElement = document.createElement('li');
+            featureElement.textContent = `${feature}`; // Add dot before text
+            featureList.appendChild(featureElement);
+        });
+    } else {
+        const noFeature = document.createElement('li');
+        noFeature.textContent = 'No features listed';
+        featureList.appendChild(noFeature);
+    }
+
     container.appendChild(listItem);
 }
 
