@@ -340,6 +340,8 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .container {
@@ -349,7 +351,8 @@ h1 {
     gap: 20px;
     justify-content: center;
     align-items: stretch;
-    padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .item {
@@ -357,11 +360,11 @@ h1 {
     min-width: 120px;
     background-color: #1E1E1E;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     width: 100%;
-    /* border: 1px solid #333; */
+    border: 1px solid #333;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
@@ -746,7 +749,7 @@ label {
     max-width: 800px;
     text-align: left;
     margin-bottom: 20px;
-    padding: 15px;
+    /* padding: 15px; */
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #414141;
@@ -754,12 +757,31 @@ label {
 
 .section h2 {
     color: #ffffff;
+    margin: 10px;
+}
+
+.section h3 {
+    margin: 10px;
+}
+
+.section p {
+    margin: 10px;
+}
+
+.section ul {
+    margin-left: -15px;
+}
+
+.section li {
+    margin: 10px;
 }
 
 .about-us-content {
     max-width: 800px;
     margin: 0 auto;
     text-align: start;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .about-us-content img {
@@ -774,6 +796,8 @@ label {
 .about-us-header {
     margin-top: 20px;
     margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .quote {
