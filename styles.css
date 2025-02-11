@@ -18,7 +18,7 @@ body {
     font-family: 'Blinker-Light', sans-serif;
     text-align: center;
     background-color: #141414;
-    color: #ffffff;
+    color: #c8c8c8;
     margin: 0;
     padding: 0;
     height: 100%;
@@ -99,12 +99,9 @@ a {
     }
 }
 
-/* .banner-slogan p {
-    font-size: 1em;
-    margin: 0;
-    padding: 0;
-    line-height: 1.2;
-} */
+.banner-slogan p {
+ color: #c8c8c8;
+}
 
 .banner-extras {
     display: flex;
@@ -328,8 +325,9 @@ h1 {
 .tab-content {
     max-width: 800px;
     display: none;
-    padding: 0 20px 20px;
     margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .tab-content.active {
@@ -664,11 +662,35 @@ label {
 }
 
 .story ul {
-    padding-left: 20px;
+    margin: 0;
+    padding-left: 30px;
+}
+
+.story p {
+    margin: 10px;
+    margin-bottom: 0px;
+}
+
+.story-img-container {
+    padding: 10px;
+    display: flex;
+    gap: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow: hidden; /* Hide any overflow */
+}
+
+.story-img-container img {
+    height: 250px;
+    width: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: none;
 }
 
 .story-header {
-    background-color: #c8c8c8;
+    background-color: #868686;
+    color: #141414;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -676,7 +698,9 @@ label {
 
 .story-header h2 {
     margin: 0px;
-    padding: 5px;
+    padding: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .section {
@@ -695,12 +719,7 @@ label {
     color: #ffffff;
 }
 
-h2 {
-    color: #333;
-}
-
 .about-us-content {
-    width: 99%;
     max-width: 800px;
     margin: 0 auto;
     text-align: start;

@@ -40,7 +40,7 @@
     "Height": 3.1,
     "Depth": 12.3,
     "Date": "Sep. 2024",
-    "Status": "PRE-ORDER CLOSED",
+    "Status": "OUT OF STOCK",
     "CoverImg": "resources/img/static/gundam002.jpg",
     "DetailImgs": [
       "resources/img/static/gundam002.jpg",
@@ -61,7 +61,7 @@
     "Height": 3.1,
     "Depth": 12.3,
     "Date": "Apr. 2024",
-    "Status": "PRE-ORDER OPEN",
+    "Status": "OUT OF STOCK",
     "CoverImg": "resources/img/static/gundam003.jpg",
     "DetailImgs": [
       "resources/img/static/gundam002.jpg",
@@ -82,49 +82,7 @@
     "Height": 3.1,
     "Depth": 12.3,
     "Date": "Nov. 2024",
-    "Status": "AVAILABLE",
-    "CoverImg": "resources/img/static/gundam004.jpg",
-    "DetailImgs": [
-      "resources/img/static/gundam002.jpg",
-      "resources/img/static/gundam002.jpg",
-      "resources/img/static/gundam003.jpg",
-      "resources/img/static/gundam004.jpg"
-    ]
-  },
-  {
-    "Name": "MSN-04 Sazabi ver.Ka 2.0",
-    "GradientColor": "linear-gradient(90deg, #FF1500 0%, #E0AF38 50%, #474047 100%)",
-    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
-    "Price": "Not Available",
-    "SKU": "sm005",
-    "Category": "GUNPLA",
-    "Ratio": "1/100",
-    "Width": 5.1,
-    "Height": 3.1,
-    "Depth": 12.3,
-    "Date": "Nov. 2024",
-    "Status": "AVAILABLE",
-    "CoverImg": "resources/img/static/gundam004.jpg",
-    "DetailImgs": [
-      "resources/img/static/gundam002.jpg",
-      "resources/img/static/gundam002.jpg",
-      "resources/img/static/gundam003.jpg",
-      "resources/img/static/gundam004.jpg"
-    ]
-  },
-  {
-    "Name": "MSN-04 Sazabi ver.Ka 2.0",
-    "GradientColor": "linear-gradient(90deg, #FF1500 0%, #E0AF38 50%, #474047 100%)",
-    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
-    "Price": "Not Available",
-    "SKU": "sm006",
-    "Category": "GUNPLA",
-    "Ratio": "1/100",
-    "Width": 5.1,
-    "Height": 3.1,
-    "Depth": 12.3,
-    "Date": "Nov. 2024",
-    "Status": "AVAILABLE",
+    "Status": "OUT OF STOCK",
     "CoverImg": "resources/img/static/gundam004.jpg",
     "DetailImgs": [
       "resources/img/static/gundam002.jpg",
@@ -144,7 +102,7 @@
     "Height": 3.1,
     "Depth": 12.3,
     "Date": "Jan. 2024",
-    "Status": "AVAILABLE",
+    "Status": "OUT OF STOCK",
     "CoverImg": "resources/img/static/gundam003.jpg",
     "DetailImgs": [
       "resources/img/static/gundam003.jpg",
@@ -164,7 +122,7 @@
     "Height": 3.1,
     "Depth": 12.3,
     "Date": "Jan. 2024",
-    "Status": "AVAILABLE",
+    "Status": "OUT OF STOCK",
     "CoverImg": "resources/img/static/gundam003.jpg",
     "DetailImgs": [
       "resources/img/static/gundam003.jpg",
@@ -184,7 +142,7 @@
     "Height": 3.1,
     "Depth": 12.3,
     "Date": "2024",
-    "Status": "SOLD OUT",
+    "Status": "OUT OF STOCK",
     "CoverImg": "resources/img/static/gundam004.jpg",
     "DetailImgs": [
       "resources/img/static/gundam004.jpg",
