@@ -1,5 +1,88 @@
 [
   {
+    "Name": "ZGMF-X20A STRIKE FREEDOM G.U.N.D.A.M.",
+    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
+    "Price": "Not Available",
+    "SKU": "sm004",
+    "Category": "GUNPLA",
+    "Ratio": "1/100",
+    "Width": 5.1,
+    "Height": 3.1,
+    "Depth": 12.3,
+    "Date": "Nov. 2024",
+    "Status": "OUT OF STOCK",
+    "CoverImg": "resources/img/static/gundam004.jpg",
+    "DetailImgs": [
+      "resources/img/static/gundam002.jpg",
+      "resources/img/static/gundam002.jpg",
+      "resources/img/static/gundam003.jpg",
+      "resources/img/static/gundam004.jpg"
+    ],
+    "Features": [
+      "Hand-crafted"
+    ]
+  },
+  {
+    "Name": "GS MSN-04 SAZABI EVO 2.0",
+    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
+    "Price": "Not Available",
+    "SKU": "sm002",
+    "Category": "GUNPLA",
+    "Ratio": "1/100",
+    "Width": 5.1,
+    "Height": 3.1,
+    "Depth": 12.3,
+    "Date": "Sep. 2024",
+    "Status": "OUT OF STOCK",
+    "CoverImg": "resources/img/static/gundam002.jpg",
+    "DetailImgs": [
+      "resources/img/static/gundam002.jpg",
+      "resources/img/static/gundam002.jpg",
+      "resources/img/static/gundam003.jpg",
+      "resources/img/static/gundam004.jpg"
+    ],
+    "Features": [
+      "Full Body Refinement",
+      "100+ Metal Parts",
+      "Warning Decals",
+      "Intricate Dual-Tone Painting",
+      "Color Variants",
+      "LED Head Unit"
+    ]
+  },
+  {
+    "Name": "NZ-666 KSHATRIYA \"QUAD-WING\"",
+    "GradientColor": "linear-gradient(90deg, #FF1500 0%, #E0AF38 50%, #474047 100%)",
+    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
+    "Price": "Not Available",
+    "SKU": "sm003",
+    "Category": "GUNPLA",
+    "Ratio": "1/100",
+    "Width": 5.1,
+    "Height": 3.1,
+    "Depth": 12.3,
+    "Date": "Apr. 2024",
+    "Status": "OUT OF STOCK",
+    "CoverImg": "resources/img/static/gundam003.jpg",
+    "DetailImgs": [
+      "resources/img/static/gundam002.jpg",
+      "resources/img/static/gundam002.jpg",
+      "resources/img/static/gundam003.jpg",
+      "resources/img/static/gundam004.jpg"
+    ],
+    "Features": [
+      "Fully Overhauled Mechanics",
+      "RG-Style Paint",
+      "Precision Inner Frame",
+      "Reinforced Joints",
+      "Pose Calibration",
+      "LED Mono-Eye",
+      "Upgraded Thrusters",
+      "Photo-etched parts",
+      "Extra Warning Decals"
+    ]
+  },
+  {
     "Name": "FA-010S FULL ARMOR ZZ G.U.N.D.A.M.",
     "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
     "Price": "2,500.00",
@@ -31,68 +114,6 @@
     "Features": [
       "Hand-crafted 41\" long, 130 lb. metal replica",
       "Powerful 24 volt drive system"
-    ]
-  },
-  {
-    "Name": "MSN-04 SAZABI VER.KA 2.0",
-    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
-    "Price": "Not Available",
-    "SKU": "sm002",
-    "Category": "GUNPLA",
-    "Ratio": "1/100",
-    "Width": 5.1,
-    "Height": 3.1,
-    "Depth": 12.3,
-    "Date": "Sep. 2024",
-    "Status": "OUT OF STOCK",
-    "CoverImg": "resources/img/static/gundam002.jpg",
-    "DetailImgs": [
-      "resources/img/static/gundam002.jpg",
-      "resources/img/static/gundam002.jpg",
-      "resources/img/static/gundam003.jpg",
-      "resources/img/static/gundam004.jpg"
-    ]
-  },
-  {
-    "Name": "NZ-666 KSHATRIYA \"QUAD-WING\"",
-    "GradientColor": "linear-gradient(90deg, #FF1500 0%, #E0AF38 50%, #474047 100%)",
-    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
-    "Price": "Not Available",
-    "SKU": "sm003",
-    "Category": "GUNPLA",
-    "Ratio": "1/100",
-    "Width": 5.1,
-    "Height": 3.1,
-    "Depth": 12.3,
-    "Date": "Apr. 2024",
-    "Status": "OUT OF STOCK",
-    "CoverImg": "resources/img/static/gundam003.jpg",
-    "DetailImgs": [
-      "resources/img/static/gundam002.jpg",
-      "resources/img/static/gundam002.jpg",
-      "resources/img/static/gundam003.jpg",
-      "resources/img/static/gundam004.jpg"
-    ]
-  },
-  {
-    "Name": "ZGMF-X20A STRIKE FREEDOM G.U.N.D.A.M.",
-    "GradientColor": "linear-gradient(90deg, #FF1500 0%, #E0AF38 50%, #474047 100%)",
-    "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
-    "Price": "Not Available",
-    "SKU": "sm004",
-    "Category": "GUNPLA",
-    "Ratio": "1/100",
-    "Width": 5.1,
-    "Height": 3.1,
-    "Depth": 12.3,
-    "Date": "Nov. 2024",
-    "Status": "OUT OF STOCK",
-    "CoverImg": "resources/img/static/gundam004.jpg",
-    "DetailImgs": [
-      "resources/img/static/gundam002.jpg",
-      "resources/img/static/gundam002.jpg",
-      "resources/img/static/gundam003.jpg",
-      "resources/img/static/gundam004.jpg"
     ]
   },
   {
