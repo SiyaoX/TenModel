@@ -4,481 +4,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="#" />
-    <title>TenModel Terms & Conditions</title>
+    <title>End-User License Agreement</title>
     <style>
-        /* Global Styles */
-        body.details-body {
-            text-align: left;
-            padding-top: 50px;
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
         }
 
-        .product-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .main-content {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .image-section {
-            max-width: 600px;
-            position: relative;
-            flex: 1;
-        }
-
-        #mainImageContainer {
-            width: 100%;
-            height: 600px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .main-image {
-            background-color: #0a0a0a;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: opacity 0.3s ease;
-            cursor: pointer;
-        }
-
-        /* Navigation Buttons */
-        .image-nav {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0);
-            color: #c8c8c8;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 2;
-            transition: background 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .image-nav:hover {
-            background: rgba(0, 0, 0, 0);
-        }
-
-        #prevBtn {
-            left: 0;
-            border-radius: 0 5px 5px 0;
-        }
-
-        #nextBtn {
-            right: 0;
-            border-radius: 5px 0 0 5px;
-        }
-
-        /* Thumbnails */
-        .thumbnail-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-            gap: 10px;
-            padding-top: 10px;
-        }
-
-        .thumbnail-item {
-            cursor: pointer;
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-
-        .thumbnail-item.active {
-            border-color: #c8c8c8;
-        }
-
-        .thumbnail-item img {
-            width: 100%;
-            height: 60px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-            transform: scale(1.2);
-        }
-
-        .thumbnail-item:hover img {
-            transform: scale(1.3);
-        }
-
-        /* Product Details */
-        .product-details {
-            flex: 1;
-        }
-
-        .product-details__product-title {
-            font-weight: 400;
-            color: #c8c8c8;
-            font-size: 22px;
-            padding: 0;
-            margin-top: -5px;
-            margin-bottom: 0;
-        }
-
-        .product-details__subtitle {
-            font-size: 16px;
-            color: #ffffff;
-            /* margin-top: 5px; */
-        }
-
-        .ec-breadcrumbs {
-            margin: 10px;
-        }
-
-        .product-details__product-sku {
-            color: #808080;
-            margin-top: 5px;
-        }
-
-        .product-details__product-price {
-            font-size: 22px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-
-        .label__text {
-            color: #ff6363;
-        }
-
-        .product-details__warning{
-            color: #ff6363;
-        }
-
-        .product-details-module__title {
-            font-size: 16px;
-            color: #ffffff;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        .details-product-attribute {
-            font-size: 16px;
-
-            display: grid;
-            grid-template-columns: max-content 10px 1fr;
-            align-items: center;
-            gap: 10px;
-            padding: 5px 0;
-        }
-
-        .details-product-attribute__title {
-            width: 120px;
-            text-align: left;
-        }
-
-        .details-product-attribute__value {
-            text-align: left;
-        }
-
-        .product-details-module__content{
-            color: #f5f5f5;
-        }
-
-        .product-details__attraction-block {
-            margin-bottom: 10px;
-        }
-
-        .product-details__general-info {
+        h2 {
+            font-size: 1.5em;
             margin-top: 20px;
         }
 
-        .product-details__product-attributes {
-            margin-bottom: 10px;
+        p {
+            font-size: 1em;
+            margin-bottom: 15px;
         }
 
-        .product-details__product-description {
-            font-size: 16px;
-            margin-top: 20px;
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
         }
 
-        .details-logo-container {
-            margin-left: 10px;
-            margin-bottom: 10px;
-        }
-
-        .details-contact-container {
-            margin-right: 10px;
-            margin-bottom: 10px;
-        }
-
-        /* Responsive Layout */
-        @media (min-width: 768px) {
-            .main-content {
-                flex-direction: row;
-            }
-
-            .product-details {
-                max-width: 400px;
-            }
-        }
-
-        /* Full-Screen Viewer */
-        .fullscreen-viewer {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .fullscreen-image-container {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .fullscreen-image {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0);
-            color: #c8c8c880;
-            border: none;
-            padding: 10px 15px;
-            font-size: 18px;
-            font-weight: bolder;
-            cursor: pointer;
-            z-index: 1009;
-        }
-
-        .close-btn:hover {
-            background: rgba(255, 0, 0, 0);
-            color: #c8c8c8;
-        }
-
-        .breadcrumbs__link:hover {
-            color: #ffffff;
+        code {
+            background-color: #f0f0f0;
+            padding: 0 4px;
         }
     </style>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 20px;
+            text-align: left;
+            padding-top: 0px;
+        }
+    </style>
 </head>
 
-<body class="details-body">
-    <header class="short-banner">
-        <div class="details-logo-container">
-            <a href="index.html" class="logo-link">
-                <div class="logo">
-                    <img src="resources/img/icon/tian.png" alt="Company Logo">
-                    <h1>TenModel</h1>
-                </div>
-            </a>
+<body>
+    <a href="index.html" class="a">
+        <div class="logo">
+            <img src="resources/img/icon/tian.png" alt="Logo">
+            <h1>TenModel</h1>
         </div>
-        <div class="details-contact-container">
-            <div class="social-media-buttons">
-                <a href="mailto:contact@tenmodel.design" target="_blank"><img src="resources/img/icon/email.png"
-                        alt="Contact"></a>
-                <a href="https://www.youtube.com" target="_blank"><img src="resources/img/icon/youtube-icon-white.png"
-                        alt="YouTube"></a>
-                <a href="https://www.instagram.com" target="_blank"><img
-                        src="resources/img/icon/instagram-icon-white.png" alt="Instagram"></a>
-                <a href="https://www.twitter.com" target="_blank"><img src="resources/img/icon/x-icon-white.png"
-                        alt="Twitter"></a>
-            </div>
-        </div>
-    </header>
-   
+    </a>
+    <h1>End-User License Agreement (EULA)</h1>
+    <p><strong>Effective Date:</strong> 1/27/2025</p>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mainImage = document.querySelector('.main-image');
-            const fullscreenViewer = document.getElementById('fullscreenViewer');
-            const fullscreenImage = document.getElementById('fullscreenImage');
-            const closeFullscreen = document.getElementById('closeFullscreen');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
+    <p>This End-User License Agreement ("Agreement") is a legal agreement between you ("User"), whether an individual or
+        entity, and TenModel and Siyao Xu ("Licensor"). It governs your use of the website, along with its associated
+        code, content, and services ("Software"). By accessing or using the Software, you agree to be bound by the terms
+        of this Agreement. If you do not agree with these terms, do not use the Software.</p>
 
-            let currentImageIndex = 0;
-            let images = [];
-            let isDragging = false;
-            let startX = 0;
-            let endX = 0;
-            let touchStartX = 0;
-            let touchEndX = 0;
-            let touchStartTime = 0; // Track when the touch starts
-            let isFullscreen = false; // Flag to prevent image change during fullscreen
+    <h2>1. License Grant</h2>
+    <p>Licensor grants you a non-exclusive, non-transferable, revocable license to access and use the Software for
+        personal, non-commercial purposes strictly in accordance with this Agreement.</p>
 
-            const product = JSON.parse(localStorage.getItem('selectedProduct'));
-            if (!product) return console.error('Product not found');
+    <h2>2. Restrictions</h2>
+    <p>The User shall not:</p>
+    <ul>
+        <li>Copy, modify, distribute, sell, or sublicense the Software or any portion thereof.</li>
+        <li>Reverse engineer, decompile, or disassemble the Software.</li>
+        <li>Use the Software for any illegal or unauthorized purpose.</li>
+        <li>Remove, alter, or obscure any proprietary notices or labels contained in the Software.</li>
+    </ul>
 
-            images = product.DetailImgs || [];
-            category = product.Category;
+    <h2>3. Ownership</h2>
+    <p>All rights, title, and interest in and to the Software, including but not limited to all copyrights, trademarks,
+        and intellectual property rights, remain exclusively with Licensor. This Agreement does not transfer ownership
+        of the Software to the User.</p>
 
-            const breadcrumbLinks = document.querySelectorAll('.ec-breadcrumbs .breadcrumbs__link');
-            const lastBreadcrumbLink = breadcrumbLinks[breadcrumbLinks.length - 1];
+    <h2>4. Disclaimer of Warranties</h2>
+    <p>The Software is provided "AS IS" without warranties of any kind, whether express or implied, including but not
+        limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
+        Licensor does not guarantee the Software will be error-free or uninterrupted.</p>
 
-            // Replace "New Item" with the category
-            if (lastBreadcrumbLink && category) {
-                lastBreadcrumbLink.textContent = category;
-                lastBreadcrumbLink.href = `index.html?tab=${category.toUpperCase()}&scroll=true`;
-            } else {
-                console.error('Breadcrumb link or category not found');
-            }
+    <h2>5. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by applicable law, Licensor shall not be liable for any direct, indirect,
+        incidental, special, consequential, or punitive damages arising out of or related to the use or inability to use
+        the Software.</p>
 
-            // Image change handler
-            function changeImage(index) {
-                if (isFullscreen) return; // Prevent image change while fullscreen is active
+    <h2>6. Termination</h2>
+    <p>This Agreement is effective until terminated. Licensor may terminate this Agreement at any time without notice if
+        the User violates any provision of this Agreement. Upon termination, the User must cease all use of the Software
+        and destroy any copies of the Software in their possession.</p>
 
-                if (index < 0) index = images.length - 1; // Loop to last image
-                if (index >= images.length) index = 0; // Loop to first image
-                currentImageIndex = index;
-                mainImage.src = images[index];
-            }
+    <h2>7. Governing Law</h2>
+    <p>This Agreement shall be governed by and construed in accordance with the laws of Singapore, without regard to its
+        conflict of law principles.</p>
 
-            // Thumbnail click handler
-            const elements = {
-                mainImage: document.querySelector('.main-image'),
-                thumbnailGrid: document.getElementById('thumbnailGrid'),
-                productName: document.getElementById('productName'),
-                productDescription: document.getElementById('productDescription'),
-                productPrice: document.getElementById('productPrice')
-            };
+    <h2>8. Changes to this Agreement</h2>
+    <p>Licensor reserves the right to modify this Agreement at any time. Continued use of the Software after any such
+        changes shall constitute your consent to the updated Agreement.</p>
 
-            elements.productName.textContent = product.Name;
-            // elements.productDescription.textContent = product.Model || 'No description available';
-            // elements.productPrice.textContent = `US$ ${product.Price || 'N/A'}`;
+    <h2>9. Contact Information</h2>
+    <p>If you have any questions about this Agreement, you may contact Licensor at: <a
+            href="mailto:contact@tenmodel.design">contact@tenmodel.design</a></p>
 
-            function generateThumbnails() {
-                elements.thumbnailGrid.innerHTML = images.map((img, index) =>
-                    `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" data-index="${index}">
-                <img src="${img}" alt="Thumbnail ${index + 1}">
-            </div>`).join('');
-
-                document.querySelectorAll('.thumbnail-item').forEach((item, index) => {
-                    item.addEventListener('click', () => changeImage(index));
-                });
-            }
-
-            function changeImage(index) {
-                if (index < 0) index = images.length - 1;
-                if (index >= images.length) index = 0;
-                currentImageIndex = index;
-
-                document.querySelectorAll('.thumbnail-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                elements.thumbnailGrid.children[index].classList.add('active');
-
-                elements.mainImage.style.opacity = 0;
-                setTimeout(() => {
-                    elements.mainImage.src = images[index];
-                    elements.mainImage.style.opacity = 1;
-                }, 300);
-            }
-
-            prevBtn.addEventListener('click', () => changeImage(currentImageIndex - 1));
-            nextBtn.addEventListener('click', () => changeImage(currentImageIndex + 1));
-
-            // Touch event handlers
-            mainImage.addEventListener('touchstart', e => {
-                if (isFullscreen) return; // Ignore touch events in fullscreen mode
-                touchStartX = e.touches[0].clientX;
-                touchStartTime = Date.now(); // Record the start time of the touch
-            });
-
-            mainImage.addEventListener('touchmove', e => {
-                if (isFullscreen) return; // Ignore touch events in fullscreen mode
-                touchEndX = e.touches[0].clientX;
-            });
-
-            mainImage.addEventListener('touchend', () => {
-                if (isFullscreen) return; // Ignore touch events in fullscreen mode
-
-                const swipeThreshold = 10; // Reduced from 50 to 30 for more sensitivity
-                const tapThreshold = 100; // Maximum time to consider it a tap (in milliseconds)
-                const swipeDistance = touchEndX - touchStartX;
-                const touchDuration = Date.now() - touchStartTime; // Calculate touch duration
-
-                // Only change image if it's a swipe (not a tap)
-                if (Math.abs(swipeDistance) > swipeThreshold && touchDuration > tapThreshold) {
-                    if (swipeDistance > 0) changeImage(currentImageIndex + 1); // Swipe right (next image)
-                    else changeImage(currentImageIndex - 1); // Swipe left (previous image)
-                }
-            });
-
-            // Mouse event handlers
-            mainImage.addEventListener('mousedown', (e) => {
-                if (isFullscreen) return; // Ignore mouse events in fullscreen mode
-                isDragging = true;
-                startX = e.clientX;
-                mainImage.style.cursor = 'pointer'; // Change cursor to grabbing
-            });
-
-            mainImage.addEventListener('mousemove', (e) => {
-                if (!isDragging || isFullscreen) return; // Ignore mouse events in fullscreen mode
-                const diffX = e.clientX - startX;
-                if (diffX > 10) { // Reduced from 50 to 30 for more sensitivity
-                    // Dragged right, show next image
-                    changeImage(currentImageIndex + 1);
-                    isDragging = false;
-                } else if (diffX < -10) { // Reduced from 50 to 30 for more sensitivity
-                    // Dragged left, show previous image
-                    changeImage(currentImageIndex - 1);
-                    isDragging = false;
-                }
-            });
-
-            mainImage.addEventListener('mouseup', () => {
-                if (isFullscreen) return; // Ignore mouse events in fullscreen mode
-                isDragging = false;
-                mainImage.style.cursor = 'pointer'; // Reset cursor
-            });
-
-            mainImage.addEventListener('mouseleave', () => {
-                if (isDragging && !isFullscreen) {
-                    isDragging = false;
-                    mainImage.style.cursor = 'pointer'; // Reset cursor
-                }
-            });
-
-            // Open image in fullscreen viewer
-            mainImage.addEventListener('click', (e) => {
-                e.preventDefault(); // Prevent default behavior
-                e.stopPropagation(); // Stop event bubbling
-
-                isFullscreen = true; // Set fullscreen flag
-                fullscreenImage.src = mainImage.src;
-                fullscreenViewer.style.display = 'flex';
-            });
-
-            fullscreenViewer.addEventListener('click', e => {
-                if (e.target !== fullscreenImage || e.target === closeFullscreen) {
-                    fullscreenViewer.style.display = 'none';
-                    isFullscreen = false; // Reset fullscreen flag
-                }
-            });
-
-            fullscreenImage.addEventListener('click', e => e.stopPropagation());
-
-            if (images.length > 0) {
-                elements.mainImage.src = images[0];
-                generateThumbnails();
-            }
-        });
-    </script>
+    <p>By using the Software, you acknowledge that you have read, understood, and agree to be bound by this Agreement.
+    </p>
 </body>
 
 </html>
