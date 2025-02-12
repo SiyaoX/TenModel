@@ -256,7 +256,7 @@
                 });
             }
 
-            // Change image handler
+            // Change image handler with fade effect
             function changeImage(index) {
                 if (isFullscreen) return;
                 if (index < 0) index = images.length - 1;
@@ -266,6 +266,7 @@
                 document.querySelectorAll('.thumbnail-item').forEach(item => item.classList.remove('active'));
                 thumbnailGrid.children[index].classList.add('active');
 
+                mainImage.style.transition = 'opacity 0.3s ease-in-out';
                 mainImage.style.opacity = 0;
                 setTimeout(() => {
                     mainImage.src = images[index];
@@ -354,7 +355,6 @@
                 window.location.href = "index.html?tab=how_to_order&scroll=true";
             });
         });
-
     </script>
 </body>
 
