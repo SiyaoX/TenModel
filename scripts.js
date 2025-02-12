@@ -267,3 +267,27 @@ document.querySelector('.contact-form').addEventListener('submit', function (eve
     // Handle form submission, e.g., send data to a server
     alert('Thank you for contacting us! We will get back to you soon.');
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    function removeFocus(event) {
+        event.target.blur();
+    }
+
+    // Handle filter dropdown
+    document.querySelector(".filter-button").addEventListener("click", function () {
+        setTimeout(() => this.blur(), 100); // Blur after clicking
+    });
+
+    // Handle select elements
+    document.querySelectorAll("select").forEach(select => {
+        select.addEventListener("change", removeFocus);
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener("click", function (event) {
+        const filterDropdown = document.querySelector(".filter-dropdown");
+        if (!filterDropdown.contains(event.target)) {
+            document.querySelector(".filter-button").blur();
+        }
+    });
+});
