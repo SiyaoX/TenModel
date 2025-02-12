@@ -397,32 +397,6 @@ h1 {
     transition: transform 0.3s ease-in-out;
 }
 
-@media (max-width: 1320px) {
-    .container{
-        max-width: 960px;
-    }
-}
-
-@media (max-width: 1000px) {
-    .container{
-        max-width: 640px;
-    }
-}
-
-@media (max-width: 680px) {
-    .container{
-        max-width: 300px;
-    }
-    .item img,
-    .image-container img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        cursor: pointer;
-        transition: transform 0.3s ease-in-out;
-    }
-}
-
 .image-container .overlay {
     position: absolute;
     top: 0;
@@ -591,11 +565,13 @@ footer {
 }
 
 .tab-content-header {
-    margin: 34px 0 27px 0;
+    max-width: 1260px;
+    width: 100%;
+    /* margin: 34px 0 27px 0; */
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     color: #c8c8c8;
 }
 
@@ -620,13 +596,13 @@ footer {
 input[type=text],
 select,
 textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical
+    /* width: 100%; */
+    /* padding: 12px; */
+    /* border: 1px solid #ccc; */
+    /* box-sizing: border-box; */
+    /* margin-top: 6px; */
+    /* margin-bottom: 16px; */
+    /* resize: vertical */
 }
 
 /* Style the submit button with a specific background color etc */
@@ -838,4 +814,136 @@ label {
     color: #c8c8c8;
     display: block;
     margin-top: 10px;
+}
+
+@media (max-width: 1320px) {
+    .tab-content-header {
+        max-width: 960px;
+    }
+
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .tab-content-header {
+        max-width: 640px;
+    }
+
+    .container {
+        max-width: 640px;
+    }
+}
+
+@media (max-width: 680px) {
+    .tab-content-header {
+        max-width: 300px;
+    }
+
+    .container {
+        max-width: 300px;
+    }
+
+    .item img,
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+    }
+}
+
+/* Minimalist Dropdown */
+.sort-by,
+.language,
+.currency {
+    background: none;
+    border: none;
+    cursor: pointer;
+    appearance: auto;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    font-weight: 500;
+}
+
+/* Remove focus outline */
+.sort-by:focus,
+.language:focus,
+.currency:focus {
+    /* outline: none; */
+}
+
+/* Align dropdown text properly */
+.sort-by option,
+.language option,
+.currency option {
+    background: white;
+    color: #333;
+}
+
+.search-bar {
+    padding: 10px;
+    width: 250px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Reset Dropdown color after selection */
+.sort-by,
+.language,
+.currency {
+    background: none;
+    border: none;
+    cursor: pointer;
+    appearance: auto;
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    font-weight: 500;
+}
+
+/* Reset color after selection */
+.sort-by.selected,
+.language.selected,
+.currency.selected {
+    color: inherit; /* Reset to the initial color */
+}
+
+/* Focus effect on native <select> dropdown */
+.sort-by:focus, .language:focus, .currency:focus {
+    /* color: #007bff; */
+    outline: none;
+}
+
+.filter-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.filter-options {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.filter-dropdown:hover .filter-options {
+    display: block;
+}
+
+.filter-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background-color: #45a049;
 }

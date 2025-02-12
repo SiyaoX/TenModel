@@ -128,25 +128,62 @@ function activateTabFromURL() {
     }
 }
 
+// Store original product order
+let originalProducts = [];
+
 // Function to load products from JSON
 async function loadProducts() {
     try {
-        const products = await fetch('products.json');
+        const response = await fetch('products.json');
+        if (!response.ok) throw new Error('Failed to load products JSON');
 
-        if (!products.ok) throw new Error('Failed to load products JSON');
-
-        window.products = await products.json();
+        window.products = await response.json();
+        originalProducts = [...window.products]; // Store original order
         console.log('Products loaded:', window.products);
 
-        window.products.forEach(product => {
-            const tabId = getTabIdForCategory(product.Category.toLowerCase());
-            if (tabId) appendProductToTab(tabId, product);
-            else console.error(`Invalid category "${product.Category}" in product data.`);
-        });
+        renderProducts(window.products);
     } catch (error) {
         console.error('Error loading products:', error);
     }
 }
+
+// Function to render products based on sorting
+function renderProducts(products) {
+    // Clear existing product listings
+    document.querySelectorAll('.container').forEach(container => container.innerHTML = '');
+
+    products.forEach(product => {
+        const tabId = getTabIdForCategory(product.Category.toLowerCase());
+        if (tabId) appendProductToTab(tabId, product);
+        else console.error(`Invalid category "${product.Category}" in product data.`);
+    });
+}
+
+// Sorting logic
+function sortProducts(sortOption) {
+    if (sortOption === 'default') {
+        renderProducts(originalProducts); // Restore original order
+    } else {
+        const sortedProducts = [...window.products];
+
+        if (sortOption === 'price-low-to-high') {
+            sortedProducts.sort((a, b) => a.Price - b.Price);
+        } else if (sortOption === 'price-high-to-low') {
+            sortedProducts.sort((a, b) => b.Price - a.Price);
+        } else if (sortOption === 'name-a-to-z') {
+            sortedProducts.sort((a, b) => a.Name.localeCompare(b.Name));
+        } else if (sortOption === 'name-z-to-a') {
+            sortedProducts.sort((a, b) => b.Name.localeCompare(a.Name));
+        }
+
+        renderProducts(sortedProducts);
+    }
+}
+
+// Event listener for sorting
+document.getElementById('sort-by').addEventListener('change', (event) => {
+    sortProducts(event.target.value);
+});
 
 // Get tab ID based on product category
 function getTabIdForCategory(category) {
