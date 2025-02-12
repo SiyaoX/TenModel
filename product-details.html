@@ -191,7 +191,7 @@
             </nav>
         </div>
     </footer>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // DOM elements
@@ -242,24 +242,14 @@
             productName.textContent = product.Name;
             productSKU.textContent = `SKU: ${sku}`;
             productDescription.textContent = description;
-            if (!isNaN(price)) {
-                if (price > 0) {
-                    productPrice.textContent = `US$ ${price.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}`;
-                } else if (price == -1) {
-                    productPrice.textContent = 'Price on Original Website';
-                }
-            } else {
-                productPrice.textContent = 'Price not available';
-            }
-            if (!isNaN(price) && price >= 0) {
-            }
+            productPrice.textContent = !isNaN(price) ? (price > 0 ? `US$ ${price.toLocaleString('en-US', { style: 'currency', currency: 'USD' })}` : 'Price on Original Website') : 'Price not available';
 
             // Generate thumbnails
             function generateThumbnails() {
                 thumbnailGrid.innerHTML = images.map((img, index) =>
                     `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" data-index="${index}">
-                        <img src="${img}" alt="Thumbnail ${index + 1}">
-                    </div>`).join('');
+                <img src="${img}" alt="Thumbnail ${index + 1}">
+            </div>`).join('');
 
                 document.querySelectorAll('.thumbnail-item').forEach((item, index) => {
                     item.addEventListener('click', () => changeImage(index));
@@ -268,17 +258,14 @@
 
             // Change image handler
             function changeImage(index) {
-                if (isFullscreen) return; // Prevent image change during fullscreen
-
-                if (index < 0) index = images.length - 1; // Loop to last image
-                if (index >= images.length) index = 0; // Loop to first image
+                if (isFullscreen) return;
+                if (index < 0) index = images.length - 1;
+                if (index >= images.length) index = 0;
                 currentImageIndex = index;
 
-                // Update active thumbnail
                 document.querySelectorAll('.thumbnail-item').forEach(item => item.classList.remove('active'));
                 thumbnailGrid.children[index].classList.add('active');
 
-                // Update main image with fade effect
                 mainImage.style.opacity = 0;
                 setTimeout(() => {
                     mainImage.src = images[index];
@@ -304,15 +291,13 @@
 
             mainImage.addEventListener('touchend', () => {
                 if (isFullscreen) return;
-
                 const swipeThreshold = 10;
                 const tapThreshold = 100;
                 const swipeDistance = touchEndX - touchStartX;
                 const touchDuration = Date.now() - touchStartTime;
 
                 if (Math.abs(swipeDistance) > swipeThreshold && touchDuration > tapThreshold) {
-                    if (swipeDistance > 0) changeImage(currentImageIndex + 1); // Swipe right
-                    else changeImage(currentImageIndex - 1); // Swipe left
+                    swipeDistance > 0 ? changeImage(currentImageIndex + 1) : changeImage(currentImageIndex - 1);
                 }
             });
 
@@ -327,37 +312,32 @@
             mainImage.addEventListener('mousemove', e => {
                 if (!isDragging || isFullscreen) return;
                 const diffX = e.clientX - startX;
-                if (diffX > 10) changeImage(currentImageIndex + 1); // Drag right
-                else if (diffX < -10) changeImage(currentImageIndex - 1); // Drag left
-                isDragging = false;
-            });
-
-            mainImage.addEventListener('mouseup', () => {
-                if (isFullscreen) return;
-                isDragging = false;
-                mainImage.style.cursor = 'pointer';
-            });
-
-            mainImage.addEventListener('mouseleave', () => {
-                if (isDragging && !isFullscreen) {
+                if (Math.abs(diffX) > 10) {
+                    diffX > 0 ? changeImage(currentImageIndex + 1) : changeImage(currentImageIndex - 1);
                     isDragging = false;
-                    mainImage.style.cursor = 'pointer';
                 }
             });
 
-            // Fullscreen image viewer
+            mainImage.addEventListener('mouseup', () => isDragging = false);
+            mainImage.addEventListener('mouseleave', () => isDragging = false);
+
+            // Fullscreen image viewer with fade effect
             mainImage.addEventListener('click', e => {
                 e.preventDefault();
                 e.stopPropagation();
                 isFullscreen = true;
                 fullscreenImage.src = mainImage.src;
                 fullscreenViewer.style.display = 'flex';
+                setTimeout(() => fullscreenViewer.classList.add('show'), 10);
             });
 
             fullscreenViewer.addEventListener('click', e => {
                 if (e.target !== fullscreenImage || e.target === closeFullscreen) {
-                    fullscreenViewer.style.display = 'none';
-                    isFullscreen = false;
+                    fullscreenViewer.classList.remove('show');
+                    setTimeout(() => {
+                        fullscreenViewer.style.display = 'none';
+                        isFullscreen = false;
+                    }, 300);
                 }
             });
 
@@ -368,12 +348,13 @@
                 mainImage.src = images[0];
                 generateThumbnails();
             }
+
+            // Redirect to index.html with tab parameter
+            document.querySelector('.status-link').addEventListener('click', () => {
+                window.location.href = "index.html?tab=how_to_order&scroll=true";
+            });
         });
 
-        // Redirect to index.html with tab parameter
-        document.querySelector('.status-link').addEventListener('click', () => {
-            window.location.href = "index.html?tab=how_to_order&scroll=true";
-        });
     </script>
 </body>
 

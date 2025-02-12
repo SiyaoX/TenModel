@@ -39,7 +39,7 @@ body.details-body {
     align-items: center;
     position: relative;
     overflow: hidden;
-    background-color: #0a0a0a;
+    background-color: inherit;
     aspect-ratio: 1 / 1;
 }
 
@@ -50,8 +50,6 @@ body.details-body {
     display: block;
 }
 
-
-/* Image navigation buttons */
 .image-nav {
     position: absolute;
     top: 50%;
@@ -68,11 +66,16 @@ body.details-body {
     justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, background 0.2s ease-in-out;
+    transition: opacity 0.3s ease-in-out, background 0.2s ease-in-out;
 }
 
 .image-nav:hover {
     background: rgba(0, 0, 0, 0.6);
+}
+
+.image-nav.show {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 #prevBtn {
@@ -82,6 +85,7 @@ body.details-body {
 #nextBtn {
     right: 0;
 }
+
 
 /* Thumbnails */
 .thumbnail-grid {
@@ -273,4 +277,15 @@ body.details-body {
 
 .breadcrumbs__link:hover {
     color: #ffffff;
+}
+
+#fullscreenViewer {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#fullscreenViewer.show {
+    display: flex;
+    opacity: 1;
 }
