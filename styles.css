@@ -903,9 +903,9 @@ label {
 
     .tab-content-header {
         text-align: right;
-        max-width: 304px;
+        max-width: 302px;
         display: grid;
-        align-items: flex-end;
+        align-items: center;
         justify-items: center;
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         gap: 0px;
