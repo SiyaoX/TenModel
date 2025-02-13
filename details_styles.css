@@ -323,15 +323,15 @@ body.details-body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0);
     color: #c8c8c8;
     border: none;
-    width: 30px;
+    /* width: ; */
     height: 40px;
     font-size: 20px;
     cursor: pointer;
     z-index: 20;
-    transition: background 0.3s ease;
+    /* transition: background 0.3s ease; */
     border-radius: 5px;
     text-align: center;
 }

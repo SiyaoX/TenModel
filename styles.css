@@ -734,8 +734,8 @@ label {
     max-width: 800px;
     margin: 0 auto;
     text-align: start;
-    padding-left: 20px;
-    padding-right: 20px;
+    /* padding-left: 20px;
+    padding-right: 20px; */
 }
 
 .about-us-content img {
