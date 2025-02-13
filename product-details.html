@@ -186,6 +186,10 @@
             let currentImageIndex = 0;
             let images = [];
             let isFullscreen = false;
+            let isDragging = false;
+            let isClick = true;  // Flag to check if it's a click or drag
+            let startX = 0;
+            let endX = 0;
 
             // Load product data from localStorage
             const product = JSON.parse(localStorage.getItem('selectedProduct'));
@@ -241,16 +245,48 @@
                 }, 300);
             }
 
+            // Add mouse down event listener for drag
+            mainImage.addEventListener('mousedown', (e) => {
+                startX = e.pageX;  // Capture the starting X position of the mouse
+                isClick = true;  // Reset isClick flag for new mouse down event
+                e.preventDefault();  // Prevent text selection and other default behaviors
+            });
+
+            // Mouse move event to track drag
+            mainImage.addEventListener('mousemove', (e) => {
+                if (Math.abs(e.pageX - startX) > 20) {  // If there's significant movement, treat it as dragging
+                    isDragging = true;
+                    isClick = false;
+                }
+            });
+
+            // Mouse up event to determine direction of drag and change image
+            mainImage.addEventListener('mouseup', (e) => {
+                endX = e.pageX; // Update the final position of the mouse
+                if (!isDragging && isClick) {  // Only trigger click if it's not a drag and the duration is short
+                    openFullscreen(currentImageIndex);
+                } else {
+                    // If the drag was significant, handle drag
+                    if (startX - endX > 100) {  // Dragged to the left, change to the previous image
+                        changeImage(currentImageIndex - 1);
+                    } else if (endX - startX > 100) {  // Dragged to the right, change to the next image
+                        changeImage(currentImageIndex + 1);
+                    }
+                }
+
+                // Reset dragging state
+                isDragging = false;
+            });
+
             // Event listeners for navigation buttons
             prevBtn.addEventListener('click', () => changeImage(currentImageIndex - 1));
             nextBtn.addEventListener('click', () => changeImage(currentImageIndex + 1));
 
             // Fullscreen mode logic
             function openFullscreen(index) {
-                currentImageIndex = index;
                 isFullscreen = true;
                 document.body.classList.add('no-scroll');
-                fullscreenImage.src = images[currentImageIndex];
+                fullscreenImage.src = images[index];
                 fullscreenViewer.style.display = 'flex';
                 setTimeout(() => fullscreenViewer.classList.add('show'), 10);
             }
@@ -259,7 +295,9 @@
             mainImage.addEventListener('click', e => {
                 e.preventDefault();
                 e.stopPropagation();
-                openFullscreen(currentImageIndex);
+                if (isClick) {  // Only open fullscreen if it's a click and not a drag
+                    openFullscreen(currentImageIndex);
+                }
             });
 
             fullscreenViewer.addEventListener('click', e => {
