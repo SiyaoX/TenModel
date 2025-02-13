@@ -292,16 +292,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-document.getElementById("currency").addEventListener("change", function () {
-    this.blur();
-});
+document.querySelectorAll("select").forEach((dropdown) => {
+    dropdown.addEventListener("change", function () {
+        this.blur(); // Remove focus from the select itself
 
-
-document.getElementById("language").addEventListener("change", function () {
-    this.blur();
-});
-
-
-document.getElementById("sort-by").addEventListener("change", function () {
-    this.blur();
+        // Remove focus from the parent container
+        setTimeout(() => {
+            this.closest("div")?.classList.remove("focus");
+            this.closest("div")?.blur();
+        }, 100);
+    });
 });

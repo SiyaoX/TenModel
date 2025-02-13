@@ -796,7 +796,6 @@ label {
     margin: 0;
 }
 
-/* Remove focus outline */
 .sort-by:hover,
 .language:hover,
 .currency:hover,
@@ -821,16 +820,17 @@ label {
     border-radius: 5px;
 }
 
-.sort-by.selected,
+/* .sort-by.selected,
 .language.selected,
 .currency.selected {
-    color: inherit;
-}
+    color: #c8c8c8;
+    border: #777;
+    border-style: dashed;
+} */
 
 .sort-by:focus,
 .language:focus,
 .currency:focus {
-    /* color: #007bff; */
     outline: none;
 }
 
