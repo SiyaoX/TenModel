@@ -54,11 +54,11 @@ body.details-body {
 }
 
 .image-nav {
-    width: 30px;
+    /* width: 30px; */
     height: 40px;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
     background: rgba(0, 0, 0, 0.5);
     color: #c8c8c8;
     font-size: 24px;
@@ -321,8 +321,8 @@ body.details-body {
 
 .nav-button {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    /* top: 50%; */
+    /* transform: translateY(-50%); */
     background: rgba(0, 0, 0, 0);
     color: #c8c8c8;
     border: none;
