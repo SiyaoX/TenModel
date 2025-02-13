@@ -575,6 +575,15 @@
             });
         });
 
+        window.addEventListener("orientationchange", () => {
+            setTimeout(() => {
+                document.body.style.display = "none";
+                document.body.offsetHeight; // Force reflow
+                document.body.style.display = "";
+
+                window.scrollTo(0, 0); // Reset scroll
+            }, 200);
+        });
     </script>
 </body>
 
