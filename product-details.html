@@ -290,7 +290,7 @@
             });
 
             fullscreenViewer.addEventListener('click', e => {
-                // Close fullscreen when clicking outside of the image (on the background)
+                // Close fullscreen only when clicking on the background (not on the image)
                 if (e.target === fullscreenViewer || e.target === closeFullscreen) {
                     fullscreenViewer.classList.remove('show');
                     document.body.classList.remove('no-scroll');
@@ -301,7 +301,9 @@
                 }
             });
 
-            fullscreenImage.addEventListener('click', e => e.stopPropagation());
+            fullscreenImage.addEventListener('click', e => {
+                e.stopPropagation(); // Prevent bubbling up to fullscreenViewer
+            });
 
             // Add navigation buttons inside fullscreen viewer
             const prevFullscreenBtn = document.createElement('button');
@@ -345,7 +347,7 @@
             productNameOverlay.textContent = product.Name;
             fullscreenViewer.appendChild(productNameOverlay);
 
-            // List of elements to toggle
+            // List of elements to toggle visibility
             const elementsToToggle = [productNameOverlay, closeFullscreen, prevFullscreenBtn, nextFullscreenBtn];
 
             let uiHidden = false;
@@ -362,11 +364,21 @@
                 }
             });
 
-            // Clicking anywhere (including the image) restores the UI elements
+            // Clicking anywhere (outside the image) brings back UI elements
             fullscreenViewer.addEventListener('click', e => {
                 if (uiHidden && e.target !== fullscreenImage) {
                     uiHidden = false;
                     elementsToToggle.forEach(el => el.style.display = 'block');
+                }
+
+                // If clicking on the background (fullscreenViewer), close the fullscreen
+                if (e.target === fullscreenViewer) {
+                    fullscreenViewer.classList.remove('show');
+                    document.body.classList.remove('no-scroll');
+                    setTimeout(() => {
+                        fullscreenViewer.style.display = 'none';
+                        isFullscreen = false;
+                    }, 300);
                 }
             });
 
