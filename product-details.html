@@ -319,6 +319,12 @@
             // List of elements to toggle visibility
             const elementsToToggle = [productNameOverlay, closeFullscreen, prevFullscreenBtn, nextFullscreenBtn];
 
+            // Initially hide the UI elements (by default, set display to 'none')
+            elementsToToggle.forEach(el => {
+                el.style.display = 'none';  // Hide elements by default
+                el.setAttribute('data-ui-hidden', 'true');  // Mark them as hidden with 'data-ui-hidden' attribute
+            });
+
             // Toggle UI visibility using 'data-ui-hidden' attribute
             function toggleUIVisibility() {
                 elementsToToggle.forEach(el => {
