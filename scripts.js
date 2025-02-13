@@ -291,3 +291,17 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+document.getElementById("currency").addEventListener("change", function () {
+    this.blur();
+});
+
+
+document.getElementById("language").addEventListener("change", function () {
+    this.blur();
+});
+
+
+document.getElementById("sort-by").addEventListener("change", function () {
+    this.blur();
+});
