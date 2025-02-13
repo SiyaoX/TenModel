@@ -243,8 +243,8 @@
             function generateThumbnails() {
                 thumbnailGrid.innerHTML = images.map((img, index) =>
                     `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" data-index="${index}">
-                <img src="${img}" alt="Thumbnail ${index + 1}">
-            </div>`).join('');
+            <img src="${img}" alt="Thumbnail ${index + 1}">
+        </div>`).join('');
 
                 document.querySelectorAll('.thumbnail-item').forEach((item, index) => {
                     item.addEventListener('click', () => changeImage(index));
@@ -290,21 +290,14 @@
             });
 
             fullscreenViewer.addEventListener('click', e => {
-                // Only allow closing fullscreen if the UI is visible (i.e., no 'data-ui-hidden' attribute)
-                const isUIHidden = elementsToToggle.some(el => el.hasAttribute('data-ui-hidden'));
-
-                if (!isUIHidden && (e.target === fullscreenViewer || e.target === closeFullscreen)) {
+                // If clicking outside the image, close the fullscreen viewer
+                if (e.target === fullscreenViewer) {
                     fullscreenViewer.classList.remove('show');
                     document.body.classList.remove('no-scroll');
                     setTimeout(() => {
                         fullscreenViewer.style.display = 'none';
                         isFullscreen = false;
                     }, 300);
-                }
-
-                // If the UI is hidden and background is clicked, bring the UI back
-                if (isUIHidden && e.target !== fullscreenImage) {
-                    toggleUIVisibility(); // Restore UI elements
                 }
             });
 
@@ -369,7 +362,7 @@
             // Clicking the image hides everything in fullscreen mode
             fullscreenImage.addEventListener('click', e => {
                 e.stopPropagation();
-                toggleUIVisibility(); // Toggle visibility
+                toggleUIVisibility(); // Toggle visibility of UI elements
             });
 
             // Initialize thumbnails and main image
