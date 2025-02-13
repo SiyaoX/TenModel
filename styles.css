@@ -777,8 +777,11 @@ label {
 .language,
 .currency,
 .filter-button {
+    /* width: 150px; */
     height: 30px;
-    border: 1px dashed #777;
+    border: #777;
+    border-style: dashed;
+    border-width: 1px;
     background: none;
     cursor: pointer;
     font-size: inherit;
@@ -787,16 +790,10 @@ label {
     font-weight: 500;
 }
 
-.sort-by:focus,
-.language:focus,
-.currency:focus {
-    outline: none;
-    border-color: #777;
-}
-
-div:focus-within {
-    outline: none !important;
-    box-shadow: none !important;
+.filter-button {
+    text-align: left;
+    padding-left: 4px;
+    margin: 0;
 }
 
 .sort-by:hover,
@@ -804,9 +801,11 @@ div:focus-within {
 .currency:hover,
 .filter-button:hover {
     color: #FFD700;
+    outline: none;
     border-color: #ffd900d0;
 }
 
+/* Align dropdown text properly */
 .sort-by option,
 .language option,
 .currency option {
@@ -814,18 +813,23 @@ div:focus-within {
     color: #c8c8c8;
 }
 
-.sort-by.selected,
-.language.selected,
-.currency.selected {
-    color: #c8c8c8;
-    border: 1px dashed #777;
-}
-
 .search-bar {
     padding: 10px;
     width: 250px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+.sort-by.selected,
+.language.selected,
+.currency.selected {
+    color: inherit;
+}
+
+.sort-by:focus,
+.language:focus,
+.currency:focus {
+    outline: none;
 }
 
 .filter-dropdown {

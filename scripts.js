@@ -291,15 +291,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-document.querySelectorAll("select").forEach((dropdown) => {
-    dropdown.addEventListener("change", function () {
-        this.blur(); // Remove focus from the select itself
-
-        // Remove focus from the parent container
-        setTimeout(() => {
-            this.closest("div")?.classList.remove("focus");
-            this.closest("div")?.blur();
-        }, 100);
-    });
-});
