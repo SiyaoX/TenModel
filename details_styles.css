@@ -41,7 +41,7 @@ body.details-body {
     overflow: hidden;
     background-color: #111111;
     aspect-ratio: 1 / 1;
-    border: #444;
+    border: #333;
     border-style: dashed;
     border-width: 1px;
 }
@@ -274,7 +274,7 @@ body.details-body {
     cursor: default;
 }
 
-.fullscreen-product-name:hover{
+.fullscreen-product-name:hover {
     color: white;
 }
 
@@ -339,6 +339,7 @@ body.details-body {
     z-index: 20;
     transition: background 0.3s ease;
     border-radius: 5px;
+    text-align: center;
 }
 
 .nav-button:hover {
