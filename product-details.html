@@ -212,11 +212,6 @@
             // State variables
             let currentImageIndex = 0;
             let images = [];
-            let isDragging = false;
-            let startX = 0;
-            let touchStartX = 0;
-            let touchEndX = 0;
-            let touchStartTime = 0;
             let isFullscreen = false;
 
             // Load product data from localStorage
@@ -248,8 +243,8 @@
             function generateThumbnails() {
                 thumbnailGrid.innerHTML = images.map((img, index) =>
                     `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" data-index="${index}">
-                <img src="${img}" alt="Thumbnail ${index + 1}">
-            </div>`).join('');
+            <img src="${img}" alt="Thumbnail ${index + 1}">
+        </div>`).join('');
 
                 document.querySelectorAll('.thumbnail-item').forEach((item, index) => {
                     item.addEventListener('click', () => changeImage(index));
@@ -258,7 +253,6 @@
 
             // Change image handler with fade effect
             function changeImage(index) {
-                if (isFullscreen) return;
                 if (index < 0) index = images.length - 1;
                 if (index >= images.length) index = 0;
                 currentImageIndex = index;
@@ -278,69 +272,26 @@
             prevBtn.addEventListener('click', () => changeImage(currentImageIndex - 1));
             nextBtn.addEventListener('click', () => changeImage(currentImageIndex + 1));
 
-            // Touch event handlers
-            mainImage.addEventListener('touchstart', e => {
-                if (isFullscreen) return;
-                touchStartX = e.touches[0].clientX;
-                touchStartTime = Date.now();
-            });
-
-            mainImage.addEventListener('touchmove', e => {
-                if (isFullscreen) return;
-                touchEndX = e.touches[0].clientX;
-            });
-
-            mainImage.addEventListener('touchend', () => {
-                if (isFullscreen) return;
-                const swipeThreshold = 10;
-                const tapThreshold = 100;
-                const swipeDistance = touchEndX - touchStartX;
-                const touchDuration = Date.now() - touchStartTime;
-
-                if (Math.abs(swipeDistance) > swipeThreshold && touchDuration > tapThreshold) {
-                    swipeDistance > 0 ? changeImage(currentImageIndex + 1) : changeImage(currentImageIndex - 1);
-                }
-            });
-
-            // Mouse event handlers
-            mainImage.addEventListener('mousedown', e => {
-                if (isFullscreen) return;
-                isDragging = true;
-                startX = e.clientX;
-                mainImage.style.cursor = 'pointer';
-            });
-
-            mainImage.addEventListener('mousemove', e => {
-                if (!isDragging || isFullscreen) return;
-                const diffX = e.clientX - startX;
-                if (Math.abs(diffX) > 10) {
-                    diffX > 0 ? changeImage(currentImageIndex + 1) : changeImage(currentImageIndex - 1);
-                    isDragging = false;
-                }
-            });
-
-            mainImage.addEventListener('mouseup', () => isDragging = false);
-            mainImage.addEventListener('mouseleave', () => isDragging = false);
-
-            // Fullscreen image viewer with fade effect
-            mainImage.addEventListener('click', e => {
-                document.body.classList.add('no-scroll');
-                e.preventDefault();
-                e.stopPropagation();
+            // Fullscreen mode logic
+            function openFullscreen(index) {
+                currentImageIndex = index;
                 isFullscreen = true;
-                fullscreenImage.src = mainImage.src;
+                document.body.classList.add('no-scroll');
+                fullscreenImage.src = images[currentImageIndex];
                 fullscreenViewer.style.display = 'flex';
                 setTimeout(() => fullscreenViewer.classList.add('show'), 10);
+            }
+
+            // Main image click opens fullscreen
+            mainImage.addEventListener('click', e => {
+                e.preventDefault();
+                e.stopPropagation();
+                openFullscreen(currentImageIndex);
             });
 
             fullscreenViewer.addEventListener('click', e => {
-                // Prevent closing if the clicked target is the product name overlay
-                if (e.target.classList.contains('fullscreen-product-name')) {
-                    e.stopPropagation(); // Stop the click from propagating
-                    return; // Exit the function
-                }
-
-                if (e.target !== fullscreenImage || e.target === closeFullscreen) {
+                // Close fullscreen when clicking outside of the image (on the background)
+                if (e.target === fullscreenViewer || e.target === closeFullscreen) {
                     fullscreenViewer.classList.remove('show');
                     document.body.classList.remove('no-scroll');
                     setTimeout(() => {
@@ -352,6 +303,73 @@
 
             fullscreenImage.addEventListener('click', e => e.stopPropagation());
 
+            // Add navigation buttons inside fullscreen viewer
+            const prevFullscreenBtn = document.createElement('button');
+            const nextFullscreenBtn = document.createElement('button');
+
+            prevFullscreenBtn.classList.add('nav-button', 'prev-button');
+            nextFullscreenBtn.classList.add('nav-button', 'next-button');
+
+            prevFullscreenBtn.innerHTML = '&#10094;'; // Left arrow
+            nextFullscreenBtn.innerHTML = '&#10095;'; // Right arrow
+
+            fullscreenViewer.appendChild(prevFullscreenBtn);
+            fullscreenViewer.appendChild(nextFullscreenBtn);
+
+            // Handle navigation in fullscreen mode
+            function changeFullscreenImage(index) {
+                if (index < 0) index = images.length - 1;
+                if (index >= images.length) index = 0;
+                currentImageIndex = index;
+                fullscreenImage.style.transition = 'opacity 0.3s ease-in-out';
+                fullscreenImage.style.opacity = 0;
+                setTimeout(() => {
+                    fullscreenImage.src = images[currentImageIndex];
+                    fullscreenImage.style.opacity = 1;
+                }, 300);
+            }
+
+            prevFullscreenBtn.addEventListener('click', e => {
+                e.stopPropagation();
+                changeFullscreenImage(currentImageIndex - 1);
+            });
+
+            nextFullscreenBtn.addEventListener('click', e => {
+                e.stopPropagation();
+                changeFullscreenImage(currentImageIndex + 1);
+            });
+
+            // Add product name overlay in fullscreen mode
+            const productNameOverlay = document.createElement('div');
+            productNameOverlay.classList.add('fullscreen-product-name');
+            productNameOverlay.textContent = product.Name;
+            fullscreenViewer.appendChild(productNameOverlay);
+
+            // List of elements to toggle
+            const elementsToToggle = [productNameOverlay, closeFullscreen, prevFullscreenBtn, nextFullscreenBtn];
+
+            let uiHidden = false;
+
+            // Clicking the image hides everything in fullscreen mode
+            fullscreenImage.addEventListener('click', e => {
+                e.stopPropagation();
+                if (!uiHidden) {
+                    uiHidden = true;
+                    elementsToToggle.forEach(el => el.style.display = 'none');
+                } else {
+                    uiHidden = false;
+                    elementsToToggle.forEach(el => el.style.display = 'block');
+                }
+            });
+
+            // Clicking anywhere (including the image) restores the UI elements
+            fullscreenViewer.addEventListener('click', e => {
+                if (uiHidden && e.target !== fullscreenImage) {
+                    uiHidden = false;
+                    elementsToToggle.forEach(el => el.style.display = 'block');
+                }
+            });
+
             // Initialize thumbnails and main image
             if (images.length > 0) {
                 mainImage.src = images[0];
@@ -362,13 +380,8 @@
             document.querySelector('.status-link').addEventListener('click', () => {
                 window.location.href = "index.html?tab=how_to_order&scroll=true";
             });
-
-            // Add product name to fullscreen viewer
-            const productNameOverlay = document.createElement('div');
-            productNameOverlay.classList.add('fullscreen-product-name');
-            productNameOverlay.textContent = product.Name;
-            fullscreenViewer.appendChild(productNameOverlay);
         });
+
     </script>
 </body>
 

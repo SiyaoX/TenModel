@@ -315,6 +315,32 @@ body.details-body {
 
 .no-scroll {
     overflow: hidden;
-    height: 100vh; /* Prevent scrolling on both desktop & mobile */
+    height: 100vh;
 }
 
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 20;
+    transition: background 0.3s ease;
+    border-radius: 5px;
+}
+
+.nav-button:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.prev-button {
+    left: 10px;
+}
+
+.next-button {
+    right: 10px;
+}
