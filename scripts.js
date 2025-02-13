@@ -16,6 +16,40 @@ window.onload = () => {
 
 // Default tab and load products after the page fully loads
 document.addEventListener('DOMContentLoaded', () => {
+    const currencySelect = document.querySelector("#currency");
+    if (currencySelect) {
+        currencySelect.addEventListener("change", function () {
+            const url = new URL(window.location.href);
+            url.searchParams.set("currency", this.value);
+            window.location.replace(url.toString());
+        });
+    }
+
+    function removeFocus(event) {
+        event.target.blur();
+    }
+
+    // Handle filter dropdown
+    document.querySelector(".filter-button").addEventListener("click", function () {
+        setTimeout(() => this.blur(), 100); // Blur after clicking
+    });
+
+    document.querySelectorAll("select").forEach(select => {
+        select.addEventListener("change", function () {
+            this.blur(); // Remove focus
+            document.activeElement.blur(); // Force blur on mobile
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener("click", function (event) {
+        const filterDropdown = document.querySelector(".filter-dropdown");
+        if (!filterDropdown.contains(event.target)) {
+            document.querySelector(".filter-button").blur();
+        }
+    });
+
+
     loadProducts();
     activateTabFromURL();
 });
@@ -266,28 +300,4 @@ document.querySelector('.contact-form').addEventListener('submit', function (eve
     event.preventDefault();
     // Handle form submission, e.g., send data to a server
     alert('Thank you for contacting us! We will get back to you soon.');
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    function removeFocus(event) {
-        event.target.blur();
-    }
-
-    // Handle filter dropdown
-    document.querySelector(".filter-button").addEventListener("click", function () {
-        setTimeout(() => this.blur(), 100); // Blur after clicking
-    });
-
-    // Handle select elements
-    document.querySelectorAll("select").forEach(select => {
-        select.addEventListener("change", removeFocus);
-    });
-
-    // Close dropdowns when clicking outside
-    document.addEventListener("click", function (event) {
-        const filterDropdown = document.querySelector(".filter-dropdown");
-        if (!filterDropdown.contains(event.target)) {
-            document.querySelector(".filter-button").blur();
-        }
-    });
 });

@@ -51,7 +51,7 @@
             </div>
         </header>
 
-        <main>
+        <main style="display: flex; align-items: center; flex-direction: column;">
             <nav class="tabs-container">
                 <span class="tab active-tab" onclick="openTab(event, 'tab0')" aria-controls="tab0"
                     onmouseover="hoverTab(this, true)" onmouseout="hoverTab(this, false)" data-icon="tian.png"
@@ -123,7 +123,7 @@
                         
                     </select>
 
-                    <select id="currency" class="currency">
+                    <select id="currency" name="currency" class="currency">
                         <option value="usd">USD</option>
                         <option value="eur">EUR</option>
                         <option value="gbp">GBP</option>
