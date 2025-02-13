@@ -347,3 +347,16 @@ body.details-body {
 .next-button {
     right: 10px;
 }
+
+/* Ensure elements have smooth transitions for visibility */
+[data-ui-hidden="true"] {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0s 0.3s; /* Delay visibility change after opacity */
+}
+
+[data-ui-hidden="false"] {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s, visibility 0s 0s;
+}

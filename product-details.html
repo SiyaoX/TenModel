@@ -502,8 +502,8 @@
 
             // Initially hide the UI elements (by default, set display to 'none')
             elementsToToggle.forEach(el => {
-                el.style.display = 'none';  // Hide elements by default
-                el.setAttribute('data-ui-hidden', 'true');  // Mark them as hidden with 'data-ui-hidden' attribute
+                el.style.display = 'block';  // Hide elements by default
+                // el.setAttribute('data-ui-hidden', 'false');  
             });
 
             // Toggle UI visibility using 'data-ui-hidden' attribute
