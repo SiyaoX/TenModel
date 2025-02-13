@@ -93,33 +93,6 @@
                             soldOutLabel.style.display = 'block';
                         }
                     });
-
-                    const mainImage = document.querySelector(".main-image");
-                    const imageNavs = document.querySelectorAll(".image-nav");
-
-                    function showNav() {
-                        imageNavs.forEach(nav => {
-                            nav.style.opacity = "1";
-                            nav.style.visibility = "visible";
-                        });
-                    }
-
-                    function hideNav(event) {
-                        if (!mainImage.contains(event.relatedTarget) && !event.relatedTarget?.classList.contains("image-nav")) {
-                            imageNavs.forEach(nav => {
-                                nav.style.opacity = "0";
-                                nav.style.visibility = "hidden";
-                            });
-                        }
-                    }
-
-                    mainImage.addEventListener("mouseenter", showNav);
-                    mainImage.addEventListener("mouseleave", hideNav);
-                    imageNavs.forEach(nav => {
-                        nav.addEventListener("mouseenter", showNav);
-                        nav.addEventListener("mouseleave", hideNav);
-                    });
-
                 </script>
 
                 <!-- <div class="product-details__general-info">

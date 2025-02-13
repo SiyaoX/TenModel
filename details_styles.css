@@ -54,26 +54,25 @@ body.details-body {
 }
 
 .image-nav {
+    width: 30px;
+    height: 40px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.3);
-    color: #ffffff;
-    font-size: large;
+    background: rgba(0, 0, 0, 0.5);
+    color: #c8c8c8;
+    font-size: 24px;
     border: none;
-    padding: 10px;
     cursor: pointer;
     z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease-in-out, background 0.2s ease-in-out;
 }
 
 .image-nav:hover {
-    background: rgba(0, 0, 0, 0.6);
+    /* background: rgba(0, 0, 0, 0.6); */
+    color: white;
 }
 
 .image-nav.show {
