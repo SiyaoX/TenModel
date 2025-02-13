@@ -243,8 +243,8 @@
             function generateThumbnails() {
                 thumbnailGrid.innerHTML = images.map((img, index) =>
                     `<div class="thumbnail-item ${index === 0 ? 'active' : ''}" data-index="${index}">
-            <img src="${img}" alt="Thumbnail ${index + 1}">
-        </div>`).join('');
+                <img src="${img}" alt="Thumbnail ${index + 1}">
+            </div>`).join('');
 
                 document.querySelectorAll('.thumbnail-item').forEach((item, index) => {
                     item.addEventListener('click', () => changeImage(index));
@@ -290,8 +290,10 @@
             });
 
             fullscreenViewer.addEventListener('click', e => {
-                // Close fullscreen only when clicking on the background (not on the image)
-                if (e.target === fullscreenViewer || e.target === closeFullscreen) {
+                // Only allow closing fullscreen if the UI is visible (i.e., no 'data-ui-hidden' attribute)
+                const isUIHidden = elementsToToggle.some(el => el.hasAttribute('data-ui-hidden'));
+
+                if (!isUIHidden && (e.target === fullscreenViewer || e.target === closeFullscreen)) {
                     fullscreenViewer.classList.remove('show');
                     document.body.classList.remove('no-scroll');
                     setTimeout(() => {
@@ -299,10 +301,11 @@
                         isFullscreen = false;
                     }, 300);
                 }
-            });
 
-            fullscreenImage.addEventListener('click', e => {
-                e.stopPropagation(); // Prevent bubbling up to fullscreenViewer
+                // If the UI is hidden and background is clicked, bring the UI back
+                if (isUIHidden && e.target !== fullscreenImage) {
+                    toggleUIVisibility(); // Restore UI elements
+                }
             });
 
             // Add navigation buttons inside fullscreen viewer
@@ -350,36 +353,23 @@
             // List of elements to toggle visibility
             const elementsToToggle = [productNameOverlay, closeFullscreen, prevFullscreenBtn, nextFullscreenBtn];
 
-            let uiHidden = false;
+            // Toggle UI visibility using 'data-ui-hidden' attribute
+            function toggleUIVisibility() {
+                elementsToToggle.forEach(el => {
+                    if (!el.hasAttribute('data-ui-hidden')) {
+                        el.setAttribute('data-ui-hidden', 'true');
+                        el.style.display = 'none';
+                    } else {
+                        el.removeAttribute('data-ui-hidden');
+                        el.style.display = 'block';
+                    }
+                });
+            }
 
             // Clicking the image hides everything in fullscreen mode
             fullscreenImage.addEventListener('click', e => {
                 e.stopPropagation();
-                if (!uiHidden) {
-                    uiHidden = true;
-                    elementsToToggle.forEach(el => el.style.display = 'none');
-                } else {
-                    uiHidden = false;
-                    elementsToToggle.forEach(el => el.style.display = 'block');
-                }
-            });
-
-            // Clicking anywhere (outside the image) brings back UI elements
-            fullscreenViewer.addEventListener('click', e => {
-                if (uiHidden && e.target !== fullscreenImage) {
-                    uiHidden = false;
-                    elementsToToggle.forEach(el => el.style.display = 'block');
-                }
-
-                // If clicking on the background (fullscreenViewer), close the fullscreen
-                if (e.target === fullscreenViewer) {
-                    fullscreenViewer.classList.remove('show');
-                    document.body.classList.remove('no-scroll');
-                    setTimeout(() => {
-                        fullscreenViewer.style.display = 'none';
-                        isFullscreen = false;
-                    }, 300);
-                }
+                toggleUIVisibility(); // Toggle visibility
             });
 
             // Initialize thumbnails and main image
