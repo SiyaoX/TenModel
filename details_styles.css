@@ -236,7 +236,7 @@ body.details-body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     z-index: 1000;
     justify-content: center;
     align-items: center;
@@ -332,9 +332,9 @@ body.details-body {
     background: rgba(0, 0, 0, 0.5);
     color: #c8c8c8;
     border: none;
-    width: 30px; /* Button width relative to viewport width */
-    height: 40px; /* Button height relative to viewport height */
-    font-size: 20px; /* Font size based on viewport width */
+    width: 30px;
+    height: 40px;
+    font-size: 20px;
     cursor: pointer;
     z-index: 20;
     transition: background 0.3s ease;
