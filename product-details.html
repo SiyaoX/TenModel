@@ -290,7 +290,7 @@
             });
 
             fullscreenViewer.addEventListener('click', e => {
-                // If clicking outside the image, close the fullscreen viewer
+                // Close fullscreen when clicking outside the image
                 if (e.target === fullscreenViewer) {
                     fullscreenViewer.classList.remove('show');
                     document.body.classList.remove('no-scroll');
@@ -363,6 +363,17 @@
             fullscreenImage.addEventListener('click', e => {
                 e.stopPropagation();
                 toggleUIVisibility(); // Toggle visibility of UI elements
+            });
+
+            // Close fullscreen when the close button is clicked
+            closeFullscreen.addEventListener('click', e => {
+                e.stopPropagation(); // Prevent event bubbling to fullscreenViewer
+                fullscreenViewer.classList.remove('show');
+                document.body.classList.remove('no-scroll');
+                setTimeout(() => {
+                    fullscreenViewer.style.display = 'none';
+                    isFullscreen = false;
+                }, 300);
             });
 
             // Initialize thumbnails and main image
