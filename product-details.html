@@ -365,9 +365,9 @@
 
                 if (Math.abs(swipeDistance) > swipeThreshold) {
                     if (swipeDistance > 0) {
-                        changeFullscreenImage(currentImageIndex - 1); // Swiped right: Previous image
+                        changeFullscreenImage(currentImageIndex + 1);
                     } else {
-                        changeFullscreenImage(currentImageIndex + 1); // Swiped left: Next image
+                        changeFullscreenImage(currentImageIndex - 1);
                     }
                 }
             });
