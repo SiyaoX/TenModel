@@ -324,6 +324,7 @@
 
             // Fullscreen image viewer with fade effect
             mainImage.addEventListener('click', e => {
+                document.body.classList.add('no-scroll');
                 e.preventDefault();
                 e.stopPropagation();
                 isFullscreen = true;
@@ -333,8 +334,15 @@
             });
 
             fullscreenViewer.addEventListener('click', e => {
+                // Prevent closing if the clicked target is the product name overlay
+                if (e.target.classList.contains('fullscreen-product-name')) {
+                    e.stopPropagation(); // Stop the click from propagating
+                    return; // Exit the function
+                }
+
                 if (e.target !== fullscreenImage || e.target === closeFullscreen) {
                     fullscreenViewer.classList.remove('show');
+                    document.body.classList.remove('no-scroll');
                     setTimeout(() => {
                         fullscreenViewer.style.display = 'none';
                         isFullscreen = false;
@@ -354,6 +362,12 @@
             document.querySelector('.status-link').addEventListener('click', () => {
                 window.location.href = "index.html?tab=how_to_order&scroll=true";
             });
+
+            // Add product name to fullscreen viewer
+            const productNameOverlay = document.createElement('div');
+            productNameOverlay.classList.add('fullscreen-product-name');
+            productNameOverlay.textContent = product.Name;
+            fullscreenViewer.appendChild(productNameOverlay);
         });
     </script>
 </body>

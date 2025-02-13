@@ -259,16 +259,28 @@ body.details-body {
     object-fit: contain;
 }
 
+.fullscreen-product-name {
+    position: absolute;
+    top: 10px;
+    left: 40px;
+    color: white;
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+    z-index: 10;
+    cursor: default;
+}
+
 .close-btn {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 10px;
+    right: 40px;
     background: rgba(255, 255, 255, 0);
-    color: #c8c8c880;
+    color: white;
     border: none;
-    padding: 10px 15px;
-    font-size: 18px;
-    font-weight: bolder;
+    padding: 0;
+    margin: 0;
+    font-size: 24px;
     cursor: pointer;
     z-index: 1009;
 }
@@ -292,3 +304,17 @@ body.details-body {
     display: flex;
     opacity: 1;
 }
+
+.social-media-buttons img {
+    transition: filter 0.1s ease;
+}
+
+.social-media-buttons img:hover {
+    filter: brightness(0) saturate(100%) invert(75%) sepia(100%) saturate(500%) hue-rotate(5deg);
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100vh; /* Prevent scrolling on both desktop & mobile */
+}
+
