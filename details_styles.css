@@ -279,7 +279,7 @@ body.details-body {
     top: 10px;
     right: 30px;
     background: rgba(255, 255, 255, 0);
-    color: white;
+    color: #c8c8c8;
     border: none;
     padding: 0;
     margin: 0;
@@ -290,7 +290,7 @@ body.details-body {
 
 .close-btn:hover {
     background: rgba(255, 0, 0, 0);
-    color: #c8c8c8;
+    color: #ffffff;
 }
 
 .breadcrumbs__link:hover {
@@ -326,10 +326,11 @@ body.details-body {
     top: 50%;
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.5);
-    color: white;
+    color: #c8c8c8;
     border: none;
-    padding: 15px 20px;
-    font-size: 24px;
+    width: 30px; /* Button width relative to viewport width */
+    height: 40px; /* Button height relative to viewport height */
+    font-size: 20px; /* Font size based on viewport width */
     cursor: pointer;
     z-index: 20;
     transition: background 0.3s ease;
@@ -337,7 +338,7 @@ body.details-body {
 }
 
 .nav-button:hover {
-    background: rgba(0, 0, 0, 0.8);
+    color: white;
 }
 
 .prev-button {
