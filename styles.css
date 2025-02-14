@@ -22,9 +22,6 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center; */
 }
 
 body {
@@ -186,10 +183,12 @@ a {
 }
 
 .contact-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
     width: 140px;
-    text-align: center;
-    /* margin-right: 10px; */
-    margin-bottom: 10px;
+    margin-right: 10px;
+    padding-bottom: 10px;
 }
 
 .contact-info a,
@@ -216,8 +215,8 @@ a {
 
 .logo-container {
     width: 140px;
-    margin-left: 15px;
-    margin-bottom: 10px;
+    margin-left: 10px;
+    padding-bottom: 10px;
 }
 
 .logo img {
@@ -307,12 +306,14 @@ h1 {
 }
 
 .tab-content {
+    width: 100%;
     max-width: 1500px;
     display: none;
+    /* margin: 30px; */
     margin: 0 auto;
     margin-top: 30px;
     margin-bottom: 30px;
-    margin: 30px;
+    /* margin: 30px; */
 }
 
 .tab-content.active {
@@ -522,8 +523,6 @@ footer {
 
 .tab-content-header {
     column-gap: 7px;
-    margin-left: inherit;
-    margin-right: inherit;
     margin-bottom: 20px;
     max-width: 1264px;
     width: 100%;
@@ -960,6 +959,18 @@ label {
 }
 
 @media (max-width: 310px) {
+
+    .navigation-container {
+        display: none;
+    }
+
+    .logo-container,
+    .contact-container {
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
 
     .banner-extras,
     .story-header {

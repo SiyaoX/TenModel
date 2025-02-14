@@ -16,42 +16,84 @@ window.onload = () => {
 
 // Default tab and load products after the page fully loads
 document.addEventListener('DOMContentLoaded', () => {
+    // ** Currency Selector (Now Works Like Language) **
     const currencySelect = document.querySelector("#currency");
+
     if (currencySelect) {
+        const storedCurrency = localStorage.getItem("currency") || "usd"; // Default to USD
+        currencySelect.value = storedCurrency;
+
+        function applyCurrency(currency) {
+            document.querySelectorAll("[data-currency]").forEach(el => {
+                const priceInUSD = parseFloat(el.getAttribute("data-price-usd"));
+                let convertedPrice = priceInUSD;
+
+                // Example conversion rates (Replace with real API if needed)
+                const rates = {
+                    "usd": 1,
+                    "eur": 0.92,
+                    "gbp": 0.79
+                };
+
+                if (rates[currency]) {
+                    convertedPrice = (priceInUSD * rates[currency]).toFixed(2);
+                }
+
+                el.textContent = `${currency.toUpperCase()} ${convertedPrice}`;
+            });
+        }
+
         currencySelect.addEventListener("change", function () {
-            const url = new URL(window.location.href);
-            url.searchParams.set("currency", this.value);
-            window.location.replace(url.toString());
+            localStorage.setItem("currency", this.value);
+            applyCurrency(this.value);
         });
+
+        applyCurrency(storedCurrency);
     }
 
-    function removeFocus(event) {
-        event.target.blur();
+    // ** Language Selector (Already Working) **
+    const languageSelect = document.querySelector("#language");
+
+    if (languageSelect) {
+        const storedLang = localStorage.getItem("language") || "en";
+        languageSelect.value = storedLang;
+
+        async function loadTranslations(lang) {
+            try {
+                const response = await fetch("translations.json");
+                if (!response.ok) throw new Error("Translation file not found");
+                const translations = await response.json();
+                applyTranslations(translations[lang]);
+            } catch (error) {
+                console.error("Error loading translations:", error);
+            }
+        }
+
+        function applyTranslations(translations) {
+            document.querySelectorAll("[data-translate]").forEach(el => {
+                const key = el.getAttribute("data-translate");
+                el.textContent = translations[key] || key; // Fallback to key if missing
+            });
+        }
+
+        languageSelect.addEventListener("change", function () {
+            localStorage.setItem("language", this.value);
+            loadTranslations(this.value);
+        });
+
+        loadTranslations(storedLang);
     }
 
-    // Handle filter dropdown
-    document.querySelector(".filter-button").addEventListener("click", function () {
-        setTimeout(() => this.blur(), 100); // Blur after clicking
-    });
-
+    // ** Dropdown Blur Fixes **
     document.querySelectorAll("select").forEach(select => {
         select.addEventListener("change", function () {
             this.blur(); // Remove focus
-            document.activeElement.blur(); // Force blur on mobile
         });
     });
 
-    // Close dropdowns when clicking outside
-    document.addEventListener("click", function (event) {
-        const filterDropdown = document.querySelector(".filter-dropdown");
-        if (!filterDropdown.contains(event.target)) {
-            document.querySelector(".filter-button").blur();
-        }
-    });
-
-
-    loadProducts();
-    activateTabFromURL();
+    // ** Load Products & Tabs **
+    if (typeof loadProducts === "function") loadProducts();
+    if (typeof activateTabFromURL === "function") activateTabFromURL();
 });
 
 // Function to handle tab switching and update URL

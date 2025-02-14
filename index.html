@@ -21,7 +21,7 @@
                 <p>Pre-order coming soon!</p>
             </div>
             <div class="banner-extras">
-                <div class="logo-container" style="width: 136.44px;">
+                <div class="logo-container">
                     <a href="index.html" class="a" aria-label="Go to homepage">
                         <div class="logo">
                             <img src="resources/img/icon/tian.png" alt="TenModel Logo">
@@ -52,6 +52,10 @@
         </header>
 
         <main style="display: flex; align-items: center; flex-direction: column;">
+
+            <h1 data-translate="welcome">Welcome!</h1>
+            <p data-currency data-price-usd="100">USD 100</p>
+            <p data-currency data-price-usd="50">USD 50</p>
             <nav class="tabs-container">
                 <span class="tab active-tab" onclick="openTab(event, 'tab0')" aria-controls="tab0"
                     onmouseover="hoverTab(this, true)" onmouseout="hoverTab(this, false)" data-icon="tian.png"
@@ -103,7 +107,7 @@
                             <label><input type="checkbox"> Option 3</label>
                         </div>
                     </div>
-                    
+
                     <select id="sort-by" class="sort-by">
                         <option value="default">Featured</option>
                         <option value="price-low-to-high">Price: Low to High</option>
@@ -114,20 +118,14 @@
 
                     <select id="language" class="language">
                         <option value="en">English</option>
-                        <option value="es">Spanish</option>
-                        <option value="fr">French</option>
-                        <option value="fr">德语</option>
-                        <option value="fr">韩语</option>
-                        <option value="fr">日语</option>
-                        <option value="fr">繁体中文</option>
-                        
+                        <option value="fr">Français</option>
+                        <option value="es">Español</option>
                     </select>
 
                     <select id="currency" name="currency" class="currency">
                         <option value="usd">USD</option>
                         <option value="eur">EUR</option>
                         <option value="gbp">GBP</option>
-                        <!-- Add more currencies here -->
                     </select>
                 </div>
 
