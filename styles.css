@@ -306,12 +306,13 @@ h1 {
 }
 
 .tab-content {
-    width: 100%;
+    width: -webkit-fill-available;
     max-width: 1500px;
     display: none;
-    margin: 0 auto;
+    padding: 20px;
+    /* margin: 0 auto;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 20px; */
 }
 
 .tab-content.active {
@@ -901,12 +902,15 @@ label {
         transform: translateX(1px);
         text-align: center;
         max-width: 302px;
+        /* max-width: 100%; */
         display: grid;
         align-items: center;
         justify-items: center;
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
         row-gap: 7px;
         column-gap: 7px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .filter-dropdown,

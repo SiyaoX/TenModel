@@ -38,6 +38,8 @@
         <a href="https://tenmodel.design" class="breadcrumbs__link">Ten Model</a>
         <span class="breadcrumbs__delimiter">/</span>
         <a href="https://tenmodel.design" class="breadcrumbs__link"></a>
+        <span class="breadcrumbs__delimiter">/</span>
+        <a class="breadcrumbs__link"></a>
     </div>
     <div class="product-container">
         <div class="main-content">
@@ -180,7 +182,9 @@
             const productPrice = document.getElementById('productPrice');
             const productSKU = document.getElementById('productSKU');
             const breadcrumbLinks = document.querySelectorAll('.ec-breadcrumbs .breadcrumbs__link');
-            const lastBreadcrumbLink = breadcrumbLinks[breadcrumbLinks.length - 1];
+            const homeBreadcrumblink = breadcrumbLinks[0]
+            const categoryBreadcrumblink = breadcrumbLinks[1]
+            const productBreadcrumbLink = breadcrumbLinks[2];
 
             // State variables
             let currentImageIndex = 0;
@@ -205,9 +209,9 @@
             const price = parseFloat(product.Price);
 
             // Update breadcrumb
-            if (lastBreadcrumbLink && category) {
-                lastBreadcrumbLink.textContent = category;
-                lastBreadcrumbLink.href = `index.html?tab=${category.toLowerCase()}&scroll=true`;
+            if (categoryBreadcrumblink && category) {
+                categoryBreadcrumblink.textContent = category;
+                categoryBreadcrumblink.href = `index.html?tab=${category.toLowerCase()}&scroll=true`;
             } else {
                 console.error('Breadcrumb link or category not found');
             }
