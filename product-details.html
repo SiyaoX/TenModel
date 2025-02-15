@@ -192,6 +192,7 @@
 
             let fullscreenScale = 1.5;
             let fullscreenIsZoomed = false;
+            let fullscreenUIHidden = false;
             let fullscreenMoveX = 0, fullscreenMoveY = 0;
 
             // State variables
@@ -210,9 +211,15 @@
             zoomInFullscreen.addEventListener('click', () => {
                 fullscreenIsZoomed = !fullscreenIsZoomed;
                 if (fullscreenIsZoomed) {
+                    if (!fullscreenUIHidden) {
+                        toggleUIVisibility()
+                    }
                     fullscreenImage.style.transform = `scale(${fullscreenScale})`;
                     fullscreenImage.style.cursor = "grab";
                 } else {
+                    if (fullscreenUIHidden){
+                        toggleUIVisibility()
+                    }
                     fullscreenImage.style.transform = "scale(1)";
                     fullscreenImage.style.cursor = "default";
                     fullscreenMoveX = 0;
@@ -636,9 +643,11 @@
                     if (!el.hasAttribute('data-ui-hidden')) {
                         el.setAttribute('data-ui-hidden', 'true');
                         el.style.display = 'none';
+                        fullscreenUIHidden = true;
                     } else {
                         el.removeAttribute('data-ui-hidden');
                         el.style.display = 'block';
+                        fullscreenUIHidden = false;
                     }
                 });
             }
