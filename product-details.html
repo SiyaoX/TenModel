@@ -150,7 +150,7 @@
 
     <div id="fullscreenViewer" class="fullscreen-viewer">
         <button id="hideUIFullscreen" class="hide-ui-btn">hide</button>
-        <!-- <button id="zoomInFullscreen" class="zoom-in-btn">zoom</button> -->
+        <button id="zoomInFullscreen" class="zoom-in-btn">zoom</button>
         <button id="closeFullscreen" class="close-btn">&#10006;</button>
         <div class="fullscreen-image-container">
             <img id="fullscreenImage" class="fullscreen-image" src="" alt="Full-screen View">
@@ -204,7 +204,7 @@
             let endX = 0;
             const clickThreshold = 10;  // Allow up to 10px movement for a click
             const swipeThreshold = 50;
-
+            let prevTouches = [];
 
             // Zoom-in button click event
             zoomInFullscreen.addEventListener('click', () => {
@@ -224,8 +224,8 @@
             // Enable dragging when zoomed in fullscreen
             fullscreenImage.addEventListener('mousedown', (e) => {
                 if (!fullscreenIsZoomed) return;
-                let startX = e.clientX - fullscreenMoveX;
-                let startY = e.clientY - fullscreenMoveY;
+                startX = e.clientX - fullscreenMoveX;
+                startY = e.clientY - fullscreenMoveY;
                 fullscreenImage.style.cursor = "grabbing";
 
                 function onMouseMove(e) {
@@ -242,6 +242,50 @@
 
                 document.addEventListener('mousemove', onMouseMove);
                 document.addEventListener('mouseup', onMouseUp);
+            });
+
+            // **Touch Drag and Pinch-to-Zoom for Mobile**
+            fullscreenImage.addEventListener('touchstart', (e) => {
+                if (!fullscreenIsZoomed) return;
+                if (e.touches.length === 1) {
+                    // Single touch (Drag)
+                    startX = e.touches[0].clientX - fullscreenMoveX;
+                    startY = e.touches[0].clientY - fullscreenMoveY;
+                } else if (e.touches.length === 2) {
+                    // Multi-touch (Pinch)
+                    prevTouches = [...e.touches];
+                }
+            });
+
+            fullscreenImage.addEventListener('touchmove', (e) => {
+                if (!fullscreenIsZoomed) return;
+
+                if (e.touches.length === 1 && prevTouches.length < 2) {
+                    // Dragging with one finger
+                    fullscreenMoveX = e.touches[0].clientX - startX;
+                    fullscreenMoveY = e.touches[0].clientY - startY;
+                    fullscreenImage.style.transform = `translate(${fullscreenMoveX}px, ${fullscreenMoveY}px) scale(${fullscreenScale})`;
+                } else if (e.touches.length === 2) {
+                    // Pinch-to-Zoom
+                    let touch1 = e.touches[0];
+                    let touch2 = e.touches[1];
+                    let prevTouch1 = prevTouches[0];
+                    let prevTouch2 = prevTouches[1];
+
+                    let currentDistance = Math.hypot(touch2.clientX - touch1.clientX, touch2.clientY - touch1.clientY);
+                    let prevDistance = Math.hypot(prevTouch2.clientX - prevTouch1.clientX, prevTouch2.clientY - prevTouch1.clientY);
+
+                    let zoomFactor = currentDistance / prevDistance;
+                    fullscreenScale = Math.min(Math.max(fullscreenScale * zoomFactor, 1), 3); // Limit zoom
+
+                    fullscreenImage.style.transform = `translate(${fullscreenMoveX}px, ${fullscreenMoveY}px) scale(${fullscreenScale})`;
+                    prevTouches = [...e.touches];
+                }
+            });
+
+            // Reset prevTouches when touch ends
+            fullscreenImage.addEventListener('touchend', () => {
+                prevTouches = [];
             });
 
 
