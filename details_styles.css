@@ -264,32 +264,50 @@ body.details-body {
 
 .fullscreen-product-name {
     position: absolute;
-    top: 10px;
-    left: 30px;
+    top: 5px;
+    left: 10px;
+    height: 30px;
     color: #c8c8c8;
     font-size: 24px;
     padding: 0;
     margin: 0;
     z-index: 10;
     cursor: default;
-}
-
-.fullscreen-product-name:hover {
-    color: white;
+    padding-right: 40px;
 }
 
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 30px;
+    top: 5px;
+    right: 10px;
+    height: 30px;
     background: rgba(255, 255, 255, 0);
     color: white;
     border: none;
     padding: 0;
     margin: 0;
-    font-size: 24px;
+    font-size: 22px;
     cursor: pointer;
     z-index: 1009;
+}
+
+.hideUI-btn{
+    position: absolute;
+    top: 45px;
+    right: 10px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0);
+    color: white;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 1009;
+}
+
+.fullscreen-product-name:hover {
+    color: white;
 }
 
 .breadcrumbs__link:hover {
@@ -322,17 +340,12 @@ body.details-body {
 
 .nav-button {
     position: absolute;
-    /* top: 50%; */
-    /* transform: translateY(-50%); */
     background: rgba(0, 0, 0, 0);
     color: #c8c8c8;
     border: none;
-    /* width: ; */
-    height: 40px;
     font-size: 20px;
     cursor: pointer;
     z-index: 20;
-    /* transition: background 0.3s ease; */
     border-radius: 5px;
     text-align: center;
 }

@@ -149,6 +149,7 @@
     </div>
 
     <div id="fullscreenViewer" class="fullscreen-viewer">
+        <button id="hideUIFullscreen" class="hideUI-btn">=</button>
         <button id="closeFullscreen" class="close-btn">&#10006;</button>
         <div class="fullscreen-image-container">
             <img id="fullscreenImage" class="fullscreen-image" src="" alt="Full-screen View">
@@ -174,6 +175,7 @@
             const fullscreenViewer = document.getElementById('fullscreenViewer');
             const fullscreenImage = document.getElementById('fullscreenImage');
             const closeFullscreen = document.getElementById('closeFullscreen');
+            const hideUIFullscreen = document.getElementById('hideUIFullscreen');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const thumbnailGrid = document.getElementById('thumbnailGrid');
@@ -529,9 +531,13 @@
             // Clicking the image hides everything in fullscreen mode
             fullscreenImage.addEventListener('click', e => {
                 e.stopPropagation();
-                if (fullscreenIsClick) {
+                // if (fullscreenIsClick) {
                     toggleUIVisibility(); // Toggle visibility of UI elements
-                }
+                // }
+            });
+            hideUIFullscreen.addEventListener('click', e => {
+                e.stopPropagation;
+                toggleUIVisibility();
             });
 
             // Toggle UI visibility using 'data-ui-hidden' attribute
