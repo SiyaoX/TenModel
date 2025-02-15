@@ -149,7 +149,8 @@
     </div>
 
     <div id="fullscreenViewer" class="fullscreen-viewer">
-        <button id="hideUIFullscreen" class="hideUI-btn">=</button>
+        <button id="hideUIFullscreen" class="hide-ui-btn">=</button>
+        <button id="zoomInFullscreen" class="zoom-in-btn">+</button>
         <button id="closeFullscreen" class="close-btn">&#10006;</button>
         <div class="fullscreen-image-container">
             <img id="fullscreenImage" class="fullscreen-image" src="" alt="Full-screen View">
@@ -176,6 +177,7 @@
             const fullscreenImage = document.getElementById('fullscreenImage');
             const closeFullscreen = document.getElementById('closeFullscreen');
             const hideUIFullscreen = document.getElementById('hideUIFullscreen');
+            const zoomInFullscreen = document.getElementById('zoomInFullscreen');
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const thumbnailGrid = document.getElementById('thumbnailGrid');
@@ -188,6 +190,10 @@
             const categoryBreadcrumblink = breadcrumbLinks[1];
             const productBreadcrumbLink = breadcrumbLinks[2];
 
+            let fullscreenScale = 1.5;
+            let fullscreenIsZoomed = false;
+            let fullscreenMoveX = 0, fullscreenMoveY = 0;
+
             // State variables
             let currentImageIndex = 0;
             let images = [];
@@ -198,6 +204,46 @@
             let endX = 0;
             const clickThreshold = 10;  // Allow up to 10px movement for a click
             const swipeThreshold = 50;
+
+
+            // Zoom-in button click event
+            zoomInFullscreen.addEventListener('click', () => {
+                fullscreenIsZoomed = !fullscreenIsZoomed;
+                if (fullscreenIsZoomed) {
+                    fullscreenImage.style.transform = `scale(${fullscreenScale})`;
+                    fullscreenImage.style.cursor = "grab";
+                } else {
+                    fullscreenImage.style.transform = "scale(1)";
+                    fullscreenImage.style.cursor = "default";
+                    fullscreenMoveX = 0;
+                    fullscreenMoveY = 0;
+                    fullscreenImage.style.transform = `translate(0px, 0px) scale(1)`;
+                }
+            });
+
+            // Enable dragging when zoomed in fullscreen
+            fullscreenImage.addEventListener('mousedown', (e) => {
+                if (!fullscreenIsZoomed) return;
+                let startX = e.clientX - fullscreenMoveX;
+                let startY = e.clientY - fullscreenMoveY;
+                fullscreenImage.style.cursor = "grabbing";
+
+                function onMouseMove(e) {
+                    fullscreenMoveX = e.clientX - startX;
+                    fullscreenMoveY = e.clientY - startY;
+                    fullscreenImage.style.transform = `translate(${fullscreenMoveX}px, ${fullscreenMoveY}px) scale(${fullscreenScale})`;
+                }
+
+                function onMouseUp() {
+                    fullscreenImage.style.cursor = "grab";
+                    document.removeEventListener('mousemove', onMouseMove);
+                    document.removeEventListener('mouseup', onMouseUp);
+                }
+
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+            });
+
 
             // Load product data from localStorage
             const product = JSON.parse(localStorage.getItem('selectedProduct'));
@@ -262,11 +308,11 @@
                 e.preventDefault();  // Prevent text selection and other default behaviors
 
                 // Set timeout to trigger a click if no dragging occurs
-                clickTimeout = setTimeout(() => {
-                    if (isClick) {
-                        openFullscreen(currentImageIndex);  // Trigger click action after timeout if no drag
-                    }
-                }, 200);  // Trigger the click after 200ms if no movement
+                // clickTimeout = setTimeout(() => {
+                //     if (isClick) {
+                //         openFullscreen(currentImageIndex);  // Trigger click action after timeout if no drag
+                //     }
+                // }, 200);  // Trigger the click after 200ms if no movement
             });
 
             // Add touch start event listener for drag (for mobile)
@@ -276,11 +322,11 @@
                 e.preventDefault();  // Prevent default touch behavior
 
                 // Set timeout to trigger a click if no dragging occurs
-                clickTimeout = setTimeout(() => {
-                    if (isClick) {
-                        openFullscreen(currentImageIndex);  // Trigger click action after timeout if no drag
-                    }
-                }, 200);  // Trigger the click after 200ms if no movement
+                // clickTimeout = setTimeout(() => {
+                //     if (isClick) {
+                //         openFullscreen(currentImageIndex);  // Trigger click action after timeout if no drag
+                //     }
+                // }, 200);  // Trigger the click after 200ms if no movement
             });
 
             // Mouse move event to track drag (for detail image)
@@ -288,7 +334,7 @@
                 if (Math.abs(e.pageX - startX) > clickThreshold) {  // Allow up to 10px movement for a click
                     isDragging = true;
                     isClick = false; // If dragging detected, it's not a click
-                    clearTimeout(clickTimeout);  // Cancel the click timeout if moving
+                    // clearTimeout(clickTimeout);  // Cancel the click timeout if moving
                 }
             });
 
@@ -297,7 +343,7 @@
                 if (Math.abs(e.touches[0].clientX - startX) > clickThreshold) {  // Allow up to 10px movement for a click
                     isDragging = true;
                     isClick = false;  // If dragging detected, it's not a click
-                    clearTimeout(clickTimeout);  // Cancel the click timeout if moving
+                    // clearTimeout(clickTimeout);  // Cancel the click timeout if moving
                 }
             });
 
@@ -317,7 +363,7 @@
 
                 // Reset dragging state
                 isDragging = false;
-                clearTimeout(clickTimeout); // Clear timeout after mouse up
+                // clearTimeout(clickTimeout); // Clear timeout after mouse up
             });
 
             // Touch end event to determine direction of drag and change image (for mobile on detail image)
@@ -336,7 +382,7 @@
 
                 // Reset dragging state
                 isDragging = false;
-                clearTimeout(clickTimeout); // Clear timeout after touch end
+                // clearTimeout(clickTimeout); // Clear timeout after touch end
             });
 
             // Fullscreen image touch and drag support
@@ -344,7 +390,7 @@
             let fullscreenStartX = 0;
             let fullscreenEndX = 0;
             let fullscreenIsDragging = false;
-            let fullscreenClickTimeout;
+            // let fullscreenClickTimeout;
 
             fullscreenImage.addEventListener("touchstart", (e) => {
                 fullscreenStartX = e.touches[0].clientX; // Capture starting X position
@@ -352,9 +398,9 @@
                 e.preventDefault(); // Prevent default touch behavior
 
                 // Set timeout for detecting if it's a tap (not a swipe)
-                fullscreenClickTimeout = setTimeout(() => {
-                    fullscreenIsClick = false; // If timeout runs out, it's not a tap
-                }, 200);
+                // fullscreenClickTimeout = setTimeout(() => {
+                //     fullscreenIsClick = false; // If timeout runs out, it's not a tap
+                // }, 200);
             });
 
             // Touch move event to track swipe and cancel click detection
@@ -362,7 +408,7 @@
                 const currentX = e.touches[0].clientX;
                 if (Math.abs(currentX - fullscreenStartX) > clickThreshold) {
                     fullscreenIsClick = false; // Disable click detection on drag
-                    clearTimeout(fullscreenClickTimeout); // Cancel click timeout
+                    // clearTimeout(fullscreenClickTimeout); // Cancel click timeout
                 }
             });
 
@@ -371,7 +417,7 @@
                 const touchEndX = e.changedTouches[0].clientX;
                 const swipeDistance = touchEndX - fullscreenStartX;
 
-                if (Math.abs(swipeDistance) > swipeThreshold) {
+                if (Math.abs(swipeDistance) > swipeThreshold && !fullscreenIsZoomed) {
                     if (swipeDistance > 0) {
                         changeFullscreenImage(currentImageIndex + 1);
                     } else {
@@ -387,11 +433,11 @@
                 e.preventDefault();  // Prevent text selection and other default behaviors
 
                 // Set timeout to trigger a click if no dragging occurs
-                fullscreenClickTimeout = setTimeout(() => {
-                    if (fullscreenIsClick) {
-                        openFullscreen(currentImageIndex);  // Trigger click action after timeout if no drag
-                    }
-                }, 200);  // Trigger the click after 200ms if no movement
+                // fullscreenClickTimeout = setTimeout(() => {
+                //     if (fullscreenIsClick) {
+                //         openFullscreen(currentImageIndex);  // Trigger click action after timeout if no drag
+                //     }
+                // }, 200);  // Trigger the click after 200ms if no movement
             });
 
             // Mouse up event to determine direction of drag and change image in fullscreen mode
@@ -410,7 +456,7 @@
 
                 // Reset dragging state
                 fullscreenIsDragging = false;
-                clearTimeout(fullscreenClickTimeout); // Clear timeout after mouse up
+                // clearTimeout(fullscreenClickTimeout); // Clear timeout after mouse up
             });
 
             // Event listeners for navigation buttons
@@ -531,9 +577,9 @@
             // Clicking the image hides everything in fullscreen mode
             fullscreenImage.addEventListener('click', e => {
                 e.stopPropagation();
-                // if (fullscreenIsClick) {
+                if (!fullscreenIsZoomed) {
                     toggleUIVisibility(); // Toggle visibility of UI elements
-                // }
+                }
             });
             hideUIFullscreen.addEventListener('click', e => {
                 e.stopPropagation;

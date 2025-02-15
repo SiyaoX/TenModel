@@ -291,9 +291,24 @@ body.details-body {
     z-index: 1009;
 }
 
-.hideUI-btn{
+.hide-ui-btn{
     position: absolute;
     top: 45px;
+    right: 10px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0);
+    color: white;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 1009;
+}
+
+.zoom-in-btn{
+    position: absolute;
+    top: 65px;
     right: 10px;
     height: 30px;
     background: rgba(255, 255, 255, 0);
