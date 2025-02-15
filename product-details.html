@@ -39,7 +39,7 @@
         <span class="breadcrumbs__delimiter">/</span>
         <a href="https://tenmodel.design" class="breadcrumbs__link"></a>
         <span class="breadcrumbs__delimiter">/</span>
-        <a class="breadcrumbs__link"></a>
+        <a class="breadcrumbs__link" style="cursor: default;"></a>
     </div>
     <div class="product-container">
         <div class="main-content">
@@ -182,8 +182,8 @@
             const productPrice = document.getElementById('productPrice');
             const productSKU = document.getElementById('productSKU');
             const breadcrumbLinks = document.querySelectorAll('.ec-breadcrumbs .breadcrumbs__link');
-            const homeBreadcrumblink = breadcrumbLinks[0]
-            const categoryBreadcrumblink = breadcrumbLinks[1]
+            const homeBreadcrumblink = breadcrumbLinks[0];
+            const categoryBreadcrumblink = breadcrumbLinks[1];
             const productBreadcrumbLink = breadcrumbLinks[2];
 
             // State variables
@@ -215,6 +215,8 @@
             } else {
                 console.error('Breadcrumb link or category not found');
             }
+
+            productBreadcrumbLink.textContent = product.Name;
 
             // Update product details
             productName.textContent = product.Name;

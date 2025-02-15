@@ -10,7 +10,7 @@
     "Height": 3.1,
     "Depth": 12.3,
     "Date": "Nov. 2024",
-    "Status": "OUT OF STOCK",
+    "Status": "DISCONTINUED",
     "CoverImg": "resources/img/static/gundam004.jpg",
     "DetailImgs": [
       "resources/img/static/gundam002.jpg",
@@ -33,7 +33,7 @@
     "Height": 3.1,
     "Depth": 12.3,
     "Date": "Sep. 2024",
-    "Status": "OUT OF STOCK",
+    "Status": "DISCONTINUED",
     "CoverImg": "resources/img/static/gundam002.jpg",
     "DetailImgs": [
       "resources/img/static/gundam002.jpg",
@@ -62,7 +62,7 @@
     "Height": 3.1,
     "Depth": 12.3,
     "Date": "Apr. 2024",
-    "Status": "OUT OF STOCK",
+    "Status": "DISCONTINUED",
     "CoverImg": "resources/img/static/gundam003.jpg",
     "DetailImgs": [
       "resources/img/static/gundam002.jpg",
@@ -97,7 +97,7 @@
     "Depth": 12.3,
     "Date": "Mar. 2025",
     "BuiltNum": 1,
-    "Status": "OUT OF STOCK",
+    "Status": "DISCONTINUED",
     "CoverImg": "resources/img/static/gundam001.jpg",
     "DetailImgs": [
       "resources/img/static/gundam001.jpg",
@@ -127,7 +127,7 @@
     "Height": 3.1,
     "Depth": 12.3,
     "Date": "Jan. 2024",
-    "Status": "OUT OF STOCK",
+    "Status": "DISCONTINUED",
     "CoverImg": "resources/img/static/gundam003.jpg",
     "DetailImgs": [
       "resources/img/static/gundam003.jpg",
@@ -147,7 +147,7 @@
     "Height": 3.1,
     "Depth": 12.3,
     "Date": "Jan. 2024",
-    "Status": "OUT OF STOCK",
+    "Status": "DISCONTINUED",
     "CoverImg": "resources/img/static/gundam003.jpg",
     "DetailImgs": [
       "resources/img/static/gundam003.jpg",
@@ -167,7 +167,7 @@
     "Height": 3.1,
     "Depth": 12.3,
     "Date": "2024",
-    "Status": "OUT OF STOCK",
+    "Status": "DISCONTINUED",
     "CoverImg": "resources/img/static/gundam004.jpg",
     "DetailImgs": [
       "resources/img/static/gundam004.jpg",

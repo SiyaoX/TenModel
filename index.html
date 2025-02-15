@@ -52,10 +52,6 @@
         </header>
 
         <main style="display: flex; align-items: center; flex-direction: column;">
-
-            <!-- <h1 data-translate="welcome">Welcome!</h1>
-            <p data-currency data-price-usd="100">USD 100</p>
-            <p data-currency data-price-usd="50">USD 50</p> -->
             <nav class="tabs-container">
                 <span class="tab active-tab" onclick="openTab(event, 'tab0')" aria-controls="tab0"
                     onmouseover="hoverTab(this, true)" onmouseout="hoverTab(this, false)" data-icon="tian.png"
@@ -95,10 +91,13 @@
                 </span>
             </nav>
             <div id="tab1" class="tab-content">
+                <h1 data-translate="welcome">Welcome!</h1>
+                    <p data-currency data-price-usd="100">USD 100</p>
+                    <p data-currency data-price-usd="50">USD 50</p>
                 <div class="tab-content-header">
                     <!-- Search bar -->
                     <!-- <input type="text" id="search-bar" placeholder="Search..." class="search-bar"> -->
-
+                    
                     <div class="filter-dropdown">
                         <button class="filter-button">Filter</button>
                         <div class="filter-options">

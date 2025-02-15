@@ -684,7 +684,8 @@ label {
 
 .story-header {
     background-color: #868686;
-    color: #141414;
+    color: #c8c8c8;
+    text-shadow: 1px 1px 1px black,1px -0px 1px black,-0px 1px 1px black,-0px -0px 1px black;
     display: flex;
     justify-content: space-between;
     width: 100%;
