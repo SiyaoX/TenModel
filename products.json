@@ -11,15 +11,29 @@
     "Depth": 12.3,
     "Date": "Nov. 2024",
     "Status": "DISCONTINUED",
-    "CoverImg": "resources/img/static/gundam004.jpg",
+    "CoverImg": "resources/img/static/freedom2014/cover.jpg",
     "DetailImgs": [
-      "resources/img/static/gundam002.jpg",
-      "resources/img/static/gundam002.jpg",
-      "resources/img/static/gundam003.jpg",
-      "resources/img/static/gundam004.jpg"
+      "resources/img/static/freedom2014/1.jpg",
+      "resources/img/static/freedom2014/2.jpg",
+      "resources/img/static/freedom2014/3.jpg",
+      "resources/img/static/freedom2014/4.jpg",
+      "resources/img/static/freedom2014/5.jpg",
+      "resources/img/static/freedom2014/6.jpg",
+      "resources/img/static/freedom2014/7.jpg",
+      "resources/img/static/freedom2014/8.jpg", 
+      "resources/img/static/freedom2014/9.jpg",
+      "resources/img/static/freedom2014/10.jpg"
     ],
     "Features": [
-      "Hand-crafted"
+      "Fully Overhauled Mechanics",
+      "RG-Style Paint",
+      "Precision Inner Frame",
+      "Reinforced Joints",
+      "Pose Calibration",
+      "LED Mono-Eye",
+      "Upgraded Thrusters",
+      "Photo-etched parts",
+      "Extra Warning Decals"
     ]
   },
   {
