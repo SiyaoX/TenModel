@@ -148,10 +148,22 @@
         </div>
     </div>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <div id="fullscreenViewer" class="fullscreen-viewer">
-        <button id="hideUIFullscreen" class="hide-ui-btn">hide</button>
-        <button id="zoomInFullscreen" class="zoom-in-btn">zoom</button>
-        <button id="closeFullscreen" class="close-btn">&#10006;</button>
+        <div class="fullscreen-ui-elements">
+            <div class="fullscreen-product-name" id="productNameOverlay">Product Name</div>
+            <div class="btns">
+                <button id="hideUIFullscreen" class="hide-ui-btn">
+                    <i id="hideIcon" class="fa-solid fa-eye"></i>
+                </button>
+                <button id="zoomInFullscreen" class="zoom-in-btn">
+                    <i id="zoomIcon" class="fa-solid fa-plus"></i>
+                </button>
+                <button id="closeFullscreen" class="close-btn">
+                    <i id="closeIcon" class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
         <div class="fullscreen-image-container">
             <img id="fullscreenImage" class="fullscreen-image" src="" alt="Full-screen View">
         </div>
@@ -189,6 +201,9 @@
             const homeBreadcrumblink = breadcrumbLinks[0];
             const categoryBreadcrumblink = breadcrumbLinks[1];
             const productBreadcrumbLink = breadcrumbLinks[2];
+            const zoomIcon = document.getElementById("zoomIcon");
+            const hideIcon = document.getElementById("hideIcon");
+            const productNameOverlay = document.getElementById("productNameOverlay");
 
             let fullscreenScale = 1.5;
             let fullscreenIsZoomed = false;
@@ -216,8 +231,9 @@
                     }
                     fullscreenImage.style.transform = `scale(${fullscreenScale})`;
                     fullscreenImage.style.cursor = "grab";
+                    zoomIcon.className = fullscreenIsZoomed ? "fa-solid fa-minus" : "fa-solid fa-plus";
                 } else {
-                    if (fullscreenUIHidden){
+                    if (fullscreenUIHidden) {
                         toggleUIVisibility()
                     }
                     fullscreenImage.style.transform = "scale(1)";
@@ -225,6 +241,7 @@
                     fullscreenMoveX = 0;
                     fullscreenMoveY = 0;
                     fullscreenImage.style.transform = `translate(0px, 0px) scale(1)`;
+                    zoomIcon.className = fullscreenIsZoomed ? "fa-solid fa-minus" : "fa-solid fa-plus";
                 }
             });
 
@@ -306,6 +323,7 @@
             const sku = product.SKU || 'SKU not available';
             const description = product.Description || 'Description not available';
             const price = parseFloat(product.Price);
+            productNameOverlay.textContent = product.Name;
 
             // Update breadcrumb
             if (categoryBreadcrumblink && category) {
@@ -611,13 +629,13 @@
             });
 
             // Add product name overlay in fullscreen mode
-            const productNameOverlay = document.createElement('div');
-            productNameOverlay.classList.add('fullscreen-product-name');
-            productNameOverlay.textContent = product.Name;
-            fullscreenViewer.appendChild(productNameOverlay);
+            // const productNameOverlay = document.createElement('div');
+            // productNameOverlay.classList.add('fullscreen-product-name');
+            // productNameOverlay.textContent = product.Name;
+            // fullscreenViewer.appendChild(productNameOverlay);
 
             // List of elements to toggle visibility
-            const elementsToToggle = [productNameOverlay, closeFullscreen, prevFullscreenBtn, nextFullscreenBtn];
+            const elementsToToggle = [productNameOverlay, prevFullscreenBtn, nextFullscreenBtn];
 
             // Initially hide the UI elements (by default, set display to 'none')
             elementsToToggle.forEach(el => {
@@ -644,10 +662,12 @@
                         el.setAttribute('data-ui-hidden', 'true');
                         el.style.display = 'none';
                         fullscreenUIHidden = true;
+                        hideIcon.className = "fa-solid fa-eye-slash";
                     } else {
                         el.removeAttribute('data-ui-hidden');
                         el.style.display = 'block';
                         fullscreenUIHidden = false;
+                        hideIcon.className = "fa-solid fa-eye";
                     }
                 });
             }

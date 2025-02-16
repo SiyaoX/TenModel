@@ -94,7 +94,7 @@ body.details-body {
 .thumbnail-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
-    gap: 10px;
+    gap: 6px;
     padding-top: 10px;
     max-width: 100%;
 }
@@ -228,6 +228,12 @@ body.details-body {
     }
 }
 
+@media (max-width: 768px) {
+    body.details-body {
+        text-align: center;
+    }
+}
+
 /* Full-Screen Viewer */
 .fullscreen-viewer {
     display: none;
@@ -260,69 +266,6 @@ body.details-body {
     max-height: 100%;
     object-fit: contain;
     pointer-events: auto;
-}
-
-.fullscreen-product-name {
-    position: absolute;
-    top: 5px;
-    left: 10px;
-    height: 30px;
-    color: #c8c8c8;
-    font-size: 24px;
-    padding: 0;
-    margin: 0;
-    z-index: 10;
-    cursor: default;
-    padding-right: 40px;
-}
-
-.close-btn {
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    height: 30px;
-    background: rgba(255, 255, 255, 0);
-    color: white;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font-size: 22px;
-    cursor: pointer;
-    z-index: 1009;
-}
-
-.hide-ui-btn{
-    position: absolute;
-    top: 45px;
-    right: 10px;
-    height: 30px;
-    background: rgba(255, 255, 255, 0);
-    color: white;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font-size: 22px;
-    cursor: pointer;
-    z-index: 1009;
-}
-
-.zoom-in-btn{
-    position: absolute;
-    top: 65px;
-    right: 10px;
-    height: 30px;
-    background: rgba(255, 255, 255, 0);
-    color: white;
-    border: none;
-    padding: 0;
-    margin: 0;
-    font-size: 22px;
-    cursor: pointer;
-    z-index: 1009;
-}
-
-.fullscreen-product-name:hover {
-    color: white;
 }
 
 .breadcrumbs__link:hover {
@@ -381,7 +324,7 @@ body.details-body {
 [data-ui-hidden="true"] {
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s, visibility 0s 0.3s; /* Delay visibility change after opacity */
+    transition: opacity 0.3s, visibility 0s 0.3s;
 }
 
 [data-ui-hidden="false"] {
@@ -389,3 +332,86 @@ body.details-body {
     visibility: visible;
     transition: opacity 0.3s, visibility 0s 0s;
 }
+
+
+/* Fullscreen UI overlay */
+.fullscreen-ui-elements {
+    text-align: left;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1009;
+    flex-wrap: wrap;
+}
+
+/* Product name - removed absolute positioning */
+.fullscreen-product-name {
+    color: #c8c8c8;
+    font-size: 24px;
+    z-index: 10;
+    cursor: default;
+    flex-grow: 1;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+}
+
+.fullscreen-product-name:hover {
+    color: white;
+}
+
+/* Buttons group */
+.btns {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* Button styling */
+.close-btn,
+.hide-ui-btn,
+.zoom-in-btn {
+    background: rgba(255, 255, 255, 0);
+    color: #c8c8c8;
+    border: none;
+    margin: 0;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1010;
+}
+
+.close-btn:hover,
+.hide-ui-btn:hover,
+.zoom-in-btn:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0);
+}
+
+/* Ensure responsiveness */
+/* @media (max-width: 500px) {
+    .fullscreen-ui-elements {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 8px;
+    }
+
+    .fullscreen-product-name {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .btns {
+        justify-content: center;
+        width: 100%;
+    }
+} */
