@@ -352,7 +352,7 @@ body.details-body {
 /* Product name - removed absolute positioning */
 .fullscreen-product-name {
     color: #c8c8c8;
-    font-size: 24px;
+    font-size: 20px;
     z-index: 10;
     cursor: default;
     flex-grow: 1;
@@ -379,11 +379,12 @@ body.details-body {
 .close-btn,
 .hide-ui-btn,
 .zoom-in-btn {
+    padding: 5px;
     background: rgba(255, 255, 255, 0);
     color: #c8c8c8;
     border: none;
     margin: 0;
-    font-size: 20px;
+    font-size: 16px;
     cursor: pointer;
     z-index: 1010;
 }
@@ -394,24 +395,3 @@ body.details-body {
     color: #ffffff;
     background: rgba(255, 255, 255, 0);
 }
-
-/* Ensure responsiveness */
-/* @media (max-width: 500px) {
-    .fullscreen-ui-elements {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 8px;
-    }
-
-    .fullscreen-product-name {
-        text-align: center;
-        width: 100%;
-        margin-bottom: 5px;
-    }
-
-    .btns {
-        justify-content: center;
-        width: 100%;
-    }
-} */

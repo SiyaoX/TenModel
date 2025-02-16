@@ -157,7 +157,7 @@
                     <i id="hideIcon" class="fa-solid fa-eye"></i>
                 </button>
                 <button id="zoomInFullscreen" class="zoom-in-btn">
-                    <i id="zoomIcon" class="fa-solid fa-plus"></i>
+                    <i id="zoomIcon" class="fa-solid fa-magnifying-glass-plus"></i>
                 </button>
                 <button id="closeFullscreen" class="close-btn">
                     <i id="closeIcon" class="fa-solid fa-xmark"></i>
@@ -205,7 +205,7 @@
             const hideIcon = document.getElementById("hideIcon");
             const productNameOverlay = document.getElementById("productNameOverlay");
 
-            let fullscreenScale = 1.5;
+            let fullscreenScale = 2.5;
             let fullscreenIsZoomed = false;
             let fullscreenUIHidden = false;
             let fullscreenMoveX = 0, fullscreenMoveY = 0;
@@ -225,25 +225,30 @@
             // Zoom-in button click event
             zoomInFullscreen.addEventListener('click', () => {
                 fullscreenIsZoomed = !fullscreenIsZoomed;
+                fullscreenImage.style.transition = "transform 0.3s ease, opacity 0.3s ease"; // Smooth zoom & fade effect
+
                 if (fullscreenIsZoomed) {
                     if (!fullscreenUIHidden) {
-                        toggleUIVisibility()
+                        toggleUIVisibility();
                     }
+                    fullscreenImage.style.opacity = "0.8"; // Slight fade effect
                     fullscreenImage.style.transform = `scale(${fullscreenScale})`;
                     fullscreenImage.style.cursor = "grab";
-                    zoomIcon.className = fullscreenIsZoomed ? "fa-solid fa-minus" : "fa-solid fa-plus";
+                    zoomIcon.className = fullscreenIsZoomed ? "fa-solid fa-magnifying-glass-minus" : "fa-solid fa-magnifying-glass-plus";
                 } else {
                     if (fullscreenUIHidden) {
-                        toggleUIVisibility()
+                        toggleUIVisibility();
                     }
+                    fullscreenImage.style.opacity = "1"; // Restore full opacity
                     fullscreenImage.style.transform = "scale(1)";
                     fullscreenImage.style.cursor = "default";
                     fullscreenMoveX = 0;
                     fullscreenMoveY = 0;
                     fullscreenImage.style.transform = `translate(0px, 0px) scale(1)`;
-                    zoomIcon.className = fullscreenIsZoomed ? "fa-solid fa-minus" : "fa-solid fa-plus";
+                    zoomIcon.className = fullscreenIsZoomed ? "fa-solid fa-magnifying-glass-minus" : "fa-solid fa-magnifying-glass-plus";
                 }
             });
+
 
             // Enable dragging when zoomed in fullscreen
             fullscreenImage.addEventListener('mousedown', (e) => {
