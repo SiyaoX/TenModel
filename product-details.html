@@ -668,14 +668,20 @@
                         el.style.display = 'none';
                         fullscreenUIHidden = true;
                         hideIcon.className = "fa-solid fa-eye-slash";
+                        document.querySelector('.fullscreen-ui-elements').style.background = 'transparent';
                     } else {
                         el.removeAttribute('data-ui-hidden');
                         el.style.display = 'block';
                         fullscreenUIHidden = false;
                         hideIcon.className = "fa-solid fa-eye";
+
+                        // Restore background with fade effect
+                        document.querySelector('.fullscreen-ui-elements').style.background =
+                            'linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%)';
                     }
                 });
             }
+
 
             // Close fullscreen when the close button is clicked
             closeFullscreen.addEventListener('click', e => {
