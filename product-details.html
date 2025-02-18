@@ -333,7 +333,15 @@
             // Update breadcrumb
             if (categoryBreadcrumblink && category) {
                 categoryBreadcrumblink.textContent = category;
-                categoryBreadcrumblink.href = `index.html?tab=${category.toLowerCase()}&scroll=true`;
+                switch (category.toLowerCase()) {
+                    case "rc models":
+                        categoryBreadcrumblink.href = "index.html?tab=rc_models&scroll=true";
+                        break;
+                    default:
+                        categoryBreadcrumblink.href = `index.html?tab=${category.toLowerCase()}&scroll=true`;
+                        break;
+                }
+
             } else {
                 console.error('Breadcrumb link or category not found');
             }
