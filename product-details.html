@@ -61,9 +61,9 @@
 
                 <div class="product-details__product-price" id="productPrice"></div>
 
-                <p class="status-link" id="productBuyLink" style="font-size: 20px; color: #ff3535; cursor: pointer;">
+                <!-- <p class="status-link" id="productBuyLink" style="font-size: 20px; color: #ff3535; cursor: pointer;">
                     => How to Order
-                </p>
+                </p> -->
 
                 <!-- <div class="product-details__attraction-block">
                     <div class="product-details__label-container">
@@ -231,7 +231,7 @@
                     if (!fullscreenUIHidden) {
                         toggleUIVisibility();
                     }
-                    fullscreenImage.style.opacity = "0.8"; // Slight fade effect
+                    // fullscreenImage.style.opacity = "0.8"; // Slight fade effect
                     fullscreenImage.style.transform = `scale(${fullscreenScale})`;
                     fullscreenImage.style.cursor = "grab";
                     zoomIcon.className = fullscreenIsZoomed ? "fa-solid fa-magnifying-glass-minus" : "fa-solid fa-magnifying-glass-plus";
@@ -239,7 +239,7 @@
                     if (fullscreenUIHidden) {
                         toggleUIVisibility();
                     }
-                    fullscreenImage.style.opacity = "1"; // Restore full opacity
+                    // fullscreenImage.style.opacity = "1"; // Restore full opacity
                     fullscreenImage.style.transform = "scale(1)";
                     fullscreenImage.style.cursor = "default";
                     fullscreenMoveX = 0;
