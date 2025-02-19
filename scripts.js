@@ -188,8 +188,8 @@ function activateTabFromURL() {
                             console.warn("Scroll interrupted, retrying...");
                             window.scrollTo({ top: 655, behavior: 'smooth' });
                         }
-                    }, 1000); // Check after 1 second
-                }, 500); // Initial delay
+                    }, 500); // Check after 1 second
+                }, 200); // Initial delay
             }
         } else {
             console.error(`Tab '${tabId}' not found in the DOM.`);
