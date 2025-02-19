@@ -547,6 +547,7 @@
 
             // Fullscreen mode logic
             function openFullscreen(index) {
+                productNameOverlay.textContent = product.Name + ` (${index + 1}/${images.length})`;
                 isFullscreen = true;
                 document.body.classList.add('no-scroll');
                 fullscreenImage.src = images[index];
@@ -618,6 +619,7 @@
 
                 // Update the active thumbnail
                 updateThumbnailSelection(index);
+                productNameOverlay.textContent = product.Name + ` (${index + 1}/${images.length})`;
             }
 
             // Function to update the selected thumbnail in the detail page
