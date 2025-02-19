@@ -178,7 +178,6 @@ function activateTabFromURL() {
 
             // Scroll after activating the tab if ?scroll=true
             if (shouldScroll) {
-                console.log("Scrolling to 655"); // Debugging
                 setTimeout(() => {
                     window.scrollTo({ top: 655, behavior: 'smooth' });
 
@@ -188,8 +187,8 @@ function activateTabFromURL() {
                             console.warn("Scroll interrupted, retrying...");
                             window.scrollTo({ top: 655, behavior: 'smooth' });
                         }
-                    }, 500); // Check after 1 second
-                }, 200); // Initial delay
+                    }, 100); // Check after 1 second
+                }, 100); // Initial delay
             }
         } else {
             console.error(`Tab '${tabId}' not found in the DOM.`);
