@@ -73,6 +73,46 @@
     ]
   },
   {
+    "Name": "MSZ-010 ZZ G.U.N.D.A.M.",
+    "Description": "The MSZ-010 ZZ Gundam (aka ZZ Gundam, ZZ; pronounced 'Double Zeta') is the titular mobile suit of the anime Mobile Suit Gundam ZZ and is piloted by Judau Ashta.",
+    "Price": "Not Available",
+    "SKU": "sm008",
+    "Category": "GUNPLA",
+    "Ratio": "1/100",
+    "Width": 5.1,
+    "Height": 3.1,
+    "Depth": 12.3,
+    "Date": "Nov. 2024",
+    "Status": "DISCONTINUED",
+    "CoverImg": "resources/img/static/zz_gundam/cover.jpg",
+    "DetailImgs": [
+      "resources/img/static/zz_gundam/1.jpg",
+      "resources/img/static/zz_gundam/2.jpg",
+      "resources/img/static/zz_gundam/3.jpg",
+      "resources/img/static/zz_gundam/4.jpg",
+      "resources/img/static/zz_gundam/5.jpg",
+      "resources/img/static/zz_gundam/6.jpg",
+      "resources/img/static/zz_gundam/7.jpg",
+      "resources/img/static/zz_gundam/8.jpg", 
+      "resources/img/static/zz_gundam/9.jpg",
+      "resources/img/static/zz_gundam/10.jpg",
+      "resources/img/static/zz_gundam/11.jpg",
+      "resources/img/static/zz_gundam/12.jpg",
+      "resources/img/static/zz_gundam/13.jpg"
+    ],
+    "Features": [
+      "Fully Overhauled Mechanics",
+      "RG-Style Paint",
+      "Precision Inner Frame",
+      "Reinforced Joints",
+      "Pose Calibration",
+      "LED Mono-Eye",
+      "Upgraded Thrusters",
+      "Photo-etched parts",
+      "Extra Warning Decals"
+    ]
+  },
+  {
     "Name": "GS MSN-04 SAZABI EVO 2.0",
     "Description": "The FA-010S Full Armor ZZ Gundam is a mobile suit that appears in the Mobile Suit Gundam ZZ anime series. It is piloted by Judau Ashta.",
     "Price": "Not Available",
