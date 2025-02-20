@@ -48,17 +48,17 @@
     "Depth": 12.3,
     "Date": "Nov. 2024",
     "Status": "DISCONTINUED",
-    "CoverImg": "resources/img/static/exs_gundam/cover.jpg",
+    "CoverImg": "https://i.postimg.cc/d0CfDZTT/cover.jpg",
     "DetailImgs": [
-      "resources/img/static/exs_gundam/1.jpg",
-      "resources/img/static/exs_gundam/2.jpg",
-      "resources/img/static/exs_gundam/3.jpg",
-      "resources/img/static/exs_gundam/4.jpg",
-      "resources/img/static/exs_gundam/5.jpg",
-      "resources/img/static/exs_gundam/6.jpg",
-      "resources/img/static/exs_gundam/7.jpg",
-      "resources/img/static/exs_gundam/8.jpg", 
-      "resources/img/static/exs_gundam/9.jpg"
+      "https://i.postimg.cc/Ss0wGfpr/1.jpg",
+      "https://i.postimg.cc/x85hnrNx/2.jpg",
+      "https://i.postimg.cc/76gjtJHy/3.jpg",
+      "https://i.postimg.cc/WzTCBpzq/4.jpg",
+      "https://i.postimg.cc/MZmhyB37/5.jpg",
+      "https://i.postimg.cc/KvcCQYCd/6.jpg",
+      "https://i.postimg.cc/yYftGHHW/7.jpg",
+      "https://i.postimg.cc/y8kt4b1j/8.jpg", 
+      "https://i.postimg.cc/6pgS9fTX/9.jpg"
     ],
     "Features": [
       "Fully Overhauled Mechanics",
