@@ -1,21 +1,92 @@
 {
     "en": {
-        "welcome": "Welcome!",
-        "home": "Home",
-        "about": "About Us",
-        "contact": "Contact"
+        "banner-title": "TenModel WORKSHOP",
+        "banner-slogan1": "Top-quality handcrafted. 100% Authentic.",
+        "banner-slogan2": "Pre-order coming soon.",
+        "about_us": "ABOUT"
     },
     "fr": {
-        "welcome": "Bienvenue!",
-        "home": "Accueil",
-        "about": "À propos",
-        "contact": "Contact"
+        "banner-title": "TenModel ATELIER",
+        "banner-slogan1": "Artisanat de haute qualité. 100% Authentique.",
+        "banner-slogan2": "Précommande bientôt disponible.",
+        "about_us": "À PROPOS"
+    },
+    "de": {
+        "banner-title": "TenModel WERKSTATT",
+        "banner-slogan1": "Handgefertigte Spitzenqualität. 100% Authentisch.",
+        "banner-slogan2": "Vorbestellung bald verfügbar.",
+        "about_us": "ÜBER UNS"
     },
     "es": {
-        "welcome": "¡Bienvenido!",
-        "home": "Inicio",
-        "about": "Sobre Nosotros",
-        "contact": "Contacto"
+        "banner-title": "TenModel TALLER",
+        "banner-slogan1": "Artesanía de alta calidad. 100% Auténtico.",
+        "banner-slogan2": "Próximamente en preventa.",
+        "about_us": "SOBRE NOSOTROS"
+    },
+    "it": {
+        "banner-title": "TenModel OFFICINA",
+        "banner-slogan1": "Fatto a mano di alta qualità. 100% Autentico.",
+        "banner-slogan2": "Pre-ordine in arrivo.",
+        "about_us": "INFO"
+    },
+    "pt": {
+        "banner-title": "TenModel OFICINA",
+        "banner-slogan1": "Artesanato de alta qualidade. 100% Autêntico.",
+        "banner-slogan2": "Pré-venda em breve.",
+        "about_us": "SOBRE NÓS"
+    },
+    "ru": {
+        "banner-title": "TenModel МАСТЕРСКАЯ",
+        "banner-slogan1": "Высококачественная ручная работа. 100% Аутентичность.",
+        "banner-slogan2": "Скоро предзаказ.",
+        "about_us": "О НАС"
+    },
+    "ja": {
+        "banner-title": "TenModel ワークショップ",
+        "banner-slogan1": "最高品質の手作り。100% 本物。",
+        "banner-slogan2": "予約注文近日開始。",
+        "about_us": "概要"
+    },
+    "zh": {
+        "banner-title": "TenModel 工坊",
+        "banner-slogan1": "优质手工制作。100% 正品。",
+        "banner-slogan2": "即将开启预订。",
+        "about_us": "关于我们"
+    },
+    "zh-tw": {
+        "banner-title": "TenModel 工坊",
+        "banner-slogan1": "優質手工製作。100% 正品。",
+        "banner-slogan2": "即將開啟預訂。",
+        "about_us": "關於我們"
+    },
+    "ko": {
+        "banner-title": "TenModel 작업실",
+        "banner-slogan1": "최고 품질의 수제작. 100% 정품.",
+        "banner-slogan2": "곧 사전 주문 가능.",
+        "about_us": "소개"
+    },
+    "hi": {
+        "banner-title": "TenModel कार्यशाला",
+        "banner-slogan1": "उच्च गुणवत्ता वाला हस्तनिर्मित। 100% प्रामाणिक।",
+        "banner-slogan2": "जल्द ही प्री-ऑर्डर उपलब्ध होगा।",
+        "about_us": "के बारे में"
+    },
+    "ar": {
+        "banner-title": "TenModel ورشة العمل",
+        "banner-slogan1": "حرفية عالية الجودة. 100% أصلي.",
+        "banner-slogan2": "الطلب المسبق قريبًا.",
+        "about_us": "حول"
+    },
+    "tr": {
+        "banner-title": "TenModel ATÖLYESİ",
+        "banner-slogan1": "En kaliteli el işçiliği. %100 Orijinal.",
+        "banner-slogan2": "Ön sipariş yakında.",
+        "about_us": "HAKKIMIZDA"
+    },
+    "nl": {
+        "banner-title": "TenModel WERKPLAATS",
+        "banner-slogan1": "Topkwaliteit handgemaakt. 100% Authentiek.",
+        "banner-slogan2": "Pre-order binnenkort beschikbaar.",
+        "about_us": "OVER ONS"
     }
 }
-

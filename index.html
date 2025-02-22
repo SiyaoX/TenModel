@@ -16,9 +16,9 @@
         <header class="banner">
             <div class="banner-content"></div>
             <div class="banner-slogan">
-                <h1>TenModel ONLINE SHOP</h1>
-                <p>Top-quality handcrafted. 100% Authentic</p>
-                <p>Pre-order coming soon!</p>
+                <h1 data-translate="banner-title">TenModel ONLINE SHOP</h1>
+                <p data-translate="banner-slogan1">Top-quality handcrafted. 100% Authentic</p>
+                <p data-translate="banner-slogan2">Pre-order coming soon!</p>
             </div>
             <div class="banner-extras">
                 <div class="logo-container">
@@ -57,7 +57,7 @@
                     onmouseover="hoverTab(this, true)" onmouseout="hoverTab(this, false)" data-icon="tian.png"
                     data-icon-active="tian.png" data-icon-hover="tian.png">
                     <img src="./resources/img/icon/tian.png" alt="ABOUT US" class="tab-icon">
-                    ABOUT US
+                    <p data-translate="about_us" style="padding: 0; margin: 0;">ABOUT US</p>
                 </span>
                 <span class="tab" onclick="openTab(event, 'tab1')" aria-controls="tab1"
                     onmouseover="hoverTab(this, true)" onmouseout="hoverTab(this, false)" data-icon="tab-gundam-bw.png"
@@ -92,12 +92,12 @@
             </nav>
             <div id="tab1" class="tab-content">
                 <h1 data-translate="welcome">Welcome!</h1>
-                    <p data-currency data-price-usd="100">USD 100</p>
-                    <p data-currency data-price-usd="50">USD 50</p>
+                <p data-currency data-price-usd="100">USD 100</p>
+                <p data-currency data-price-usd="50">USD 50</p>
                 <div class="tab-content-header">
                     <!-- Search bar -->
                     <!-- <input type="text" id="search-bar" placeholder="Search..." class="search-bar"> -->
-                    
+
                     <div class="filter-dropdown">
                         <button class="filter-button">Filter</button>
                         <div class="filter-options">
@@ -118,14 +118,40 @@
                     <select id="language" class="language">
                         <option value="en">English</option>
                         <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
                         <option value="es">Español</option>
+                        <option value="it">Italiano</option>
+                        <option value="pt">Português</option>
+                        <option value="ru">Русский</option>
+                        <option value="ja">日本語</option>
+                        <option value="zh">简体中文</option>
+                        <option value="zh-tw">繁體中文</option>
+                        <option value="ko">한국어</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="ar">العربية</option>
+                        <option value="tr">Türkçe</option>
+                        <option value="nl">Nederlands</option>
                     </select>
-
+                    
                     <select id="currency" name="currency" class="currency">
-                        <option value="usd">USD</option>
-                        <option value="eur">EUR</option>
-                        <option value="gbp">GBP</option>
+                        <option value="usd">USD ($)</option>
+                        <option value="eur">EUR (€)</option>
+                        <option value="gbp">GBP (£)</option>
+                        <option value="cad">CAD ($)</option>
+                        <option value="aud">AUD ($)</option>
+                        <option value="jpy">JPY (¥)</option>
+                        <option value="cny">CNY (¥)</option>
+                        <option value="hkd">HKD ($)</option>
+                        <option value="twd">TWD (NT$)</option>
+                        <option value="inr">INR (₹)</option>
+                        <option value="rub">RUB (₽)</option>
+                        <option value="krw">KRW (₩)</option>
+                        <option value="chf">CHF (Fr.)</option>
+                        <option value="try">TRY (₺)</option>
+                        <option value="brl">BRL (R$)</option>
+                        <option value="mxn">MXN ($)</option>
                     </select>
+                    
                 </div>
 
                 <ul class="container"></ul>
