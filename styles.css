@@ -521,15 +521,10 @@ footer {
 
 .tab-content-header {
     column-gap: 7px;
-    margin-bottom: 20px;
     max-width: 1264px;
-    width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: right;
     color: #c8c8c8;
-    flex-wrap: wrap;
 }
 
 .tab-content-header h2 {

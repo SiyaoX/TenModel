@@ -69,106 +69,92 @@
                     onmouseover="hoverTab(this, true)" onmouseout="hoverTab(this, false)" data-icon="tab-tank-bw.png"
                     data-icon-active="tab-tank-color.png" data-icon-hover="tab-tank-hover.png">
                     <img src="./resources/img/icon/tab-tank-bw.png" alt="R/C" class="tab-icon">
-                    R/C MODELS
+                    <p data-translate="rc_models" style="padding: 0; margin: 0;">R/C MODELS</p>
                 </span>
                 <span class="tab" onclick="openTab(event, 'tab3')" aria-controls="tab3"
                     onmouseover="hoverTab(this, true)" onmouseout="hoverTab(this, false)" data-icon="tab-tool-bw.png"
                     data-icon-active="tab-tool-color.png" data-icon-hover="tab-tool-hover.png">
                     <img src="./resources/img/icon/tab-tool-bw.png" alt="PARTS" class="tab-icon">
-                    PARTS
+                    <p data-translate="parts" style="padding: 0; margin: 0;">PARTS</p>
                 </span>
                 <span class="tab" onclick="openTab(event, 'tab4')" aria-controls="tab4"
                     onmouseover="hoverTab(this, true)" onmouseout="hoverTab(this, false)" data-icon="ebay-bw.png"
                     data-icon-active="ebay-color.png" data-icon-hover="ebay-hover.png">
                     <img src="./resources/img/icon/ebay-bw.png" alt="Contact Us" class="tab-icon">
-                    ORDER
+                    <p data-translate="order" style="padding: 0; margin: 0;">ORDER</p>
                 </span>
                 <span class="tab" onclick="openTab(event, 'tab5')" aria-controls="tab5"
                     onmouseover="hoverTab(this, true)" onmouseout="hoverTab(this, false)" data-icon="tab-gundam-bw.png"
                     data-icon-active="icon-color.png" data-icon-hover="tab-gundam-hover.png">
                     <img src="./resources/img/icon/tab-gundam-bw.png" alt="Contact Us" class="tab-icon">
-                    CONTACT
+                    <p data-translate="contact" style="padding: 0; margin: 0;">CONTACT</p>
                 </span>
             </nav>
-            <div id="tab1" class="tab-content">
-                <h1 data-translate="welcome">Welcome!</h1>
-                <p data-currency data-price-usd="100">USD 100</p>
-                <p data-currency data-price-usd="50">USD 50</p>
-                <div class="tab-content-header">
-                    <!-- Search bar -->
-                    <!-- <input type="text" id="search-bar" placeholder="Search..." class="search-bar"> -->
-
-                    <div class="filter-dropdown">
-                        <button class="filter-button">Filter</button>
-                        <div class="filter-options">
-                            <label><input type="checkbox"> Option 1</label>
-                            <label><input type="checkbox"> Option 2</label>
-                            <label><input type="checkbox"> Option 3</label>
-                        </div>
+            <div class="tab-content-header">
+                <div class="filter-dropdown">
+                    <button class="filter-button">Filter</button>
+                    <div class="filter-options">
+                        <label><input type="checkbox"> Option 1</label>
+                        <label><input type="checkbox"> Option 2</label>
+                        <label><input type="checkbox"> Option 3</label>
                     </div>
-
-                    <select id="sort-by" class="sort-by">
-                        <option value="default">Featured</option>
-                        <option value="price-low-to-high">Price: Low to High</option>
-                        <option value="price-high-to-low">Price: High to Low</option>
-                        <option value="name-a-to-z">Name: A to Z</option>
-                        <option value="name-z-to-a">Name: Z to A</option>
-                    </select>
-
-                    <select id="language" class="language">
-                        <option value="en">English</option>
-                        <option value="fr">Français</option>
-                        <option value="de">Deutsch</option>
-                        <option value="es">Español</option>
-                        <option value="it">Italiano</option>
-                        <option value="pt">Português</option>
-                        <option value="ru">Русский</option>
-                        <option value="ja">日本語</option>
-                        <option value="zh">简体中文</option>
-                        <option value="zh-tw">繁體中文</option>
-                        <option value="ko">한국어</option>
-                        <option value="hi">हिन्दी</option>
-                        <option value="ar">العربية</option>
-                        <option value="tr">Türkçe</option>
-                        <option value="nl">Nederlands</option>
-                    </select>
-                    
-                    <select id="currency" name="currency" class="currency">
-                        <option value="usd">USD ($)</option>
-                        <option value="eur">EUR (€)</option>
-                        <option value="gbp">GBP (£)</option>
-                        <option value="cad">CAD ($)</option>
-                        <option value="aud">AUD ($)</option>
-                        <option value="jpy">JPY (¥)</option>
-                        <option value="cny">CNY (¥)</option>
-                        <option value="hkd">HKD ($)</option>
-                        <option value="twd">TWD (NT$)</option>
-                        <option value="inr">INR (₹)</option>
-                        <option value="rub">RUB (₽)</option>
-                        <option value="krw">KRW (₩)</option>
-                        <option value="chf">CHF (Fr.)</option>
-                        <option value="try">TRY (₺)</option>
-                        <option value="brl">BRL (R$)</option>
-                        <option value="mxn">MXN ($)</option>
-                    </select>
-                    
                 </div>
-
+    
+                <select id="sort-by" class="sort-by">
+                    <option value="default">Featured</option>
+                    <option value="price-low-to-high">Price: Low to High</option>
+                    <option value="price-high-to-low">Price: High to Low</option>
+                    <option value="name-a-to-z">Name: A to Z</option>
+                    <option value="name-z-to-a">Name: Z to A</option>
+                </select>
+    
+                <select id="language" class="language">
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="es">Español</option>
+                    <option value="it">Italiano</option>
+                    <option value="pt">Português</option>
+                    <option value="ru">Русский</option>
+                    <option value="ja">日本語</option>
+                    <option value="zh">简体中文</option>
+                    <option value="zh-tw">繁體中文</option>
+                    <option value="ko">한국어</option>
+                    <option value="hi">हिन्दी</option>
+                    <option value="ar">العربية</option>
+                    <option value="tr">Türkçe</option>
+                    <option value="nl">Nederlands</option>
+                </select>
+                
+                <select id="currency" name="currency" class="currency">
+                    <option value="usd">USD ($)</option>
+                    <option value="eur">EUR (€)</option>
+                    <option value="gbp">GBP (£)</option>
+                    <option value="cad">CAD ($)</option>
+                    <option value="aud">AUD ($)</option>
+                    <option value="jpy">JPY (¥)</option>
+                    <option value="cny">CNY (¥)</option>
+                    <option value="hkd">HKD ($)</option>
+                    <option value="twd">TWD (NT$)</option>
+                    <option value="inr">INR (₹)</option>
+                    <option value="rub">RUB (₽)</option>
+                    <option value="krw">KRW (₩)</option>
+                    <option value="chf">CHF (Fr.)</option>
+                    <option value="try">TRY (₺)</option>
+                    <option value="brl">BRL (R$)</option>
+                    <option value="mxn">MXN ($)</option>
+                </select>
+            </div>
+            
+            <div id="tab1" class="tab-content">
                 <ul class="container"></ul>
             </div>
 
-
             <div id="tab2" class="tab-content">
-                <!-- <div class="tab-content-header">
-                    <h2>RC MODELS</h2>
-                </div> -->
                 <ul class="container"></ul>
             </div>
 
             <div id="tab3" class="tab-content">
-                <!-- <div class="tab-content-header">
-                    <h2>TOOL & PARTS</h2>
-                </div> -->
                 <ul class="container"></ul>
             </div>
 
