@@ -121,6 +121,14 @@ function openTab(evt, tabName, shouldScroll = true) {
         history.pushState(null, "", newUrl);
     }
 
+    // Hide filter-dropdown and sort-by when tab is tab0, tab4, or tab5
+    const elementsToHide = ["filter-dropdown", "sort-by"];
+    if (["tab0", "tab4", "tab5"].includes(tabName)) {
+        elementsToHide.forEach(id => document.getElementById(id).style.display = "none");
+    } else {
+        elementsToHide.forEach(id => document.getElementById(id).style.display = "block");
+    }
+
     if (shouldScroll) {
         window.scrollTo({ top: 655, behavior: 'smooth' });
     }
