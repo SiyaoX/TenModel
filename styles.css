@@ -13,7 +13,15 @@
     src: url('./resources/fonts/Blinker/Blinker-Light.ttf') format('truetype');
 }
 
-html,
+html {
+    /* background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8e9e6676-c522-46bb-ae1c-5f043657c186/d5hhuiz-091ab388-a384-46c8-8207-8b79db7d93aa.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzhlOWU2Njc2LWM1MjItNDZiYi1hZTFjLTVmMDQzNjU3YzE4NlwvZDVoaHVpei0wOTFhYjM4OC1hMzg0LTQ2YzgtODIwNy04Yjc5ZGI3ZDkzYWEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0._GM0yYFZ4D6Er4HNOt1wc86QWGulb8qdFf5FBi6IzjI');  */
+    background-repeat: repeat; /* This makes the image tile */
+    background-size: auto; /* Keeps the original image size */
+    background-position: top left; /* Ensures proper tiling */
+    min-height: 100vh; /* Ensures background extends fully */
+    background-color: #141414;
+}
+
 body {
     font-family: 'Blinker-Light', sans-serif;
     text-align: center;
@@ -21,12 +29,11 @@ body {
     color: #c8c8c8;
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100vh; /* Ensures body grows with content */
+    padding-top: 700px; /* Keeps your original padding */
+    background: none; /* Avoid conflicts with html background */
 }
 
-body {
-    padding-top: 700px;
-}
 
 .content {
     min-height: 100%;
